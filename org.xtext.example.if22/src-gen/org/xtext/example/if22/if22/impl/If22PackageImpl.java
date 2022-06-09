@@ -423,7 +423,7 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   @Override
-  public EReference getAnnouncement_Target()
+  public EReference getAnnouncement_Targets()
   {
     return (EReference)announcementEClass.getEStructuralFeatures().get(1);
   }
@@ -478,7 +478,7 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   @Override
-  public EReference getQuestion_Target()
+  public EReference getQuestion_Targets()
   {
     return (EReference)questionEClass.getEStructuralFeatures().get(3);
   }
@@ -840,13 +840,13 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
 
     announcementEClass = createEClass(ANNOUNCEMENT);
     createEReference(announcementEClass, ANNOUNCEMENT__EXP);
-    createEReference(announcementEClass, ANNOUNCEMENT__TARGET);
+    createEReference(announcementEClass, ANNOUNCEMENT__TARGETS);
 
     questionEClass = createEClass(QUESTION);
     createEReference(questionEClass, QUESTION__QSTRING);
     createEReference(questionEClass, QUESTION__QTYPE);
     createEReference(questionEClass, QUESTION__REFFED_VAR);
-    createEReference(questionEClass, QUESTION__TARGET);
+    createEReference(questionEClass, QUESTION__TARGETS);
 
     endEClass = createEClass(END);
     createEReference(endEClass, END__EXP);
@@ -960,13 +960,13 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
 
     initEClass(announcementEClass, Announcement.class, "Announcement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAnnouncement_Exp(), this.getExpression(), null, "exp", null, 0, 1, Announcement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAnnouncement_Target(), this.getTarget(), null, "target", null, 0, -1, Announcement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAnnouncement_Targets(), this.getTarget(), null, "targets", null, 0, -1, Announcement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(questionEClass, Question.class, "Question", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getQuestion_QString(), this.getExpression(), null, "qString", null, 0, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getQuestion_QType(), this.getExpression(), null, "qType", null, 0, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getQuestion_ReffedVar(), this.getVariableDeclaration(), null, "reffedVar", null, 0, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getQuestion_Target(), this.getTarget(), null, "target", null, 0, -1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getQuestion_Targets(), this.getTarget(), null, "targets", null, 0, -1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(endEClass, End.class, "End", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEnd_Exp(), this.getExpression(), null, "exp", null, 0, 1, End.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

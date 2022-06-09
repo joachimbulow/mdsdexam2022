@@ -376,17 +376,17 @@ ruleAnnouncement returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAnnouncementAccess().getTargetTargetParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getAnnouncementAccess().getTargetsTargetParserRuleCall_3_0());
 				}
-				lv_target_3_0=ruleTarget
+				lv_targets_3_0=ruleTarget
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAnnouncementRule());
 					}
 					add(
 						$current,
-						"target",
-						lv_target_3_0,
+						"targets",
+						lv_targets_3_0,
 						"org.xtext.example.if22.If22.Target");
 					afterParserOrEnumRuleCall();
 				}
@@ -497,17 +497,17 @@ ruleQuestion returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getQuestionAccess().getTargetTargetParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getQuestionAccess().getTargetsTargetParserRuleCall_6_0());
 				}
-				lv_target_7_0=ruleTarget
+				lv_targets_7_0=ruleTarget
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getQuestionRule());
 					}
 					add(
 						$current,
-						"target",
-						lv_target_7_0,
+						"targets",
+						lv_targets_7_0,
 						"org.xtext.example.if22.If22.Target");
 					afterParserOrEnumRuleCall();
 				}

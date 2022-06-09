@@ -15,7 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.if22.if22.Announcement#getExp <em>Exp</em>}</li>
- *   <li>{@link org.xtext.example.if22.if22.Announcement#getTarget <em>Target</em>}</li>
+ *   <li>{@link org.xtext.example.if22.if22.Announcement#getTargets <em>Targets</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.if22.if22.If22Package#getAnnouncement()
@@ -47,15 +47,15 @@ public interface Announcement extends Statement
   void setExp(Expression value);
 
   /**
-   * Returns the value of the '<em><b>Target</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Targets</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.example.if22.if22.Target}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Target</em>' containment reference list.
-   * @see org.xtext.example.if22.if22.If22Package#getAnnouncement_Target()
+   * @return the value of the '<em>Targets</em>' containment reference list.
+   * @see org.xtext.example.if22.if22.If22Package#getAnnouncement_Targets()
    * @model containment="true"
    * @generated
    */
-  EList<Target> getTarget();
+  EList<Target> getTargets();
 
 } // Announcement

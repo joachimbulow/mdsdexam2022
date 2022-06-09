@@ -122,7 +122,7 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Announcement returns Announcement
 	 *
 	 * Constraint:
-	 *     (name=ID exp=Exp target+=Target+)
+	 *     (name=ID exp=Exp targets+=Target+)
 	 * </pre>
 	 */
 	protected void sequence_Announcement(ISerializationContext context, Announcement semanticObject) {
@@ -358,7 +358,7 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Question returns Question
 	 *
 	 * Constraint:
-	 *     (name=ID qString=Exp qType=Exp reffedVar=[VariableDeclaration|ID]? target+=Target+)
+	 *     (name=ID qString=Exp qType=Exp reffedVar=[VariableDeclaration|ID]? targets+=Target+)
 	 * </pre>
 	 */
 	protected void sequence_Question(ISerializationContext context, Question semanticObject) {

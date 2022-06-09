@@ -19,11 +19,11 @@ Statement:
 	Announcement | Question | End;
 
 Announcement:
-	'announce' name=ID exp=Exp (target+=Target)+;
+	'announce' name=ID exp=Exp (targets+=Target)+;
 
 // qType=Type instead?
 Question:
-	'question' name=ID qString=Exp 'as' qType=Exp ('in' reffedVar=[VariableDeclaration])? (target+=Target)+;
+	'question' name=ID qString=Exp 'as' qType=Exp ('in' reffedVar=[VariableDeclaration])? (targets+=Target)+;
 
 End:
 	'end' name=ID exp=Exp?;

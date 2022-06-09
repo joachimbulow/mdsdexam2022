@@ -35,7 +35,7 @@ import org.xtext.example.if22.if22.VariableDeclaration;
  *   <li>{@link org.xtext.example.if22.if22.impl.QuestionImpl#getQString <em>QString</em>}</li>
  *   <li>{@link org.xtext.example.if22.if22.impl.QuestionImpl#getQType <em>QType</em>}</li>
  *   <li>{@link org.xtext.example.if22.if22.impl.QuestionImpl#getReffedVar <em>Reffed Var</em>}</li>
- *   <li>{@link org.xtext.example.if22.if22.impl.QuestionImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link org.xtext.example.if22.if22.impl.QuestionImpl#getTargets <em>Targets</em>}</li>
  * </ul>
  *
  * @generated
@@ -73,14 +73,14 @@ public class QuestionImpl extends StatementImpl implements Question
   protected VariableDeclaration reffedVar;
 
   /**
-   * The cached value of the '{@link #getTarget() <em>Target</em>}' containment reference list.
+   * The cached value of the '{@link #getTargets() <em>Targets</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTarget()
+   * @see #getTargets()
    * @generated
    * @ordered
    */
-  protected EList<Target> target;
+  protected EList<Target> targets;
 
   /**
    * <!-- begin-user-doc -->
@@ -254,13 +254,13 @@ public class QuestionImpl extends StatementImpl implements Question
    * @generated
    */
   @Override
-  public EList<Target> getTarget()
+  public EList<Target> getTargets()
   {
-    if (target == null)
+    if (targets == null)
     {
-      target = new EObjectContainmentEList<Target>(Target.class, this, If22Package.QUESTION__TARGET);
+      targets = new EObjectContainmentEList<Target>(Target.class, this, If22Package.QUESTION__TARGETS);
     }
-    return target;
+    return targets;
   }
 
   /**
@@ -277,8 +277,8 @@ public class QuestionImpl extends StatementImpl implements Question
         return basicSetQString(null, msgs);
       case If22Package.QUESTION__QTYPE:
         return basicSetQType(null, msgs);
-      case If22Package.QUESTION__TARGET:
-        return ((InternalEList<?>)getTarget()).basicRemove(otherEnd, msgs);
+      case If22Package.QUESTION__TARGETS:
+        return ((InternalEList<?>)getTargets()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -300,8 +300,8 @@ public class QuestionImpl extends StatementImpl implements Question
       case If22Package.QUESTION__REFFED_VAR:
         if (resolve) return getReffedVar();
         return basicGetReffedVar();
-      case If22Package.QUESTION__TARGET:
-        return getTarget();
+      case If22Package.QUESTION__TARGETS:
+        return getTargets();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -326,9 +326,9 @@ public class QuestionImpl extends StatementImpl implements Question
       case If22Package.QUESTION__REFFED_VAR:
         setReffedVar((VariableDeclaration)newValue);
         return;
-      case If22Package.QUESTION__TARGET:
-        getTarget().clear();
-        getTarget().addAll((Collection<? extends Target>)newValue);
+      case If22Package.QUESTION__TARGETS:
+        getTargets().clear();
+        getTargets().addAll((Collection<? extends Target>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -353,8 +353,8 @@ public class QuestionImpl extends StatementImpl implements Question
       case If22Package.QUESTION__REFFED_VAR:
         setReffedVar((VariableDeclaration)null);
         return;
-      case If22Package.QUESTION__TARGET:
-        getTarget().clear();
+      case If22Package.QUESTION__TARGETS:
+        getTargets().clear();
         return;
     }
     super.eUnset(featureID);
@@ -376,8 +376,8 @@ public class QuestionImpl extends StatementImpl implements Question
         return qType != null;
       case If22Package.QUESTION__REFFED_VAR:
         return reffedVar != null;
-      case If22Package.QUESTION__TARGET:
-        return target != null && !target.isEmpty();
+      case If22Package.QUESTION__TARGETS:
+        return targets != null && !targets.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -817,7 +817,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAnnouncement"
-    // InternalIf22.g:327:1: ruleAnnouncement returns [EObject current=null] : (otherlv_0= 'announce' ( (lv_name_1_0= RULE_ID ) ) ( (lv_exp_2_0= ruleExp ) ) ( (lv_target_3_0= ruleTarget ) )+ ) ;
+    // InternalIf22.g:327:1: ruleAnnouncement returns [EObject current=null] : (otherlv_0= 'announce' ( (lv_name_1_0= RULE_ID ) ) ( (lv_exp_2_0= ruleExp ) ) ( (lv_targets_3_0= ruleTarget ) )+ ) ;
     public final EObject ruleAnnouncement() throws RecognitionException {
         EObject current = null;
 
@@ -825,18 +825,18 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
         Token lv_name_1_0=null;
         EObject lv_exp_2_0 = null;
 
-        EObject lv_target_3_0 = null;
+        EObject lv_targets_3_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalIf22.g:333:2: ( (otherlv_0= 'announce' ( (lv_name_1_0= RULE_ID ) ) ( (lv_exp_2_0= ruleExp ) ) ( (lv_target_3_0= ruleTarget ) )+ ) )
-            // InternalIf22.g:334:2: (otherlv_0= 'announce' ( (lv_name_1_0= RULE_ID ) ) ( (lv_exp_2_0= ruleExp ) ) ( (lv_target_3_0= ruleTarget ) )+ )
+            // InternalIf22.g:333:2: ( (otherlv_0= 'announce' ( (lv_name_1_0= RULE_ID ) ) ( (lv_exp_2_0= ruleExp ) ) ( (lv_targets_3_0= ruleTarget ) )+ ) )
+            // InternalIf22.g:334:2: (otherlv_0= 'announce' ( (lv_name_1_0= RULE_ID ) ) ( (lv_exp_2_0= ruleExp ) ) ( (lv_targets_3_0= ruleTarget ) )+ )
             {
-            // InternalIf22.g:334:2: (otherlv_0= 'announce' ( (lv_name_1_0= RULE_ID ) ) ( (lv_exp_2_0= ruleExp ) ) ( (lv_target_3_0= ruleTarget ) )+ )
-            // InternalIf22.g:335:3: otherlv_0= 'announce' ( (lv_name_1_0= RULE_ID ) ) ( (lv_exp_2_0= ruleExp ) ) ( (lv_target_3_0= ruleTarget ) )+
+            // InternalIf22.g:334:2: (otherlv_0= 'announce' ( (lv_name_1_0= RULE_ID ) ) ( (lv_exp_2_0= ruleExp ) ) ( (lv_targets_3_0= ruleTarget ) )+ )
+            // InternalIf22.g:335:3: otherlv_0= 'announce' ( (lv_name_1_0= RULE_ID ) ) ( (lv_exp_2_0= ruleExp ) ) ( (lv_targets_3_0= ruleTarget ) )+
             {
             otherlv_0=(Token)match(input,18,FOLLOW_3); 
 
@@ -899,7 +899,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalIf22.g:376:3: ( (lv_target_3_0= ruleTarget ) )+
+            // InternalIf22.g:376:3: ( (lv_targets_3_0= ruleTarget ) )+
             int cnt5=0;
             loop5:
             do {
@@ -913,16 +913,16 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
 
                 switch (alt5) {
             	case 1 :
-            	    // InternalIf22.g:377:4: (lv_target_3_0= ruleTarget )
+            	    // InternalIf22.g:377:4: (lv_targets_3_0= ruleTarget )
             	    {
-            	    // InternalIf22.g:377:4: (lv_target_3_0= ruleTarget )
-            	    // InternalIf22.g:378:5: lv_target_3_0= ruleTarget
+            	    // InternalIf22.g:377:4: (lv_targets_3_0= ruleTarget )
+            	    // InternalIf22.g:378:5: lv_targets_3_0= ruleTarget
             	    {
 
-            	    					newCompositeNode(grammarAccess.getAnnouncementAccess().getTargetTargetParserRuleCall_3_0());
+            	    					newCompositeNode(grammarAccess.getAnnouncementAccess().getTargetsTargetParserRuleCall_3_0());
             	    				
             	    pushFollow(FOLLOW_12);
-            	    lv_target_3_0=ruleTarget();
+            	    lv_targets_3_0=ruleTarget();
 
             	    state._fsp--;
 
@@ -932,8 +932,8 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
             	    					}
             	    					add(
             	    						current,
-            	    						"target",
-            	    						lv_target_3_0,
+            	    						"targets",
+            	    						lv_targets_3_0,
             	    						"org.xtext.example.if22.If22.Target");
             	    					afterParserOrEnumRuleCall();
             	    				
@@ -1012,7 +1012,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQuestion"
-    // InternalIf22.g:406:1: ruleQuestion returns [EObject current=null] : (otherlv_0= 'question' ( (lv_name_1_0= RULE_ID ) ) ( (lv_qString_2_0= ruleExp ) ) otherlv_3= 'as' ( (lv_qType_4_0= ruleExp ) ) (otherlv_5= 'in' ( (otherlv_6= RULE_ID ) ) )? ( (lv_target_7_0= ruleTarget ) )+ ) ;
+    // InternalIf22.g:406:1: ruleQuestion returns [EObject current=null] : (otherlv_0= 'question' ( (lv_name_1_0= RULE_ID ) ) ( (lv_qString_2_0= ruleExp ) ) otherlv_3= 'as' ( (lv_qType_4_0= ruleExp ) ) (otherlv_5= 'in' ( (otherlv_6= RULE_ID ) ) )? ( (lv_targets_7_0= ruleTarget ) )+ ) ;
     public final EObject ruleQuestion() throws RecognitionException {
         EObject current = null;
 
@@ -1025,18 +1025,18 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
 
         EObject lv_qType_4_0 = null;
 
-        EObject lv_target_7_0 = null;
+        EObject lv_targets_7_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalIf22.g:412:2: ( (otherlv_0= 'question' ( (lv_name_1_0= RULE_ID ) ) ( (lv_qString_2_0= ruleExp ) ) otherlv_3= 'as' ( (lv_qType_4_0= ruleExp ) ) (otherlv_5= 'in' ( (otherlv_6= RULE_ID ) ) )? ( (lv_target_7_0= ruleTarget ) )+ ) )
-            // InternalIf22.g:413:2: (otherlv_0= 'question' ( (lv_name_1_0= RULE_ID ) ) ( (lv_qString_2_0= ruleExp ) ) otherlv_3= 'as' ( (lv_qType_4_0= ruleExp ) ) (otherlv_5= 'in' ( (otherlv_6= RULE_ID ) ) )? ( (lv_target_7_0= ruleTarget ) )+ )
+            // InternalIf22.g:412:2: ( (otherlv_0= 'question' ( (lv_name_1_0= RULE_ID ) ) ( (lv_qString_2_0= ruleExp ) ) otherlv_3= 'as' ( (lv_qType_4_0= ruleExp ) ) (otherlv_5= 'in' ( (otherlv_6= RULE_ID ) ) )? ( (lv_targets_7_0= ruleTarget ) )+ ) )
+            // InternalIf22.g:413:2: (otherlv_0= 'question' ( (lv_name_1_0= RULE_ID ) ) ( (lv_qString_2_0= ruleExp ) ) otherlv_3= 'as' ( (lv_qType_4_0= ruleExp ) ) (otherlv_5= 'in' ( (otherlv_6= RULE_ID ) ) )? ( (lv_targets_7_0= ruleTarget ) )+ )
             {
-            // InternalIf22.g:413:2: (otherlv_0= 'question' ( (lv_name_1_0= RULE_ID ) ) ( (lv_qString_2_0= ruleExp ) ) otherlv_3= 'as' ( (lv_qType_4_0= ruleExp ) ) (otherlv_5= 'in' ( (otherlv_6= RULE_ID ) ) )? ( (lv_target_7_0= ruleTarget ) )+ )
-            // InternalIf22.g:414:3: otherlv_0= 'question' ( (lv_name_1_0= RULE_ID ) ) ( (lv_qString_2_0= ruleExp ) ) otherlv_3= 'as' ( (lv_qType_4_0= ruleExp ) ) (otherlv_5= 'in' ( (otherlv_6= RULE_ID ) ) )? ( (lv_target_7_0= ruleTarget ) )+
+            // InternalIf22.g:413:2: (otherlv_0= 'question' ( (lv_name_1_0= RULE_ID ) ) ( (lv_qString_2_0= ruleExp ) ) otherlv_3= 'as' ( (lv_qType_4_0= ruleExp ) ) (otherlv_5= 'in' ( (otherlv_6= RULE_ID ) ) )? ( (lv_targets_7_0= ruleTarget ) )+ )
+            // InternalIf22.g:414:3: otherlv_0= 'question' ( (lv_name_1_0= RULE_ID ) ) ( (lv_qString_2_0= ruleExp ) ) otherlv_3= 'as' ( (lv_qType_4_0= ruleExp ) ) (otherlv_5= 'in' ( (otherlv_6= RULE_ID ) ) )? ( (lv_targets_7_0= ruleTarget ) )+
             {
             otherlv_0=(Token)match(input,19,FOLLOW_3); 
 
@@ -1176,7 +1176,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalIf22.g:497:3: ( (lv_target_7_0= ruleTarget ) )+
+            // InternalIf22.g:497:3: ( (lv_targets_7_0= ruleTarget ) )+
             int cnt7=0;
             loop7:
             do {
@@ -1190,16 +1190,16 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalIf22.g:498:4: (lv_target_7_0= ruleTarget )
+            	    // InternalIf22.g:498:4: (lv_targets_7_0= ruleTarget )
             	    {
-            	    // InternalIf22.g:498:4: (lv_target_7_0= ruleTarget )
-            	    // InternalIf22.g:499:5: lv_target_7_0= ruleTarget
+            	    // InternalIf22.g:498:4: (lv_targets_7_0= ruleTarget )
+            	    // InternalIf22.g:499:5: lv_targets_7_0= ruleTarget
             	    {
 
-            	    					newCompositeNode(grammarAccess.getQuestionAccess().getTargetTargetParserRuleCall_6_0());
+            	    					newCompositeNode(grammarAccess.getQuestionAccess().getTargetsTargetParserRuleCall_6_0());
             	    				
             	    pushFollow(FOLLOW_12);
-            	    lv_target_7_0=ruleTarget();
+            	    lv_targets_7_0=ruleTarget();
 
             	    state._fsp--;
 
@@ -1209,8 +1209,8 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
             	    					}
             	    					add(
             	    						current,
-            	    						"target",
-            	    						lv_target_7_0,
+            	    						"targets",
+            	    						lv_targets_7_0,
             	    						"org.xtext.example.if22.If22.Target");
             	    					afterParserOrEnumRuleCall();
             	    				

@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.xtext.example.if22.if22.Question#getQString <em>QString</em>}</li>
  *   <li>{@link org.xtext.example.if22.if22.Question#getQType <em>QType</em>}</li>
  *   <li>{@link org.xtext.example.if22.if22.Question#getReffedVar <em>Reffed Var</em>}</li>
- *   <li>{@link org.xtext.example.if22.if22.Question#getTarget <em>Target</em>}</li>
+ *   <li>{@link org.xtext.example.if22.if22.Question#getTargets <em>Targets</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.if22.if22.If22Package#getQuestion()
@@ -93,15 +93,15 @@ public interface Question extends Statement
   void setReffedVar(VariableDeclaration value);
 
   /**
-   * Returns the value of the '<em><b>Target</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Targets</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.example.if22.if22.Target}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Target</em>' containment reference list.
-   * @see org.xtext.example.if22.if22.If22Package#getQuestion_Target()
+   * @return the value of the '<em>Targets</em>' containment reference list.
+   * @see org.xtext.example.if22.if22.If22Package#getQuestion_Targets()
    * @model containment="true"
    * @generated
    */
-  EList<Target> getTarget();
+  EList<Target> getTargets();
 
 } // Question

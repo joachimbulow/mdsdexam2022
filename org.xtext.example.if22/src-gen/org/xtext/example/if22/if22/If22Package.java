@@ -234,13 +234,13 @@ public interface If22Package extends EPackage
   int ANNOUNCEMENT__EXP = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Target</b></em>' containment reference list.
+   * The feature id for the '<em><b>Targets</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ANNOUNCEMENT__TARGET = STATEMENT_FEATURE_COUNT + 1;
+  int ANNOUNCEMENT__TARGETS = STATEMENT_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Announcement</em>' class.
@@ -298,13 +298,13 @@ public interface If22Package extends EPackage
   int QUESTION__REFFED_VAR = STATEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Target</b></em>' containment reference list.
+   * The feature id for the '<em><b>Targets</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int QUESTION__TARGET = STATEMENT_FEATURE_COUNT + 3;
+  int QUESTION__TARGETS = STATEMENT_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Question</em>' class.
@@ -897,15 +897,15 @@ public interface If22Package extends EPackage
   EReference getAnnouncement_Exp();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.if22.if22.Announcement#getTarget <em>Target</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.if22.if22.Announcement#getTargets <em>Targets</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Target</em>'.
-   * @see org.xtext.example.if22.if22.Announcement#getTarget()
+   * @return the meta object for the containment reference list '<em>Targets</em>'.
+   * @see org.xtext.example.if22.if22.Announcement#getTargets()
    * @see #getAnnouncement()
    * @generated
    */
-  EReference getAnnouncement_Target();
+  EReference getAnnouncement_Targets();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.if22.if22.Question <em>Question</em>}'.
@@ -951,15 +951,15 @@ public interface If22Package extends EPackage
   EReference getQuestion_ReffedVar();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.if22.if22.Question#getTarget <em>Target</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.if22.if22.Question#getTargets <em>Targets</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Target</em>'.
-   * @see org.xtext.example.if22.if22.Question#getTarget()
+   * @return the meta object for the containment reference list '<em>Targets</em>'.
+   * @see org.xtext.example.if22.if22.Question#getTargets()
    * @see #getQuestion()
    * @generated
    */
-  EReference getQuestion_Target();
+  EReference getQuestion_Targets();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.if22.if22.End <em>End</em>}'.
@@ -1398,12 +1398,12 @@ public interface If22Package extends EPackage
     EReference ANNOUNCEMENT__EXP = eINSTANCE.getAnnouncement_Exp();
 
     /**
-     * The meta object literal for the '<em><b>Target</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Targets</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ANNOUNCEMENT__TARGET = eINSTANCE.getAnnouncement_Target();
+    EReference ANNOUNCEMENT__TARGETS = eINSTANCE.getAnnouncement_Targets();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.QuestionImpl <em>Question</em>}' class.
@@ -1440,12 +1440,12 @@ public interface If22Package extends EPackage
     EReference QUESTION__REFFED_VAR = eINSTANCE.getQuestion_ReffedVar();
 
     /**
-     * The meta object literal for the '<em><b>Target</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Targets</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference QUESTION__TARGET = eINSTANCE.getQuestion_Target();
+    EReference QUESTION__TARGETS = eINSTANCE.getQuestion_Targets();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.EndImpl <em>End</em>}' class.

@@ -13,6 +13,12 @@ import org.xtext.example.if22.if22.TypeBoolean
 import org.xtext.example.if22.if22.TypeText
 import org.xtext.example.if22.if22.TypeNumber
 import org.xtext.example.if22.if22.VariableDeclaration
+import org.xtext.example.if22.if22.Statement
+import org.xtext.example.if22.if22.Announcement
+import org.xtext.example.if22.if22.End
+import org.xtext.example.if22.if22.Question
+import org.xtext.example.if22.if22.EXPSTRING
+import org.xtext.example.if22.if22.Type
 
 /**
  * Generates code from your model files on save.
@@ -86,52 +92,31 @@ class If22Generator extends AbstractGenerator {
 	}
 
 	// Actual compilation code ------------------------------------------------------
-	
 	// Scenario
 	def static compileScenario(Scenario scenario, IFileSystemAccess2 fsa, String storyname) {
 		var compilation = '''
-			package interactive_fiction.validate_input;
+			package «PACKAGE_PATH_NO_SLASH».«storyname»;
 			
 			import java.io.IOException;
-			import interactive_fiction.common.*;
+			import «PACKAGE_PATH_NO_SLASH».common.*;
 			
 			class ScenarioValidation extends Scenario {
 				«FOR variableDeclaration : scenario.variableDeclarations»
-				«variableDeclaration.compileVariableDeclaration»
+					«variableDeclaration.compileVariableDeclaration»
 				«ENDFOR»
 				
 				public String interact() throws IOException {
 					nextInteraction = "Start";
 					while(true){
 						switch(nextInteraction){
-							case "Start":
-								System.out.println("Hi again! This is going to be a short game, as I am just testing something out");
-								nextInteraction = "Promise";
-								break;
-							case "Promise":
-								System.out.println("I promise this will be worthy for a future game");
-								nextInteraction = "AskNumber";
-								break;
-							case "AskNumber":
-								System.out.println("What was your favorite number?");
-								try {
-									__AskNumber = Integer.parseInt(br.readLine());
-									if(!(__AskNumber > 0)){
-										break;
-									}
-									nextInteraction = "End";
-									break;
-								} catch (Exception ex) {
-									break;
-								}
-							case "End":
-								System.out.println("I am sorry if you like negative numbers more, but positive numbers are going to give us a much better experience");
-								return "End";
+							«FOR statement : scenario.statements»
+								«statement.compileStatement»
+							«ENDFOR»
 						}
 					}
 				}
 			}
-
+			
 		'''
 		fsa.generateFile(PACKAGE_PATH + storyname + "/Scenario" + scenario.name.toFirstUpper + ".java", compilation);
 	}
@@ -143,6 +128,51 @@ class If22Generator extends AbstractGenerator {
 			TypeBoolean: "boolean " + variable.name + ";"
 			TypeText: "String " + variable.name + ";"
 			TypeNumber: "Int " + variable.name + ";"
+		}
+	}
+
+	// --- Compiling statements using dispatch ---
+	// Announcement	TODO: COMPILE WITH SUBSTITUTING AMPERSAND
+	def static dispatch String compileStatement(Announcement announcement) {
+		'''
+			case "«announcement.name»":
+				System.out.println("«(announcement.exp as EXPSTRING)»");
+				nextInteraction = «announcement.targets.get(0).name»
+				break;
+		'''
+	}
+
+	// Question
+	def static dispatch String compileStatement(Question question) {
+		'''
+			case "«question.name»"
+				System.out.println("«(question.QString as EXPSTRING)»");
+				try {
+					__«question.name» = «(question.QType as Type).readInputString»;
+					nextInteraction = «question.targets.get(0).name»
+					break;
+				} catch (Exception ex) {
+					break;
+				}
+		'''
+	}
+
+	// End statement
+	def static dispatch String compileStatement(End endStatement) {
+		'''
+			case "«endStatement.name»"
+				System.out.println("«(endStatement.exp as EXPSTRING)»");
+				return "«endStatement.name»";
+		'''
+
+	}
+
+// --- END Dispatch statement compilation ---
+	def static readInputString(Type type) {
+		switch type {
+			TypeBoolean: "Boolean.parseBoolean(br.readLine());"
+			TypeText: "br.readLine();"
+			TypeNumber: "Integer.parseInt(br.readLine());"
 		}
 	}
 }

@@ -4,6 +4,7 @@
 package org.xtext.example.if22.generator;
 
 import com.google.common.collect.Iterators;
+import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -11,8 +12,14 @@ import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
+import org.xtext.example.if22.if22.Announcement;
+import org.xtext.example.if22.if22.EXPSTRING;
+import org.xtext.example.if22.if22.End;
+import org.xtext.example.if22.if22.Expression;
 import org.xtext.example.if22.if22.Program;
+import org.xtext.example.if22.if22.Question;
 import org.xtext.example.if22.if22.Scenario;
+import org.xtext.example.if22.if22.Statement;
 import org.xtext.example.if22.if22.Type;
 import org.xtext.example.if22.if22.TypeBoolean;
 import org.xtext.example.if22.if22.TypeNumber;
@@ -147,13 +154,19 @@ public class If22Generator extends AbstractGenerator {
   
   public static void compileScenario(final Scenario scenario, final IFileSystemAccess2 fsa, final String storyname) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("package interactive_fiction.validate_input;");
-    _builder.newLine();
+    _builder.append("package ");
+    _builder.append(If22Generator.PACKAGE_PATH_NO_SLASH);
+    _builder.append(".");
+    _builder.append(storyname);
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("import java.io.IOException;");
     _builder.newLine();
-    _builder.append("import interactive_fiction.common.*;");
-    _builder.newLine();
+    _builder.append("import ");
+    _builder.append(If22Generator.PACKAGE_PATH_NO_SLASH);
+    _builder.append(".common.*;");
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("class ScenarioValidation extends Scenario {");
     _builder.newLine();
@@ -180,75 +193,15 @@ public class If22Generator extends AbstractGenerator {
     _builder.append("\t\t\t");
     _builder.append("switch(nextInteraction){");
     _builder.newLine();
-    _builder.append("\t\t\t\t");
-    _builder.append("case \"Start\":");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t");
-    _builder.append("System.out.println(\"Hi again! This is going to be a short game, as I am just testing something out\");");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t");
-    _builder.append("nextInteraction = \"Promise\";");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t");
-    _builder.append("break;");
-    _builder.newLine();
-    _builder.append("\t\t\t\t");
-    _builder.append("case \"Promise\":");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t");
-    _builder.append("System.out.println(\"I promise this will be worthy for a future game\");");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t");
-    _builder.append("nextInteraction = \"AskNumber\";");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t");
-    _builder.append("break;");
-    _builder.newLine();
-    _builder.append("\t\t\t\t");
-    _builder.append("case \"AskNumber\":");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t");
-    _builder.append("System.out.println(\"What was your favorite number?\");");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t");
-    _builder.append("try {");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t\t");
-    _builder.append("__AskNumber = Integer.parseInt(br.readLine());");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t\t");
-    _builder.append("if(!(__AskNumber > 0)){");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t\t\t");
-    _builder.append("break;");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t\t");
-    _builder.append("}");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t\t");
-    _builder.append("nextInteraction = \"End\";");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t\t");
-    _builder.append("break;");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t");
-    _builder.append("} catch (Exception ex) {");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t\t");
-    _builder.append("break;");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t");
-    _builder.append("}");
-    _builder.newLine();
-    _builder.append("\t\t\t\t");
-    _builder.append("case \"End\":");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t");
-    _builder.append("System.out.println(\"I am sorry if you like negative numbers more, but positive numbers are going to give us a much better experience\");");
-    _builder.newLine();
-    _builder.append("\t\t\t\t\t");
-    _builder.append("return \"End\";");
-    _builder.newLine();
+    {
+      EList<Statement> _statements = scenario.getStatements();
+      for(final Statement statement : _statements) {
+        _builder.append("\t\t\t\t");
+        String _compileStatement = If22Generator.compileStatement(statement);
+        _builder.append(_compileStatement, "\t\t\t\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.append("\t\t\t");
     _builder.append("}");
     _builder.newLine();
@@ -299,5 +252,132 @@ public class If22Generator extends AbstractGenerator {
       _xblockexpression = _switchResult;
     }
     return _xblockexpression;
+  }
+  
+  protected static String _compileStatement(final Announcement announcement) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("case \"");
+    String _name = announcement.getName();
+    _builder.append(_name);
+    _builder.append("\":");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("System.out.println(\"");
+    Expression _exp = announcement.getExp();
+    _builder.append(((EXPSTRING) _exp), "\t");
+    _builder.append("\");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("nextInteraction = ");
+    String _name_1 = announcement.getTargets().get(0).getName();
+    _builder.append(_name_1, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("break;");
+    _builder.newLine();
+    return _builder.toString();
+  }
+  
+  protected static String _compileStatement(final Question question) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("case \"");
+    String _name = question.getName();
+    _builder.append(_name);
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("System.out.println(\"");
+    Expression _qString = question.getQString();
+    _builder.append(((EXPSTRING) _qString), "\t");
+    _builder.append("\");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("try {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("__");
+    String _name_1 = question.getName();
+    _builder.append(_name_1, "\t\t");
+    _builder.append(" = ");
+    Expression _qType = question.getQType();
+    String _readInputString = If22Generator.readInputString(((Type) _qType));
+    _builder.append(_readInputString, "\t\t");
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("nextInteraction = ");
+    String _name_2 = question.getTargets().get(0).getName();
+    _builder.append(_name_2, "\t\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("break;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("} catch (Exception ex) {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("break;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    return _builder.toString();
+  }
+  
+  protected static String _compileStatement(final End endStatement) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("case \"");
+    String _name = endStatement.getName();
+    _builder.append(_name);
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("System.out.println(\"");
+    Expression _exp = endStatement.getExp();
+    _builder.append(((EXPSTRING) _exp), "\t");
+    _builder.append("\");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("return \"");
+    String _name_1 = endStatement.getName();
+    _builder.append(_name_1, "\t");
+    _builder.append("\";");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public static String readInputString(final Type type) {
+    String _switchResult = null;
+    boolean _matched = false;
+    if (type instanceof TypeBoolean) {
+      _matched=true;
+      _switchResult = "Boolean.parseBoolean(br.readLine());";
+    }
+    if (!_matched) {
+      if (type instanceof TypeText) {
+        _matched=true;
+        _switchResult = "br.readLine();";
+      }
+    }
+    if (!_matched) {
+      if (type instanceof TypeNumber) {
+        _matched=true;
+        _switchResult = "Integer.parseInt(br.readLine());";
+      }
+    }
+    return _switchResult;
+  }
+  
+  public static String compileStatement(final Statement announcement) {
+    if (announcement instanceof Announcement) {
+      return _compileStatement((Announcement)announcement);
+    } else if (announcement instanceof End) {
+      return _compileStatement((End)announcement);
+    } else if (announcement instanceof Question) {
+      return _compileStatement((Question)announcement);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(announcement).toString());
+    }
   }
 }

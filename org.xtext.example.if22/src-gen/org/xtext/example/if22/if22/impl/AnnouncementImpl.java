@@ -32,7 +32,7 @@ import org.xtext.example.if22.if22.Target;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.if22.if22.impl.AnnouncementImpl#getExp <em>Exp</em>}</li>
- *   <li>{@link org.xtext.example.if22.if22.impl.AnnouncementImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link org.xtext.example.if22.if22.impl.AnnouncementImpl#getTargets <em>Targets</em>}</li>
  * </ul>
  *
  * @generated
@@ -50,14 +50,14 @@ public class AnnouncementImpl extends StatementImpl implements Announcement
   protected Expression exp;
 
   /**
-   * The cached value of the '{@link #getTarget() <em>Target</em>}' containment reference list.
+   * The cached value of the '{@link #getTargets() <em>Targets</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTarget()
+   * @see #getTargets()
    * @generated
    * @ordered
    */
-  protected EList<Target> target;
+  protected EList<Target> targets;
 
   /**
    * <!-- begin-user-doc -->
@@ -136,13 +136,13 @@ public class AnnouncementImpl extends StatementImpl implements Announcement
    * @generated
    */
   @Override
-  public EList<Target> getTarget()
+  public EList<Target> getTargets()
   {
-    if (target == null)
+    if (targets == null)
     {
-      target = new EObjectContainmentEList<Target>(Target.class, this, If22Package.ANNOUNCEMENT__TARGET);
+      targets = new EObjectContainmentEList<Target>(Target.class, this, If22Package.ANNOUNCEMENT__TARGETS);
     }
-    return target;
+    return targets;
   }
 
   /**
@@ -157,8 +157,8 @@ public class AnnouncementImpl extends StatementImpl implements Announcement
     {
       case If22Package.ANNOUNCEMENT__EXP:
         return basicSetExp(null, msgs);
-      case If22Package.ANNOUNCEMENT__TARGET:
-        return ((InternalEList<?>)getTarget()).basicRemove(otherEnd, msgs);
+      case If22Package.ANNOUNCEMENT__TARGETS:
+        return ((InternalEList<?>)getTargets()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -175,8 +175,8 @@ public class AnnouncementImpl extends StatementImpl implements Announcement
     {
       case If22Package.ANNOUNCEMENT__EXP:
         return getExp();
-      case If22Package.ANNOUNCEMENT__TARGET:
-        return getTarget();
+      case If22Package.ANNOUNCEMENT__TARGETS:
+        return getTargets();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -195,9 +195,9 @@ public class AnnouncementImpl extends StatementImpl implements Announcement
       case If22Package.ANNOUNCEMENT__EXP:
         setExp((Expression)newValue);
         return;
-      case If22Package.ANNOUNCEMENT__TARGET:
-        getTarget().clear();
-        getTarget().addAll((Collection<? extends Target>)newValue);
+      case If22Package.ANNOUNCEMENT__TARGETS:
+        getTargets().clear();
+        getTargets().addAll((Collection<? extends Target>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -216,8 +216,8 @@ public class AnnouncementImpl extends StatementImpl implements Announcement
       case If22Package.ANNOUNCEMENT__EXP:
         setExp((Expression)null);
         return;
-      case If22Package.ANNOUNCEMENT__TARGET:
-        getTarget().clear();
+      case If22Package.ANNOUNCEMENT__TARGETS:
+        getTargets().clear();
         return;
     }
     super.eUnset(featureID);
@@ -235,8 +235,8 @@ public class AnnouncementImpl extends StatementImpl implements Announcement
     {
       case If22Package.ANNOUNCEMENT__EXP:
         return exp != null;
-      case If22Package.ANNOUNCEMENT__TARGET:
-        return target != null && !target.isEmpty();
+      case If22Package.ANNOUNCEMENT__TARGETS:
+        return targets != null && !targets.isEmpty();
     }
     return super.eIsSet(featureID);
   }

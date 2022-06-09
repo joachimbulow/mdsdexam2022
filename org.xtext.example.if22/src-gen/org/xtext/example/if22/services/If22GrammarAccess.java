@@ -175,14 +175,14 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Assignment cExpAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cExpExpParserRuleCall_2_0 = (RuleCall)cExpAssignment_2.eContents().get(0);
-		private final Assignment cTargetAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cTargetTargetParserRuleCall_3_0 = (RuleCall)cTargetAssignment_3.eContents().get(0);
+		private final Assignment cTargetsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTargetsTargetParserRuleCall_3_0 = (RuleCall)cTargetsAssignment_3.eContents().get(0);
 		
 		//Announcement:
-		//    'announce' name=ID exp=Exp (target+=Target)+;
+		//    'announce' name=ID exp=Exp (targets+=Target)+;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'announce' name=ID exp=Exp (target+=Target)+
+		//'announce' name=ID exp=Exp (targets+=Target)+
 		public Group getGroup() { return cGroup; }
 		
 		//'announce'
@@ -200,11 +200,11 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//Exp
 		public RuleCall getExpExpParserRuleCall_2_0() { return cExpExpParserRuleCall_2_0; }
 		
-		//(target+=Target)+
-		public Assignment getTargetAssignment_3() { return cTargetAssignment_3; }
+		//(targets+=Target)+
+		public Assignment getTargetsAssignment_3() { return cTargetsAssignment_3; }
 		
 		//Target
-		public RuleCall getTargetTargetParserRuleCall_3_0() { return cTargetTargetParserRuleCall_3_0; }
+		public RuleCall getTargetsTargetParserRuleCall_3_0() { return cTargetsTargetParserRuleCall_3_0; }
 	}
 	public class QuestionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.Question");
@@ -222,15 +222,15 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Assignment cReffedVarAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
 		private final CrossReference cReffedVarVariableDeclarationCrossReference_5_1_0 = (CrossReference)cReffedVarAssignment_5_1.eContents().get(0);
 		private final RuleCall cReffedVarVariableDeclarationIDTerminalRuleCall_5_1_0_1 = (RuleCall)cReffedVarVariableDeclarationCrossReference_5_1_0.eContents().get(1);
-		private final Assignment cTargetAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cTargetTargetParserRuleCall_6_0 = (RuleCall)cTargetAssignment_6.eContents().get(0);
+		private final Assignment cTargetsAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cTargetsTargetParserRuleCall_6_0 = (RuleCall)cTargetsAssignment_6.eContents().get(0);
 		
 		//// qType=Type instead?
 		//Question:
-		//    'question' name=ID qString=Exp 'as' qType=Exp ('in' reffedVar=[VariableDeclaration])? (target+=Target)+;
+		//    'question' name=ID qString=Exp 'as' qType=Exp ('in' reffedVar=[VariableDeclaration])? (targets+=Target)+;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'question' name=ID qString=Exp 'as' qType=Exp ('in' reffedVar=[VariableDeclaration])? (target+=Target)+
+		//'question' name=ID qString=Exp 'as' qType=Exp ('in' reffedVar=[VariableDeclaration])? (targets+=Target)+
 		public Group getGroup() { return cGroup; }
 		
 		//'question'
@@ -272,11 +272,11 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//ID
 		public RuleCall getReffedVarVariableDeclarationIDTerminalRuleCall_5_1_0_1() { return cReffedVarVariableDeclarationIDTerminalRuleCall_5_1_0_1; }
 		
-		//(target+=Target)+
-		public Assignment getTargetAssignment_6() { return cTargetAssignment_6; }
+		//(targets+=Target)+
+		public Assignment getTargetsAssignment_6() { return cTargetsAssignment_6; }
 		
 		//Target
-		public RuleCall getTargetTargetParserRuleCall_6_0() { return cTargetTargetParserRuleCall_6_0; }
+		public RuleCall getTargetsTargetParserRuleCall_6_0() { return cTargetsTargetParserRuleCall_6_0; }
 	}
 	public class EndElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.End");
@@ -752,7 +752,7 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//Announcement:
-	//    'announce' name=ID exp=Exp (target+=Target)+;
+	//    'announce' name=ID exp=Exp (targets+=Target)+;
 	public AnnouncementElements getAnnouncementAccess() {
 		return pAnnouncement;
 	}
@@ -763,7 +763,7 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	
 	//// qType=Type instead?
 	//Question:
-	//    'question' name=ID qString=Exp 'as' qType=Exp ('in' reffedVar=[VariableDeclaration])? (target+=Target)+;
+	//    'question' name=ID qString=Exp 'as' qType=Exp ('in' reffedVar=[VariableDeclaration])? (targets+=Target)+;
 	public QuestionElements getQuestionAccess() {
 		return pQuestion;
 	}

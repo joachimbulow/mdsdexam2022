@@ -3300,42 +3300,42 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Announcement__Group__3__Impl"
-    // InternalIf22.g:1017:1: rule__Announcement__Group__3__Impl : ( ( ( rule__Announcement__TargetAssignment_3 ) ) ( ( rule__Announcement__TargetAssignment_3 )* ) ) ;
+    // InternalIf22.g:1017:1: rule__Announcement__Group__3__Impl : ( ( ( rule__Announcement__TargetsAssignment_3 ) ) ( ( rule__Announcement__TargetsAssignment_3 )* ) ) ;
     public final void rule__Announcement__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalIf22.g:1021:1: ( ( ( ( rule__Announcement__TargetAssignment_3 ) ) ( ( rule__Announcement__TargetAssignment_3 )* ) ) )
-            // InternalIf22.g:1022:1: ( ( ( rule__Announcement__TargetAssignment_3 ) ) ( ( rule__Announcement__TargetAssignment_3 )* ) )
+            // InternalIf22.g:1021:1: ( ( ( ( rule__Announcement__TargetsAssignment_3 ) ) ( ( rule__Announcement__TargetsAssignment_3 )* ) ) )
+            // InternalIf22.g:1022:1: ( ( ( rule__Announcement__TargetsAssignment_3 ) ) ( ( rule__Announcement__TargetsAssignment_3 )* ) )
             {
-            // InternalIf22.g:1022:1: ( ( ( rule__Announcement__TargetAssignment_3 ) ) ( ( rule__Announcement__TargetAssignment_3 )* ) )
-            // InternalIf22.g:1023:2: ( ( rule__Announcement__TargetAssignment_3 ) ) ( ( rule__Announcement__TargetAssignment_3 )* )
+            // InternalIf22.g:1022:1: ( ( ( rule__Announcement__TargetsAssignment_3 ) ) ( ( rule__Announcement__TargetsAssignment_3 )* ) )
+            // InternalIf22.g:1023:2: ( ( rule__Announcement__TargetsAssignment_3 ) ) ( ( rule__Announcement__TargetsAssignment_3 )* )
             {
-            // InternalIf22.g:1023:2: ( ( rule__Announcement__TargetAssignment_3 ) )
-            // InternalIf22.g:1024:3: ( rule__Announcement__TargetAssignment_3 )
+            // InternalIf22.g:1023:2: ( ( rule__Announcement__TargetsAssignment_3 ) )
+            // InternalIf22.g:1024:3: ( rule__Announcement__TargetsAssignment_3 )
             {
-             before(grammarAccess.getAnnouncementAccess().getTargetAssignment_3()); 
-            // InternalIf22.g:1025:3: ( rule__Announcement__TargetAssignment_3 )
-            // InternalIf22.g:1025:4: rule__Announcement__TargetAssignment_3
+             before(grammarAccess.getAnnouncementAccess().getTargetsAssignment_3()); 
+            // InternalIf22.g:1025:3: ( rule__Announcement__TargetsAssignment_3 )
+            // InternalIf22.g:1025:4: rule__Announcement__TargetsAssignment_3
             {
             pushFollow(FOLLOW_14);
-            rule__Announcement__TargetAssignment_3();
+            rule__Announcement__TargetsAssignment_3();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getAnnouncementAccess().getTargetAssignment_3()); 
+             after(grammarAccess.getAnnouncementAccess().getTargetsAssignment_3()); 
 
             }
 
-            // InternalIf22.g:1028:2: ( ( rule__Announcement__TargetAssignment_3 )* )
-            // InternalIf22.g:1029:3: ( rule__Announcement__TargetAssignment_3 )*
+            // InternalIf22.g:1028:2: ( ( rule__Announcement__TargetsAssignment_3 )* )
+            // InternalIf22.g:1029:3: ( rule__Announcement__TargetsAssignment_3 )*
             {
-             before(grammarAccess.getAnnouncementAccess().getTargetAssignment_3()); 
-            // InternalIf22.g:1030:3: ( rule__Announcement__TargetAssignment_3 )*
+             before(grammarAccess.getAnnouncementAccess().getTargetsAssignment_3()); 
+            // InternalIf22.g:1030:3: ( rule__Announcement__TargetsAssignment_3 )*
             loop10:
             do {
                 int alt10=2;
@@ -3348,10 +3348,10 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalIf22.g:1030:4: rule__Announcement__TargetAssignment_3
+            	    // InternalIf22.g:1030:4: rule__Announcement__TargetsAssignment_3
             	    {
             	    pushFollow(FOLLOW_14);
-            	    rule__Announcement__TargetAssignment_3();
+            	    rule__Announcement__TargetsAssignment_3();
 
             	    state._fsp--;
 
@@ -3364,7 +3364,7 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
                 }
             } while (true);
 
-             after(grammarAccess.getAnnouncementAccess().getTargetAssignment_3()); 
+             after(grammarAccess.getAnnouncementAccess().getTargetsAssignment_3()); 
 
             }
 
@@ -3924,42 +3924,42 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Question__Group__6__Impl"
-    // InternalIf22.g:1213:1: rule__Question__Group__6__Impl : ( ( ( rule__Question__TargetAssignment_6 ) ) ( ( rule__Question__TargetAssignment_6 )* ) ) ;
+    // InternalIf22.g:1213:1: rule__Question__Group__6__Impl : ( ( ( rule__Question__TargetsAssignment_6 ) ) ( ( rule__Question__TargetsAssignment_6 )* ) ) ;
     public final void rule__Question__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalIf22.g:1217:1: ( ( ( ( rule__Question__TargetAssignment_6 ) ) ( ( rule__Question__TargetAssignment_6 )* ) ) )
-            // InternalIf22.g:1218:1: ( ( ( rule__Question__TargetAssignment_6 ) ) ( ( rule__Question__TargetAssignment_6 )* ) )
+            // InternalIf22.g:1217:1: ( ( ( ( rule__Question__TargetsAssignment_6 ) ) ( ( rule__Question__TargetsAssignment_6 )* ) ) )
+            // InternalIf22.g:1218:1: ( ( ( rule__Question__TargetsAssignment_6 ) ) ( ( rule__Question__TargetsAssignment_6 )* ) )
             {
-            // InternalIf22.g:1218:1: ( ( ( rule__Question__TargetAssignment_6 ) ) ( ( rule__Question__TargetAssignment_6 )* ) )
-            // InternalIf22.g:1219:2: ( ( rule__Question__TargetAssignment_6 ) ) ( ( rule__Question__TargetAssignment_6 )* )
+            // InternalIf22.g:1218:1: ( ( ( rule__Question__TargetsAssignment_6 ) ) ( ( rule__Question__TargetsAssignment_6 )* ) )
+            // InternalIf22.g:1219:2: ( ( rule__Question__TargetsAssignment_6 ) ) ( ( rule__Question__TargetsAssignment_6 )* )
             {
-            // InternalIf22.g:1219:2: ( ( rule__Question__TargetAssignment_6 ) )
-            // InternalIf22.g:1220:3: ( rule__Question__TargetAssignment_6 )
+            // InternalIf22.g:1219:2: ( ( rule__Question__TargetsAssignment_6 ) )
+            // InternalIf22.g:1220:3: ( rule__Question__TargetsAssignment_6 )
             {
-             before(grammarAccess.getQuestionAccess().getTargetAssignment_6()); 
-            // InternalIf22.g:1221:3: ( rule__Question__TargetAssignment_6 )
-            // InternalIf22.g:1221:4: rule__Question__TargetAssignment_6
+             before(grammarAccess.getQuestionAccess().getTargetsAssignment_6()); 
+            // InternalIf22.g:1221:3: ( rule__Question__TargetsAssignment_6 )
+            // InternalIf22.g:1221:4: rule__Question__TargetsAssignment_6
             {
             pushFollow(FOLLOW_17);
-            rule__Question__TargetAssignment_6();
+            rule__Question__TargetsAssignment_6();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getQuestionAccess().getTargetAssignment_6()); 
+             after(grammarAccess.getQuestionAccess().getTargetsAssignment_6()); 
 
             }
 
-            // InternalIf22.g:1224:2: ( ( rule__Question__TargetAssignment_6 )* )
-            // InternalIf22.g:1225:3: ( rule__Question__TargetAssignment_6 )*
+            // InternalIf22.g:1224:2: ( ( rule__Question__TargetsAssignment_6 )* )
+            // InternalIf22.g:1225:3: ( rule__Question__TargetsAssignment_6 )*
             {
-             before(grammarAccess.getQuestionAccess().getTargetAssignment_6()); 
-            // InternalIf22.g:1226:3: ( rule__Question__TargetAssignment_6 )*
+             before(grammarAccess.getQuestionAccess().getTargetsAssignment_6()); 
+            // InternalIf22.g:1226:3: ( rule__Question__TargetsAssignment_6 )*
             loop12:
             do {
                 int alt12=2;
@@ -3972,10 +3972,10 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
 
                 switch (alt12) {
             	case 1 :
-            	    // InternalIf22.g:1226:4: rule__Question__TargetAssignment_6
+            	    // InternalIf22.g:1226:4: rule__Question__TargetsAssignment_6
             	    {
             	    pushFollow(FOLLOW_17);
-            	    rule__Question__TargetAssignment_6();
+            	    rule__Question__TargetsAssignment_6();
 
             	    state._fsp--;
 
@@ -3988,7 +3988,7 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
                 }
             } while (true);
 
-             after(grammarAccess.getQuestionAccess().getTargetAssignment_6()); 
+             after(grammarAccess.getQuestionAccess().getTargetsAssignment_6()); 
 
             }
 
@@ -7521,9 +7521,9 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Announcement__ExpAssignment_2"
 
 
-    // $ANTLR start "rule__Announcement__TargetAssignment_3"
-    // InternalIf22.g:2478:1: rule__Announcement__TargetAssignment_3 : ( ruleTarget ) ;
-    public final void rule__Announcement__TargetAssignment_3() throws RecognitionException {
+    // $ANTLR start "rule__Announcement__TargetsAssignment_3"
+    // InternalIf22.g:2478:1: rule__Announcement__TargetsAssignment_3 : ( ruleTarget ) ;
+    public final void rule__Announcement__TargetsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -7534,13 +7534,13 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
             // InternalIf22.g:2483:2: ( ruleTarget )
             // InternalIf22.g:2484:3: ruleTarget
             {
-             before(grammarAccess.getAnnouncementAccess().getTargetTargetParserRuleCall_3_0()); 
+             before(grammarAccess.getAnnouncementAccess().getTargetsTargetParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
             ruleTarget();
 
             state._fsp--;
 
-             after(grammarAccess.getAnnouncementAccess().getTargetTargetParserRuleCall_3_0()); 
+             after(grammarAccess.getAnnouncementAccess().getTargetsTargetParserRuleCall_3_0()); 
 
             }
 
@@ -7559,7 +7559,7 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Announcement__TargetAssignment_3"
+    // $ANTLR end "rule__Announcement__TargetsAssignment_3"
 
 
     // $ANTLR start "rule__Question__NameAssignment_1"
@@ -7726,9 +7726,9 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Question__ReffedVarAssignment_5_1"
 
 
-    // $ANTLR start "rule__Question__TargetAssignment_6"
-    // InternalIf22.g:2557:1: rule__Question__TargetAssignment_6 : ( ruleTarget ) ;
-    public final void rule__Question__TargetAssignment_6() throws RecognitionException {
+    // $ANTLR start "rule__Question__TargetsAssignment_6"
+    // InternalIf22.g:2557:1: rule__Question__TargetsAssignment_6 : ( ruleTarget ) ;
+    public final void rule__Question__TargetsAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -7739,13 +7739,13 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
             // InternalIf22.g:2562:2: ( ruleTarget )
             // InternalIf22.g:2563:3: ruleTarget
             {
-             before(grammarAccess.getQuestionAccess().getTargetTargetParserRuleCall_6_0()); 
+             before(grammarAccess.getQuestionAccess().getTargetsTargetParserRuleCall_6_0()); 
             pushFollow(FOLLOW_2);
             ruleTarget();
 
             state._fsp--;
 
-             after(grammarAccess.getQuestionAccess().getTargetTargetParserRuleCall_6_0()); 
+             after(grammarAccess.getQuestionAccess().getTargetsTargetParserRuleCall_6_0()); 
 
             }
 
@@ -7764,7 +7764,7 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Question__TargetAssignment_6"
+    // $ANTLR end "rule__Question__TargetsAssignment_6"
 
 
     // $ANTLR start "rule__End__NameAssignment_1"

@@ -24,13 +24,13 @@
     </genClasses>
     <genClasses ecoreClass="If22.ecore#//Announcement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Announcement/exp"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Announcement/target"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Announcement/targets"/>
     </genClasses>
     <genClasses ecoreClass="If22.ecore#//Question">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Question/qString"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Question/qType"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference If22.ecore#//Question/reffedVar"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Question/target"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Question/targets"/>
     </genClasses>
     <genClasses ecoreClass="If22.ecore#//End">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//End/exp"/>
