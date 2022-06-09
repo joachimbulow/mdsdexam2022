@@ -29,6 +29,7 @@ import org.xtext.example.if22.if22.Target;
 import org.xtext.example.if22.if22.TextExp;
 import org.xtext.example.if22.if22.This;
 import org.xtext.example.if22.if22.Type;
+import org.xtext.example.if22.if22.VariableDefinition;
 
 /**
  * <!-- begin-user-doc -->
@@ -102,6 +103,11 @@ public class If22AdapterFactory extends AdapterFactoryImpl
       public Adapter caseScenario(Scenario object)
       {
         return createScenarioAdapter();
+      }
+      @Override
+      public Adapter caseVariableDefinition(VariableDefinition object)
+      {
+        return createVariableDefinitionAdapter();
       }
       @Override
       public Adapter caseStatement(Statement object)
@@ -236,6 +242,21 @@ public class If22AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createScenarioAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.VariableDefinition <em>Variable Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.if22.if22.VariableDefinition
+   * @generated
+   */
+  public Adapter createVariableDefinitionAdapter()
   {
     return null;
   }

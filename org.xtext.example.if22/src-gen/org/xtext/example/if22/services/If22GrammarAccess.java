@@ -9,6 +9,7 @@ import java.util.List;
 import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.CrossReference;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -61,17 +62,21 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cStatementsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cStatementsStatementParserRuleCall_3_0 = (RuleCall)cStatementsAssignment_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cVariableDefinitinosAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cVariableDefinitinosVariableDefinitionParserRuleCall_3_0 = (RuleCall)cVariableDefinitinosAssignment_3.eContents().get(0);
+		private final Assignment cStatementsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cStatementsStatementParserRuleCall_4_0 = (RuleCall)cStatementsAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Scenario:
 		//    'scenario' name=ID '{'
+		//    (variableDefinitinos+=VariableDefinition)*
 		//    (statements+=Statement)*
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'scenario' name=ID '{'
+		//(variableDefinitinos+=VariableDefinition)*
 		//(statements+=Statement)*
 		//'}'
 		public Group getGroup() { return cGroup; }
@@ -88,14 +93,56 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
+		//(variableDefinitinos+=VariableDefinition)*
+		public Assignment getVariableDefinitinosAssignment_3() { return cVariableDefinitinosAssignment_3; }
+		
+		//VariableDefinition
+		public RuleCall getVariableDefinitinosVariableDefinitionParserRuleCall_3_0() { return cVariableDefinitinosVariableDefinitionParserRuleCall_3_0; }
+		
 		//(statements+=Statement)*
-		public Assignment getStatementsAssignment_3() { return cStatementsAssignment_3; }
+		public Assignment getStatementsAssignment_4() { return cStatementsAssignment_4; }
 		
 		//Statement
-		public RuleCall getStatementsStatementParserRuleCall_3_0() { return cStatementsStatementParserRuleCall_3_0; }
+		public RuleCall getStatementsStatementParserRuleCall_4_0() { return cStatementsStatementParserRuleCall_4_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+	public class VariableDefinitionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.VariableDefinition");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cVarKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTypeTypeParserRuleCall_3_0 = (RuleCall)cTypeAssignment_3.eContents().get(0);
+		
+		//VariableDefinition:
+		//    'var' name=ID ':' type=Type
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'var' name=ID ':' type=Type
+		public Group getGroup() { return cGroup; }
+		
+		//'var'
+		public Keyword getVarKeyword_0() { return cVarKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//':'
+		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
+		
+		//type=Type
+		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
+		
+		//Type
+		public RuleCall getTypeTypeParserRuleCall_3_0() { return cTypeTypeParserRuleCall_3_0; }
 	}
 	public class StatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.Statement");
@@ -170,14 +217,20 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Keyword cAsKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cQTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cQTypeExpParserRuleCall_4_0 = (RuleCall)cQTypeAssignment_4.eContents().get(0);
-		private final Assignment cTargetAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cTargetTargetParserRuleCall_5_0 = (RuleCall)cTargetAssignment_5.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cInKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cReffedVarAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final CrossReference cReffedVarVariableDefinitionCrossReference_5_1_0 = (CrossReference)cReffedVarAssignment_5_1.eContents().get(0);
+		private final RuleCall cReffedVarVariableDefinitionIDTerminalRuleCall_5_1_0_1 = (RuleCall)cReffedVarVariableDefinitionCrossReference_5_1_0.eContents().get(1);
+		private final Assignment cTargetAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cTargetTargetParserRuleCall_6_0 = (RuleCall)cTargetAssignment_6.eContents().get(0);
 		
+		//// qType=Type instead?
 		//Question:
-		//    'question' name=ID qString=Exp 'as' qType=Exp (target+=Target)+;
+		//    'question' name=ID qString=Exp 'as' qType=Exp ('in' reffedVar=[VariableDefinition])? (target+=Target)+;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'question' name=ID qString=Exp 'as' qType=Exp (target+=Target)+
+		//'question' name=ID qString=Exp 'as' qType=Exp ('in' reffedVar=[VariableDefinition])? (target+=Target)+
 		public Group getGroup() { return cGroup; }
 		
 		//'question'
@@ -204,11 +257,26 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//Exp
 		public RuleCall getQTypeExpParserRuleCall_4_0() { return cQTypeExpParserRuleCall_4_0; }
 		
+		//('in' reffedVar=[VariableDefinition])?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'in'
+		public Keyword getInKeyword_5_0() { return cInKeyword_5_0; }
+		
+		//reffedVar=[VariableDefinition]
+		public Assignment getReffedVarAssignment_5_1() { return cReffedVarAssignment_5_1; }
+		
+		//[VariableDefinition]
+		public CrossReference getReffedVarVariableDefinitionCrossReference_5_1_0() { return cReffedVarVariableDefinitionCrossReference_5_1_0; }
+		
+		//ID
+		public RuleCall getReffedVarVariableDefinitionIDTerminalRuleCall_5_1_0_1() { return cReffedVarVariableDefinitionIDTerminalRuleCall_5_1_0_1; }
+		
 		//(target+=Target)+
-		public Assignment getTargetAssignment_5() { return cTargetAssignment_5; }
+		public Assignment getTargetAssignment_6() { return cTargetAssignment_6; }
 		
 		//Target
-		public RuleCall getTargetTargetParserRuleCall_5_0() { return cTargetTargetParserRuleCall_5_0; }
+		public RuleCall getTargetTargetParserRuleCall_6_0() { return cTargetTargetParserRuleCall_6_0; }
 	}
 	public class EndElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.End");
@@ -279,29 +347,6 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		
 		//Exp
 		public RuleCall getTargetCheckExpParserRuleCall_2_1_0() { return cTargetCheckExpParserRuleCall_2_1_0; }
-	}
-	public class TypeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.Type");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cBooleanKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cTextKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		private final Keyword cNumberKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
-		
-		//Type:
-		//    'boolean' | 'text' | 'number';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'boolean' | 'text' | 'number'
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//'boolean'
-		public Keyword getBooleanKeyword_0() { return cBooleanKeyword_0; }
-		
-		//'text'
-		public Keyword getTextKeyword_1() { return cTextKeyword_1; }
-		
-		//'number'
-		public Keyword getNumberKeyword_2() { return cNumberKeyword_2; }
 	}
 	public class ExpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.Exp");
@@ -556,19 +601,43 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//')'
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
 	}
+	public class TypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.Type");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cBooleanKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cTextKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cNumberKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		
+		//Type:
+		//    'boolean' | 'text' | 'number';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'boolean' | 'text' | 'number'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'boolean'
+		public Keyword getBooleanKeyword_0() { return cBooleanKeyword_0; }
+		
+		//'text'
+		public Keyword getTextKeyword_1() { return cTextKeyword_1; }
+		
+		//'number'
+		public Keyword getNumberKeyword_2() { return cNumberKeyword_2; }
+	}
 	
 	
 	private final ProgramElements pProgram;
 	private final ScenarioElements pScenario;
+	private final VariableDefinitionElements pVariableDefinition;
 	private final StatementElements pStatement;
 	private final AnnouncementElements pAnnouncement;
 	private final QuestionElements pQuestion;
 	private final EndElements pEnd;
 	private final TargetElements pTarget;
-	private final TypeElements pType;
 	private final ExpElements pExp;
 	private final PrimaryElements pPrimary;
 	private final ParenthesisElements pParenthesis;
+	private final TypeElements pType;
 	private final TerminalRule tBOOLEAN;
 	
 	private final Grammar grammar;
@@ -582,15 +651,16 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		this.gaTerminals = gaTerminals;
 		this.pProgram = new ProgramElements();
 		this.pScenario = new ScenarioElements();
+		this.pVariableDefinition = new VariableDefinitionElements();
 		this.pStatement = new StatementElements();
 		this.pAnnouncement = new AnnouncementElements();
 		this.pQuestion = new QuestionElements();
 		this.pEnd = new EndElements();
 		this.pTarget = new TargetElements();
-		this.pType = new TypeElements();
 		this.pExp = new ExpElements();
 		this.pPrimary = new PrimaryElements();
 		this.pParenthesis = new ParenthesisElements();
+		this.pType = new TypeElements();
 		this.tBOOLEAN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.BOOLEAN");
 	}
 	
@@ -633,6 +703,7 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	
 	//Scenario:
 	//    'scenario' name=ID '{'
+	//    (variableDefinitinos+=VariableDefinition)*
 	//    (statements+=Statement)*
 	//    '}';
 	public ScenarioElements getScenarioAccess() {
@@ -641,6 +712,17 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	
 	public ParserRule getScenarioRule() {
 		return getScenarioAccess().getRule();
+	}
+	
+	//VariableDefinition:
+	//    'var' name=ID ':' type=Type
+	//;
+	public VariableDefinitionElements getVariableDefinitionAccess() {
+		return pVariableDefinition;
+	}
+	
+	public ParserRule getVariableDefinitionRule() {
+		return getVariableDefinitionAccess().getRule();
 	}
 	
 	//Statement:
@@ -663,8 +745,9 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		return getAnnouncementAccess().getRule();
 	}
 	
+	//// qType=Type instead?
 	//Question:
-	//    'question' name=ID qString=Exp 'as' qType=Exp (target+=Target)+;
+	//    'question' name=ID qString=Exp 'as' qType=Exp ('in' reffedVar=[VariableDefinition])? (target+=Target)+;
 	public QuestionElements getQuestionAccess() {
 		return pQuestion;
 	}
@@ -691,16 +774,6 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	
 	public ParserRule getTargetRule() {
 		return getTargetAccess().getRule();
-	}
-	
-	//Type:
-	//    'boolean' | 'text' | 'number';
-	public TypeElements getTypeAccess() {
-		return pType;
-	}
-	
-	public ParserRule getTypeRule() {
-		return getTypeAccess().getRule();
 	}
 	
 	//Exp returns Expression:
@@ -736,6 +809,16 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	
 	public ParserRule getParenthesisRule() {
 		return getParenthesisAccess().getRule();
+	}
+	
+	//Type:
+	//    'boolean' | 'text' | 'number';
+	public TypeElements getTypeAccess() {
+		return pType;
+	}
+	
+	public ParserRule getTypeRule() {
+		return getTypeAccess().getRule();
 	}
 	
 	//terminal BOOLEAN:

@@ -114,13 +114,22 @@ public interface If22Package extends EPackage
   int SCENARIO__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Variable Definitinos</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCENARIO__VARIABLE_DEFINITINOS = 1;
+
+  /**
    * The feature id for the '<em><b>Statements</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SCENARIO__STATEMENTS = 1;
+  int SCENARIO__STATEMENTS = 2;
 
   /**
    * The number of structural features of the '<em>Scenario</em>' class.
@@ -129,7 +138,44 @@ public interface If22Package extends EPackage
    * @generated
    * @ordered
    */
-  int SCENARIO_FEATURE_COUNT = 2;
+  int SCENARIO_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.if22.if22.impl.VariableDefinitionImpl <em>Variable Definition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.if22.if22.impl.VariableDefinitionImpl
+   * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getVariableDefinition()
+   * @generated
+   */
+  int VARIABLE_DEFINITION = 2;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_DEFINITION__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_DEFINITION__TYPE = 1;
+
+  /**
+   * The number of structural features of the '<em>Variable Definition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_DEFINITION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.if22.if22.impl.StatementImpl <em>Statement</em>}' class.
@@ -139,7 +185,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getStatement()
    * @generated
    */
-  int STATEMENT = 2;
+  int STATEMENT = 3;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -167,7 +213,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getAnnouncement()
    * @generated
    */
-  int ANNOUNCEMENT = 3;
+  int ANNOUNCEMENT = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -213,7 +259,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getQuestion()
    * @generated
    */
-  int QUESTION = 4;
+  int QUESTION = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -243,13 +289,22 @@ public interface If22Package extends EPackage
   int QUESTION__QTYPE = STATEMENT_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Reffed Var</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int QUESTION__REFFED_VAR = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
    * The feature id for the '<em><b>Target</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int QUESTION__TARGET = STATEMENT_FEATURE_COUNT + 2;
+  int QUESTION__TARGET = STATEMENT_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Question</em>' class.
@@ -258,7 +313,7 @@ public interface If22Package extends EPackage
    * @generated
    * @ordered
    */
-  int QUESTION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
+  int QUESTION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link org.xtext.example.if22.if22.impl.EndImpl <em>End</em>}' class.
@@ -268,7 +323,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getEnd()
    * @generated
    */
-  int END = 5;
+  int END = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -305,7 +360,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTarget()
    * @generated
    */
-  int TARGET = 6;
+  int TARGET = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -342,7 +397,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 7;
+  int EXPRESSION = 8;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -361,7 +416,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getExp()
    * @generated
    */
-  int EXP = 8;
+  int EXP = 9;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -389,7 +444,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getLogic()
    * @generated
    */
-  int LOGIC = 9;
+  int LOGIC = 10;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -426,7 +481,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getMath()
    * @generated
    */
-  int MATH = 10;
+  int MATH = 11;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -463,7 +518,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTextExp()
    * @generated
    */
-  int TEXT_EXP = 11;
+  int TEXT_EXP = 12;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -500,7 +555,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getType()
    * @generated
    */
-  int TYPE = 12;
+  int TYPE = 13;
 
   /**
    * The number of structural features of the '<em>Type</em>' class.
@@ -519,7 +574,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getThis()
    * @generated
    */
-  int THIS = 13;
+  int THIS = 14;
 
   /**
    * The number of structural features of the '<em>This</em>' class.
@@ -538,7 +593,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getEXPSTRING()
    * @generated
    */
-  int EXPSTRING = 14;
+  int EXPSTRING = 15;
 
   /**
    * The number of structural features of the '<em>EXPSTRING</em>' class.
@@ -557,7 +612,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getEXPINT()
    * @generated
    */
-  int EXPINT = 15;
+  int EXPINT = 16;
 
   /**
    * The number of structural features of the '<em>EXPINT</em>' class.
@@ -576,7 +631,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getEXPBOOL()
    * @generated
    */
-  int EXPBOOL = 16;
+  int EXPBOOL = 17;
 
   /**
    * The number of structural features of the '<em>EXPBOOL</em>' class.
@@ -595,7 +650,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getID()
    * @generated
    */
-  int ID = 17;
+  int ID = 18;
 
   /**
    * The number of structural features of the '<em>ID</em>' class.
@@ -614,7 +669,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getParenthesis()
    * @generated
    */
-  int PARENTHESIS = 18;
+  int PARENTHESIS = 19;
 
   /**
    * The feature id for the '<em><b>Exp</b></em>' containment reference.
@@ -689,6 +744,17 @@ public interface If22Package extends EPackage
   EAttribute getScenario_Name();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.if22.if22.Scenario#getVariableDefinitinos <em>Variable Definitinos</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Variable Definitinos</em>'.
+   * @see org.xtext.example.if22.if22.Scenario#getVariableDefinitinos()
+   * @see #getScenario()
+   * @generated
+   */
+  EReference getScenario_VariableDefinitinos();
+
+  /**
    * Returns the meta object for the containment reference list '{@link org.xtext.example.if22.if22.Scenario#getStatements <em>Statements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -698,6 +764,38 @@ public interface If22Package extends EPackage
    * @generated
    */
   EReference getScenario_Statements();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.if22.if22.VariableDefinition <em>Variable Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Variable Definition</em>'.
+   * @see org.xtext.example.if22.if22.VariableDefinition
+   * @generated
+   */
+  EClass getVariableDefinition();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.if22.if22.VariableDefinition#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.if22.if22.VariableDefinition#getName()
+   * @see #getVariableDefinition()
+   * @generated
+   */
+  EAttribute getVariableDefinition_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.if22.if22.VariableDefinition#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see org.xtext.example.if22.if22.VariableDefinition#getType()
+   * @see #getVariableDefinition()
+   * @generated
+   */
+  EAttribute getVariableDefinition_Type();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.if22.if22.Statement <em>Statement</em>}'.
@@ -783,6 +881,17 @@ public interface If22Package extends EPackage
    * @generated
    */
   EReference getQuestion_QType();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.example.if22.if22.Question#getReffedVar <em>Reffed Var</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Reffed Var</em>'.
+   * @see org.xtext.example.if22.if22.Question#getReffedVar()
+   * @see #getQuestion()
+   * @generated
+   */
+  EReference getQuestion_ReffedVar();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.xtext.example.if22.if22.Question#getTarget <em>Target</em>}'.
@@ -1124,12 +1233,46 @@ public interface If22Package extends EPackage
     EAttribute SCENARIO__NAME = eINSTANCE.getScenario_Name();
 
     /**
+     * The meta object literal for the '<em><b>Variable Definitinos</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCENARIO__VARIABLE_DEFINITINOS = eINSTANCE.getScenario_VariableDefinitinos();
+
+    /**
      * The meta object literal for the '<em><b>Statements</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference SCENARIO__STATEMENTS = eINSTANCE.getScenario_Statements();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.VariableDefinitionImpl <em>Variable Definition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.if22.if22.impl.VariableDefinitionImpl
+     * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getVariableDefinition()
+     * @generated
+     */
+    EClass VARIABLE_DEFINITION = eINSTANCE.getVariableDefinition();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VARIABLE_DEFINITION__NAME = eINSTANCE.getVariableDefinition_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VARIABLE_DEFINITION__TYPE = eINSTANCE.getVariableDefinition_Type();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.StatementImpl <em>Statement</em>}' class.
@@ -1200,6 +1343,14 @@ public interface If22Package extends EPackage
      * @generated
      */
     EReference QUESTION__QTYPE = eINSTANCE.getQuestion_QType();
+
+    /**
+     * The meta object literal for the '<em><b>Reffed Var</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference QUESTION__REFFED_VAR = eINSTANCE.getQuestion_ReffedVar();
 
     /**
      * The meta object literal for the '<em><b>Target</b></em>' containment reference list feature.

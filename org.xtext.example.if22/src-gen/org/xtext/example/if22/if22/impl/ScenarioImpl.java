@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.xtext.example.if22.if22.If22Package;
 import org.xtext.example.if22.if22.Scenario;
 import org.xtext.example.if22.if22.Statement;
+import org.xtext.example.if22.if22.VariableDefinition;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +33,7 @@ import org.xtext.example.if22.if22.Statement;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.if22.if22.impl.ScenarioImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.if22.if22.impl.ScenarioImpl#getVariableDefinitinos <em>Variable Definitinos</em>}</li>
  *   <li>{@link org.xtext.example.if22.if22.impl.ScenarioImpl#getStatements <em>Statements</em>}</li>
  * </ul>
  *
@@ -58,6 +60,16 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getVariableDefinitinos() <em>Variable Definitinos</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVariableDefinitinos()
+   * @generated
+   * @ordered
+   */
+  protected EList<VariableDefinition> variableDefinitinos;
 
   /**
    * The cached value of the '{@link #getStatements() <em>Statements</em>}' containment reference list.
@@ -121,6 +133,21 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
    * @generated
    */
   @Override
+  public EList<VariableDefinition> getVariableDefinitinos()
+  {
+    if (variableDefinitinos == null)
+    {
+      variableDefinitinos = new EObjectContainmentEList<VariableDefinition>(VariableDefinition.class, this, If22Package.SCENARIO__VARIABLE_DEFINITINOS);
+    }
+    return variableDefinitinos;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<Statement> getStatements()
   {
     if (statements == null)
@@ -140,6 +167,8 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
   {
     switch (featureID)
     {
+      case If22Package.SCENARIO__VARIABLE_DEFINITINOS:
+        return ((InternalEList<?>)getVariableDefinitinos()).basicRemove(otherEnd, msgs);
       case If22Package.SCENARIO__STATEMENTS:
         return ((InternalEList<?>)getStatements()).basicRemove(otherEnd, msgs);
     }
@@ -158,6 +187,8 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
     {
       case If22Package.SCENARIO__NAME:
         return getName();
+      case If22Package.SCENARIO__VARIABLE_DEFINITINOS:
+        return getVariableDefinitinos();
       case If22Package.SCENARIO__STATEMENTS:
         return getStatements();
     }
@@ -177,6 +208,10 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
     {
       case If22Package.SCENARIO__NAME:
         setName((String)newValue);
+        return;
+      case If22Package.SCENARIO__VARIABLE_DEFINITINOS:
+        getVariableDefinitinos().clear();
+        getVariableDefinitinos().addAll((Collection<? extends VariableDefinition>)newValue);
         return;
       case If22Package.SCENARIO__STATEMENTS:
         getStatements().clear();
@@ -199,6 +234,9 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
       case If22Package.SCENARIO__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case If22Package.SCENARIO__VARIABLE_DEFINITINOS:
+        getVariableDefinitinos().clear();
+        return;
       case If22Package.SCENARIO__STATEMENTS:
         getStatements().clear();
         return;
@@ -218,6 +256,8 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
     {
       case If22Package.SCENARIO__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case If22Package.SCENARIO__VARIABLE_DEFINITINOS:
+        return variableDefinitinos != null && !variableDefinitinos.isEmpty();
       case If22Package.SCENARIO__STATEMENTS:
         return statements != null && !statements.isEmpty();
     }

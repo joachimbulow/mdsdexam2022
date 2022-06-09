@@ -12,7 +12,12 @@
     </genClasses>
     <genClasses ecoreClass="If22.ecore#//Scenario">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//Scenario/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Scenario/variableDefinitinos"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Scenario/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="If22.ecore#//VariableDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//VariableDefinition/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//VariableDefinition/type"/>
     </genClasses>
     <genClasses ecoreClass="If22.ecore#//Statement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//Statement/name"/>
@@ -24,6 +29,7 @@
     <genClasses ecoreClass="If22.ecore#//Question">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Question/qString"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Question/qType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference If22.ecore#//Question/reffedVar"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Question/target"/>
     </genClasses>
     <genClasses ecoreClass="If22.ecore#//End">

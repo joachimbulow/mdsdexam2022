@@ -22,6 +22,7 @@ import org.xtext.example.if22.if22.Expression;
 import org.xtext.example.if22.if22.If22Package;
 import org.xtext.example.if22.if22.Question;
 import org.xtext.example.if22.if22.Target;
+import org.xtext.example.if22.if22.VariableDefinition;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,6 +34,7 @@ import org.xtext.example.if22.if22.Target;
  * <ul>
  *   <li>{@link org.xtext.example.if22.if22.impl.QuestionImpl#getQString <em>QString</em>}</li>
  *   <li>{@link org.xtext.example.if22.if22.impl.QuestionImpl#getQType <em>QType</em>}</li>
+ *   <li>{@link org.xtext.example.if22.if22.impl.QuestionImpl#getReffedVar <em>Reffed Var</em>}</li>
  *   <li>{@link org.xtext.example.if22.if22.impl.QuestionImpl#getTarget <em>Target</em>}</li>
  * </ul>
  *
@@ -59,6 +61,16 @@ public class QuestionImpl extends StatementImpl implements Question
    * @ordered
    */
   protected Expression qType;
+
+  /**
+   * The cached value of the '{@link #getReffedVar() <em>Reffed Var</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getReffedVar()
+   * @generated
+   * @ordered
+   */
+  protected VariableDefinition reffedVar;
 
   /**
    * The cached value of the '{@link #getTarget() <em>Target</em>}' containment reference list.
@@ -197,6 +209,51 @@ public class QuestionImpl extends StatementImpl implements Question
    * @generated
    */
   @Override
+  public VariableDefinition getReffedVar()
+  {
+    if (reffedVar != null && reffedVar.eIsProxy())
+    {
+      InternalEObject oldReffedVar = (InternalEObject)reffedVar;
+      reffedVar = (VariableDefinition)eResolveProxy(oldReffedVar);
+      if (reffedVar != oldReffedVar)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, If22Package.QUESTION__REFFED_VAR, oldReffedVar, reffedVar));
+      }
+    }
+    return reffedVar;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public VariableDefinition basicGetReffedVar()
+  {
+    return reffedVar;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setReffedVar(VariableDefinition newReffedVar)
+  {
+    VariableDefinition oldReffedVar = reffedVar;
+    reffedVar = newReffedVar;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, If22Package.QUESTION__REFFED_VAR, oldReffedVar, reffedVar));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<Target> getTarget()
   {
     if (target == null)
@@ -240,6 +297,9 @@ public class QuestionImpl extends StatementImpl implements Question
         return getQString();
       case If22Package.QUESTION__QTYPE:
         return getQType();
+      case If22Package.QUESTION__REFFED_VAR:
+        if (resolve) return getReffedVar();
+        return basicGetReffedVar();
       case If22Package.QUESTION__TARGET:
         return getTarget();
     }
@@ -262,6 +322,9 @@ public class QuestionImpl extends StatementImpl implements Question
         return;
       case If22Package.QUESTION__QTYPE:
         setQType((Expression)newValue);
+        return;
+      case If22Package.QUESTION__REFFED_VAR:
+        setReffedVar((VariableDefinition)newValue);
         return;
       case If22Package.QUESTION__TARGET:
         getTarget().clear();
@@ -287,6 +350,9 @@ public class QuestionImpl extends StatementImpl implements Question
       case If22Package.QUESTION__QTYPE:
         setQType((Expression)null);
         return;
+      case If22Package.QUESTION__REFFED_VAR:
+        setReffedVar((VariableDefinition)null);
+        return;
       case If22Package.QUESTION__TARGET:
         getTarget().clear();
         return;
@@ -308,6 +374,8 @@ public class QuestionImpl extends StatementImpl implements Question
         return qString != null;
       case If22Package.QUESTION__QTYPE:
         return qType != null;
+      case If22Package.QUESTION__REFFED_VAR:
+        return reffedVar != null;
       case If22Package.QUESTION__TARGET:
         return target != null && !target.isEmpty();
     }

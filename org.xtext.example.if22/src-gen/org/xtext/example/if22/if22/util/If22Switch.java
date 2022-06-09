@@ -27,6 +27,7 @@ import org.xtext.example.if22.if22.Target;
 import org.xtext.example.if22.if22.TextExp;
 import org.xtext.example.if22.if22.This;
 import org.xtext.example.if22.if22.Type;
+import org.xtext.example.if22.if22.VariableDefinition;
 
 /**
  * <!-- begin-user-doc -->
@@ -102,6 +103,13 @@ public class If22Switch<T> extends Switch<T>
       {
         Scenario scenario = (Scenario)theEObject;
         T result = caseScenario(scenario);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case If22Package.VARIABLE_DEFINITION:
+      {
+        VariableDefinition variableDefinition = (VariableDefinition)theEObject;
+        T result = caseVariableDefinition(variableDefinition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -270,6 +278,22 @@ public class If22Switch<T> extends Switch<T>
    * @generated
    */
   public T caseScenario(Scenario object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Variable Definition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Variable Definition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVariableDefinition(VariableDefinition object)
   {
     return null;
   }

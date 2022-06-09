@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.if22.if22.Scenario#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.if22.if22.Scenario#getVariableDefinitinos <em>Variable Definitinos</em>}</li>
  *   <li>{@link org.xtext.example.if22.if22.Scenario#getStatements <em>Statements</em>}</li>
  * </ul>
  *
@@ -47,6 +48,18 @@ public interface Scenario extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Variable Definitinos</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.if22.if22.VariableDefinition}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Variable Definitinos</em>' containment reference list.
+   * @see org.xtext.example.if22.if22.If22Package#getScenario_VariableDefinitinos()
+   * @model containment="true"
+   * @generated
+   */
+  EList<VariableDefinition> getVariableDefinitinos();
 
   /**
    * Returns the value of the '<em><b>Statements</b></em>' containment reference list.

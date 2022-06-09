@@ -31,6 +31,7 @@ import org.xtext.example.if22.if22.Target;
 import org.xtext.example.if22.if22.TextExp;
 import org.xtext.example.if22.if22.This;
 import org.xtext.example.if22.if22.Type;
+import org.xtext.example.if22.if22.VariableDefinition;
 
 /**
  * <!-- begin-user-doc -->
@@ -86,6 +87,7 @@ public class If22FactoryImpl extends EFactoryImpl implements If22Factory
     {
       case If22Package.PROGRAM: return createProgram();
       case If22Package.SCENARIO: return createScenario();
+      case If22Package.VARIABLE_DEFINITION: return createVariableDefinition();
       case If22Package.STATEMENT: return createStatement();
       case If22Package.ANNOUNCEMENT: return createAnnouncement();
       case If22Package.QUESTION: return createQuestion();
@@ -130,6 +132,18 @@ public class If22FactoryImpl extends EFactoryImpl implements If22Factory
   {
     ScenarioImpl scenario = new ScenarioImpl();
     return scenario;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public VariableDefinition createVariableDefinition()
+  {
+    VariableDefinitionImpl variableDefinition = new VariableDefinitionImpl();
+    return variableDefinition;
   }
 
   /**

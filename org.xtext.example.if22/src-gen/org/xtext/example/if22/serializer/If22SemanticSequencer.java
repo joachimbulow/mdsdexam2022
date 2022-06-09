@@ -31,6 +31,7 @@ import org.xtext.example.if22.if22.Target;
 import org.xtext.example.if22.if22.TextExp;
 import org.xtext.example.if22.if22.This;
 import org.xtext.example.if22.if22.Type;
+import org.xtext.example.if22.if22.VariableDefinition;
 import org.xtext.example.if22.services.If22GrammarAccess;
 
 @SuppressWarnings("all")
@@ -97,6 +98,9 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case If22Package.TYPE:
 				sequence_Primary(context, (Type) semanticObject); 
+				return; 
+			case If22Package.VARIABLE_DEFINITION:
+				sequence_VariableDefinition(context, (VariableDefinition) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -360,7 +364,7 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Question returns Question
 	 *
 	 * Constraint:
-	 *     (name=ID qString=Exp qType=Exp target+=Target+)
+	 *     (name=ID qString=Exp qType=Exp reffedVar=[VariableDefinition|ID]? target+=Target+)
 	 * </pre>
 	 */
 	protected void sequence_Question(ISerializationContext context, Question semanticObject) {
@@ -374,7 +378,7 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Scenario returns Scenario
 	 *
 	 * Constraint:
-	 *     (name=ID statements+=Statement*)
+	 *     (name=ID variableDefinitinos+=VariableDefinition* statements+=Statement*)
 	 * </pre>
 	 */
 	protected void sequence_Scenario(ISerializationContext context, Scenario semanticObject) {
@@ -393,6 +397,29 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_Target(ISerializationContext context, Target semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     VariableDefinition returns VariableDefinition
+	 *
+	 * Constraint:
+	 *     (name=ID type=Type)
+	 * </pre>
+	 */
+	protected void sequence_VariableDefinition(ISerializationContext context, VariableDefinition semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.VARIABLE_DEFINITION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.VARIABLE_DEFINITION__NAME));
+			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.VARIABLE_DEFINITION__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.VARIABLE_DEFINITION__TYPE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getVariableDefinitionAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getVariableDefinitionAccess().getTypeTypeParserRuleCall_3_0(), semanticObject.getType());
+		feeder.finish();
 	}
 	
 	

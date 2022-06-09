@@ -32,15 +32,17 @@ public class If22Parser extends AbstractContentAssistParser {
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, If22GrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getStatementAccess().getAlternatives(), "rule__Statement__Alternatives");
-			builder.put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
 			builder.put(grammarAccess.getExpAccess().getAlternatives_2_0(), "rule__Exp__Alternatives_2_0");
 			builder.put(grammarAccess.getExpAccess().getAlternatives_2_0_0_1(), "rule__Exp__Alternatives_2_0_0_1");
 			builder.put(grammarAccess.getExpAccess().getAlternatives_2_0_1_1(), "rule__Exp__Alternatives_2_0_1_1");
 			builder.put(grammarAccess.getPrimaryAccess().getAlternatives(), "rule__Primary__Alternatives");
+			builder.put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
 			builder.put(grammarAccess.getProgramAccess().getGroup(), "rule__Program__Group__0");
 			builder.put(grammarAccess.getScenarioAccess().getGroup(), "rule__Scenario__Group__0");
+			builder.put(grammarAccess.getVariableDefinitionAccess().getGroup(), "rule__VariableDefinition__Group__0");
 			builder.put(grammarAccess.getAnnouncementAccess().getGroup(), "rule__Announcement__Group__0");
 			builder.put(grammarAccess.getQuestionAccess().getGroup(), "rule__Question__Group__0");
+			builder.put(grammarAccess.getQuestionAccess().getGroup_5(), "rule__Question__Group_5__0");
 			builder.put(grammarAccess.getEndAccess().getGroup(), "rule__End__Group__0");
 			builder.put(grammarAccess.getTargetAccess().getGroup(), "rule__Target__Group__0");
 			builder.put(grammarAccess.getTargetAccess().getGroup_2(), "rule__Target__Group_2__0");
@@ -59,14 +61,18 @@ public class If22Parser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getProgramAccess().getNameAssignment_1(), "rule__Program__NameAssignment_1");
 			builder.put(grammarAccess.getProgramAccess().getScenariosAssignment_2(), "rule__Program__ScenariosAssignment_2");
 			builder.put(grammarAccess.getScenarioAccess().getNameAssignment_1(), "rule__Scenario__NameAssignment_1");
-			builder.put(grammarAccess.getScenarioAccess().getStatementsAssignment_3(), "rule__Scenario__StatementsAssignment_3");
+			builder.put(grammarAccess.getScenarioAccess().getVariableDefinitinosAssignment_3(), "rule__Scenario__VariableDefinitinosAssignment_3");
+			builder.put(grammarAccess.getScenarioAccess().getStatementsAssignment_4(), "rule__Scenario__StatementsAssignment_4");
+			builder.put(grammarAccess.getVariableDefinitionAccess().getNameAssignment_1(), "rule__VariableDefinition__NameAssignment_1");
+			builder.put(grammarAccess.getVariableDefinitionAccess().getTypeAssignment_3(), "rule__VariableDefinition__TypeAssignment_3");
 			builder.put(grammarAccess.getAnnouncementAccess().getNameAssignment_1(), "rule__Announcement__NameAssignment_1");
 			builder.put(grammarAccess.getAnnouncementAccess().getExpAssignment_2(), "rule__Announcement__ExpAssignment_2");
 			builder.put(grammarAccess.getAnnouncementAccess().getTargetAssignment_3(), "rule__Announcement__TargetAssignment_3");
 			builder.put(grammarAccess.getQuestionAccess().getNameAssignment_1(), "rule__Question__NameAssignment_1");
 			builder.put(grammarAccess.getQuestionAccess().getQStringAssignment_2(), "rule__Question__QStringAssignment_2");
 			builder.put(grammarAccess.getQuestionAccess().getQTypeAssignment_4(), "rule__Question__QTypeAssignment_4");
-			builder.put(grammarAccess.getQuestionAccess().getTargetAssignment_5(), "rule__Question__TargetAssignment_5");
+			builder.put(grammarAccess.getQuestionAccess().getReffedVarAssignment_5_1(), "rule__Question__ReffedVarAssignment_5_1");
+			builder.put(grammarAccess.getQuestionAccess().getTargetAssignment_6(), "rule__Question__TargetAssignment_6");
 			builder.put(grammarAccess.getEndAccess().getNameAssignment_1(), "rule__End__NameAssignment_1");
 			builder.put(grammarAccess.getEndAccess().getExpAssignment_2(), "rule__End__ExpAssignment_2");
 			builder.put(grammarAccess.getTargetAccess().getNameAssignment_1(), "rule__Target__NameAssignment_1");
