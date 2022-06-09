@@ -3,20 +3,92 @@
  */
 package org.xtext.example.if22.if22.impl;
 
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.if22.if22.If22Package;
 import org.xtext.example.if22.if22.Question;
+import org.xtext.example.if22.if22.Target;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Question</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.if22.if22.impl.QuestionImpl#getQString <em>QString</em>}</li>
+ *   <li>{@link org.xtext.example.if22.if22.impl.QuestionImpl#getQType <em>QType</em>}</li>
+ *   <li>{@link org.xtext.example.if22.if22.impl.QuestionImpl#getTarget <em>Target</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class QuestionImpl extends StatementImpl implements Question
 {
+  /**
+   * The default value of the '{@link #getQString() <em>QString</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getQString()
+   * @generated
+   * @ordered
+   */
+  protected static final String QSTRING_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getQString() <em>QString</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getQString()
+   * @generated
+   * @ordered
+   */
+  protected String qString = QSTRING_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getQType() <em>QType</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getQType()
+   * @generated
+   * @ordered
+   */
+  protected static final String QTYPE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getQType() <em>QType</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getQType()
+   * @generated
+   * @ordered
+   */
+  protected String qType = QTYPE_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getTarget() <em>Target</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTarget()
+   * @generated
+   * @ordered
+   */
+  protected EList<Target> target;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +108,194 @@ public class QuestionImpl extends StatementImpl implements Question
   protected EClass eStaticClass()
   {
     return If22Package.Literals.QUESTION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getQString()
+  {
+    return qString;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setQString(String newQString)
+  {
+    String oldQString = qString;
+    qString = newQString;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, If22Package.QUESTION__QSTRING, oldQString, qString));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getQType()
+  {
+    return qType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setQType(String newQType)
+  {
+    String oldQType = qType;
+    qType = newQType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, If22Package.QUESTION__QTYPE, oldQType, qType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<Target> getTarget()
+  {
+    if (target == null)
+    {
+      target = new EObjectContainmentEList<Target>(Target.class, this, If22Package.QUESTION__TARGET);
+    }
+    return target;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case If22Package.QUESTION__TARGET:
+        return ((InternalEList<?>)getTarget()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case If22Package.QUESTION__QSTRING:
+        return getQString();
+      case If22Package.QUESTION__QTYPE:
+        return getQType();
+      case If22Package.QUESTION__TARGET:
+        return getTarget();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case If22Package.QUESTION__QSTRING:
+        setQString((String)newValue);
+        return;
+      case If22Package.QUESTION__QTYPE:
+        setQType((String)newValue);
+        return;
+      case If22Package.QUESTION__TARGET:
+        getTarget().clear();
+        getTarget().addAll((Collection<? extends Target>)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case If22Package.QUESTION__QSTRING:
+        setQString(QSTRING_EDEFAULT);
+        return;
+      case If22Package.QUESTION__QTYPE:
+        setQType(QTYPE_EDEFAULT);
+        return;
+      case If22Package.QUESTION__TARGET:
+        getTarget().clear();
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case If22Package.QUESTION__QSTRING:
+        return QSTRING_EDEFAULT == null ? qString != null : !QSTRING_EDEFAULT.equals(qString);
+      case If22Package.QUESTION__QTYPE:
+        return QTYPE_EDEFAULT == null ? qType != null : !QTYPE_EDEFAULT.equals(qType);
+      case If22Package.QUESTION__TARGET:
+        return target != null && !target.isEmpty();
+    }
+    return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (qString: ");
+    result.append(qString);
+    result.append(", qType: ");
+    result.append(qType);
+    result.append(')');
+    return result.toString();
   }
 
 } //QuestionImpl

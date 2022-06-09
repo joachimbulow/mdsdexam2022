@@ -67,7 +67,7 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Announcement returns Announcement
 	 *
 	 * Constraint:
-	 *     (name=ID target+=Target+)
+	 *     (name=ID exp=Exp target+=Target+)
 	 * </pre>
 	 */
 	protected void sequence_Announcement(ISerializationContext context, Announcement semanticObject) {
@@ -111,17 +111,11 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Question returns Question
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID qString=Exp qType=Exp target+=Target+)
 	 * </pre>
 	 */
 	protected void sequence_Question(ISerializationContext context, Question semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.STATEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.STATEMENT__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getQuestionAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

@@ -274,9 +274,28 @@ ruleAnnouncement returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAnnouncementAccess().getTargetTargetParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getAnnouncementAccess().getExpExpParserRuleCall_2_0());
 				}
-				lv_target_2_0=ruleTarget
+				lv_exp_2_0=ruleExp
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAnnouncementRule());
+					}
+					set(
+						$current,
+						"exp",
+						lv_exp_2_0,
+						"org.xtext.example.if22.If22.Exp");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAnnouncementAccess().getTargetTargetParserRuleCall_3_0());
+				}
+				lv_target_3_0=ruleTarget
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAnnouncementRule());
@@ -284,7 +303,7 @@ ruleAnnouncement returns [EObject current=null]
 					add(
 						$current,
 						"target",
-						lv_target_2_0,
+						lv_target_3_0,
 						"org.xtext.example.if22.If22.Target");
 					afterParserOrEnumRuleCall();
 				}
@@ -331,6 +350,67 @@ ruleQuestion returns [EObject current=null]
 				}
 			)
 		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getQuestionAccess().getQStringExpParserRuleCall_2_0());
+				}
+				lv_qString_2_0=ruleExp
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getQuestionRule());
+					}
+					set(
+						$current,
+						"qString",
+						lv_qString_2_0,
+						"org.xtext.example.if22.If22.Exp");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_3='as'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getQuestionAccess().getAsKeyword_3());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getQuestionAccess().getQTypeExpParserRuleCall_4_0());
+				}
+				lv_qType_4_0=ruleExp
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getQuestionRule());
+					}
+					set(
+						$current,
+						"qType",
+						lv_qType_4_0,
+						"org.xtext.example.if22.If22.Exp");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getQuestionAccess().getTargetTargetParserRuleCall_5_0());
+				}
+				lv_target_5_0=ruleTarget
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getQuestionRule());
+					}
+					add(
+						$current,
+						"target",
+						lv_target_5_0,
+						"org.xtext.example.if22.If22.Target");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)+
 	)
 ;
 

@@ -179,13 +179,22 @@ public interface If22Package extends EPackage
   int ANNOUNCEMENT__NAME = STATEMENT__NAME;
 
   /**
+   * The feature id for the '<em><b>Exp</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ANNOUNCEMENT__EXP = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Target</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ANNOUNCEMENT__TARGET = STATEMENT_FEATURE_COUNT + 0;
+  int ANNOUNCEMENT__TARGET = STATEMENT_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Announcement</em>' class.
@@ -194,7 +203,7 @@ public interface If22Package extends EPackage
    * @generated
    * @ordered
    */
-  int ANNOUNCEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int ANNOUNCEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.if22.if22.impl.QuestionImpl <em>Question</em>}' class.
@@ -216,13 +225,40 @@ public interface If22Package extends EPackage
   int QUESTION__NAME = STATEMENT__NAME;
 
   /**
+   * The feature id for the '<em><b>QString</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int QUESTION__QSTRING = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>QType</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int QUESTION__QTYPE = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Target</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int QUESTION__TARGET = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Question</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int QUESTION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
+  int QUESTION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.if22.if22.impl.EndImpl <em>End</em>}' class.
@@ -386,6 +422,17 @@ public interface If22Package extends EPackage
   EClass getAnnouncement();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.if22.if22.Announcement#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Exp</em>'.
+   * @see org.xtext.example.if22.if22.Announcement#getExp()
+   * @see #getAnnouncement()
+   * @generated
+   */
+  EAttribute getAnnouncement_Exp();
+
+  /**
    * Returns the meta object for the containment reference list '{@link org.xtext.example.if22.if22.Announcement#getTarget <em>Target</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -405,6 +452,39 @@ public interface If22Package extends EPackage
    * @generated
    */
   EClass getQuestion();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.if22.if22.Question#getQString <em>QString</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>QString</em>'.
+   * @see org.xtext.example.if22.if22.Question#getQString()
+   * @see #getQuestion()
+   * @generated
+   */
+  EAttribute getQuestion_QString();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.if22.if22.Question#getQType <em>QType</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>QType</em>'.
+   * @see org.xtext.example.if22.if22.Question#getQType()
+   * @see #getQuestion()
+   * @generated
+   */
+  EAttribute getQuestion_QType();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.if22.if22.Question#getTarget <em>Target</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Target</em>'.
+   * @see org.xtext.example.if22.if22.Question#getTarget()
+   * @see #getQuestion()
+   * @generated
+   */
+  EReference getQuestion_Target();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.if22.if22.End <em>End</em>}'.
@@ -552,6 +632,14 @@ public interface If22Package extends EPackage
     EClass ANNOUNCEMENT = eINSTANCE.getAnnouncement();
 
     /**
+     * The meta object literal for the '<em><b>Exp</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ANNOUNCEMENT__EXP = eINSTANCE.getAnnouncement_Exp();
+
+    /**
      * The meta object literal for the '<em><b>Target</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -568,6 +656,30 @@ public interface If22Package extends EPackage
      * @generated
      */
     EClass QUESTION = eINSTANCE.getQuestion();
+
+    /**
+     * The meta object literal for the '<em><b>QString</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute QUESTION__QSTRING = eINSTANCE.getQuestion_QString();
+
+    /**
+     * The meta object literal for the '<em><b>QType</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute QUESTION__QTYPE = eINSTANCE.getQuestion_QType();
+
+    /**
+     * The meta object literal for the '<em><b>Target</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference QUESTION__TARGET = eINSTANCE.getQuestion_Target();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.EndImpl <em>End</em>}' class.

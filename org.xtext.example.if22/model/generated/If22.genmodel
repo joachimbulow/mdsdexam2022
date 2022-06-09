@@ -18,9 +18,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//Statement/name"/>
     </genClasses>
     <genClasses ecoreClass="If22.ecore#//Announcement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//Announcement/exp"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Announcement/target"/>
     </genClasses>
-    <genClasses ecoreClass="If22.ecore#//Question"/>
+    <genClasses ecoreClass="If22.ecore#//Question">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//Question/qString"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//Question/qType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Question/target"/>
+    </genClasses>
     <genClasses ecoreClass="If22.ecore#//End">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//End/exp"/>
     </genClasses>

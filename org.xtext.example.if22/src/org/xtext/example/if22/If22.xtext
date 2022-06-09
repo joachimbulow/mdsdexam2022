@@ -14,24 +14,20 @@ Statement:
 	Announcement | Question | End;
 
 Announcement:
-	'announce' name=ID (target+=Target)+;
+	'announce' name=ID exp=Exp (target+=Target)+;
 
 Question:
-	'question' name=ID;
+	'question' name=ID qString=Exp 'as' qType=Exp (target+=Target)+;
 
 End:
 	'end' name=ID exp=Exp?;
 
 Target:
-	'to' name=ID 
-;
+	'to' name=ID;
 
 // Simple type and expression for now
-
 Exp:
-	STRING | INT | Type
-;
+	STRING | INT | Type;
 
 Type:
-	'boolean' | 'text' | 'number'
-;
+	'boolean' | 'text' | 'number';

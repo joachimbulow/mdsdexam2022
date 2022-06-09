@@ -125,14 +125,16 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Keyword cAnnounceKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cTargetAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cTargetTargetParserRuleCall_2_0 = (RuleCall)cTargetAssignment_2.eContents().get(0);
+		private final Assignment cExpAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cExpExpParserRuleCall_2_0 = (RuleCall)cExpAssignment_2.eContents().get(0);
+		private final Assignment cTargetAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTargetTargetParserRuleCall_3_0 = (RuleCall)cTargetAssignment_3.eContents().get(0);
 		
 		//Announcement:
-		//    'announce' name=ID (target+=Target)+;
+		//    'announce' name=ID exp=Exp (target+=Target)+;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'announce' name=ID (target+=Target)+
+		//'announce' name=ID exp=Exp (target+=Target)+
 		public Group getGroup() { return cGroup; }
 		
 		//'announce'
@@ -144,11 +146,17 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
+		//exp=Exp
+		public Assignment getExpAssignment_2() { return cExpAssignment_2; }
+		
+		//Exp
+		public RuleCall getExpExpParserRuleCall_2_0() { return cExpExpParserRuleCall_2_0; }
+		
 		//(target+=Target)+
-		public Assignment getTargetAssignment_2() { return cTargetAssignment_2; }
+		public Assignment getTargetAssignment_3() { return cTargetAssignment_3; }
 		
 		//Target
-		public RuleCall getTargetTargetParserRuleCall_2_0() { return cTargetTargetParserRuleCall_2_0; }
+		public RuleCall getTargetTargetParserRuleCall_3_0() { return cTargetTargetParserRuleCall_3_0; }
 	}
 	public class QuestionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.Question");
@@ -156,12 +164,19 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Keyword cQuestionKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cQStringAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cQStringExpParserRuleCall_2_0 = (RuleCall)cQStringAssignment_2.eContents().get(0);
+		private final Keyword cAsKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cQTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cQTypeExpParserRuleCall_4_0 = (RuleCall)cQTypeAssignment_4.eContents().get(0);
+		private final Assignment cTargetAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cTargetTargetParserRuleCall_5_0 = (RuleCall)cTargetAssignment_5.eContents().get(0);
 		
 		//Question:
-		//    'question' name=ID;
+		//    'question' name=ID qString=Exp 'as' qType=Exp (target+=Target)+;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'question' name=ID
+		//'question' name=ID qString=Exp 'as' qType=Exp (target+=Target)+
 		public Group getGroup() { return cGroup; }
 		
 		//'question'
@@ -172,6 +187,27 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//qString=Exp
+		public Assignment getQStringAssignment_2() { return cQStringAssignment_2; }
+		
+		//Exp
+		public RuleCall getQStringExpParserRuleCall_2_0() { return cQStringExpParserRuleCall_2_0; }
+		
+		//'as'
+		public Keyword getAsKeyword_3() { return cAsKeyword_3; }
+		
+		//qType=Exp
+		public Assignment getQTypeAssignment_4() { return cQTypeAssignment_4; }
+		
+		//Exp
+		public RuleCall getQTypeExpParserRuleCall_4_0() { return cQTypeExpParserRuleCall_4_0; }
+		
+		//(target+=Target)+
+		public Assignment getTargetAssignment_5() { return cTargetAssignment_5; }
+		
+		//Target
+		public RuleCall getTargetTargetParserRuleCall_5_0() { return cTargetTargetParserRuleCall_5_0; }
 	}
 	public class EndElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.End");
@@ -212,8 +248,7 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
 		//Target:
-		//    'to' name=ID
-		//;
+		//    'to' name=ID;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'to' name=ID
@@ -237,8 +272,7 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		
 		//// Simple type and expression for now
 		//Exp:
-		//    STRING | INT | Type
-		//;
+		//    STRING | INT | Type;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//STRING | INT | Type
@@ -261,8 +295,7 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Keyword cNumberKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
 		
 		//Type:
-		//    'boolean' | 'text' | 'number'
-		//;
+		//    'boolean' | 'text' | 'number';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'boolean' | 'text' | 'number'
@@ -369,7 +402,7 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//Announcement:
-	//    'announce' name=ID (target+=Target)+;
+	//    'announce' name=ID exp=Exp (target+=Target)+;
 	public AnnouncementElements getAnnouncementAccess() {
 		return pAnnouncement;
 	}
@@ -379,7 +412,7 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//Question:
-	//    'question' name=ID;
+	//    'question' name=ID qString=Exp 'as' qType=Exp (target+=Target)+;
 	public QuestionElements getQuestionAccess() {
 		return pQuestion;
 	}
@@ -399,8 +432,7 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//Target:
-	//    'to' name=ID
-	//;
+	//    'to' name=ID;
 	public TargetElements getTargetAccess() {
 		return pTarget;
 	}
@@ -411,8 +443,7 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	
 	//// Simple type and expression for now
 	//Exp:
-	//    STRING | INT | Type
-	//;
+	//    STRING | INT | Type;
 	public ExpElements getExpAccess() {
 		return pExp;
 	}
@@ -422,8 +453,7 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//Type:
-	//    'boolean' | 'text' | 'number'
-	//;
+	//    'boolean' | 'text' | 'number';
 	public TypeElements getTypeAccess() {
 		return pType;
 	}

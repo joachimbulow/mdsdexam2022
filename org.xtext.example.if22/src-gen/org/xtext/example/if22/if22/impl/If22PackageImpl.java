@@ -245,9 +245,20 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   @Override
+  public EAttribute getAnnouncement_Exp()
+  {
+    return (EAttribute)announcementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getAnnouncement_Target()
   {
-    return (EReference)announcementEClass.getEStructuralFeatures().get(0);
+    return (EReference)announcementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -259,6 +270,39 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
   public EClass getQuestion()
   {
     return questionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getQuestion_QString()
+  {
+    return (EAttribute)questionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getQuestion_QType()
+  {
+    return (EAttribute)questionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getQuestion_Target()
+  {
+    return (EReference)questionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -348,9 +392,13 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
     createEAttribute(statementEClass, STATEMENT__NAME);
 
     announcementEClass = createEClass(ANNOUNCEMENT);
+    createEAttribute(announcementEClass, ANNOUNCEMENT__EXP);
     createEReference(announcementEClass, ANNOUNCEMENT__TARGET);
 
     questionEClass = createEClass(QUESTION);
+    createEAttribute(questionEClass, QUESTION__QSTRING);
+    createEAttribute(questionEClass, QUESTION__QTYPE);
+    createEReference(questionEClass, QUESTION__TARGET);
 
     endEClass = createEClass(END);
     createEAttribute(endEClass, END__EXP);
@@ -405,9 +453,13 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
     initEAttribute(getStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(announcementEClass, Announcement.class, "Announcement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAnnouncement_Exp(), ecorePackage.getEString(), "exp", null, 0, 1, Announcement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAnnouncement_Target(), this.getTarget(), null, "target", null, 0, -1, Announcement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(questionEClass, Question.class, "Question", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getQuestion_QString(), ecorePackage.getEString(), "qString", null, 0, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getQuestion_QType(), ecorePackage.getEString(), "qType", null, 0, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getQuestion_Target(), this.getTarget(), null, "target", null, 0, -1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(endEClass, End.class, "End", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEnd_Exp(), ecorePackage.getEString(), "exp", null, 0, 1, End.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

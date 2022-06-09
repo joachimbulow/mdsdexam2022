@@ -5,12 +5,15 @@ package org.xtext.example.if22.if22.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -27,6 +30,7 @@ import org.xtext.example.if22.if22.Target;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.if22.if22.impl.AnnouncementImpl#getExp <em>Exp</em>}</li>
  *   <li>{@link org.xtext.example.if22.if22.impl.AnnouncementImpl#getTarget <em>Target</em>}</li>
  * </ul>
  *
@@ -34,6 +38,26 @@ import org.xtext.example.if22.if22.Target;
  */
 public class AnnouncementImpl extends StatementImpl implements Announcement
 {
+  /**
+   * The default value of the '{@link #getExp() <em>Exp</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExp()
+   * @generated
+   * @ordered
+   */
+  protected static final String EXP_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getExp() <em>Exp</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExp()
+   * @generated
+   * @ordered
+   */
+  protected String exp = EXP_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getTarget() <em>Target</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -63,6 +87,31 @@ public class AnnouncementImpl extends StatementImpl implements Announcement
   protected EClass eStaticClass()
   {
     return If22Package.Literals.ANNOUNCEMENT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getExp()
+  {
+    return exp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setExp(String newExp)
+  {
+    String oldExp = exp;
+    exp = newExp;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, If22Package.ANNOUNCEMENT__EXP, oldExp, exp));
   }
 
   /**
@@ -106,6 +155,8 @@ public class AnnouncementImpl extends StatementImpl implements Announcement
   {
     switch (featureID)
     {
+      case If22Package.ANNOUNCEMENT__EXP:
+        return getExp();
       case If22Package.ANNOUNCEMENT__TARGET:
         return getTarget();
     }
@@ -123,6 +174,9 @@ public class AnnouncementImpl extends StatementImpl implements Announcement
   {
     switch (featureID)
     {
+      case If22Package.ANNOUNCEMENT__EXP:
+        setExp((String)newValue);
+        return;
       case If22Package.ANNOUNCEMENT__TARGET:
         getTarget().clear();
         getTarget().addAll((Collection<? extends Target>)newValue);
@@ -141,6 +195,9 @@ public class AnnouncementImpl extends StatementImpl implements Announcement
   {
     switch (featureID)
     {
+      case If22Package.ANNOUNCEMENT__EXP:
+        setExp(EXP_EDEFAULT);
+        return;
       case If22Package.ANNOUNCEMENT__TARGET:
         getTarget().clear();
         return;
@@ -158,10 +215,29 @@ public class AnnouncementImpl extends StatementImpl implements Announcement
   {
     switch (featureID)
     {
+      case If22Package.ANNOUNCEMENT__EXP:
+        return EXP_EDEFAULT == null ? exp != null : !EXP_EDEFAULT.equals(exp);
       case If22Package.ANNOUNCEMENT__TARGET:
         return target != null && !target.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (exp: ");
+    result.append(exp);
+    result.append(')');
+    return result.toString();
   }
 
 } //AnnouncementImpl
