@@ -5,16 +5,12 @@ package org.xtext.example.if22.if22.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -32,35 +28,14 @@ import org.xtext.example.if22.if22.VariableDeclaration;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.if22.if22.impl.ScenarioImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.example.if22.if22.impl.ScenarioImpl#getVariableDeclarations <em>Variable Declarations</em>}</li>
  *   <li>{@link org.xtext.example.if22.if22.impl.ScenarioImpl#getStatements <em>Statements</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenario
+public class ScenarioImpl extends TargetDestinationImpl implements Scenario
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getVariableDeclarations() <em>Variable Declarations</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -100,31 +75,6 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
   protected EClass eStaticClass()
   {
     return If22Package.Literals.SCENARIO;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, If22Package.SCENARIO__NAME, oldName, name));
   }
 
   /**
@@ -185,8 +135,6 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
   {
     switch (featureID)
     {
-      case If22Package.SCENARIO__NAME:
-        return getName();
       case If22Package.SCENARIO__VARIABLE_DECLARATIONS:
         return getVariableDeclarations();
       case If22Package.SCENARIO__STATEMENTS:
@@ -206,9 +154,6 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
   {
     switch (featureID)
     {
-      case If22Package.SCENARIO__NAME:
-        setName((String)newValue);
-        return;
       case If22Package.SCENARIO__VARIABLE_DECLARATIONS:
         getVariableDeclarations().clear();
         getVariableDeclarations().addAll((Collection<? extends VariableDeclaration>)newValue);
@@ -231,9 +176,6 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
   {
     switch (featureID)
     {
-      case If22Package.SCENARIO__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case If22Package.SCENARIO__VARIABLE_DECLARATIONS:
         getVariableDeclarations().clear();
         return;
@@ -254,31 +196,12 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
   {
     switch (featureID)
     {
-      case If22Package.SCENARIO__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case If22Package.SCENARIO__VARIABLE_DECLARATIONS:
         return variableDeclarations != null && !variableDeclarations.isEmpty();
       case If22Package.SCENARIO__STATEMENTS:
         return statements != null && !statements.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //ScenarioImpl

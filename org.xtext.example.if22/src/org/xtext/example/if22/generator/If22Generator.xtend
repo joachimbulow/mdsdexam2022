@@ -24,6 +24,7 @@ import org.xtext.example.if22.if22.Expression
 import org.xtext.example.if22.if22.Logic
 import org.xtext.example.if22.if22.Function
 import org.xtext.example.if22.if22.ExternalFunctionCall
+import org.xtext.example.if22.if22.EndingTarget
 
 /**
  * Generates code from your model files on save.
@@ -180,7 +181,6 @@ class If22Generator extends AbstractGenerator {
 	}
 
 	// --- Compiling statements using dispatch ---
-	// Announcement	TODO: COMPILE WITH SUBSTITUTING AMPERSAND
 	def static dispatch String compileStatement(Announcement announcement) {
 		'''
 			case "«announcement.name»":
@@ -236,10 +236,7 @@ class If22Generator extends AbstractGenerator {
 				}
 			'''
 		} else {
-			r = '''
-				nextInteraction = "«target.name»";
-				break;
-			'''
+			r = compileTargetDestination(target.destination, target.endTargets)
 		}
 		// Change an occurrence of "this" with the implicit variable name
 		r = r.replaceAll("this", thisReference);
@@ -255,6 +252,34 @@ class If22Generator extends AbstractGenerator {
 			return '''!(«ExpResolverUtil.compileExp(validation)»)'''
 		}
 	}
+	
+	// Target name resolution using switch pattern
+	def static name(Target target){
+		switch target {
+			Statement: target.name
+			Scenario: target.name
+		}
+	}
+	
+	// Compile TargetDestination correctly depending on the type using dispatch
+	def static dispatch String compileTargetDestination(Statement statement, List<EndingTarget> endingTargets) {
+		'''
+			nextInteraction = "«statement.name»";
+			break;
+		'''
+	}
+	
+	def static dispatch String compileTargetDestination(Scenario scenario, List<EndingTarget> endingTargets) {
+		'''
+		calledScenarioEnd = new Scenario«scenario.name.toFirstUpper»().interact();
+		«FOR et : endingTargets»
+		if(calledScenarioEnd.equals("«et.callableEnd.name»")){
+			nextInteraction = "«et.selfdefinedEnd.name»";
+		}
+		«ENDFOR»
+		'''
+	}
+	// --- END TargetDestinatinoCOmpilation
+	
 
-// Question conditional break check
 }

@@ -19,6 +19,7 @@ import org.xtext.example.if22.if22.EXPBOOL;
 import org.xtext.example.if22.if22.EXPINT;
 import org.xtext.example.if22.if22.EXPSTRING;
 import org.xtext.example.if22.if22.End;
+import org.xtext.example.if22.if22.EndingTarget;
 import org.xtext.example.if22.if22.ExternalFunctionCall;
 import org.xtext.example.if22.if22.Function;
 import org.xtext.example.if22.if22.ID;
@@ -65,6 +66,9 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case If22Package.END:
 				sequence_End(context, (End) semanticObject); 
+				return; 
+			case If22Package.ENDING_TARGET:
+				sequence_EndingTarget(context, (EndingTarget) semanticObject); 
 				return; 
 			case If22Package.EXTERNAL_FUNCTION_CALL:
 				sequence_ExternalFunctionCall(context, (ExternalFunctionCall) semanticObject); 
@@ -124,6 +128,7 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Contexts:
 	 *     Statement returns Announcement
 	 *     Announcement returns Announcement
+	 *     TargetDestination returns Announcement
 	 *
 	 * Constraint:
 	 *     (name=ID exp=Exp targets+=Target+)
@@ -139,6 +144,7 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Contexts:
 	 *     Statement returns End
 	 *     End returns End
+	 *     TargetDestination returns End
 	 *
 	 * Constraint:
 	 *     (name=ID exp=Exp?)
@@ -146,6 +152,29 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_End(ISerializationContext context, End semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     EndingTarget returns EndingTarget
+	 *
+	 * Constraint:
+	 *     (callableEnd=[Target|ID] selfdefinedEnd=[Target|ID])
+	 * </pre>
+	 */
+	protected void sequence_EndingTarget(ISerializationContext context, EndingTarget semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.ENDING_TARGET__CALLABLE_END) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.ENDING_TARGET__CALLABLE_END));
+			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.ENDING_TARGET__SELFDEFINED_END) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.ENDING_TARGET__SELFDEFINED_END));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEndingTargetAccess().getCallableEndTargetIDTerminalRuleCall_2_0_1(), semanticObject.eGet(If22Package.Literals.ENDING_TARGET__CALLABLE_END, false));
+		feeder.accept(grammarAccess.getEndingTargetAccess().getSelfdefinedEndTargetIDTerminalRuleCall_4_0_1(), semanticObject.eGet(If22Package.Literals.ENDING_TARGET__SELFDEFINED_END, false));
+		feeder.finish();
 	}
 	
 	
@@ -440,6 +469,7 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Contexts:
 	 *     Statement returns Question
 	 *     Question returns Question
+	 *     TargetDestination returns Question
 	 *
 	 * Constraint:
 	 *     (name=ID qString=Exp qType=Exp reffedVar=[VariableDeclaration|ID]? targets+=Target+)
@@ -454,6 +484,7 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     Scenario returns Scenario
+	 *     TargetDestination returns Scenario
 	 *
 	 * Constraint:
 	 *     (name=ID variableDeclarations+=VariableDeclaration* statements+=Statement*)
@@ -470,7 +501,7 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Target returns Target
 	 *
 	 * Constraint:
-	 *     (name=ID targetCheck=Exp?)
+	 *     (destination=[TargetDestination|ID] targetCheck=Exp? endTargets+=EndingTarget*)
 	 * </pre>
 	 */
 	protected void sequence_Target(ISerializationContext context, Target semanticObject) {

@@ -18,6 +18,7 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.xtext.example.if22.if22.Announcement;
 import org.xtext.example.if22.if22.End;
+import org.xtext.example.if22.if22.EndingTarget;
 import org.xtext.example.if22.if22.Expression;
 import org.xtext.example.if22.if22.ExternalFunctionCall;
 import org.xtext.example.if22.if22.Logic;
@@ -26,6 +27,7 @@ import org.xtext.example.if22.if22.Question;
 import org.xtext.example.if22.if22.Scenario;
 import org.xtext.example.if22.if22.Statement;
 import org.xtext.example.if22.if22.Target;
+import org.xtext.example.if22.if22.TargetDestination;
 import org.xtext.example.if22.if22.Type;
 import org.xtext.example.if22.if22.TypeBoolean;
 import org.xtext.example.if22.if22.TypeNumber;
@@ -478,7 +480,7 @@ public class If22Generator extends AbstractGenerator {
       _builder.newLineIfNotEmpty();
       _builder.append("\t");
       _builder.append("nextInteraction = \"");
-      String _name = target.getName();
+      String _name = If22Generator.name(target);
       _builder.append(_name, "\t");
       _builder.append("\";");
       _builder.newLineIfNotEmpty();
@@ -489,15 +491,7 @@ public class If22Generator extends AbstractGenerator {
       _builder.newLine();
       r = _builder.toString();
     } else {
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("nextInteraction = \"");
-      String _name_1 = target.getName();
-      _builder_1.append(_name_1);
-      _builder_1.append("\";");
-      _builder_1.newLineIfNotEmpty();
-      _builder_1.append("break;");
-      _builder_1.newLine();
-      r = _builder_1.toString();
+      r = If22Generator.compileTargetDestination(target.getDestination(), target.getEndTargets());
     }
     r = r.replaceAll("this", thisReference);
     return r;
@@ -528,6 +522,61 @@ public class If22Generator extends AbstractGenerator {
     return null;
   }
   
+  public static String name(final Target target) {
+    String _switchResult = null;
+    boolean _matched = false;
+    if (target instanceof Statement) {
+      _matched=true;
+      _switchResult = ((Statement)target).getName();
+    }
+    if (!_matched) {
+      if (target instanceof Scenario) {
+        _matched=true;
+        _switchResult = ((Scenario)target).getName();
+      }
+    }
+    return _switchResult;
+  }
+  
+  protected static String _compileTargetDestination(final Statement statement, final List<EndingTarget> endingTargets) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("nextInteraction = \"");
+    String _name = statement.getName();
+    _builder.append(_name);
+    _builder.append("\";");
+    _builder.newLineIfNotEmpty();
+    _builder.append("break;");
+    _builder.newLine();
+    return _builder.toString();
+  }
+  
+  protected static String _compileTargetDestination(final Scenario scenario, final List<EndingTarget> endingTargets) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("calledScenarioEnd = new Scenario");
+    String _firstUpper = StringExtensions.toFirstUpper(scenario.getName());
+    _builder.append(_firstUpper);
+    _builder.append("().interact();");
+    _builder.newLineIfNotEmpty();
+    {
+      for(final EndingTarget et : endingTargets) {
+        _builder.append("if(calledScenarioEnd.equals(\"");
+        String _name = If22Generator.name(et.getCallableEnd());
+        _builder.append(_name);
+        _builder.append("\")){");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("nextInteraction = \"");
+        String _name_1 = If22Generator.name(et.getSelfdefinedEnd());
+        _builder.append(_name_1, "\t");
+        _builder.append("\";");
+        _builder.newLineIfNotEmpty();
+        _builder.append("}");
+        _builder.newLine();
+      }
+    }
+    return _builder.toString();
+  }
+  
   public static String compileStatement(final Statement announcement) {
     if (announcement instanceof Announcement) {
       return _compileStatement((Announcement)announcement);
@@ -538,6 +587,17 @@ public class If22Generator extends AbstractGenerator {
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(announcement).toString());
+    }
+  }
+  
+  public static String compileTargetDestination(final TargetDestination scenario, final List<EndingTarget> endingTargets) {
+    if (scenario instanceof Scenario) {
+      return _compileTargetDestination((Scenario)scenario, endingTargets);
+    } else if (scenario instanceof Statement) {
+      return _compileTargetDestination((Statement)scenario, endingTargets);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(scenario, endingTargets).toString());
     }
   }
 }

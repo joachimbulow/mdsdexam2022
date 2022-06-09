@@ -37,6 +37,7 @@ public class If22Parser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getExpAccess().getOperatorAlternatives_1_0_1_1_0(), "rule__Exp__OperatorAlternatives_1_0_1_1_0");
 			builder.put(grammarAccess.getPrimaryAccess().getAlternatives(), "rule__Primary__Alternatives");
 			builder.put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
+			builder.put(grammarAccess.getTargetDestinationAccess().getAlternatives(), "rule__TargetDestination__Alternatives");
 			builder.put(grammarAccess.getProgramAccess().getGroup(), "rule__Program__Group__0");
 			builder.put(grammarAccess.getFunctionAccess().getGroup(), "rule__Function__Group__0");
 			builder.put(grammarAccess.getScenarioAccess().getGroup(), "rule__Scenario__Group__0");
@@ -46,7 +47,8 @@ public class If22Parser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getQuestionAccess().getGroup_5(), "rule__Question__Group_5__0");
 			builder.put(grammarAccess.getEndAccess().getGroup(), "rule__End__Group__0");
 			builder.put(grammarAccess.getTargetAccess().getGroup(), "rule__Target__Group__0");
-			builder.put(grammarAccess.getTargetAccess().getGroup_2(), "rule__Target__Group_2__0");
+			builder.put(grammarAccess.getTargetAccess().getGroup_3(), "rule__Target__Group_3__0");
+			builder.put(grammarAccess.getTargetAccess().getGroup_4(), "rule__Target__Group_4__0");
 			builder.put(grammarAccess.getExpAccess().getGroup(), "rule__Exp__Group__0");
 			builder.put(grammarAccess.getExpAccess().getGroup_1(), "rule__Exp__Group_1__0");
 			builder.put(grammarAccess.getExpAccess().getGroup_1_0_0(), "rule__Exp__Group_1_0_0__0");
@@ -62,6 +64,7 @@ public class If22Parser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTypeAccess().getGroup_0(), "rule__Type__Group_0__0");
 			builder.put(grammarAccess.getTypeAccess().getGroup_1(), "rule__Type__Group_1__0");
 			builder.put(grammarAccess.getTypeAccess().getGroup_2(), "rule__Type__Group_2__0");
+			builder.put(grammarAccess.getEndingTargetAccess().getGroup(), "rule__EndingTarget__Group__0");
 			builder.put(grammarAccess.getProgramAccess().getNameAssignment_1(), "rule__Program__NameAssignment_1");
 			builder.put(grammarAccess.getProgramAccess().getExternalFunctionsAssignment_2(), "rule__Program__ExternalFunctionsAssignment_2");
 			builder.put(grammarAccess.getProgramAccess().getScenariosAssignment_3(), "rule__Program__ScenariosAssignment_3");
@@ -83,8 +86,9 @@ public class If22Parser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getQuestionAccess().getTargetsAssignment_6(), "rule__Question__TargetsAssignment_6");
 			builder.put(grammarAccess.getEndAccess().getNameAssignment_1(), "rule__End__NameAssignment_1");
 			builder.put(grammarAccess.getEndAccess().getExpAssignment_2(), "rule__End__ExpAssignment_2");
-			builder.put(grammarAccess.getTargetAccess().getNameAssignment_1(), "rule__Target__NameAssignment_1");
-			builder.put(grammarAccess.getTargetAccess().getTargetCheckAssignment_2_1(), "rule__Target__TargetCheckAssignment_2_1");
+			builder.put(grammarAccess.getTargetAccess().getDestinationAssignment_2(), "rule__Target__DestinationAssignment_2");
+			builder.put(grammarAccess.getTargetAccess().getTargetCheckAssignment_3_1(), "rule__Target__TargetCheckAssignment_3_1");
+			builder.put(grammarAccess.getTargetAccess().getEndTargetsAssignment_4_1(), "rule__Target__EndTargetsAssignment_4_1");
 			builder.put(grammarAccess.getExpAccess().getOperatorAssignment_1_0_0_1(), "rule__Exp__OperatorAssignment_1_0_0_1");
 			builder.put(grammarAccess.getExpAccess().getOperatorAssignment_1_0_1_1(), "rule__Exp__OperatorAssignment_1_0_1_1");
 			builder.put(grammarAccess.getExpAccess().getRightAssignment_1_1(), "rule__Exp__RightAssignment_1_1");
@@ -99,6 +103,8 @@ public class If22Parser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTypeAccess().getValueAssignment_0_1(), "rule__Type__ValueAssignment_0_1");
 			builder.put(grammarAccess.getTypeAccess().getValueAssignment_1_1(), "rule__Type__ValueAssignment_1_1");
 			builder.put(grammarAccess.getTypeAccess().getValueAssignment_2_1(), "rule__Type__ValueAssignment_2_1");
+			builder.put(grammarAccess.getEndingTargetAccess().getCallableEndAssignment_2(), "rule__EndingTarget__CallableEndAssignment_2");
+			builder.put(grammarAccess.getEndingTargetAccess().getSelfdefinedEndAssignment_4(), "rule__EndingTarget__SelfdefinedEndAssignment_4");
 		}
 	}
 	

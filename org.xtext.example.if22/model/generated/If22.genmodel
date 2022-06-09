@@ -17,7 +17,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Function/returnType"/>
     </genClasses>
     <genClasses ecoreClass="If22.ecore#//Scenario">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//Scenario/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Scenario/variableDeclarations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Scenario/statements"/>
     </genClasses>
@@ -25,9 +24,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//VariableDeclaration/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//VariableDeclaration/type"/>
     </genClasses>
-    <genClasses ecoreClass="If22.ecore#//Statement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//Statement/name"/>
-    </genClasses>
+    <genClasses ecoreClass="If22.ecore#//Statement"/>
     <genClasses ecoreClass="If22.ecore#//Announcement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Announcement/exp"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Announcement/targets"/>
@@ -42,12 +39,20 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//End/exp"/>
     </genClasses>
     <genClasses ecoreClass="If22.ecore#//Target">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//Target/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference If22.ecore#//Target/destination"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Target/targetCheck"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Target/endTargets"/>
     </genClasses>
     <genClasses ecoreClass="If22.ecore#//Expression"/>
     <genClasses ecoreClass="If22.ecore#//Type">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//Type/value"/>
+    </genClasses>
+    <genClasses ecoreClass="If22.ecore#//TargetDestination">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//TargetDestination/name"/>
+    </genClasses>
+    <genClasses ecoreClass="If22.ecore#//EndingTarget">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference If22.ecore#//EndingTarget/callableEnd"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference If22.ecore#//EndingTarget/selfdefinedEnd"/>
     </genClasses>
     <genClasses ecoreClass="If22.ecore#//Logic">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Logic/left"/>

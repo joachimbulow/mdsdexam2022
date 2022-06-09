@@ -13,6 +13,7 @@ import org.xtext.example.if22.if22.EXPBOOL;
 import org.xtext.example.if22.if22.EXPINT;
 import org.xtext.example.if22.if22.EXPSTRING;
 import org.xtext.example.if22.if22.End;
+import org.xtext.example.if22.if22.EndingTarget;
 import org.xtext.example.if22.if22.Expression;
 import org.xtext.example.if22.if22.ExternalFunctionCall;
 import org.xtext.example.if22.if22.Function;
@@ -25,6 +26,7 @@ import org.xtext.example.if22.if22.Question;
 import org.xtext.example.if22.if22.Scenario;
 import org.xtext.example.if22.if22.Statement;
 import org.xtext.example.if22.if22.Target;
+import org.xtext.example.if22.if22.TargetDestination;
 import org.xtext.example.if22.if22.TextExp;
 import org.xtext.example.if22.if22.This;
 import org.xtext.example.if22.if22.Type;
@@ -114,6 +116,7 @@ public class If22Switch<T> extends Switch<T>
       {
         Scenario scenario = (Scenario)theEObject;
         T result = caseScenario(scenario);
+        if (result == null) result = caseTargetDestination(scenario);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -128,6 +131,7 @@ public class If22Switch<T> extends Switch<T>
       {
         Statement statement = (Statement)theEObject;
         T result = caseStatement(statement);
+        if (result == null) result = caseTargetDestination(statement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -136,6 +140,7 @@ public class If22Switch<T> extends Switch<T>
         Announcement announcement = (Announcement)theEObject;
         T result = caseAnnouncement(announcement);
         if (result == null) result = caseStatement(announcement);
+        if (result == null) result = caseTargetDestination(announcement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -144,6 +149,7 @@ public class If22Switch<T> extends Switch<T>
         Question question = (Question)theEObject;
         T result = caseQuestion(question);
         if (result == null) result = caseStatement(question);
+        if (result == null) result = caseTargetDestination(question);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -152,6 +158,7 @@ public class If22Switch<T> extends Switch<T>
         End end = (End)theEObject;
         T result = caseEnd(end);
         if (result == null) result = caseStatement(end);
+        if (result == null) result = caseTargetDestination(end);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -174,6 +181,20 @@ public class If22Switch<T> extends Switch<T>
         Type type = (Type)theEObject;
         T result = caseType(type);
         if (result == null) result = caseExpression(type);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case If22Package.TARGET_DESTINATION:
+      {
+        TargetDestination targetDestination = (TargetDestination)theEObject;
+        T result = caseTargetDestination(targetDestination);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case If22Package.ENDING_TARGET:
+      {
+        EndingTarget endingTarget = (EndingTarget)theEObject;
+        T result = caseEndingTarget(endingTarget);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -460,6 +481,38 @@ public class If22Switch<T> extends Switch<T>
    * @generated
    */
   public T caseType(Type object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Target Destination</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Target Destination</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTargetDestination(TargetDestination object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Ending Target</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Ending Target</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEndingTarget(EndingTarget object)
   {
     return null;
   }

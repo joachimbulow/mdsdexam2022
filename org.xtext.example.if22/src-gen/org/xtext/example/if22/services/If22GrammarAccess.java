@@ -369,41 +369,69 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	public class TargetElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.Target");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cToKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cIfKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cTargetCheckAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cTargetCheckExpParserRuleCall_2_1_0 = (RuleCall)cTargetCheckAssignment_2_1.eContents().get(0);
+		private final Action cTargetAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cToKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cDestinationAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cDestinationTargetDestinationCrossReference_2_0 = (CrossReference)cDestinationAssignment_2.eContents().get(0);
+		private final RuleCall cDestinationTargetDestinationIDTerminalRuleCall_2_0_1 = (RuleCall)cDestinationTargetDestinationCrossReference_2_0.eContents().get(1);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cIfKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cTargetCheckAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cTargetCheckExpParserRuleCall_3_1_0 = (RuleCall)cTargetCheckAssignment_3_1.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cLeftCurlyBracketKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cEndTargetsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cEndTargetsEndingTargetParserRuleCall_4_1_0 = (RuleCall)cEndTargetsAssignment_4_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
 		
 		//Target:
-		//    'to' name=ID ('if' targetCheck=Exp)?;
+		//    {Target} 'to' destination=[TargetDestination] ('if' targetCheck=Exp)? ('{' (endTargets+=EndingTarget)+ '}')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'to' name=ID ('if' targetCheck=Exp)?
+		//{Target} 'to' destination=[TargetDestination] ('if' targetCheck=Exp)? ('{' (endTargets+=EndingTarget)+ '}')?
 		public Group getGroup() { return cGroup; }
 		
-		//'to'
-		public Keyword getToKeyword_0() { return cToKeyword_0; }
+		//{Target}
+		public Action getTargetAction_0() { return cTargetAction_0; }
 		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		//'to'
+		public Keyword getToKeyword_1() { return cToKeyword_1; }
+		
+		//destination=[TargetDestination]
+		public Assignment getDestinationAssignment_2() { return cDestinationAssignment_2; }
+		
+		//[TargetDestination]
+		public CrossReference getDestinationTargetDestinationCrossReference_2_0() { return cDestinationTargetDestinationCrossReference_2_0; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getDestinationTargetDestinationIDTerminalRuleCall_2_0_1() { return cDestinationTargetDestinationIDTerminalRuleCall_2_0_1; }
 		
 		//('if' targetCheck=Exp)?
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup_3() { return cGroup_3; }
 		
 		//'if'
-		public Keyword getIfKeyword_2_0() { return cIfKeyword_2_0; }
+		public Keyword getIfKeyword_3_0() { return cIfKeyword_3_0; }
 		
 		//targetCheck=Exp
-		public Assignment getTargetCheckAssignment_2_1() { return cTargetCheckAssignment_2_1; }
+		public Assignment getTargetCheckAssignment_3_1() { return cTargetCheckAssignment_3_1; }
 		
 		//Exp
-		public RuleCall getTargetCheckExpParserRuleCall_2_1_0() { return cTargetCheckExpParserRuleCall_2_1_0; }
+		public RuleCall getTargetCheckExpParserRuleCall_3_1_0() { return cTargetCheckExpParserRuleCall_3_1_0; }
+		
+		//('{' (endTargets+=EndingTarget)+ '}')?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_4_0() { return cLeftCurlyBracketKeyword_4_0; }
+		
+		//(endTargets+=EndingTarget)+
+		public Assignment getEndTargetsAssignment_4_1() { return cEndTargetsAssignment_4_1; }
+		
+		//EndingTarget
+		public RuleCall getEndTargetsEndingTargetParserRuleCall_4_1_0() { return cEndTargetsEndingTargetParserRuleCall_4_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4_2() { return cRightCurlyBracketKeyword_4_2; }
 	}
 	public class ExpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.Exp");
@@ -776,6 +804,75 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//'number'
 		public Keyword getValueNumberKeyword_2_1_0() { return cValueNumberKeyword_2_1_0; }
 	}
+	public class TargetDestinationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.TargetDestination");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cStatementParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cScenarioParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//TargetDestination:
+		//    Statement | Scenario
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Statement | Scenario
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Statement
+		public RuleCall getStatementParserRuleCall_0() { return cStatementParserRuleCall_0; }
+		
+		//Scenario
+		public RuleCall getScenarioParserRuleCall_1() { return cScenarioParserRuleCall_1; }
+	}
+	public class EndingTargetElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.EndingTarget");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cEndingTargetAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cOnKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cCallableEndAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cCallableEndTargetCrossReference_2_0 = (CrossReference)cCallableEndAssignment_2.eContents().get(0);
+		private final RuleCall cCallableEndTargetIDTerminalRuleCall_2_0_1 = (RuleCall)cCallableEndTargetCrossReference_2_0.eContents().get(1);
+		private final Keyword cToKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cSelfdefinedEndAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cSelfdefinedEndTargetCrossReference_4_0 = (CrossReference)cSelfdefinedEndAssignment_4.eContents().get(0);
+		private final RuleCall cSelfdefinedEndTargetIDTerminalRuleCall_4_0_1 = (RuleCall)cSelfdefinedEndTargetCrossReference_4_0.eContents().get(1);
+		
+		//// TODO: Scope this stuff!
+		//EndingTarget:
+		//    {EndingTarget}'on' callableEnd=[Target] 'to' selfdefinedEnd=[Target]
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{EndingTarget}'on' callableEnd=[Target] 'to' selfdefinedEnd=[Target]
+		public Group getGroup() { return cGroup; }
+		
+		//{EndingTarget}
+		public Action getEndingTargetAction_0() { return cEndingTargetAction_0; }
+		
+		//'on'
+		public Keyword getOnKeyword_1() { return cOnKeyword_1; }
+		
+		//callableEnd=[Target]
+		public Assignment getCallableEndAssignment_2() { return cCallableEndAssignment_2; }
+		
+		//[Target]
+		public CrossReference getCallableEndTargetCrossReference_2_0() { return cCallableEndTargetCrossReference_2_0; }
+		
+		//ID
+		public RuleCall getCallableEndTargetIDTerminalRuleCall_2_0_1() { return cCallableEndTargetIDTerminalRuleCall_2_0_1; }
+		
+		//'to'
+		public Keyword getToKeyword_3() { return cToKeyword_3; }
+		
+		//selfdefinedEnd=[Target]
+		public Assignment getSelfdefinedEndAssignment_4() { return cSelfdefinedEndAssignment_4; }
+		
+		//[Target]
+		public CrossReference getSelfdefinedEndTargetCrossReference_4_0() { return cSelfdefinedEndTargetCrossReference_4_0; }
+		
+		//ID
+		public RuleCall getSelfdefinedEndTargetIDTerminalRuleCall_4_0_1() { return cSelfdefinedEndTargetIDTerminalRuleCall_4_0_1; }
+	}
 	
 	
 	private final ProgramElements pProgram;
@@ -793,6 +890,8 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	private final ParenthesisElements pParenthesis;
 	private final TypeElements pType;
 	private final TerminalRule tBOOLEAN;
+	private final TargetDestinationElements pTargetDestination;
+	private final EndingTargetElements pEndingTarget;
 	
 	private final Grammar grammar;
 	
@@ -818,6 +917,8 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		this.pParenthesis = new ParenthesisElements();
 		this.pType = new TypeElements();
 		this.tBOOLEAN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.BOOLEAN");
+		this.pTargetDestination = new TargetDestinationElements();
+		this.pEndingTarget = new EndingTargetElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -931,7 +1032,7 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//Target:
-	//    'to' name=ID ('if' targetCheck=Exp)?;
+	//    {Target} 'to' destination=[TargetDestination] ('if' targetCheck=Exp)? ('{' (endTargets+=EndingTarget)+ '}')?;
 	public TargetElements getTargetAccess() {
 		return pTarget;
 	}
@@ -998,6 +1099,29 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	//    'true' | 'false';
 	public TerminalRule getBOOLEANRule() {
 		return tBOOLEAN;
+	}
+	
+	//TargetDestination:
+	//    Statement | Scenario
+	//;
+	public TargetDestinationElements getTargetDestinationAccess() {
+		return pTargetDestination;
+	}
+	
+	public ParserRule getTargetDestinationRule() {
+		return getTargetDestinationAccess().getRule();
+	}
+	
+	//// TODO: Scope this stuff!
+	//EndingTarget:
+	//    {EndingTarget}'on' callableEnd=[Target] 'to' selfdefinedEnd=[Target]
+	//;
+	public EndingTargetElements getEndingTargetAccess() {
+		return pEndingTarget;
+	}
+	
+	public ParserRule getEndingTargetRule() {
+		return getEndingTargetAccess().getRule();
 	}
 	
 	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;

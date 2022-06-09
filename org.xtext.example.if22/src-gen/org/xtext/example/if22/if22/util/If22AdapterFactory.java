@@ -15,6 +15,7 @@ import org.xtext.example.if22.if22.EXPBOOL;
 import org.xtext.example.if22.if22.EXPINT;
 import org.xtext.example.if22.if22.EXPSTRING;
 import org.xtext.example.if22.if22.End;
+import org.xtext.example.if22.if22.EndingTarget;
 import org.xtext.example.if22.if22.Expression;
 import org.xtext.example.if22.if22.ExternalFunctionCall;
 import org.xtext.example.if22.if22.Function;
@@ -27,6 +28,7 @@ import org.xtext.example.if22.if22.Question;
 import org.xtext.example.if22.if22.Scenario;
 import org.xtext.example.if22.if22.Statement;
 import org.xtext.example.if22.if22.Target;
+import org.xtext.example.if22.if22.TargetDestination;
 import org.xtext.example.if22.if22.TextExp;
 import org.xtext.example.if22.if22.This;
 import org.xtext.example.if22.if22.Type;
@@ -152,6 +154,16 @@ public class If22AdapterFactory extends AdapterFactoryImpl
       public Adapter caseType(Type object)
       {
         return createTypeAdapter();
+      }
+      @Override
+      public Adapter caseTargetDestination(TargetDestination object)
+      {
+        return createTargetDestinationAdapter();
+      }
+      @Override
+      public Adapter caseEndingTarget(EndingTarget object)
+      {
+        return createEndingTargetAdapter();
       }
       @Override
       public Adapter caseLogic(Logic object)
@@ -401,6 +413,36 @@ public class If22AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.TargetDestination <em>Target Destination</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.if22.if22.TargetDestination
+   * @generated
+   */
+  public Adapter createTargetDestinationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.EndingTarget <em>Ending Target</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.if22.if22.EndingTarget
+   * @generated
+   */
+  public Adapter createEndingTargetAdapter()
   {
     return null;
   }

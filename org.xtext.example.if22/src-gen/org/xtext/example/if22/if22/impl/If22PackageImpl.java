@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.xtext.example.if22.if22.Announcement;
 import org.xtext.example.if22.if22.End;
+import org.xtext.example.if22.if22.EndingTarget;
 import org.xtext.example.if22.if22.Expression;
 import org.xtext.example.if22.if22.ExternalFunctionCall;
 import org.xtext.example.if22.if22.Function;
@@ -24,6 +25,7 @@ import org.xtext.example.if22.if22.Question;
 import org.xtext.example.if22.if22.Scenario;
 import org.xtext.example.if22.if22.Statement;
 import org.xtext.example.if22.if22.Target;
+import org.xtext.example.if22.if22.TargetDestination;
 import org.xtext.example.if22.if22.TextExp;
 import org.xtext.example.if22.if22.This;
 import org.xtext.example.if22.if22.Type;
@@ -116,6 +118,20 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   private EClass typeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass targetDestinationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass endingTargetEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -376,20 +392,9 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   @Override
-  public EAttribute getScenario_Name()
-  {
-    return (EAttribute)scenarioEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EReference getScenario_VariableDeclarations()
   {
-    return (EReference)scenarioEClass.getEStructuralFeatures().get(1);
+    return (EReference)scenarioEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -400,7 +405,7 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
   @Override
   public EReference getScenario_Statements()
   {
-    return (EReference)scenarioEClass.getEStructuralFeatures().get(2);
+    return (EReference)scenarioEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -445,17 +450,6 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
   public EClass getStatement()
   {
     return statementEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getStatement_Name()
-  {
-    return (EAttribute)statementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -585,9 +579,9 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   @Override
-  public EAttribute getTarget_Name()
+  public EReference getTarget_Destination()
   {
-    return (EAttribute)targetEClass.getEStructuralFeatures().get(0);
+    return (EReference)targetEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -599,6 +593,17 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
   public EReference getTarget_TargetCheck()
   {
     return (EReference)targetEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getTarget_EndTargets()
+  {
+    return (EReference)targetEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -632,6 +637,61 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
   public EAttribute getType_Value()
   {
     return (EAttribute)typeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getTargetDestination()
+  {
+    return targetDestinationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getTargetDestination_Name()
+  {
+    return (EAttribute)targetDestinationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getEndingTarget()
+  {
+    return endingTargetEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEndingTarget_CallableEnd()
+  {
+    return (EReference)endingTargetEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEndingTarget_SelfdefinedEnd()
+  {
+    return (EReference)endingTargetEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -995,7 +1055,6 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
     createEReference(functionEClass, FUNCTION__RETURN_TYPE);
 
     scenarioEClass = createEClass(SCENARIO);
-    createEAttribute(scenarioEClass, SCENARIO__NAME);
     createEReference(scenarioEClass, SCENARIO__VARIABLE_DECLARATIONS);
     createEReference(scenarioEClass, SCENARIO__STATEMENTS);
 
@@ -1004,7 +1063,6 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
     createEReference(variableDeclarationEClass, VARIABLE_DECLARATION__TYPE);
 
     statementEClass = createEClass(STATEMENT);
-    createEAttribute(statementEClass, STATEMENT__NAME);
 
     announcementEClass = createEClass(ANNOUNCEMENT);
     createEReference(announcementEClass, ANNOUNCEMENT__EXP);
@@ -1020,13 +1078,21 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
     createEReference(endEClass, END__EXP);
 
     targetEClass = createEClass(TARGET);
-    createEAttribute(targetEClass, TARGET__NAME);
+    createEReference(targetEClass, TARGET__DESTINATION);
     createEReference(targetEClass, TARGET__TARGET_CHECK);
+    createEReference(targetEClass, TARGET__END_TARGETS);
 
     expressionEClass = createEClass(EXPRESSION);
 
     typeEClass = createEClass(TYPE);
     createEAttribute(typeEClass, TYPE__VALUE);
+
+    targetDestinationEClass = createEClass(TARGET_DESTINATION);
+    createEAttribute(targetDestinationEClass, TARGET_DESTINATION__NAME);
+
+    endingTargetEClass = createEClass(ENDING_TARGET);
+    createEReference(endingTargetEClass, ENDING_TARGET__CALLABLE_END);
+    createEReference(endingTargetEClass, ENDING_TARGET__SELFDEFINED_END);
 
     logicEClass = createEClass(LOGIC);
     createEReference(logicEClass, LOGIC__LEFT);
@@ -1100,6 +1166,8 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    scenarioEClass.getESuperTypes().add(this.getTargetDestination());
+    statementEClass.getESuperTypes().add(this.getTargetDestination());
     announcementEClass.getESuperTypes().add(this.getStatement());
     questionEClass.getESuperTypes().add(this.getStatement());
     endEClass.getESuperTypes().add(this.getStatement());
@@ -1130,7 +1198,6 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
     initEReference(getFunction_ReturnType(), this.getType(), null, "returnType", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(scenarioEClass, Scenario.class, "Scenario", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getScenario_Name(), ecorePackage.getEString(), "name", null, 0, 1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getScenario_VariableDeclarations(), this.getVariableDeclaration(), null, "variableDeclarations", null, 0, -1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getScenario_Statements(), this.getStatement(), null, "statements", null, 0, -1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1139,7 +1206,6 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
     initEReference(getVariableDeclaration_Type(), this.getType(), null, "type", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(announcementEClass, Announcement.class, "Announcement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAnnouncement_Exp(), this.getExpression(), null, "exp", null, 0, 1, Announcement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1155,13 +1221,21 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
     initEReference(getEnd_Exp(), this.getExpression(), null, "exp", null, 0, 1, End.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(targetEClass, Target.class, "Target", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getTarget_Name(), ecorePackage.getEString(), "name", null, 0, 1, Target.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTarget_Destination(), this.getTargetDestination(), null, "destination", null, 0, 1, Target.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTarget_TargetCheck(), this.getExpression(), null, "targetCheck", null, 0, 1, Target.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTarget_EndTargets(), this.getEndingTarget(), null, "endTargets", null, 0, -1, Target.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getType_Value(), ecorePackage.getEString(), "value", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(targetDestinationEClass, TargetDestination.class, "TargetDestination", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTargetDestination_Name(), ecorePackage.getEString(), "name", null, 0, 1, TargetDestination.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(endingTargetEClass, EndingTarget.class, "EndingTarget", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEndingTarget_CallableEnd(), this.getTarget(), null, "callableEnd", null, 0, 1, EndingTarget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEndingTarget_SelfdefinedEnd(), this.getTarget(), null, "selfdefinedEnd", null, 0, 1, EndingTarget.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(logicEClass, Logic.class, "Logic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getLogic_Left(), this.getExpression(), null, "left", null, 0, 1, Logic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

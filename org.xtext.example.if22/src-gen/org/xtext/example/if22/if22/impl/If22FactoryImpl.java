@@ -16,6 +16,7 @@ import org.xtext.example.if22.if22.EXPBOOL;
 import org.xtext.example.if22.if22.EXPINT;
 import org.xtext.example.if22.if22.EXPSTRING;
 import org.xtext.example.if22.if22.End;
+import org.xtext.example.if22.if22.EndingTarget;
 import org.xtext.example.if22.if22.Expression;
 import org.xtext.example.if22.if22.ExternalFunctionCall;
 import org.xtext.example.if22.if22.Function;
@@ -29,6 +30,7 @@ import org.xtext.example.if22.if22.Question;
 import org.xtext.example.if22.if22.Scenario;
 import org.xtext.example.if22.if22.Statement;
 import org.xtext.example.if22.if22.Target;
+import org.xtext.example.if22.if22.TargetDestination;
 import org.xtext.example.if22.if22.TextExp;
 import org.xtext.example.if22.if22.This;
 import org.xtext.example.if22.if22.Type;
@@ -100,6 +102,8 @@ public class If22FactoryImpl extends EFactoryImpl implements If22Factory
       case If22Package.TARGET: return createTarget();
       case If22Package.EXPRESSION: return createExpression();
       case If22Package.TYPE: return createType();
+      case If22Package.TARGET_DESTINATION: return createTargetDestination();
+      case If22Package.ENDING_TARGET: return createEndingTarget();
       case If22Package.LOGIC: return createLogic();
       case If22Package.MATH: return createMath();
       case If22Package.TEXT_EXP: return createTextExp();
@@ -248,6 +252,30 @@ public class If22FactoryImpl extends EFactoryImpl implements If22Factory
   {
     TypeImpl type = new TypeImpl();
     return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public TargetDestination createTargetDestination()
+  {
+    TargetDestinationImpl targetDestination = new TargetDestinationImpl();
+    return targetDestination;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EndingTarget createEndingTarget()
+  {
+    EndingTargetImpl endingTarget = new EndingTargetImpl();
+    return endingTarget;
   }
 
   /**

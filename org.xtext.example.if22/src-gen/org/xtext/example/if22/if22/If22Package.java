@@ -150,6 +150,34 @@ public interface If22Package extends EPackage
   int FUNCTION_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.if22.if22.impl.TargetDestinationImpl <em>Target Destination</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.if22.if22.impl.TargetDestinationImpl
+   * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTargetDestination()
+   * @generated
+   */
+  int TARGET_DESTINATION = 11;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TARGET_DESTINATION__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Target Destination</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TARGET_DESTINATION_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.if22.if22.impl.ScenarioImpl <em>Scenario</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -166,7 +194,7 @@ public interface If22Package extends EPackage
    * @generated
    * @ordered
    */
-  int SCENARIO__NAME = 0;
+  int SCENARIO__NAME = TARGET_DESTINATION__NAME;
 
   /**
    * The feature id for the '<em><b>Variable Declarations</b></em>' containment reference list.
@@ -175,7 +203,7 @@ public interface If22Package extends EPackage
    * @generated
    * @ordered
    */
-  int SCENARIO__VARIABLE_DECLARATIONS = 1;
+  int SCENARIO__VARIABLE_DECLARATIONS = TARGET_DESTINATION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Statements</b></em>' containment reference list.
@@ -184,7 +212,7 @@ public interface If22Package extends EPackage
    * @generated
    * @ordered
    */
-  int SCENARIO__STATEMENTS = 2;
+  int SCENARIO__STATEMENTS = TARGET_DESTINATION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Scenario</em>' class.
@@ -193,7 +221,7 @@ public interface If22Package extends EPackage
    * @generated
    * @ordered
    */
-  int SCENARIO_FEATURE_COUNT = 3;
+  int SCENARIO_FEATURE_COUNT = TARGET_DESTINATION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.if22.if22.impl.VariableDeclarationImpl <em>Variable Declaration</em>}' class.
@@ -249,7 +277,7 @@ public interface If22Package extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT__NAME = 0;
+  int STATEMENT__NAME = TARGET_DESTINATION__NAME;
 
   /**
    * The number of structural features of the '<em>Statement</em>' class.
@@ -258,7 +286,7 @@ public interface If22Package extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENT_FEATURE_COUNT = 1;
+  int STATEMENT_FEATURE_COUNT = TARGET_DESTINATION_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.xtext.example.if22.if22.impl.AnnouncementImpl <em>Announcement</em>}' class.
@@ -418,13 +446,13 @@ public interface If22Package extends EPackage
   int TARGET = 8;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Destination</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TARGET__NAME = 0;
+  int TARGET__DESTINATION = 0;
 
   /**
    * The feature id for the '<em><b>Target Check</b></em>' containment reference.
@@ -436,13 +464,22 @@ public interface If22Package extends EPackage
   int TARGET__TARGET_CHECK = 1;
 
   /**
+   * The feature id for the '<em><b>End Targets</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TARGET__END_TARGETS = 2;
+
+  /**
    * The number of structural features of the '<em>Target</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TARGET_FEATURE_COUNT = 2;
+  int TARGET_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.if22.if22.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -492,6 +529,43 @@ public interface If22Package extends EPackage
   int TYPE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.if22.if22.impl.EndingTargetImpl <em>Ending Target</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.if22.if22.impl.EndingTargetImpl
+   * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getEndingTarget()
+   * @generated
+   */
+  int ENDING_TARGET = 12;
+
+  /**
+   * The feature id for the '<em><b>Callable End</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENDING_TARGET__CALLABLE_END = 0;
+
+  /**
+   * The feature id for the '<em><b>Selfdefined End</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENDING_TARGET__SELFDEFINED_END = 1;
+
+  /**
+   * The number of structural features of the '<em>Ending Target</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENDING_TARGET_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.if22.if22.impl.LogicImpl <em>Logic</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -499,7 +573,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getLogic()
    * @generated
    */
-  int LOGIC = 11;
+  int LOGIC = 13;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -545,7 +619,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getMath()
    * @generated
    */
-  int MATH = 12;
+  int MATH = 14;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -591,7 +665,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTextExp()
    * @generated
    */
-  int TEXT_EXP = 13;
+  int TEXT_EXP = 15;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -628,7 +702,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getThis()
    * @generated
    */
-  int THIS = 14;
+  int THIS = 16;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -656,7 +730,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getEXPSTRING()
    * @generated
    */
-  int EXPSTRING = 15;
+  int EXPSTRING = 17;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -684,7 +758,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getEXPINT()
    * @generated
    */
-  int EXPINT = 16;
+  int EXPINT = 18;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -712,7 +786,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getEXPBOOL()
    * @generated
    */
-  int EXPBOOL = 17;
+  int EXPBOOL = 19;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -740,7 +814,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getID()
    * @generated
    */
-  int ID = 18;
+  int ID = 20;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -768,7 +842,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getExternalFunctionCall()
    * @generated
    */
-  int EXTERNAL_FUNCTION_CALL = 19;
+  int EXTERNAL_FUNCTION_CALL = 21;
 
   /**
    * The feature id for the '<em><b>Ef Name</b></em>' attribute.
@@ -805,7 +879,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getParenthesis()
    * @generated
    */
-  int PARENTHESIS = 20;
+  int PARENTHESIS = 22;
 
   /**
    * The feature id for the '<em><b>Exp</b></em>' containment reference.
@@ -833,7 +907,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTypeBoolean()
    * @generated
    */
-  int TYPE_BOOLEAN = 21;
+  int TYPE_BOOLEAN = 23;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -861,7 +935,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTypeText()
    * @generated
    */
-  int TYPE_TEXT = 22;
+  int TYPE_TEXT = 24;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -889,7 +963,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTypeNumber()
    * @generated
    */
-  int TYPE_NUMBER = 23;
+  int TYPE_NUMBER = 25;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1007,17 +1081,6 @@ public interface If22Package extends EPackage
   EClass getScenario();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.if22.if22.Scenario#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.example.if22.if22.Scenario#getName()
-   * @see #getScenario()
-   * @generated
-   */
-  EAttribute getScenario_Name();
-
-  /**
    * Returns the meta object for the containment reference list '{@link org.xtext.example.if22.if22.Scenario#getVariableDeclarations <em>Variable Declarations</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1080,17 +1143,6 @@ public interface If22Package extends EPackage
    * @generated
    */
   EClass getStatement();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.if22.if22.Statement#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.example.if22.if22.Statement#getName()
-   * @see #getStatement()
-   * @generated
-   */
-  EAttribute getStatement_Name();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.if22.if22.Announcement <em>Announcement</em>}'.
@@ -1210,15 +1262,15 @@ public interface If22Package extends EPackage
   EClass getTarget();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.if22.if22.Target#getName <em>Name</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.example.if22.if22.Target#getDestination <em>Destination</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.example.if22.if22.Target#getName()
+   * @return the meta object for the reference '<em>Destination</em>'.
+   * @see org.xtext.example.if22.if22.Target#getDestination()
    * @see #getTarget()
    * @generated
    */
-  EAttribute getTarget_Name();
+  EReference getTarget_Destination();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.if22.if22.Target#getTargetCheck <em>Target Check</em>}'.
@@ -1230,6 +1282,17 @@ public interface If22Package extends EPackage
    * @generated
    */
   EReference getTarget_TargetCheck();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.if22.if22.Target#getEndTargets <em>End Targets</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>End Targets</em>'.
+   * @see org.xtext.example.if22.if22.Target#getEndTargets()
+   * @see #getTarget()
+   * @generated
+   */
+  EReference getTarget_EndTargets();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.if22.if22.Expression <em>Expression</em>}'.
@@ -1261,6 +1324,59 @@ public interface If22Package extends EPackage
    * @generated
    */
   EAttribute getType_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.if22.if22.TargetDestination <em>Target Destination</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Target Destination</em>'.
+   * @see org.xtext.example.if22.if22.TargetDestination
+   * @generated
+   */
+  EClass getTargetDestination();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.if22.if22.TargetDestination#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.if22.if22.TargetDestination#getName()
+   * @see #getTargetDestination()
+   * @generated
+   */
+  EAttribute getTargetDestination_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.if22.if22.EndingTarget <em>Ending Target</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Ending Target</em>'.
+   * @see org.xtext.example.if22.if22.EndingTarget
+   * @generated
+   */
+  EClass getEndingTarget();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.example.if22.if22.EndingTarget#getCallableEnd <em>Callable End</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Callable End</em>'.
+   * @see org.xtext.example.if22.if22.EndingTarget#getCallableEnd()
+   * @see #getEndingTarget()
+   * @generated
+   */
+  EReference getEndingTarget_CallableEnd();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.example.if22.if22.EndingTarget#getSelfdefinedEnd <em>Selfdefined End</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Selfdefined End</em>'.
+   * @see org.xtext.example.if22.if22.EndingTarget#getSelfdefinedEnd()
+   * @see #getEndingTarget()
+   * @generated
+   */
+  EReference getEndingTarget_SelfdefinedEnd();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.if22.if22.Logic <em>Logic</em>}'.
@@ -1670,14 +1786,6 @@ public interface If22Package extends EPackage
     EClass SCENARIO = eINSTANCE.getScenario();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SCENARIO__NAME = eINSTANCE.getScenario_Name();
-
-    /**
      * The meta object literal for the '<em><b>Variable Declarations</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1728,14 +1836,6 @@ public interface If22Package extends EPackage
      * @generated
      */
     EClass STATEMENT = eINSTANCE.getStatement();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute STATEMENT__NAME = eINSTANCE.getStatement_Name();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.AnnouncementImpl <em>Announcement</em>}' class.
@@ -1834,12 +1934,12 @@ public interface If22Package extends EPackage
     EClass TARGET = eINSTANCE.getTarget();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Destination</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TARGET__NAME = eINSTANCE.getTarget_Name();
+    EReference TARGET__DESTINATION = eINSTANCE.getTarget_Destination();
 
     /**
      * The meta object literal for the '<em><b>Target Check</b></em>' containment reference feature.
@@ -1848,6 +1948,14 @@ public interface If22Package extends EPackage
      * @generated
      */
     EReference TARGET__TARGET_CHECK = eINSTANCE.getTarget_TargetCheck();
+
+    /**
+     * The meta object literal for the '<em><b>End Targets</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TARGET__END_TARGETS = eINSTANCE.getTarget_EndTargets();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -1876,6 +1984,50 @@ public interface If22Package extends EPackage
      * @generated
      */
     EAttribute TYPE__VALUE = eINSTANCE.getType_Value();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.TargetDestinationImpl <em>Target Destination</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.if22.if22.impl.TargetDestinationImpl
+     * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTargetDestination()
+     * @generated
+     */
+    EClass TARGET_DESTINATION = eINSTANCE.getTargetDestination();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TARGET_DESTINATION__NAME = eINSTANCE.getTargetDestination_Name();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.EndingTargetImpl <em>Ending Target</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.if22.if22.impl.EndingTargetImpl
+     * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getEndingTarget()
+     * @generated
+     */
+    EClass ENDING_TARGET = eINSTANCE.getEndingTarget();
+
+    /**
+     * The meta object literal for the '<em><b>Callable End</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENDING_TARGET__CALLABLE_END = eINSTANCE.getEndingTarget_CallableEnd();
+
+    /**
+     * The meta object literal for the '<em><b>Selfdefined End</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENDING_TARGET__SELFDEFINED_END = eINSTANCE.getEndingTarget_SelfdefinedEnd();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.LogicImpl <em>Logic</em>}' class.

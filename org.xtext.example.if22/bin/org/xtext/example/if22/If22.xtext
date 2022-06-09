@@ -30,7 +30,7 @@ End:
 	'end' name=ID exp=Exp?;
 
 Target:
-	'to' name=ID ('if' targetCheck=Exp)?;
+	{Target} 'to' destination=[TargetDestination] ('if' targetCheck=Exp)? ('{' (endTargets+=EndingTarget)+ '}')?;
 
 Exp returns Expression:
 	Primary
@@ -53,3 +53,12 @@ Type:
 
 terminal BOOLEAN:
 	'true' | 'false';
+	
+TargetDestination:
+	Statement | Scenario
+;
+
+// TODO: Scope this stuff!
+EndingTarget:
+	{EndingTarget}'on' callableEnd=[Target] 'to' selfdefinedEnd=[Target]
+;

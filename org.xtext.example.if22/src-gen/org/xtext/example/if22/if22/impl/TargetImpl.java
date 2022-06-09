@@ -3,8 +3,12 @@
  */
 package org.xtext.example.if22.if22.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -12,9 +16,14 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.xtext.example.if22.if22.EndingTarget;
 import org.xtext.example.if22.if22.Expression;
 import org.xtext.example.if22.if22.If22Package;
 import org.xtext.example.if22.if22.Target;
+import org.xtext.example.if22.if22.TargetDestination;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,8 +33,9 @@ import org.xtext.example.if22.if22.Target;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.if22.if22.impl.TargetImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.if22.if22.impl.TargetImpl#getDestination <em>Destination</em>}</li>
  *   <li>{@link org.xtext.example.if22.if22.impl.TargetImpl#getTargetCheck <em>Target Check</em>}</li>
+ *   <li>{@link org.xtext.example.if22.if22.impl.TargetImpl#getEndTargets <em>End Targets</em>}</li>
  * </ul>
  *
  * @generated
@@ -33,24 +43,14 @@ import org.xtext.example.if22.if22.Target;
 public class TargetImpl extends MinimalEObjectImpl.Container implements Target
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getDestination() <em>Destination</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getDestination()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected TargetDestination destination;
 
   /**
    * The cached value of the '{@link #getTargetCheck() <em>Target Check</em>}' containment reference.
@@ -61,6 +61,16 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target
    * @ordered
    */
   protected Expression targetCheck;
+
+  /**
+   * The cached value of the '{@link #getEndTargets() <em>End Targets</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEndTargets()
+   * @generated
+   * @ordered
+   */
+  protected EList<EndingTarget> endTargets;
 
   /**
    * <!-- begin-user-doc -->
@@ -89,9 +99,29 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target
    * @generated
    */
   @Override
-  public String getName()
+  public TargetDestination getDestination()
   {
-    return name;
+    if (destination != null && destination.eIsProxy())
+    {
+      InternalEObject oldDestination = (InternalEObject)destination;
+      destination = (TargetDestination)eResolveProxy(oldDestination);
+      if (destination != oldDestination)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, If22Package.TARGET__DESTINATION, oldDestination, destination));
+      }
+    }
+    return destination;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TargetDestination basicGetDestination()
+  {
+    return destination;
   }
 
   /**
@@ -100,12 +130,12 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target
    * @generated
    */
   @Override
-  public void setName(String newName)
+  public void setDestination(TargetDestination newDestination)
   {
-    String oldName = name;
-    name = newName;
+    TargetDestination oldDestination = destination;
+    destination = newDestination;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, If22Package.TARGET__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, If22Package.TARGET__DESTINATION, oldDestination, destination));
   }
 
   /**
@@ -164,12 +194,29 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target
    * @generated
    */
   @Override
+  public EList<EndingTarget> getEndTargets()
+  {
+    if (endTargets == null)
+    {
+      endTargets = new EObjectContainmentEList<EndingTarget>(EndingTarget.class, this, If22Package.TARGET__END_TARGETS);
+    }
+    return endTargets;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
       case If22Package.TARGET__TARGET_CHECK:
         return basicSetTargetCheck(null, msgs);
+      case If22Package.TARGET__END_TARGETS:
+        return ((InternalEList<?>)getEndTargets()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -184,10 +231,13 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target
   {
     switch (featureID)
     {
-      case If22Package.TARGET__NAME:
-        return getName();
+      case If22Package.TARGET__DESTINATION:
+        if (resolve) return getDestination();
+        return basicGetDestination();
       case If22Package.TARGET__TARGET_CHECK:
         return getTargetCheck();
+      case If22Package.TARGET__END_TARGETS:
+        return getEndTargets();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -197,16 +247,21 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case If22Package.TARGET__NAME:
-        setName((String)newValue);
+      case If22Package.TARGET__DESTINATION:
+        setDestination((TargetDestination)newValue);
         return;
       case If22Package.TARGET__TARGET_CHECK:
         setTargetCheck((Expression)newValue);
+        return;
+      case If22Package.TARGET__END_TARGETS:
+        getEndTargets().clear();
+        getEndTargets().addAll((Collection<? extends EndingTarget>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -222,11 +277,14 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target
   {
     switch (featureID)
     {
-      case If22Package.TARGET__NAME:
-        setName(NAME_EDEFAULT);
+      case If22Package.TARGET__DESTINATION:
+        setDestination((TargetDestination)null);
         return;
       case If22Package.TARGET__TARGET_CHECK:
         setTargetCheck((Expression)null);
+        return;
+      case If22Package.TARGET__END_TARGETS:
+        getEndTargets().clear();
         return;
     }
     super.eUnset(featureID);
@@ -242,29 +300,14 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target
   {
     switch (featureID)
     {
-      case If22Package.TARGET__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case If22Package.TARGET__DESTINATION:
+        return destination != null;
       case If22Package.TARGET__TARGET_CHECK:
         return targetCheck != null;
+      case If22Package.TARGET__END_TARGETS:
+        return endTargets != null && !endTargets.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //TargetImpl

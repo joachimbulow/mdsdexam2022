@@ -702,39 +702,41 @@ ruleTarget returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='to'
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getTargetAccess().getTargetAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='to'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getTargetAccess().getToKeyword_0());
+			newLeafNode(otherlv_1, grammarAccess.getTargetAccess().getToKeyword_1());
 		}
 		(
 			(
-				lv_name_1_0=RULE_ID
-				{
-					newLeafNode(lv_name_1_0, grammarAccess.getTargetAccess().getNameIDTerminalRuleCall_1_0());
-				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getTargetRule());
 					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+				}
+				otherlv_2=RULE_ID
+				{
+					newLeafNode(otherlv_2, grammarAccess.getTargetAccess().getDestinationTargetDestinationCrossReference_2_0());
 				}
 			)
 		)
 		(
-			otherlv_2='if'
+			otherlv_3='if'
 			{
-				newLeafNode(otherlv_2, grammarAccess.getTargetAccess().getIfKeyword_2_0());
+				newLeafNode(otherlv_3, grammarAccess.getTargetAccess().getIfKeyword_3_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getTargetAccess().getTargetCheckExpParserRuleCall_2_1_0());
+						newCompositeNode(grammarAccess.getTargetAccess().getTargetCheckExpParserRuleCall_3_1_0());
 					}
-					lv_targetCheck_3_0=ruleExp
+					lv_targetCheck_4_0=ruleExp
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getTargetRule());
@@ -742,12 +744,41 @@ ruleTarget returns [EObject current=null]
 						set(
 							$current,
 							"targetCheck",
-							lv_targetCheck_3_0,
+							lv_targetCheck_4_0,
 							"org.xtext.example.if22.If22.Exp");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
+		)?
+		(
+			otherlv_5='{'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getTargetAccess().getLeftCurlyBracketKeyword_4_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTargetAccess().getEndTargetsEndingTargetParserRuleCall_4_1_0());
+					}
+					lv_endTargets_6_0=ruleEndingTarget
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTargetRule());
+						}
+						add(
+							$current,
+							"endTargets",
+							lv_endTargets_6_0,
+							"org.xtext.example.if22.If22.EndingTarget");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)+
+			otherlv_7='}'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getTargetAccess().getRightCurlyBracketKeyword_4_2());
+			}
 		)?
 	)
 ;
@@ -1367,6 +1398,66 @@ ruleType returns [EObject current=null]
 						setWithLastConsumed($current, "value", lv_value_5_0, "number");
 					}
 				)
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleEndingTarget
+entryRuleEndingTarget returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEndingTargetRule()); }
+	iv_ruleEndingTarget=ruleEndingTarget
+	{ $current=$iv_ruleEndingTarget.current; }
+	EOF;
+
+// Rule EndingTarget
+ruleEndingTarget returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getEndingTargetAccess().getEndingTargetAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='on'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getEndingTargetAccess().getOnKeyword_1());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getEndingTargetRule());
+					}
+				}
+				otherlv_2=RULE_ID
+				{
+					newLeafNode(otherlv_2, grammarAccess.getEndingTargetAccess().getCallableEndTargetCrossReference_2_0());
+				}
+			)
+		)
+		otherlv_3='to'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getEndingTargetAccess().getToKeyword_3());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getEndingTargetRule());
+					}
+				}
+				otherlv_4=RULE_ID
+				{
+					newLeafNode(otherlv_4, grammarAccess.getEndingTargetAccess().getSelfdefinedEndTargetCrossReference_4_0());
+				}
 			)
 		)
 	)

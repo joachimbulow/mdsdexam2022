@@ -123,6 +123,24 @@ public interface If22Factory extends EFactory
   Type createType();
 
   /**
+   * Returns a new object of class '<em>Target Destination</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Target Destination</em>'.
+   * @generated
+   */
+  TargetDestination createTargetDestination();
+
+  /**
+   * Returns a new object of class '<em>Ending Target</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ending Target</em>'.
+   * @generated
+   */
+  EndingTarget createEndingTarget();
+
+  /**
    * Returns a new object of class '<em>Logic</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

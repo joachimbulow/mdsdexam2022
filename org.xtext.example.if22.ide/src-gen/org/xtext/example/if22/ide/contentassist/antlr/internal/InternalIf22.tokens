@@ -15,17 +15,18 @@
 '>='=17
 'announce'=33
 'as'=35
-'boolean'=42
+'boolean'=43
 'end'=37
 'function'=25
 'if'=39
 'in'=36
-'number'=44
+'number'=45
+'on'=41
 'question'=34
 'scenario'=29
 'story'=24
-'text'=43
-'this'=41
+'text'=44
+'this'=42
 'to'=38
 'var'=32
 '{'=30
@@ -72,3 +73,4 @@ T__41=41
 T__42=42
 T__43=43
 T__44=44
+T__45=45

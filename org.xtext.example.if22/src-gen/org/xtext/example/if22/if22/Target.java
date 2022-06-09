@@ -3,6 +3,8 @@
  */
 package org.xtext.example.if22.if22;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,8 +16,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.if22.if22.Target#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.if22.if22.Target#getDestination <em>Destination</em>}</li>
  *   <li>{@link org.xtext.example.if22.if22.Target#getTargetCheck <em>Target Check</em>}</li>
+ *   <li>{@link org.xtext.example.if22.if22.Target#getEndTargets <em>End Targets</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.if22.if22.If22Package#getTarget()
@@ -25,26 +28,26 @@ import org.eclipse.emf.ecore.EObject;
 public interface Target extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Destination</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.xtext.example.if22.if22.If22Package#getTarget_Name()
+   * @return the value of the '<em>Destination</em>' reference.
+   * @see #setDestination(TargetDestination)
+   * @see org.xtext.example.if22.if22.If22Package#getTarget_Destination()
    * @model
    * @generated
    */
-  String getName();
+  TargetDestination getDestination();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.if22.if22.Target#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.if22.if22.Target#getDestination <em>Destination</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Destination</em>' reference.
+   * @see #getDestination()
    * @generated
    */
-  void setName(String value);
+  void setDestination(TargetDestination value);
 
   /**
    * Returns the value of the '<em><b>Target Check</b></em>' containment reference.
@@ -67,5 +70,17 @@ public interface Target extends EObject
    * @generated
    */
   void setTargetCheck(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>End Targets</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.if22.if22.EndingTarget}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>End Targets</em>' containment reference list.
+   * @see org.xtext.example.if22.if22.If22Package#getTarget_EndTargets()
+   * @model containment="true"
+   * @generated
+   */
+  EList<EndingTarget> getEndTargets();
 
 } // Target
