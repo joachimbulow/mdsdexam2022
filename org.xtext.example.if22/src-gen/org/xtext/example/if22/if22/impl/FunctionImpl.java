@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.xtext.example.if22.if22.Expression;
 import org.xtext.example.if22.if22.Function;
 import org.xtext.example.if22.if22.If22Package;
 import org.xtext.example.if22.if22.Type;
@@ -61,7 +62,7 @@ public class FunctionImpl extends MinimalEObjectImpl.Container implements Functi
    * @generated
    * @ordered
    */
-  protected Type inputType;
+  protected Expression inputType;
 
   /**
    * The cached value of the '{@link #getReturnType() <em>Return Type</em>}' containment reference.
@@ -125,7 +126,7 @@ public class FunctionImpl extends MinimalEObjectImpl.Container implements Functi
    * @generated
    */
   @Override
-  public Type getInputType()
+  public Expression getInputType()
   {
     return inputType;
   }
@@ -135,9 +136,9 @@ public class FunctionImpl extends MinimalEObjectImpl.Container implements Functi
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetInputType(Type newInputType, NotificationChain msgs)
+  public NotificationChain basicSetInputType(Expression newInputType, NotificationChain msgs)
   {
-    Type oldInputType = inputType;
+    Expression oldInputType = inputType;
     inputType = newInputType;
     if (eNotificationRequired())
     {
@@ -153,7 +154,7 @@ public class FunctionImpl extends MinimalEObjectImpl.Container implements Functi
    * @generated
    */
   @Override
-  public void setInputType(Type newInputType)
+  public void setInputType(Expression newInputType)
   {
     if (newInputType != inputType)
     {
@@ -271,7 +272,7 @@ public class FunctionImpl extends MinimalEObjectImpl.Container implements Functi
         setName((String)newValue);
         return;
       case If22Package.FUNCTION__INPUT_TYPE:
-        setInputType((Type)newValue);
+        setInputType((Expression)newValue);
         return;
       case If22Package.FUNCTION__RETURN_TYPE:
         setReturnType((Type)newValue);
@@ -294,7 +295,7 @@ public class FunctionImpl extends MinimalEObjectImpl.Container implements Functi
         setName(NAME_EDEFAULT);
         return;
       case If22Package.FUNCTION__INPUT_TYPE:
-        setInputType((Type)null);
+        setInputType((Expression)null);
         return;
       case If22Package.FUNCTION__RETURN_TYPE:
         setReturnType((Type)null);

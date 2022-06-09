@@ -49,7 +49,14 @@ public class ExpResolverUtil {
         r = _plus_7;
       } else {
         if ((exp instanceof TextExp)) {
-          r = "TextExp is still todo :)))";
+          Expression _left = ((TextExp)exp).getLeft();
+          String _compileExp_4 = ExpResolverUtil.compileExp(((TextExp) _left).getLeft());
+          Expression _left_1 = ((TextExp)exp).getLeft();
+          String _compileExp_5 = ExpResolverUtil.compileExp(((TextExp) _left_1).getRight());
+          String _plus_8 = (_compileExp_4 + _compileExp_5);
+          String _compileExp_6 = ExpResolverUtil.compileExp(((TextExp)exp).getRight());
+          String _plus_9 = (_plus_8 + _compileExp_6);
+          r = _plus_9;
         } else {
           boolean _matched = false;
           if (exp instanceof This) {
@@ -60,9 +67,9 @@ public class ExpResolverUtil {
             if (exp instanceof EXPSTRING) {
               _matched=true;
               String _value = ((EXPSTRING)exp).getValue();
-              String _plus_8 = ("\"" + _value);
-              String _plus_9 = (_plus_8 + "\"");
-              r = _plus_9;
+              String _plus_10 = ("\"" + _value);
+              String _plus_11 = (_plus_10 + "\"");
+              r = _plus_11;
             }
           }
           if (!_matched) {
@@ -100,18 +107,18 @@ public class ExpResolverUtil {
           if (!_matched) {
             if (exp instanceof Parenthesis) {
               _matched=true;
-              String _compileExp_4 = ExpResolverUtil.compileExp(((Parenthesis)exp).getExp());
-              String _plus_8 = ("(" + _compileExp_4);
-              String _plus_9 = (_plus_8 + ")");
-              r = _plus_9;
+              String _compileExp_7 = ExpResolverUtil.compileExp(((Parenthesis)exp).getExp());
+              String _plus_10 = ("(" + _compileExp_7);
+              String _plus_11 = (_plus_10 + ")");
+              r = _plus_11;
             }
           }
           if (!_matched) {
             if (exp instanceof ExternalFunctionCall) {
               _matched=true;
               String _efName = ((ExternalFunctionCall)exp).getEfName();
-              String _plus_8 = ("external." + _efName);
-              String _plus_9 = (_plus_8 + "(");
+              String _plus_10 = ("external." + _efName);
+              String _plus_11 = (_plus_10 + "(");
               String _xifexpression = null;
               Expression _efParameter = ((ExternalFunctionCall)exp).getEfParameter();
               if ((_efParameter instanceof Type)) {
@@ -119,9 +126,9 @@ public class ExpResolverUtil {
               } else {
                 _xifexpression = ExpResolverUtil.compileExp(((ExternalFunctionCall)exp).getEfParameter());
               }
-              String _plus_10 = (_plus_9 + _xifexpression);
-              String _plus_11 = (_plus_10 + ")");
-              r = _plus_11;
+              String _plus_12 = (_plus_11 + _xifexpression);
+              String _plus_13 = (_plus_12 + ")");
+              r = _plus_13;
             }
           }
           if (!_matched) {

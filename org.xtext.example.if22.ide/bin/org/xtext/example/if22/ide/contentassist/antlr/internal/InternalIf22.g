@@ -2786,9 +2786,9 @@ rule__Function__InputTypeAssignment_3
 	}
 :
 	(
-		{ before(grammarAccess.getFunctionAccess().getInputTypeTypeParserRuleCall_3_0()); }
-		ruleType
-		{ after(grammarAccess.getFunctionAccess().getInputTypeTypeParserRuleCall_3_0()); }
+		{ before(grammarAccess.getFunctionAccess().getInputTypeExpParserRuleCall_3_0()); }
+		ruleExp
+		{ after(grammarAccess.getFunctionAccess().getInputTypeExpParserRuleCall_3_0()); }
 	)
 ;
 finally {

@@ -350,7 +350,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFunction"
-    // InternalIf22.g:150:1: ruleFunction returns [EObject current=null] : (otherlv_0= 'function' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_inputType_3_0= ruleType ) ) otherlv_4= ')' otherlv_5= ':' ( (lv_returnType_6_0= ruleType ) ) ) ;
+    // InternalIf22.g:150:1: ruleFunction returns [EObject current=null] : (otherlv_0= 'function' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_inputType_3_0= ruleExp ) ) otherlv_4= ')' otherlv_5= ':' ( (lv_returnType_6_0= ruleType ) ) ) ;
     public final EObject ruleFunction() throws RecognitionException {
         EObject current = null;
 
@@ -368,11 +368,11 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalIf22.g:156:2: ( (otherlv_0= 'function' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_inputType_3_0= ruleType ) ) otherlv_4= ')' otherlv_5= ':' ( (lv_returnType_6_0= ruleType ) ) ) )
-            // InternalIf22.g:157:2: (otherlv_0= 'function' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_inputType_3_0= ruleType ) ) otherlv_4= ')' otherlv_5= ':' ( (lv_returnType_6_0= ruleType ) ) )
+            // InternalIf22.g:156:2: ( (otherlv_0= 'function' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_inputType_3_0= ruleExp ) ) otherlv_4= ')' otherlv_5= ':' ( (lv_returnType_6_0= ruleType ) ) ) )
+            // InternalIf22.g:157:2: (otherlv_0= 'function' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_inputType_3_0= ruleExp ) ) otherlv_4= ')' otherlv_5= ':' ( (lv_returnType_6_0= ruleType ) ) )
             {
-            // InternalIf22.g:157:2: (otherlv_0= 'function' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_inputType_3_0= ruleType ) ) otherlv_4= ')' otherlv_5= ':' ( (lv_returnType_6_0= ruleType ) ) )
-            // InternalIf22.g:158:3: otherlv_0= 'function' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_inputType_3_0= ruleType ) ) otherlv_4= ')' otherlv_5= ':' ( (lv_returnType_6_0= ruleType ) )
+            // InternalIf22.g:157:2: (otherlv_0= 'function' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_inputType_3_0= ruleExp ) ) otherlv_4= ')' otherlv_5= ':' ( (lv_returnType_6_0= ruleType ) ) )
+            // InternalIf22.g:158:3: otherlv_0= 'function' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv_inputType_3_0= ruleExp ) ) otherlv_4= ')' otherlv_5= ':' ( (lv_returnType_6_0= ruleType ) )
             {
             otherlv_0=(Token)match(input,13,FOLLOW_3); 
 
@@ -408,17 +408,17 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getFunctionAccess().getLeftParenthesisKeyword_2());
             		
-            // InternalIf22.g:184:3: ( (lv_inputType_3_0= ruleType ) )
-            // InternalIf22.g:185:4: (lv_inputType_3_0= ruleType )
+            // InternalIf22.g:184:3: ( (lv_inputType_3_0= ruleExp ) )
+            // InternalIf22.g:185:4: (lv_inputType_3_0= ruleExp )
             {
-            // InternalIf22.g:185:4: (lv_inputType_3_0= ruleType )
-            // InternalIf22.g:186:5: lv_inputType_3_0= ruleType
+            // InternalIf22.g:185:4: (lv_inputType_3_0= ruleExp )
+            // InternalIf22.g:186:5: lv_inputType_3_0= ruleExp
             {
 
-            					newCompositeNode(grammarAccess.getFunctionAccess().getInputTypeTypeParserRuleCall_3_0());
+            					newCompositeNode(grammarAccess.getFunctionAccess().getInputTypeExpParserRuleCall_3_0());
             				
             pushFollow(FOLLOW_8);
-            lv_inputType_3_0=ruleType();
+            lv_inputType_3_0=ruleExp();
 
             state._fsp--;
 
@@ -430,7 +430,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
             						current,
             						"inputType",
             						lv_inputType_3_0,
-            						"org.xtext.example.if22.If22.Type");
+            						"org.xtext.example.if22.If22.Exp");
             					afterParserOrEnumRuleCall();
             				
 
@@ -443,7 +443,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_4, grammarAccess.getFunctionAccess().getRightParenthesisKeyword_4());
             		
-            otherlv_5=(Token)match(input,16,FOLLOW_7); 
+            otherlv_5=(Token)match(input,16,FOLLOW_10); 
 
             			newLeafNode(otherlv_5, grammarAccess.getFunctionAccess().getColonKeyword_5());
             		
@@ -570,7 +570,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
             // InternalIf22.g:254:4: (lv_name_1_0= RULE_ID )
             // InternalIf22.g:255:5: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_10); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_11); 
 
             					newLeafNode(lv_name_1_0, grammarAccess.getScenarioAccess().getNameIDTerminalRuleCall_1_0());
             				
@@ -590,7 +590,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,18,FOLLOW_11); 
+            otherlv_2=(Token)match(input,18,FOLLOW_12); 
 
             			newLeafNode(otherlv_2, grammarAccess.getScenarioAccess().getLeftCurlyBracketKeyword_2());
             		
@@ -615,7 +615,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
 
             	    					newCompositeNode(grammarAccess.getScenarioAccess().getVariableDeclarationsVariableDeclarationParserRuleCall_3_0());
             	    				
-            	    pushFollow(FOLLOW_11);
+            	    pushFollow(FOLLOW_12);
             	    lv_variableDeclarations_3_0=ruleVariableDeclaration();
 
             	    state._fsp--;
@@ -664,7 +664,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
 
             	    					newCompositeNode(grammarAccess.getScenarioAccess().getStatementsStatementParserRuleCall_4_0());
             	    				
-            	    pushFollow(FOLLOW_12);
+            	    pushFollow(FOLLOW_13);
             	    lv_statements_4_0=ruleStatement();
 
             	    state._fsp--;
@@ -805,7 +805,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,16,FOLLOW_7); 
+            otherlv_2=(Token)match(input,16,FOLLOW_10); 
 
             			newLeafNode(otherlv_2, grammarAccess.getVariableDeclarationAccess().getColonKeyword_2());
             		
@@ -1087,7 +1087,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
             // InternalIf22.g:450:4: (lv_name_1_0= RULE_ID )
             // InternalIf22.g:451:5: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_13); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_7); 
 
             					newLeafNode(lv_name_1_0, grammarAccess.getAnnouncementAccess().getNameIDTerminalRuleCall_1_0());
             				
@@ -1287,7 +1287,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
             // InternalIf22.g:529:4: (lv_name_1_0= RULE_ID )
             // InternalIf22.g:530:5: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_13); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_7); 
 
             					newLeafNode(lv_name_1_0, grammarAccess.getQuestionAccess().getNameIDTerminalRuleCall_1_0());
             				
@@ -1338,7 +1338,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,23,FOLLOW_13); 
+            otherlv_3=(Token)match(input,23,FOLLOW_7); 
 
             			newLeafNode(otherlv_3, grammarAccess.getQuestionAccess().getAsKeyword_3());
             		
@@ -1739,7 +1739,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalIf22.g:728:4: otherlv_2= 'if' ( (lv_targetCheck_3_0= ruleExp ) )
                     {
-                    otherlv_2=(Token)match(input,27,FOLLOW_13); 
+                    otherlv_2=(Token)match(input,27,FOLLOW_7); 
 
                     				newLeafNode(otherlv_2, grammarAccess.getTargetAccess().getIfKeyword_2_0());
                     			
@@ -2011,7 +2011,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
             	                case 1 :
             	                    // InternalIf22.g:792:9: lv_operator_2_1= '=='
             	                    {
-            	                    lv_operator_2_1=(Token)match(input,28,FOLLOW_13); 
+            	                    lv_operator_2_1=(Token)match(input,28,FOLLOW_7); 
 
             	                    									newLeafNode(lv_operator_2_1, grammarAccess.getExpAccess().getOperatorEqualsSignEqualsSignKeyword_1_0_0_1_0_0());
             	                    								
@@ -2027,7 +2027,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
             	                case 2 :
             	                    // InternalIf22.g:803:9: lv_operator_2_2= '!='
             	                    {
-            	                    lv_operator_2_2=(Token)match(input,29,FOLLOW_13); 
+            	                    lv_operator_2_2=(Token)match(input,29,FOLLOW_7); 
 
             	                    									newLeafNode(lv_operator_2_2, grammarAccess.getExpAccess().getOperatorExclamationMarkEqualsSignKeyword_1_0_0_1_0_1());
             	                    								
@@ -2043,7 +2043,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
             	                case 3 :
             	                    // InternalIf22.g:814:9: lv_operator_2_3= '<'
             	                    {
-            	                    lv_operator_2_3=(Token)match(input,30,FOLLOW_13); 
+            	                    lv_operator_2_3=(Token)match(input,30,FOLLOW_7); 
 
             	                    									newLeafNode(lv_operator_2_3, grammarAccess.getExpAccess().getOperatorLessThanSignKeyword_1_0_0_1_0_2());
             	                    								
@@ -2059,7 +2059,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
             	                case 4 :
             	                    // InternalIf22.g:825:9: lv_operator_2_4= '>'
             	                    {
-            	                    lv_operator_2_4=(Token)match(input,31,FOLLOW_13); 
+            	                    lv_operator_2_4=(Token)match(input,31,FOLLOW_7); 
 
             	                    									newLeafNode(lv_operator_2_4, grammarAccess.getExpAccess().getOperatorGreaterThanSignKeyword_1_0_0_1_0_3());
             	                    								
@@ -2075,7 +2075,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
             	                case 5 :
             	                    // InternalIf22.g:836:9: lv_operator_2_5= '<='
             	                    {
-            	                    lv_operator_2_5=(Token)match(input,32,FOLLOW_13); 
+            	                    lv_operator_2_5=(Token)match(input,32,FOLLOW_7); 
 
             	                    									newLeafNode(lv_operator_2_5, grammarAccess.getExpAccess().getOperatorLessThanSignEqualsSignKeyword_1_0_0_1_0_4());
             	                    								
@@ -2091,7 +2091,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
             	                case 6 :
             	                    // InternalIf22.g:847:9: lv_operator_2_6= '>='
             	                    {
-            	                    lv_operator_2_6=(Token)match(input,33,FOLLOW_13); 
+            	                    lv_operator_2_6=(Token)match(input,33,FOLLOW_7); 
 
             	                    									newLeafNode(lv_operator_2_6, grammarAccess.getExpAccess().getOperatorGreaterThanSignEqualsSignKeyword_1_0_0_1_0_5());
             	                    								
@@ -2107,7 +2107,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
             	                case 7 :
             	                    // InternalIf22.g:858:9: lv_operator_2_7= '&&'
             	                    {
-            	                    lv_operator_2_7=(Token)match(input,34,FOLLOW_13); 
+            	                    lv_operator_2_7=(Token)match(input,34,FOLLOW_7); 
 
             	                    									newLeafNode(lv_operator_2_7, grammarAccess.getExpAccess().getOperatorAmpersandAmpersandKeyword_1_0_0_1_0_6());
             	                    								
@@ -2123,7 +2123,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
             	                case 8 :
             	                    // InternalIf22.g:869:9: lv_operator_2_8= '||'
             	                    {
-            	                    lv_operator_2_8=(Token)match(input,35,FOLLOW_13); 
+            	                    lv_operator_2_8=(Token)match(input,35,FOLLOW_7); 
 
             	                    									newLeafNode(lv_operator_2_8, grammarAccess.getExpAccess().getOperatorVerticalLineVerticalLineKeyword_1_0_0_1_0_7());
             	                    								
@@ -2208,7 +2208,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
             	                case 1 :
             	                    // InternalIf22.g:895:9: lv_operator_4_1= '+'
             	                    {
-            	                    lv_operator_4_1=(Token)match(input,36,FOLLOW_13); 
+            	                    lv_operator_4_1=(Token)match(input,36,FOLLOW_7); 
 
             	                    									newLeafNode(lv_operator_4_1, grammarAccess.getExpAccess().getOperatorPlusSignKeyword_1_0_1_1_0_0());
             	                    								
@@ -2224,7 +2224,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
             	                case 2 :
             	                    // InternalIf22.g:906:9: lv_operator_4_2= '-'
             	                    {
-            	                    lv_operator_4_2=(Token)match(input,37,FOLLOW_13); 
+            	                    lv_operator_4_2=(Token)match(input,37,FOLLOW_7); 
 
             	                    									newLeafNode(lv_operator_4_2, grammarAccess.getExpAccess().getOperatorHyphenMinusKeyword_1_0_1_1_0_1());
             	                    								
@@ -2240,7 +2240,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
             	                case 3 :
             	                    // InternalIf22.g:917:9: lv_operator_4_3= '*'
             	                    {
-            	                    lv_operator_4_3=(Token)match(input,38,FOLLOW_13); 
+            	                    lv_operator_4_3=(Token)match(input,38,FOLLOW_7); 
 
             	                    									newLeafNode(lv_operator_4_3, grammarAccess.getExpAccess().getOperatorAsteriskKeyword_1_0_1_1_0_2());
             	                    								
@@ -2256,7 +2256,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
             	                case 4 :
             	                    // InternalIf22.g:928:9: lv_operator_4_4= '/'
             	                    {
-            	                    lv_operator_4_4=(Token)match(input,39,FOLLOW_13); 
+            	                    lv_operator_4_4=(Token)match(input,39,FOLLOW_7); 
 
             	                    									newLeafNode(lv_operator_4_4, grammarAccess.getExpAccess().getOperatorSolidusKeyword_1_0_1_1_0_3());
             	                    								
@@ -2301,7 +2301,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
 
             	            }
 
-            	            otherlv_6=(Token)match(input,40,FOLLOW_13); 
+            	            otherlv_6=(Token)match(input,40,FOLLOW_7); 
 
             	            						newLeafNode(otherlv_6, grammarAccess.getExpAccess().getAmpersandKeyword_1_0_2_1());
             	            					
@@ -2851,7 +2851,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,14,FOLLOW_13); 
+            otherlv_2=(Token)match(input,14,FOLLOW_7); 
 
             			newLeafNode(otherlv_2, grammarAccess.getExternalFunctionCallAccess().getLeftParenthesisKeyword_2());
             		
@@ -2979,7 +2979,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,14,FOLLOW_13); 
+            otherlv_1=(Token)match(input,14,FOLLOW_7); 
 
             			newLeafNode(otherlv_1, grammarAccess.getParenthesisAccess().getLeftParenthesisKeyword_1());
             		
@@ -3330,13 +3330,13 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000022002L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000020002L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x00001C0000000000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x00001E00000040F0L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000002780000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000002680000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x00001E00000040F0L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00001C0000000000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000002780000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000002680000L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000004000000L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000004000002L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000800000L});

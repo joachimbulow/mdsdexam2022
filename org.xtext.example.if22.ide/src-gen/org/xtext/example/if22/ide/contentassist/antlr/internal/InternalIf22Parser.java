@@ -2833,7 +2833,7 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
             // InternalIf22.g:877:1: ( rule__Function__Group__5__Impl rule__Function__Group__6 )
             // InternalIf22.g:878:2: rule__Function__Group__5__Impl rule__Function__Group__6
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_11);
             rule__Function__Group__5__Impl();
 
             state._fsp--;
@@ -3063,7 +3063,7 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
             // InternalIf22.g:958:1: ( rule__Scenario__Group__1__Impl rule__Scenario__Group__2 )
             // InternalIf22.g:959:2: rule__Scenario__Group__1__Impl rule__Scenario__Group__2
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_12);
             rule__Scenario__Group__1__Impl();
 
             state._fsp--;
@@ -3148,7 +3148,7 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
             // InternalIf22.g:985:1: ( rule__Scenario__Group__2__Impl rule__Scenario__Group__3 )
             // InternalIf22.g:986:2: rule__Scenario__Group__2__Impl rule__Scenario__Group__3
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__Scenario__Group__2__Impl();
 
             state._fsp--;
@@ -3223,7 +3223,7 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
             // InternalIf22.g:1012:1: ( rule__Scenario__Group__3__Impl rule__Scenario__Group__4 )
             // InternalIf22.g:1013:2: rule__Scenario__Group__3__Impl rule__Scenario__Group__4
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__Scenario__Group__3__Impl();
 
             state._fsp--;
@@ -3280,7 +3280,7 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalIf22.g:1027:3: rule__Scenario__VariableDeclarationsAssignment_3
             	    {
-            	    pushFollow(FOLLOW_13);
+            	    pushFollow(FOLLOW_14);
             	    rule__Scenario__VariableDeclarationsAssignment_3();
 
             	    state._fsp--;
@@ -3326,7 +3326,7 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
             // InternalIf22.g:1039:1: ( rule__Scenario__Group__4__Impl rule__Scenario__Group__5 )
             // InternalIf22.g:1040:2: rule__Scenario__Group__4__Impl rule__Scenario__Group__5
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__Scenario__Group__4__Impl();
 
             state._fsp--;
@@ -3383,7 +3383,7 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalIf22.g:1054:3: rule__Scenario__StatementsAssignment_4
             	    {
-            	    pushFollow(FOLLOW_14);
+            	    pushFollow(FOLLOW_15);
             	    rule__Scenario__StatementsAssignment_4();
 
             	    state._fsp--;
@@ -3659,7 +3659,7 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
             // InternalIf22.g:1147:1: ( rule__VariableDeclaration__Group__2__Impl rule__VariableDeclaration__Group__3 )
             // InternalIf22.g:1148:2: rule__VariableDeclaration__Group__2__Impl rule__VariableDeclaration__Group__3
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_11);
             rule__VariableDeclaration__Group__2__Impl();
 
             state._fsp--;
@@ -3889,7 +3889,7 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
             // InternalIf22.g:1228:1: ( rule__Announcement__Group__1__Impl rule__Announcement__Group__2 )
             // InternalIf22.g:1229:2: rule__Announcement__Group__1__Impl rule__Announcement__Group__2
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_8);
             rule__Announcement__Group__1__Impl();
 
             state._fsp--;
@@ -4257,7 +4257,7 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
             // InternalIf22.g:1343:1: ( rule__Question__Group__1__Impl rule__Question__Group__2 )
             // InternalIf22.g:1344:2: rule__Question__Group__1__Impl rule__Question__Group__2
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_8);
             rule__Question__Group__1__Impl();
 
             state._fsp--;
@@ -4427,7 +4427,7 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
             // InternalIf22.g:1397:1: ( rule__Question__Group__3__Impl rule__Question__Group__4 )
             // InternalIf22.g:1398:2: rule__Question__Group__3__Impl rule__Question__Group__4
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_8);
             rule__Question__Group__3__Impl();
 
             state._fsp--;
@@ -5036,7 +5036,7 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
             // InternalIf22.g:1593:1: ( rule__End__Group__1__Impl rule__End__Group__2 )
             // InternalIf22.g:1594:2: rule__End__Group__1__Impl rule__End__Group__2
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_8);
             rule__End__Group__1__Impl();
 
             state._fsp--;
@@ -5463,7 +5463,7 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
             // InternalIf22.g:1728:1: ( rule__Target__Group_2__0__Impl rule__Target__Group_2__1 )
             // InternalIf22.g:1729:2: rule__Target__Group_2__0__Impl rule__Target__Group_2__1
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_8);
             rule__Target__Group_2__0__Impl();
 
             state._fsp--;
@@ -5795,7 +5795,7 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
             // InternalIf22.g:1836:1: ( rule__Exp__Group_1__0__Impl rule__Exp__Group_1__1 )
             // InternalIf22.g:1837:2: rule__Exp__Group_1__0__Impl rule__Exp__Group_1__1
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_8);
             rule__Exp__Group_1__0__Impl();
 
             state._fsp--;
@@ -7190,7 +7190,7 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
             // InternalIf22.g:2322:1: ( rule__ExternalFunctionCall__Group__0__Impl rule__ExternalFunctionCall__Group__1 )
             // InternalIf22.g:2323:2: rule__ExternalFunctionCall__Group__0__Impl rule__ExternalFunctionCall__Group__1
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_8);
             rule__ExternalFunctionCall__Group__0__Impl();
 
             state._fsp--;
@@ -7350,7 +7350,7 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
             // InternalIf22.g:2376:1: ( rule__ExternalFunctionCall__Group__2__Impl rule__ExternalFunctionCall__Group__3 )
             // InternalIf22.g:2377:2: rule__ExternalFunctionCall__Group__2__Impl rule__ExternalFunctionCall__Group__3
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_8);
             rule__ExternalFunctionCall__Group__2__Impl();
 
             state._fsp--;
@@ -7655,7 +7655,7 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
             // InternalIf22.g:2484:1: ( rule__Parenthesis__Group__1__Impl rule__Parenthesis__Group__2 )
             // InternalIf22.g:2485:2: rule__Parenthesis__Group__1__Impl rule__Parenthesis__Group__2
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_8);
             rule__Parenthesis__Group__1__Impl();
 
             state._fsp--;
@@ -8195,7 +8195,7 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
             // InternalIf22.g:2673:1: ( rule__Type__Group_2__0__Impl rule__Type__Group_2__1 )
             // InternalIf22.g:2674:2: rule__Type__Group_2__0__Impl rule__Type__Group_2__1
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_11);
             rule__Type__Group_2__0__Impl();
 
             state._fsp--;
@@ -8497,25 +8497,25 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Function__InputTypeAssignment_3"
-    // InternalIf22.g:2783:1: rule__Function__InputTypeAssignment_3 : ( ruleType ) ;
+    // InternalIf22.g:2783:1: rule__Function__InputTypeAssignment_3 : ( ruleExp ) ;
     public final void rule__Function__InputTypeAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalIf22.g:2787:1: ( ( ruleType ) )
-            // InternalIf22.g:2788:2: ( ruleType )
+            // InternalIf22.g:2787:1: ( ( ruleExp ) )
+            // InternalIf22.g:2788:2: ( ruleExp )
             {
-            // InternalIf22.g:2788:2: ( ruleType )
-            // InternalIf22.g:2789:3: ruleType
+            // InternalIf22.g:2788:2: ( ruleExp )
+            // InternalIf22.g:2789:3: ruleExp
             {
-             before(grammarAccess.getFunctionAccess().getInputTypeTypeParserRuleCall_3_0()); 
+             before(grammarAccess.getFunctionAccess().getInputTypeExpParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
-            ruleType();
+            ruleExp();
 
             state._fsp--;
 
-             after(grammarAccess.getFunctionAccess().getInputTypeTypeParserRuleCall_3_0()); 
+             after(grammarAccess.getFunctionAccess().getInputTypeExpParserRuleCall_3_0()); 
 
             }
 
@@ -9893,14 +9893,14 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000002000002L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000020000002L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x00001C0000000000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x00001E00040000F0L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000008000000L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000002780000000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000100000002L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000002600000002L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x00001E00040000F0L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x00001C0000000000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000002780000000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000100000002L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000002600000002L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000004000000000L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000004000000002L});
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000800000000L});

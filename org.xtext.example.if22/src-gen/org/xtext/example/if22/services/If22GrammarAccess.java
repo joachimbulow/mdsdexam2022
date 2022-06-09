@@ -71,17 +71,17 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cInputTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cInputTypeTypeParserRuleCall_3_0 = (RuleCall)cInputTypeAssignment_3.eContents().get(0);
+		private final RuleCall cInputTypeExpParserRuleCall_3_0 = (RuleCall)cInputTypeAssignment_3.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Keyword cColonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cReturnTypeAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cReturnTypeTypeParserRuleCall_6_0 = (RuleCall)cReturnTypeAssignment_6.eContents().get(0);
 		
 		//Function:
-		//    'function' name=ID '(' inputType=Type ')' ':' returnType=Type;
+		//    'function' name=ID '(' inputType=Exp ')' ':' returnType=Type;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'function' name=ID '(' inputType=Type ')' ':' returnType=Type
+		//'function' name=ID '(' inputType=Exp ')' ':' returnType=Type
 		public Group getGroup() { return cGroup; }
 		
 		//'function'
@@ -96,11 +96,11 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//'('
 		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
 		
-		//inputType=Type
+		//inputType=Exp
 		public Assignment getInputTypeAssignment_3() { return cInputTypeAssignment_3; }
 		
-		//Type
-		public RuleCall getInputTypeTypeParserRuleCall_3_0() { return cInputTypeTypeParserRuleCall_3_0; }
+		//Exp
+		public RuleCall getInputTypeExpParserRuleCall_3_0() { return cInputTypeExpParserRuleCall_3_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
@@ -858,7 +858,7 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//Function:
-	//    'function' name=ID '(' inputType=Type ')' ':' returnType=Type;
+	//    'function' name=ID '(' inputType=Exp ')' ':' returnType=Type;
 	public FunctionElements getFunctionAccess() {
 		return pFunction;
 	}

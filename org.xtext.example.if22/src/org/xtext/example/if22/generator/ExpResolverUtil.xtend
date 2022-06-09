@@ -37,7 +37,8 @@ class ExpResolverUtil {
 		} else if (exp instanceof Math) {
 			r = exp.left.compileExp + " " + exp.operator + " " + exp.right.compileExp
 		} else if (exp instanceof TextExp) {
-			r = "TextExp is still todo :)))"
+			//Sub with variable name
+			r = (exp.left as TextExp).left.compileExp + (exp.left as TextExp).right.compileExp + exp.right.compileExp
 		} else {
 			// It must be a primary
 			switch exp {

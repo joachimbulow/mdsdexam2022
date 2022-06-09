@@ -184,9 +184,9 @@ ruleFunction returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getFunctionAccess().getInputTypeTypeParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getFunctionAccess().getInputTypeExpParserRuleCall_3_0());
 				}
-				lv_inputType_3_0=ruleType
+				lv_inputType_3_0=ruleExp
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getFunctionRule());
@@ -195,7 +195,7 @@ ruleFunction returns [EObject current=null]
 						$current,
 						"inputType",
 						lv_inputType_3_0,
-						"org.xtext.example.if22.If22.Type");
+						"org.xtext.example.if22.If22.Exp");
 					afterParserOrEnumRuleCall();
 				}
 			)

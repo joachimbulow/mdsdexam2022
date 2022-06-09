@@ -256,7 +256,7 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Function returns Function
 	 *
 	 * Constraint:
-	 *     (name=ID inputType=Type returnType=Type)
+	 *     (name=ID inputType=Exp returnType=Type)
 	 * </pre>
 	 */
 	protected void sequence_Function(ISerializationContext context, Function semanticObject) {
@@ -270,7 +270,7 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getFunctionAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getFunctionAccess().getInputTypeTypeParserRuleCall_3_0(), semanticObject.getInputType());
+		feeder.accept(grammarAccess.getFunctionAccess().getInputTypeExpParserRuleCall_3_0(), semanticObject.getInputType());
 		feeder.accept(grammarAccess.getFunctionAccess().getReturnTypeTypeParserRuleCall_6_0(), semanticObject.getReturnType());
 		feeder.finish();
 	}

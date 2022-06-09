@@ -52,12 +52,12 @@ public interface Function extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Input Type</em>' containment reference.
-   * @see #setInputType(Type)
+   * @see #setInputType(Expression)
    * @see org.xtext.example.if22.if22.If22Package#getFunction_InputType()
    * @model containment="true"
    * @generated
    */
-  Type getInputType();
+  Expression getInputType();
 
   /**
    * Sets the value of the '{@link org.xtext.example.if22.if22.Function#getInputType <em>Input Type</em>}' containment reference.
@@ -67,7 +67,7 @@ public interface Function extends EObject
    * @see #getInputType()
    * @generated
    */
-  void setInputType(Type value);
+  void setInputType(Expression value);
 
   /**
    * Returns the value of the '<em><b>Return Type</b></em>' containment reference.
