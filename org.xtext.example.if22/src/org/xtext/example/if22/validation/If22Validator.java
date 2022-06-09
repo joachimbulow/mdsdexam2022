@@ -22,29 +22,29 @@ import org.xtext.example.if22.if22.Statement;
  */
 public class If22Validator extends AbstractIf22Validator {
 	
-	public static final String INVALID_TYPE = "invalidType";
-
-	@Check
-	public void checkTypeIsAllowed(Program program) {
-		Question invalidQuestion = null;
-		for (Scenario s : program.getScenarios()) {
-			for (Statement st : s.getStatements()) {
-				if (st instanceof Question) {
-					if (!isValidType(((Question) st).getQType())) {
-						error("Invalid type", If22Package.eINSTANCE.getProgram_Scenarios(), INVALID_TYPE);
-					}
-				}
-			
-			}
-		}
-	}
-	
-	public static boolean isValidType(Expression exp) {
-		String toTest = ExpResolverUtil.compileTypeFromExp(exp);
-		if (toTest == "" || toTest == null) {
-			return false;
-		}
-		return true;
-	}
+//	public static final String INVALID_TYPE = "invalidType";
+//
+//	@Check
+//	public void checkTypeIsAllowed(Program program) {
+//		Question invalidQuestion = null;
+//		for (Scenario s : program.getScenarios()) {
+//			for (Statement st : s.getStatements()) {
+//				if (st instanceof Question) {
+//					if (!isValidType(((Question) st).getQType())) {
+//						error("Invalid type", If22Package.eINSTANCE.getProgram_Scenarios(), INVALID_TYPE);
+//					}
+//				}
+//			
+//			}
+//		}
+//	}
+//	
+//	public static boolean isValidType(Expression exp) {
+//		String toTest = ExpResolverUtil.compileTypeFromExp(exp);
+//		if (toTest == "" || toTest == null) {
+//			return false;
+//		}
+//		return true;
+//	}
 	
 }

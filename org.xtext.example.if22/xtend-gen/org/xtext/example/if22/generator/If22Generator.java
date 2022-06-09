@@ -19,6 +19,7 @@ import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.xtext.example.if22.if22.Announcement;
 import org.xtext.example.if22.if22.End;
 import org.xtext.example.if22.if22.Expression;
+import org.xtext.example.if22.if22.Logic;
 import org.xtext.example.if22.if22.Program;
 import org.xtext.example.if22.if22.Question;
 import org.xtext.example.if22.if22.Scenario;
@@ -279,8 +280,8 @@ public class If22Generator extends AbstractGenerator {
       boolean _equals = Objects.equal(_reffedVar, null);
       if (_equals) {
         String _r = r;
-        String _compileTypeFromExp = ExpResolverUtil.compileTypeFromExp(((Question) q).getQType());
-        String _plus = (_compileTypeFromExp + " _");
+        String _typeStringFromExp = ExpResolverUtil.getTypeStringFromExp(((Question) q).getQType());
+        String _plus = (_typeStringFromExp + " _");
         String _name = q.getName();
         String _plus_1 = (_plus + _name);
         String _plus_2 = (_plus_1 + ";\n");
@@ -319,58 +320,81 @@ public class If22Generator extends AbstractGenerator {
   }
   
   protected static String _compileStatement(final Question question) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("case \"");
-    String _name = question.getName();
-    _builder.append(_name);
-    _builder.append("\":");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("System.out.println(");
-    String _compileExp = ExpResolverUtil.compileExp(question.getQString());
-    _builder.append(_compileExp, "\t");
-    _builder.append(");");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("try {");
-    _builder.newLine();
-    _builder.append("\t\t");
-    String _xifexpression = null;
-    VariableDeclaration _reffedVar = question.getReffedVar();
-    boolean _tripleEquals = (_reffedVar == null);
-    if (_tripleEquals) {
-      String _name_1 = question.getName();
-      _xifexpression = ("_" + _name_1);
-    } else {
-      _xifexpression = question.getReffedVar().getName();
-    }
-    _builder.append(_xifexpression, "\t\t");
-    _builder.append(" = ");
-    String _readInputString = If22Generator.readInputString(ExpResolverUtil.getTypeFromExp(question.getQType()));
-    _builder.append(_readInputString, "\t\t");
-    _builder.newLineIfNotEmpty();
+    String _xblockexpression = null;
     {
-      EList<Target> _targets = question.getTargets();
-      for(final Target t : _targets) {
-        _builder.append("\t\t");
-        Expression _targetCheck = t.getTargetCheck();
-        String _name_2 = question.getName();
-        String _plus = ("_" + _name_2);
-        String _compileTargetWithConditional = If22Generator.compileTargetWithConditional(t, _targetCheck, _plus);
-        _builder.append(_compileTargetWithConditional, "\t\t");
-        _builder.newLineIfNotEmpty();
+      String _xifexpression = null;
+      VariableDeclaration _reffedVar = question.getReffedVar();
+      boolean _tripleEquals = (_reffedVar == null);
+      if (_tripleEquals) {
+        String _name = question.getName();
+        _xifexpression = ("_" + _name);
+      } else {
+        _xifexpression = question.getReffedVar().getName();
       }
+      String variableName = _xifexpression;
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("case \"");
+      String _name_1 = question.getName();
+      _builder.append(_name_1);
+      _builder.append("\":");
+      _builder.newLineIfNotEmpty();
+      _builder.append("\t");
+      _builder.append("System.out.println(");
+      String _compileExp = ExpResolverUtil.compileExp(question.getQString());
+      _builder.append(_compileExp, "\t");
+      _builder.append(");");
+      _builder.newLineIfNotEmpty();
+      _builder.append("\t");
+      _builder.append("try {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append(variableName, "\t\t");
+      _builder.append(" = ");
+      String _inputStringFromExp = ExpResolverUtil.getInputStringFromExp(question.getQType());
+      _builder.append(_inputStringFromExp, "\t\t");
+      _builder.newLineIfNotEmpty();
+      {
+        Expression _qType = question.getQType();
+        if ((_qType instanceof Logic)) {
+          _builder.append("\t\t");
+          _builder.append("if (");
+          String _compileInputValidationWithVariableName = If22Generator.compileInputValidationWithVariableName(question.getQType(), variableName);
+          _builder.append(_compileInputValidationWithVariableName, "\t\t");
+          _builder.append("){");
+          _builder.newLineIfNotEmpty();
+          _builder.append("\t\t");
+          _builder.append("\t");
+          _builder.append("break;");
+          _builder.newLine();
+          _builder.append("\t\t");
+          _builder.append("}");
+          _builder.newLine();
+        }
+      }
+      {
+        EList<Target> _targets = question.getTargets();
+        for(final Target t : _targets) {
+          _builder.append("\t\t");
+          Expression _targetCheck = t.getTargetCheck();
+          String _name_2 = question.getName();
+          String _plus = ("_" + _name_2);
+          String _compileTargetWithConditional = If22Generator.compileTargetWithConditional(t, _targetCheck, _plus);
+          _builder.append(_compileTargetWithConditional, "\t\t");
+          _builder.newLineIfNotEmpty();
+        }
+      }
+      _builder.append("\t");
+      _builder.append("} catch (Exception ex) {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("break;");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _xblockexpression = _builder.toString();
     }
-    _builder.append("\t");
-    _builder.append("} catch (Exception ex) {");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("break;");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("}");
-    _builder.newLine();
-    return _builder.toString();
+    return _xblockexpression;
   }
   
   protected static String _compileStatement(final End endStatement) {
@@ -393,28 +417,6 @@ public class If22Generator extends AbstractGenerator {
     _builder.append("\";");
     _builder.newLineIfNotEmpty();
     return _builder.toString();
-  }
-  
-  public static String readInputString(final Type type) {
-    String _switchResult = null;
-    boolean _matched = false;
-    if (type instanceof TypeBoolean) {
-      _matched=true;
-      _switchResult = "Boolean.parseBoolean(br.readLine());";
-    }
-    if (!_matched) {
-      if (type instanceof TypeText) {
-        _matched=true;
-        _switchResult = "br.readLine();";
-      }
-    }
-    if (!_matched) {
-      if (type instanceof TypeNumber) {
-        _matched=true;
-        _switchResult = "Integer.parseInt(br.readLine());";
-      }
-    }
-    return _switchResult;
   }
   
   public static String compileTargetWithConditional(final Target target, final Expression targetCheck, final String thisReference) {
@@ -451,6 +453,23 @@ public class If22Generator extends AbstractGenerator {
     }
     r = r.replaceAll("this", thisReference);
     return r;
+  }
+  
+  public static String compileInputValidationWithVariableName(final Expression validation, final String variableName) {
+    if ((validation instanceof Logic)) {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("!(");
+      _builder.append(variableName);
+      _builder.append(" ");
+      String _operator = ((Logic)validation).getOperator();
+      _builder.append(_operator);
+      _builder.append(" ");
+      String _compileExp = ExpResolverUtil.compileExp(((Logic)validation).getRight());
+      _builder.append(_compileExp);
+      _builder.append(")");
+      return _builder.toString();
+    }
+    return null;
   }
   
   public static String compileStatement(final Statement announcement) {

@@ -21,6 +21,7 @@ import java.util.List
 import org.xtext.example.if22.if22.Statement
 import org.xtext.example.if22.if22.Target
 import org.xtext.example.if22.if22.Expression
+import org.xtext.example.if22.if22.Logic
 
 /**
  * Generates code from your model files on save.
@@ -141,7 +142,7 @@ class If22Generator extends AbstractGenerator {
 		for (q : statements.filter[statement|statement instanceof Question]) {
 			// Examples don't bother checking for this, but I do! >:)
 			if ((q as Question).reffedVar == null) {
-				r += ExpResolverUtil.compileTypeFromExp((q as Question).QType) + " _" + q.name + ";\n"
+				r += ExpResolverUtil.getTypeStringFromExp((q as Question).QType) + " _" + q.name + ";\n"
 			}
 		}
 		return r;
@@ -161,11 +162,17 @@ class If22Generator extends AbstractGenerator {
 
 	// Question
 	def static dispatch String compileStatement(Question question) {
+		var variableName = question.reffedVar === null ? "_" + question.name : question.reffedVar.name;
 		'''
 			case "«question.name»":
 				System.out.println(«ExpResolverUtil.compileExp(question.QString)»);
 				try {
-					«question.reffedVar === null ? "_" + question.name : question.reffedVar.name» = «ExpResolverUtil.getTypeFromExp(question.QType).readInputString»
+					«variableName» = «ExpResolverUtil.getInputStringFromExp(question.QType)»
+					«IF question.QType instanceof Logic»
+						if («compileInputValidationWithVariableName(question.QType, variableName)»){
+							break;
+						}
+					«ENDIF»
 					«FOR t : question.targets»
 						«t.compileTargetWithConditional(t.targetCheck, "_" + question.name)»
 					«ENDFOR»
@@ -186,14 +193,7 @@ class If22Generator extends AbstractGenerator {
 	}
 
 	// --- END Dispatch statement compilation ---
-	// Reading input from the user
-	def static readInputString(Type type) {
-		switch type {
-			TypeBoolean: "Boolean.parseBoolean(br.readLine());"
-			TypeText: "br.readLine();"
-			TypeNumber: "Integer.parseInt(br.readLine());"
-		}
-	}
+
 
 	// Targets with conditionals
 	def static compileTargetWithConditional(Target target, Expression targetCheck, String thisReference) {
@@ -215,5 +215,15 @@ class If22Generator extends AbstractGenerator {
 		r = r.replaceAll("this",thisReference);
 		return r;
 	}
+	
+	// Custom logic compilation for input validation
+	def static compileInputValidationWithVariableName(Expression validation, String variableName){
+		if (validation instanceof Logic){
+			return '''!(«variableName» «validation.operator» «ExpResolverUtil.compileExp(validation.right)»)'''
+		}
+	}
+	
+	// Question conditional break check
+	
 
 }

@@ -35,11 +35,9 @@ class ExpResolverUtil {
 			r = exp.left.compileExp + " " + exp.operator + " " + exp.right.compileExp
 		} else if (exp instanceof Math) {
 			r = exp.left.compileExp + " " + exp.operator + " " + exp.right.compileExp
-		} 
-		else if(exp instanceof TextExp){
+		} else if (exp instanceof TextExp) {
 			r = "TextExp is still todo :)))"
-		}
-		else {
+		} else {
 			// It must be a primary
 			switch exp {
 				// Math: exp.left.compileExp + " " + exp.operator + " " + exp.right.compileExp
@@ -71,10 +69,36 @@ class ExpResolverUtil {
 		}
 		return null;
 	}
-	
+
 	def static String compileTypeFromExp(Expression exp) {
 		if (exp instanceof Type) {
 			return exp.compileType
+		}
+	}
+
+	def static getInputStringFromExp(Expression exp) {
+		if (exp instanceof Type) {
+			return exp.readInputString
+		}
+		if (exp instanceof Logic) {
+			(exp.left as Type).readInputString
+		}
+	}
+
+	def static readInputString(Type type) {
+		switch type {
+			TypeBoolean: "Boolean.parseBoolean(br.readLine());"
+			TypeText: "br.readLine();"
+			TypeNumber: "Integer.parseInt(br.readLine());"
+		}
+	}
+	
+	def static getTypeStringFromExp(Expression exp) {
+		if (exp instanceof Type) {
+			return exp.compileExp
+		}
+		if (exp instanceof Logic) {
+			(exp.left as Type).compileExp
 		}
 	}
 

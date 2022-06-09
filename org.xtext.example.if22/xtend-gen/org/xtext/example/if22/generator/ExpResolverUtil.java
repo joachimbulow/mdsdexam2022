@@ -149,4 +149,58 @@ public class ExpResolverUtil {
     }
     return null;
   }
+  
+  public static String getInputStringFromExp(final Expression exp) {
+    String _xblockexpression = null;
+    {
+      if ((exp instanceof Type)) {
+        return ExpResolverUtil.readInputString(((Type)exp));
+      }
+      String _xifexpression = null;
+      if ((exp instanceof Logic)) {
+        Expression _left = ((Logic)exp).getLeft();
+        _xifexpression = ExpResolverUtil.readInputString(((Type) _left));
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
+  }
+  
+  public static String readInputString(final Type type) {
+    String _switchResult = null;
+    boolean _matched = false;
+    if (type instanceof TypeBoolean) {
+      _matched=true;
+      _switchResult = "Boolean.parseBoolean(br.readLine());";
+    }
+    if (!_matched) {
+      if (type instanceof TypeText) {
+        _matched=true;
+        _switchResult = "br.readLine();";
+      }
+    }
+    if (!_matched) {
+      if (type instanceof TypeNumber) {
+        _matched=true;
+        _switchResult = "Integer.parseInt(br.readLine());";
+      }
+    }
+    return _switchResult;
+  }
+  
+  public static String getTypeStringFromExp(final Expression exp) {
+    String _xblockexpression = null;
+    {
+      if ((exp instanceof Type)) {
+        return ExpResolverUtil.compileExp(exp);
+      }
+      String _xifexpression = null;
+      if ((exp instanceof Logic)) {
+        Expression _left = ((Logic)exp).getLeft();
+        _xifexpression = ExpResolverUtil.compileExp(((Type) _left));
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
+  }
 }
