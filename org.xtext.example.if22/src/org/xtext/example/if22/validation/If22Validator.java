@@ -3,6 +3,17 @@
  */
 package org.xtext.example.if22.validation;
 
+import java.util.stream.Collectors;
+
+import org.eclipse.emf.ecore.EcorePackage.Literals;
+import org.eclipse.xtext.validation.Check;
+import org.xtext.example.if22.generator.ExpResolverUtil;
+import org.xtext.example.if22.if22.Expression;
+import org.xtext.example.if22.if22.If22Package;
+import org.xtext.example.if22.if22.Program;
+import org.xtext.example.if22.if22.Question;
+import org.xtext.example.if22.if22.Scenario;
+import org.xtext.example.if22.if22.Statement;
 
 /**
  * This class contains custom validation rules. 
@@ -11,15 +22,29 @@ package org.xtext.example.if22.validation;
  */
 public class If22Validator extends AbstractIf22Validator {
 	
-//	public static final String INVALID_NAME = "invalidName";
-//
-//	@Check
-//	public void checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.getName().charAt(0))) {
-//			warning("Name should start with a capital",
-//					If22Package.Literals.GREETING__NAME,
-//					INVALID_NAME);
-//		}
-//	}
+	public static final String INVALID_TYPE = "invalidType";
+
+	@Check
+	public void checkTypeIsAllowed(Program program) {
+		Question invalidQuestion = null;
+		for (Scenario s : program.getScenarios()) {
+			for (Statement st : s.getStatements()) {
+				if (st instanceof Question) {
+					if (!isValidType(((Question) st).getQType())) {
+						error("Invalid type", If22Package.eINSTANCE.getProgram_Scenarios(), INVALID_TYPE);
+					}
+				}
+			
+			}
+		}
+	}
+	
+	public static boolean isValidType(Expression exp) {
+		String toTest = ExpResolverUtil.compileTypeFromExp(exp);
+		if (toTest == "" || toTest == null) {
+			return false;
+		}
+		return true;
+	}
 	
 }

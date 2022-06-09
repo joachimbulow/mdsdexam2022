@@ -102,7 +102,7 @@ class If22Generator extends AbstractGenerator {
 			import java.io.IOException;
 			import «PACKAGE_PATH_NO_SLASH».common.*;
 			
-			class ScenarioValidation extends Scenario {
+			class Scenario«scenario.name.toFirstUpper» extends Scenario {
 				«FOR variableDeclaration : scenario.variableDeclarations»
 					«variableDeclaration.compileVariableDeclaration»
 				«ENDFOR»
@@ -152,7 +152,7 @@ class If22Generator extends AbstractGenerator {
 	def static dispatch String compileStatement(Announcement announcement) {
 		'''
 			case "«announcement.name»":
-				System.out.println("«ExpResolverUtil.compileExp(announcement.exp)»");
+				System.out.println(«ExpResolverUtil.compileExp(announcement.exp)»);
 				«FOR t : announcement.targets»
 					«t.compileTargetWithConditional(t.targetCheck, "_" + announcement.name)»
 				«ENDFOR»
@@ -163,7 +163,7 @@ class If22Generator extends AbstractGenerator {
 	def static dispatch String compileStatement(Question question) {
 		'''
 			case "«question.name»":
-				System.out.println("«ExpResolverUtil.compileExp(question.QString)»");
+				System.out.println(«ExpResolverUtil.compileExp(question.QString)»);
 				try {
 					«question.reffedVar === null ? "_" + question.name : question.reffedVar.name» = «ExpResolverUtil.getTypeFromExp(question.QType).readInputString»
 					«FOR t : question.targets»
@@ -179,7 +179,7 @@ class If22Generator extends AbstractGenerator {
 	def static dispatch String compileStatement(End endStatement) {
 		'''
 			case "«endStatement.name»":
-				System.out.println("«ExpResolverUtil.compileExp(endStatement.exp)»");
+				System.out.println(«ExpResolverUtil.compileExp(endStatement.exp)»);
 				return "«endStatement.name»";
 		'''
 

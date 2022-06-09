@@ -41,7 +41,6 @@ public class If22Generator extends AbstractGenerator {
   
   private static String PACKAGE_PATH_NO_SLASH = If22Generator.PACKAGE_PATH.substring(0, (If22Generator.PACKAGE_PATH.length() - 1));
   
-  @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     final Program program = Iterators.<Program>filter(resource.getAllContents(), Program.class).next();
     If22Generator.compileGameFile(fsa, program.getName(), program.getScenarios().get(0).getName());
@@ -172,8 +171,11 @@ public class If22Generator extends AbstractGenerator {
     _builder.append(".common.*;");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
-    _builder.append("class ScenarioValidation extends Scenario {");
-    _builder.newLine();
+    _builder.append("class Scenario");
+    String _firstUpper = StringExtensions.toFirstUpper(scenario.getName());
+    _builder.append(_firstUpper);
+    _builder.append(" extends Scenario {");
+    _builder.newLineIfNotEmpty();
     {
       EList<VariableDeclaration> _variableDeclarations = scenario.getVariableDeclarations();
       for(final VariableDeclaration variableDeclaration : _variableDeclarations) {
@@ -225,8 +227,8 @@ public class If22Generator extends AbstractGenerator {
     _builder.newLine();
     _builder.newLine();
     String compilation = _builder.toString();
-    String _firstUpper = StringExtensions.toFirstUpper(scenario.getName());
-    String _plus = (((If22Generator.PACKAGE_PATH + storyname) + "/Scenario") + _firstUpper);
+    String _firstUpper_1 = StringExtensions.toFirstUpper(scenario.getName());
+    String _plus = (((If22Generator.PACKAGE_PATH + storyname) + "/Scenario") + _firstUpper_1);
     String _plus_1 = (_plus + ".java");
     fsa.generateFile(_plus_1, compilation);
   }
@@ -266,8 +268,10 @@ public class If22Generator extends AbstractGenerator {
   
   public static String compileImplicitVariables(final List<Statement> statements) {
     String r = "";
-    final Function1<Statement, Boolean> _function = (Statement statement) -> {
-      return Boolean.valueOf((statement instanceof Question));
+    final Function1<Statement, Boolean> _function = new Function1<Statement, Boolean>() {
+      public Boolean apply(final Statement statement) {
+        return Boolean.valueOf((statement instanceof Question));
+      }
     };
     Iterable<Statement> _filter = IterableExtensions.<Statement>filter(statements, _function);
     for (final Statement q : _filter) {
@@ -294,10 +298,10 @@ public class If22Generator extends AbstractGenerator {
     _builder.append("\":");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
-    _builder.append("System.out.println(\"");
+    _builder.append("System.out.println(");
     String _compileExp = ExpResolverUtil.compileExp(announcement.getExp());
     _builder.append(_compileExp, "\t");
-    _builder.append("\");");
+    _builder.append(");");
     _builder.newLineIfNotEmpty();
     {
       EList<Target> _targets = announcement.getTargets();
@@ -322,10 +326,10 @@ public class If22Generator extends AbstractGenerator {
     _builder.append("\":");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
-    _builder.append("System.out.println(\"");
+    _builder.append("System.out.println(");
     String _compileExp = ExpResolverUtil.compileExp(question.getQString());
     _builder.append(_compileExp, "\t");
-    _builder.append("\");");
+    _builder.append(");");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("try {");
@@ -377,10 +381,10 @@ public class If22Generator extends AbstractGenerator {
     _builder.append("\":");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
-    _builder.append("System.out.println(\"");
+    _builder.append("System.out.println(");
     String _compileExp = ExpResolverUtil.compileExp(endStatement.getExp());
     _builder.append(_compileExp, "\t");
-    _builder.append("\");");
+    _builder.append(");");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("return \"");

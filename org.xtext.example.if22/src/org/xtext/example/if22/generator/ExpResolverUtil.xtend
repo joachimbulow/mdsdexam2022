@@ -44,7 +44,7 @@ class ExpResolverUtil {
 			switch exp {
 				// Math: exp.left.compileExp + " " + exp.operator + " " + exp.right.compileExp
 				This: r = exp.value
-				EXPSTRING: r = exp.value
+				EXPSTRING: r = "\"" + exp.value + "\""
 				EXPINT: r = exp.value.toString()
 				EXPBOOL: r = exp.value == "true" ? "true" : "false"
 				ID: r = exp.value
@@ -76,23 +76,6 @@ class ExpResolverUtil {
 		if (exp instanceof Type) {
 			return exp.compileType
 		}
-		if (exp instanceof Logic){
-			var compiledExp = exp.compileExp
-			var manager = new ScriptEngineManager();
-			var engine = manager.getEngineByExtension("rhino");
-			try {
-			  var result = engine.eval("28 >= 25 && 28 <= 30") as Boolean;
-			  if (result) {
-			    System.out.println("OK OK");
-			  }
-			  else {
-			  	System.out.println("False!");
-			  }
-			} catch (ScriptException e) {
-			  e.printStackTrace();
-			}
-		}
-		return "Something didn't go as planned";
 	}
 
 }

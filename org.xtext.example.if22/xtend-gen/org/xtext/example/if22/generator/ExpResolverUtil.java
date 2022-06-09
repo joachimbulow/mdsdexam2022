@@ -4,10 +4,6 @@
 package org.xtext.example.if22.generator;
 
 import com.google.common.base.Objects;
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-import javax.script.ScriptException;
-import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.xtext.example.if22.if22.EXPBOOL;
 import org.xtext.example.if22.if22.EXPINT;
 import org.xtext.example.if22.if22.EXPSTRING;
@@ -62,7 +58,10 @@ public class ExpResolverUtil {
           if (!_matched) {
             if (exp instanceof EXPSTRING) {
               _matched=true;
-              r = ((EXPSTRING)exp).getValue();
+              String _value = ((EXPSTRING)exp).getValue();
+              String _plus_8 = ("\"" + _value);
+              String _plus_9 = (_plus_8 + "\"");
+              r = _plus_9;
             }
           }
           if (!_matched) {
@@ -148,27 +147,6 @@ public class ExpResolverUtil {
     if ((exp instanceof Type)) {
       return ExpResolverUtil.compileType(((Type)exp));
     }
-    if ((exp instanceof Logic)) {
-      String compiledExp = ExpResolverUtil.compileExp(exp);
-      ScriptEngineManager manager = new ScriptEngineManager();
-      ScriptEngine engine = manager.getEngineByExtension("rhino");
-      try {
-        Object _eval = engine.eval("28 >= 25 && 28 <= 30");
-        Boolean result = ((Boolean) _eval);
-        if ((result).booleanValue()) {
-          System.out.println("OK OK");
-        } else {
-          System.out.println("False!");
-        }
-      } catch (final Throwable _t) {
-        if (_t instanceof ScriptException) {
-          final ScriptException e = (ScriptException)_t;
-          e.printStackTrace();
-        } else {
-          throw Exceptions.sneakyThrow(_t);
-        }
-      }
-    }
-    return "Something didn\'t go as planned";
+    return null;
   }
 }
