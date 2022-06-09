@@ -15,7 +15,6 @@ import org.xtext.example.if22.if22.EXPBOOL;
 import org.xtext.example.if22.if22.EXPINT;
 import org.xtext.example.if22.if22.EXPSTRING;
 import org.xtext.example.if22.if22.End;
-import org.xtext.example.if22.if22.Exp;
 import org.xtext.example.if22.if22.Expression;
 import org.xtext.example.if22.if22.ID;
 import org.xtext.example.if22.if22.If22Package;
@@ -146,11 +145,6 @@ public class If22AdapterFactory extends AdapterFactoryImpl
       public Adapter caseType(Type object)
       {
         return createTypeAdapter();
-      }
-      @Override
-      public Adapter caseExp(Exp object)
-      {
-        return createExpAdapter();
       }
       @Override
       public Adapter caseLogic(Logic object)
@@ -380,21 +374,6 @@ public class If22AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.Exp <em>Exp</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.if22.if22.Exp
-   * @generated
-   */
-  public Adapter createExpAdapter()
   {
     return null;
   }

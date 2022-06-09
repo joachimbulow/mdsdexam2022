@@ -9,6 +9,12 @@ package org.xtext.example.if22.if22;
  * A representation of the model object '<em><b>Type</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.if22.if22.Type#getValue <em>Value</em>}</li>
+ * </ul>
  *
  * @see org.xtext.example.if22.if22.If22Package#getType()
  * @model
@@ -16,4 +22,26 @@ package org.xtext.example.if22.if22;
  */
 public interface Type extends Expression
 {
+  /**
+   * Returns the value of the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Value</em>' attribute.
+   * @see #setValue(String)
+   * @see org.xtext.example.if22.if22.If22Package#getType_Value()
+   * @model
+   * @generated
+   */
+  String getValue();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.if22.if22.Type#getValue <em>Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Value</em>' attribute.
+   * @see #getValue()
+   * @generated
+   */
+  void setValue(String value);
+
 } // Type

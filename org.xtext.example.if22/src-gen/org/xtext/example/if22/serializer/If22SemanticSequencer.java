@@ -19,7 +19,6 @@ import org.xtext.example.if22.if22.EXPBOOL;
 import org.xtext.example.if22.if22.EXPINT;
 import org.xtext.example.if22.if22.EXPSTRING;
 import org.xtext.example.if22.if22.End;
-import org.xtext.example.if22.if22.Exp;
 import org.xtext.example.if22.if22.ID;
 import org.xtext.example.if22.if22.If22Package;
 import org.xtext.example.if22.if22.Logic;
@@ -64,9 +63,6 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case If22Package.END:
 				sequence_End(context, (End) semanticObject); 
-				return; 
-			case If22Package.EXP:
-				sequence_Exp(context, (Exp) semanticObject); 
 				return; 
 			case If22Package.ID:
 				sequence_Primary(context, (ID) semanticObject); 
@@ -148,49 +144,30 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Exp returns Exp
-	 *     Exp.Logic_2_0_0_0 returns Exp
-	 *     Exp.Math_2_0_1_0 returns Exp
-	 *     Exp.TextExp_2_0_2_0 returns Exp
-	 *
-	 * Constraint:
-	 *     left=Primary
-	 * </pre>
-	 */
-	protected void sequence_Exp(ISerializationContext context, Exp semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.EXP__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.EXP__LEFT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExpAccess().getLeftPrimaryParserRuleCall_1_0(), semanticObject.getLeft());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
 	 *     Exp returns Logic
-	 *     Exp.Logic_2_0_0_0 returns Logic
-	 *     Exp.Math_2_0_1_0 returns Logic
-	 *     Exp.TextExp_2_0_2_0 returns Logic
+	 *     Exp.Logic_1_0_0_0 returns Logic
+	 *     Exp.Math_1_0_1_0 returns Logic
+	 *     Exp.TextExp_1_0_2_0 returns Logic
 	 *
 	 * Constraint:
-	 *     (left=Exp_Logic_2_0_0_0 right=Primary)
+	 *     (
+	 *         left=Exp_Logic_1_0_0_0 
+	 *         (
+	 *             operator='==' | 
+	 *             operator='!=' | 
+	 *             operator='&lt;' | 
+	 *             operator='&gt;' | 
+	 *             operator='&lt;=' | 
+	 *             operator='&gt;=' | 
+	 *             operator='&&' | 
+	 *             operator='||'
+	 *         ) 
+	 *         right=Primary
+	 *     )
 	 * </pre>
 	 */
 	protected void sequence_Exp(ISerializationContext context, Logic semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.LOGIC__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.LOGIC__LEFT));
-			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.LOGIC__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.LOGIC__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExpAccess().getLogicLeftAction_2_0_0_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getExpAccess().getRightPrimaryParserRuleCall_2_1_0(), semanticObject.getRight());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -198,25 +175,16 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     Exp returns Math
-	 *     Exp.Logic_2_0_0_0 returns Math
-	 *     Exp.Math_2_0_1_0 returns Math
-	 *     Exp.TextExp_2_0_2_0 returns Math
+	 *     Exp.Logic_1_0_0_0 returns Math
+	 *     Exp.Math_1_0_1_0 returns Math
+	 *     Exp.TextExp_1_0_2_0 returns Math
 	 *
 	 * Constraint:
-	 *     (left=Exp_Math_2_0_1_0 right=Primary)
+	 *     (left=Exp_Math_1_0_1_0 (operator='+' | operator='-' | operator='*' | operator='/') right=Primary)
 	 * </pre>
 	 */
 	protected void sequence_Exp(ISerializationContext context, org.xtext.example.if22.if22.Math semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.MATH__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.MATH__LEFT));
-			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.MATH__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.MATH__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExpAccess().getMathLeftAction_2_0_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getExpAccess().getRightPrimaryParserRuleCall_2_1_0(), semanticObject.getRight());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -224,12 +192,12 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     Exp returns TextExp
-	 *     Exp.Logic_2_0_0_0 returns TextExp
-	 *     Exp.Math_2_0_1_0 returns TextExp
-	 *     Exp.TextExp_2_0_2_0 returns TextExp
+	 *     Exp.Logic_1_0_0_0 returns TextExp
+	 *     Exp.Math_1_0_1_0 returns TextExp
+	 *     Exp.TextExp_1_0_2_0 returns TextExp
 	 *
 	 * Constraint:
-	 *     (left=Exp_TextExp_2_0_2_0 right=Primary)
+	 *     (left=Exp_TextExp_1_0_2_0 right=Primary)
 	 * </pre>
 	 */
 	protected void sequence_Exp(ISerializationContext context, TextExp semanticObject) {
@@ -240,8 +208,8 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.TEXT_EXP__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExpAccess().getTextExpLeftAction_2_0_2_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getExpAccess().getRightPrimaryParserRuleCall_2_1_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getExpAccess().getTextExpLeftAction_1_0_2_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getExpAccess().getRightPrimaryParserRuleCall_1_1_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -249,6 +217,10 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Exp returns Parenthesis
+	 *     Exp.Logic_1_0_0_0 returns Parenthesis
+	 *     Exp.Math_1_0_1_0 returns Parenthesis
+	 *     Exp.TextExp_1_0_2_0 returns Parenthesis
 	 *     Primary returns Parenthesis
 	 *     Parenthesis returns Parenthesis
 	 *
@@ -270,70 +242,120 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Exp returns EXPBOOL
+	 *     Exp.Logic_1_0_0_0 returns EXPBOOL
+	 *     Exp.Math_1_0_1_0 returns EXPBOOL
+	 *     Exp.TextExp_1_0_2_0 returns EXPBOOL
 	 *     Primary returns EXPBOOL
 	 *
 	 * Constraint:
-	 *     {EXPBOOL}
+	 *     value=BOOLEAN
 	 * </pre>
 	 */
 	protected void sequence_Primary(ISerializationContext context, EXPBOOL semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.EXPBOOL__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.EXPBOOL__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPrimaryAccess().getValueBOOLEANTerminalRuleCall_5_1_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Exp returns EXPINT
+	 *     Exp.Logic_1_0_0_0 returns EXPINT
+	 *     Exp.Math_1_0_1_0 returns EXPINT
+	 *     Exp.TextExp_1_0_2_0 returns EXPINT
 	 *     Primary returns EXPINT
 	 *
 	 * Constraint:
-	 *     {EXPINT}
+	 *     value=INT
 	 * </pre>
 	 */
 	protected void sequence_Primary(ISerializationContext context, EXPINT semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.EXPINT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.EXPINT__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPrimaryAccess().getValueINTTerminalRuleCall_4_1_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Exp returns EXPSTRING
+	 *     Exp.Logic_1_0_0_0 returns EXPSTRING
+	 *     Exp.Math_1_0_1_0 returns EXPSTRING
+	 *     Exp.TextExp_1_0_2_0 returns EXPSTRING
 	 *     Primary returns EXPSTRING
 	 *
 	 * Constraint:
-	 *     {EXPSTRING}
+	 *     value=STRING
 	 * </pre>
 	 */
 	protected void sequence_Primary(ISerializationContext context, EXPSTRING semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.EXPSTRING__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.EXPSTRING__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPrimaryAccess().getValueSTRINGTerminalRuleCall_3_1_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Exp returns ID
+	 *     Exp.Logic_1_0_0_0 returns ID
+	 *     Exp.Math_1_0_1_0 returns ID
+	 *     Exp.TextExp_1_0_2_0 returns ID
 	 *     Primary returns ID
 	 *
 	 * Constraint:
-	 *     {ID}
+	 *     value=ID
 	 * </pre>
 	 */
 	protected void sequence_Primary(ISerializationContext context, ID semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.ID__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.ID__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPrimaryAccess().getValueIDTerminalRuleCall_6_1_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Exp returns This
+	 *     Exp.Logic_1_0_0_0 returns This
+	 *     Exp.Math_1_0_1_0 returns This
+	 *     Exp.TextExp_1_0_2_0 returns This
 	 *     Primary returns This
 	 *
 	 * Constraint:
-	 *     {This}
+	 *     value='this'
 	 * </pre>
 	 */
 	protected void sequence_Primary(ISerializationContext context, This semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.THIS__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.THIS__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPrimaryAccess().getValueThisKeyword_2_1_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	
@@ -397,45 +419,75 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Exp returns TypeBoolean
+	 *     Exp.Logic_1_0_0_0 returns TypeBoolean
+	 *     Exp.Math_1_0_1_0 returns TypeBoolean
+	 *     Exp.TextExp_1_0_2_0 returns TypeBoolean
 	 *     Primary returns TypeBoolean
 	 *     Type returns TypeBoolean
 	 *
 	 * Constraint:
-	 *     {TypeBoolean}
+	 *     value='boolean'
 	 * </pre>
 	 */
 	protected void sequence_Type(ISerializationContext context, TypeBoolean semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.TYPE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.TYPE__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTypeAccess().getValueBooleanKeyword_0_1_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Exp returns TypeNumber
+	 *     Exp.Logic_1_0_0_0 returns TypeNumber
+	 *     Exp.Math_1_0_1_0 returns TypeNumber
+	 *     Exp.TextExp_1_0_2_0 returns TypeNumber
 	 *     Primary returns TypeNumber
 	 *     Type returns TypeNumber
 	 *
 	 * Constraint:
-	 *     {TypeNumber}
+	 *     value='number'
 	 * </pre>
 	 */
 	protected void sequence_Type(ISerializationContext context, TypeNumber semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.TYPE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.TYPE__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTypeAccess().getValueNumberKeyword_2_1_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Exp returns TypeText
+	 *     Exp.Logic_1_0_0_0 returns TypeText
+	 *     Exp.Math_1_0_1_0 returns TypeText
+	 *     Exp.TextExp_1_0_2_0 returns TypeText
 	 *     Primary returns TypeText
 	 *     Type returns TypeText
 	 *
 	 * Constraint:
-	 *     {TypeText}
+	 *     value='text'
 	 * </pre>
 	 */
 	protected void sequence_Type(ISerializationContext context, TypeText semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.TYPE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.TYPE__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTypeAccess().getValueTextKeyword_1_1_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	

@@ -10,9 +10,6 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
-import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 import org.xtext.example.if22.services.If22GrammarAccess;
@@ -21,68 +18,17 @@ import org.xtext.example.if22.services.If22GrammarAccess;
 public class If22SyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected If22GrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Exp_AmpersandAmpersandKeyword_2_0_0_1_6_or_EqualsSignEqualsSignKeyword_2_0_0_1_0_or_ExclamationMarkEqualsSignKeyword_2_0_0_1_1_or_GreaterThanSignEqualsSignKeyword_2_0_0_1_5_or_GreaterThanSignKeyword_2_0_0_1_3_or_LessThanSignEqualsSignKeyword_2_0_0_1_4_or_LessThanSignKeyword_2_0_0_1_2_or_VerticalLineVerticalLineKeyword_2_0_0_1_7;
-	protected AbstractElementAlias match_Exp_AsteriskKeyword_2_0_1_1_2_or_HyphenMinusKeyword_2_0_1_1_1_or_PlusSignKeyword_2_0_1_1_0_or_SolidusKeyword_2_0_1_1_3;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (If22GrammarAccess) access;
-		match_Exp_AmpersandAmpersandKeyword_2_0_0_1_6_or_EqualsSignEqualsSignKeyword_2_0_0_1_0_or_ExclamationMarkEqualsSignKeyword_2_0_0_1_1_or_GreaterThanSignEqualsSignKeyword_2_0_0_1_5_or_GreaterThanSignKeyword_2_0_0_1_3_or_LessThanSignEqualsSignKeyword_2_0_0_1_4_or_LessThanSignKeyword_2_0_0_1_2_or_VerticalLineVerticalLineKeyword_2_0_0_1_7 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getExpAccess().getAmpersandAmpersandKeyword_2_0_0_1_6()), new TokenAlias(false, false, grammarAccess.getExpAccess().getEqualsSignEqualsSignKeyword_2_0_0_1_0()), new TokenAlias(false, false, grammarAccess.getExpAccess().getExclamationMarkEqualsSignKeyword_2_0_0_1_1()), new TokenAlias(false, false, grammarAccess.getExpAccess().getGreaterThanSignEqualsSignKeyword_2_0_0_1_5()), new TokenAlias(false, false, grammarAccess.getExpAccess().getGreaterThanSignKeyword_2_0_0_1_3()), new TokenAlias(false, false, grammarAccess.getExpAccess().getLessThanSignEqualsSignKeyword_2_0_0_1_4()), new TokenAlias(false, false, grammarAccess.getExpAccess().getLessThanSignKeyword_2_0_0_1_2()), new TokenAlias(false, false, grammarAccess.getExpAccess().getVerticalLineVerticalLineKeyword_2_0_0_1_7()));
-		match_Exp_AsteriskKeyword_2_0_1_1_2_or_HyphenMinusKeyword_2_0_1_1_1_or_PlusSignKeyword_2_0_1_1_0_or_SolidusKeyword_2_0_1_1_3 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getExpAccess().getAsteriskKeyword_2_0_1_1_2()), new TokenAlias(false, false, grammarAccess.getExpAccess().getHyphenMinusKeyword_2_0_1_1_1()), new TokenAlias(false, false, grammarAccess.getExpAccess().getPlusSignKeyword_2_0_1_1_0()), new TokenAlias(false, false, grammarAccess.getExpAccess().getSolidusKeyword_2_0_1_1_3()));
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getBOOLEANRule())
-			return getBOOLEANToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getIDRule())
-			return getIDToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getINTRule())
-			return getINTToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getSTRINGRule())
-			return getSTRINGToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
-	/**
-	 * terminal BOOLEAN:
-	 * 	'true' | 'false';
-	 */
-	protected String getBOOLEANToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "true";
-	}
-	
-	/**
-	 * terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
-	 */
-	protected String getIDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "";
-	}
-	
-	/**
-	 * terminal INT returns ecore::EInt: ('0'..'9')+;
-	 */
-	protected String getINTToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "";
-	}
-	
-	/**
-	 * terminal STRING:
-	 * 			'"' ( '\\' .  | !('\\'|'"') )* '"' |
-	 * 			"'" ( '\\' .  | !('\\'|"'") )* "'"
-	 * 		;
-	 */
-	protected String getSTRINGToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "\"\"";
-	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -90,49 +36,8 @@ public class If22SyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Exp_AmpersandAmpersandKeyword_2_0_0_1_6_or_EqualsSignEqualsSignKeyword_2_0_0_1_0_or_ExclamationMarkEqualsSignKeyword_2_0_0_1_1_or_GreaterThanSignEqualsSignKeyword_2_0_0_1_5_or_GreaterThanSignKeyword_2_0_0_1_3_or_LessThanSignEqualsSignKeyword_2_0_0_1_4_or_LessThanSignKeyword_2_0_0_1_2_or_VerticalLineVerticalLineKeyword_2_0_0_1_7.equals(syntax))
-				emit_Exp_AmpersandAmpersandKeyword_2_0_0_1_6_or_EqualsSignEqualsSignKeyword_2_0_0_1_0_or_ExclamationMarkEqualsSignKeyword_2_0_0_1_1_or_GreaterThanSignEqualsSignKeyword_2_0_0_1_5_or_GreaterThanSignKeyword_2_0_0_1_3_or_LessThanSignEqualsSignKeyword_2_0_0_1_4_or_LessThanSignKeyword_2_0_0_1_2_or_VerticalLineVerticalLineKeyword_2_0_0_1_7(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Exp_AsteriskKeyword_2_0_1_1_2_or_HyphenMinusKeyword_2_0_1_1_1_or_PlusSignKeyword_2_0_1_1_0_or_SolidusKeyword_2_0_1_1_3.equals(syntax))
-				emit_Exp_AsteriskKeyword_2_0_1_1_2_or_HyphenMinusKeyword_2_0_1_1_1_or_PlusSignKeyword_2_0_1_1_0_or_SolidusKeyword_2_0_1_1_3(semanticObject, getLastNavigableState(), syntaxNodes);
-			else acceptNodes(getLastNavigableState(), syntaxNodes);
+			acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
-	/**
-	 * <pre>
-	 * Ambiguous syntax:
-	 *     (
-	  *         '==' | 
-	  *         '!=' | 
-	  *         '&lt;' | 
-	  *         '&gt;' | 
-	  *         '&lt;=' | 
-	  *         '&gt;=' | 
-	  *         '&&' | 
-	  *         '||'
-	  *     )
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     {Logic.left=} (ambiguity) right=Primary
-	 
-	 * </pre>
-	 */
-	protected void emit_Exp_AmpersandAmpersandKeyword_2_0_0_1_6_or_EqualsSignEqualsSignKeyword_2_0_0_1_0_or_ExclamationMarkEqualsSignKeyword_2_0_0_1_1_or_GreaterThanSignEqualsSignKeyword_2_0_0_1_5_or_GreaterThanSignKeyword_2_0_0_1_3_or_LessThanSignEqualsSignKeyword_2_0_0_1_4_or_LessThanSignKeyword_2_0_0_1_2_or_VerticalLineVerticalLineKeyword_2_0_0_1_7(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * <pre>
-	 * Ambiguous syntax:
-	 *     '+' | '-' | '*' | '/'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     {Math.left=} (ambiguity) right=Primary
-	 
-	 * </pre>
-	 */
-	protected void emit_Exp_AsteriskKeyword_2_0_1_1_2_or_HyphenMinusKeyword_2_0_1_1_1_or_PlusSignKeyword_2_0_1_1_0_or_SolidusKeyword_2_0_1_1_3(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
 }

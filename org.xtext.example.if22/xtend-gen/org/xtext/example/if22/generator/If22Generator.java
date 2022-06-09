@@ -13,9 +13,7 @@ import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.xtext.example.if22.if22.Announcement;
-import org.xtext.example.if22.if22.EXPSTRING;
 import org.xtext.example.if22.if22.End;
-import org.xtext.example.if22.if22.Expression;
 import org.xtext.example.if22.if22.Program;
 import org.xtext.example.if22.if22.Question;
 import org.xtext.example.if22.if22.Scenario;
@@ -245,7 +243,7 @@ public class If22Generator extends AbstractGenerator {
         if (type instanceof TypeNumber) {
           _matched=true;
           String _name = variable.getName();
-          String _plus = ("Int " + _name);
+          String _plus = ("int " + _name);
           _switchResult = (_plus + ";");
         }
       }
@@ -263,14 +261,15 @@ public class If22Generator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("System.out.println(\"");
-    Expression _exp = announcement.getExp();
-    _builder.append(((EXPSTRING) _exp), "\t");
+    String _compileExp = ExpResolverUtil.compileExp(announcement.getExp());
+    _builder.append(_compileExp, "\t");
     _builder.append("\");");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
-    _builder.append("nextInteraction = ");
+    _builder.append("nextInteraction = \"");
     String _name_1 = announcement.getTargets().get(0).getName();
     _builder.append(_name_1, "\t");
+    _builder.append("\";");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("break;");
@@ -283,12 +282,12 @@ public class If22Generator extends AbstractGenerator {
     _builder.append("case \"");
     String _name = question.getName();
     _builder.append(_name);
-    _builder.append("\"");
+    _builder.append("\":");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("System.out.println(\"");
-    Expression _qString = question.getQString();
-    _builder.append(((EXPSTRING) _qString), "\t");
+    String _compileExp = ExpResolverUtil.compileExp(question.getQString());
+    _builder.append(_compileExp, "\t");
     _builder.append("\");");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -299,15 +298,14 @@ public class If22Generator extends AbstractGenerator {
     String _name_1 = question.getName();
     _builder.append(_name_1, "\t\t");
     _builder.append(" = ");
-    Expression _qType = question.getQType();
-    String _readInputString = If22Generator.readInputString(((Type) _qType));
+    String _readInputString = If22Generator.readInputString(ExpResolverUtil.getTypeFromExp(question.getQType()));
     _builder.append(_readInputString, "\t\t");
-    _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
-    _builder.append("nextInteraction = ");
+    _builder.append("nextInteraction = \"");
     String _name_2 = question.getTargets().get(0).getName();
     _builder.append(_name_2, "\t\t");
+    _builder.append("\";");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     _builder.append("break;");
@@ -329,12 +327,12 @@ public class If22Generator extends AbstractGenerator {
     _builder.append("case \"");
     String _name = endStatement.getName();
     _builder.append(_name);
-    _builder.append("\"");
+    _builder.append("\":");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("System.out.println(\"");
-    Expression _exp = endStatement.getExp();
-    _builder.append(((EXPSTRING) _exp), "\t");
+    String _compileExp = ExpResolverUtil.compileExp(endStatement.getExp());
+    _builder.append(_compileExp, "\t");
     _builder.append("\");");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");

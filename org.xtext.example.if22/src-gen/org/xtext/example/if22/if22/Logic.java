@@ -14,6 +14,7 @@ package org.xtext.example.if22.if22;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.if22.if22.Logic#getLeft <em>Left</em>}</li>
+ *   <li>{@link org.xtext.example.if22.if22.Logic#getOperator <em>Operator</em>}</li>
  *   <li>{@link org.xtext.example.if22.if22.Logic#getRight <em>Right</em>}</li>
  * </ul>
  *
@@ -44,6 +45,28 @@ public interface Logic extends Expression
    * @generated
    */
   void setLeft(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Operator</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Operator</em>' attribute.
+   * @see #setOperator(String)
+   * @see org.xtext.example.if22.if22.If22Package#getLogic_Operator()
+   * @model
+   * @generated
+   */
+  String getOperator();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.if22.if22.Logic#getOperator <em>Operator</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Operator</em>' attribute.
+   * @see #getOperator()
+   * @generated
+   */
+  void setOperator(String value);
 
   /**
    * Returns the value of the '<em><b>Right</b></em>' containment reference.

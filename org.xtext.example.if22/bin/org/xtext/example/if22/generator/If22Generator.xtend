@@ -13,11 +13,9 @@ import org.xtext.example.if22.if22.TypeBoolean
 import org.xtext.example.if22.if22.TypeText
 import org.xtext.example.if22.if22.TypeNumber
 import org.xtext.example.if22.if22.VariableDeclaration
-import org.xtext.example.if22.if22.Statement
 import org.xtext.example.if22.if22.Announcement
 import org.xtext.example.if22.if22.End
 import org.xtext.example.if22.if22.Question
-import org.xtext.example.if22.if22.EXPSTRING
 import org.xtext.example.if22.if22.Type
 
 /**
@@ -127,7 +125,7 @@ class If22Generator extends AbstractGenerator {
 		switch type {
 			TypeBoolean: "boolean " + variable.name + ";"
 			TypeText: "String " + variable.name + ";"
-			TypeNumber: "Int " + variable.name + ";"
+			TypeNumber: "int " + variable.name + ";"
 		}
 	}
 
@@ -136,8 +134,8 @@ class If22Generator extends AbstractGenerator {
 	def static dispatch String compileStatement(Announcement announcement) {
 		'''
 			case "«announcement.name»":
-				System.out.println("«(announcement.exp as EXPSTRING)»");
-				nextInteraction = «announcement.targets.get(0).name»
+				System.out.println("«ExpResolverUtil.compileExp(announcement.exp)»");
+				nextInteraction = "«announcement.targets.get(0).name»";
 				break;
 		'''
 	}
@@ -145,11 +143,11 @@ class If22Generator extends AbstractGenerator {
 	// Question
 	def static dispatch String compileStatement(Question question) {
 		'''
-			case "«question.name»"
-				System.out.println("«(question.QString as EXPSTRING)»");
+			case "«question.name»":
+				System.out.println("«ExpResolverUtil.compileExp(question.QString)»");
 				try {
-					__«question.name» = «(question.QType as Type).readInputString»;
-					nextInteraction = «question.targets.get(0).name»
+					__«question.name» = «ExpResolverUtil.getTypeFromExp(question.QType).readInputString»
+					nextInteraction = "«question.targets.get(0).name»";
 					break;
 				} catch (Exception ex) {
 					break;
@@ -160,14 +158,16 @@ class If22Generator extends AbstractGenerator {
 	// End statement
 	def static dispatch String compileStatement(End endStatement) {
 		'''
-			case "«endStatement.name»"
-				System.out.println("«(endStatement.exp as EXPSTRING)»");
+			case "«endStatement.name»":
+				System.out.println("«ExpResolverUtil.compileExp(endStatement.exp)»");
 				return "«endStatement.name»";
 		'''
 
 	}
 
-// --- END Dispatch statement compilation ---
+	// --- END Dispatch statement compilation ---
+
+	// Reading input from the user
 	def static readInputString(Type type) {
 		switch type {
 			TypeBoolean: "Boolean.parseBoolean(br.readLine());"
@@ -175,4 +175,6 @@ class If22Generator extends AbstractGenerator {
 			TypeNumber: "Integer.parseInt(br.readLine());"
 		}
 	}
+	
+	
 }

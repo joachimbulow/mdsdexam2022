@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.xtext.example.if22.if22.Announcement;
 import org.xtext.example.if22.if22.End;
-import org.xtext.example.if22.if22.Exp;
 import org.xtext.example.if22.if22.Expression;
 import org.xtext.example.if22.if22.If22Factory;
 import org.xtext.example.if22.if22.If22Package;
@@ -108,13 +107,6 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   private EClass typeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass expEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -566,20 +558,9 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   @Override
-  public EClass getExp()
+  public EAttribute getType_Value()
   {
-    return expEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getExp_Left()
-  {
-    return (EReference)expEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)typeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -610,9 +591,20 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   @Override
+  public EAttribute getLogic_Operator()
+  {
+    return (EAttribute)logicEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getLogic_Right()
   {
-    return (EReference)logicEClass.getEStructuralFeatures().get(1);
+    return (EReference)logicEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -643,9 +635,20 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   @Override
+  public EAttribute getMath_Operator()
+  {
+    return (EAttribute)mathEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getMath_Right()
   {
-    return (EReference)mathEClass.getEStructuralFeatures().get(1);
+    return (EReference)mathEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -698,9 +701,31 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   @Override
+  public EAttribute getThis_Value()
+  {
+    return (EAttribute)thisEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getEXPSTRING()
   {
     return expstringEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getEXPSTRING_Value()
+  {
+    return (EAttribute)expstringEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -720,6 +745,17 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   @Override
+  public EAttribute getEXPINT_Value()
+  {
+    return (EAttribute)expintEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getEXPBOOL()
   {
     return expboolEClass;
@@ -731,9 +767,31 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   @Override
+  public EAttribute getEXPBOOL_Value()
+  {
+    return (EAttribute)expboolEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getID()
   {
     return idEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getID_Value()
+  {
+    return (EAttribute)idEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -858,16 +916,16 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
     expressionEClass = createEClass(EXPRESSION);
 
     typeEClass = createEClass(TYPE);
-
-    expEClass = createEClass(EXP);
-    createEReference(expEClass, EXP__LEFT);
+    createEAttribute(typeEClass, TYPE__VALUE);
 
     logicEClass = createEClass(LOGIC);
     createEReference(logicEClass, LOGIC__LEFT);
+    createEAttribute(logicEClass, LOGIC__OPERATOR);
     createEReference(logicEClass, LOGIC__RIGHT);
 
     mathEClass = createEClass(MATH);
     createEReference(mathEClass, MATH__LEFT);
+    createEAttribute(mathEClass, MATH__OPERATOR);
     createEReference(mathEClass, MATH__RIGHT);
 
     textExpEClass = createEClass(TEXT_EXP);
@@ -875,14 +933,19 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
     createEReference(textExpEClass, TEXT_EXP__RIGHT);
 
     thisEClass = createEClass(THIS);
+    createEAttribute(thisEClass, THIS__VALUE);
 
     expstringEClass = createEClass(EXPSTRING);
+    createEAttribute(expstringEClass, EXPSTRING__VALUE);
 
     expintEClass = createEClass(EXPINT);
+    createEAttribute(expintEClass, EXPINT__VALUE);
 
     expboolEClass = createEClass(EXPBOOL);
+    createEAttribute(expboolEClass, EXPBOOL__VALUE);
 
     idEClass = createEClass(ID);
+    createEAttribute(idEClass, ID__VALUE);
 
     parenthesisEClass = createEClass(PARENTHESIS);
     createEReference(parenthesisEClass, PARENTHESIS__EXP);
@@ -927,7 +990,6 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
     questionEClass.getESuperTypes().add(this.getStatement());
     endEClass.getESuperTypes().add(this.getStatement());
     typeEClass.getESuperTypes().add(this.getExpression());
-    expEClass.getESuperTypes().add(this.getExpression());
     logicEClass.getESuperTypes().add(this.getExpression());
     mathEClass.getESuperTypes().add(this.getExpression());
     textExpEClass.getESuperTypes().add(this.getExpression());
@@ -978,16 +1040,16 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(expEClass, Exp.class, "Exp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExp_Left(), this.getExpression(), null, "left", null, 0, 1, Exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getType_Value(), ecorePackage.getEString(), "value", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(logicEClass, Logic.class, "Logic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getLogic_Left(), this.getExpression(), null, "left", null, 0, 1, Logic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLogic_Operator(), ecorePackage.getEString(), "operator", null, 0, 1, Logic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLogic_Right(), this.getExpression(), null, "right", null, 0, 1, Logic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mathEClass, org.xtext.example.if22.if22.Math.class, "Math", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMath_Left(), this.getExpression(), null, "left", null, 0, 1, org.xtext.example.if22.if22.Math.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMath_Operator(), ecorePackage.getEString(), "operator", null, 0, 1, org.xtext.example.if22.if22.Math.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMath_Right(), this.getExpression(), null, "right", null, 0, 1, org.xtext.example.if22.if22.Math.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(textExpEClass, TextExp.class, "TextExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -995,14 +1057,19 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
     initEReference(getTextExp_Right(), this.getExpression(), null, "right", null, 0, 1, TextExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(thisEClass, This.class, "This", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getThis_Value(), ecorePackage.getEString(), "value", null, 0, 1, This.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expstringEClass, org.xtext.example.if22.if22.EXPSTRING.class, "EXPSTRING", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEXPSTRING_Value(), ecorePackage.getEString(), "value", null, 0, 1, org.xtext.example.if22.if22.EXPSTRING.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expintEClass, org.xtext.example.if22.if22.EXPINT.class, "EXPINT", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEXPINT_Value(), ecorePackage.getEInt(), "value", null, 0, 1, org.xtext.example.if22.if22.EXPINT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expboolEClass, org.xtext.example.if22.if22.EXPBOOL.class, "EXPBOOL", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEXPBOOL_Value(), ecorePackage.getEString(), "value", null, 0, 1, org.xtext.example.if22.if22.EXPBOOL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(idEClass, org.xtext.example.if22.if22.ID.class, "ID", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getID_Value(), ecorePackage.getEString(), "value", null, 0, 1, org.xtext.example.if22.if22.ID.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(parenthesisEClass, Parenthesis.class, "Parenthesis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getParenthesis_Exp(), this.getExpression(), null, "exp", null, 0, 1, Parenthesis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

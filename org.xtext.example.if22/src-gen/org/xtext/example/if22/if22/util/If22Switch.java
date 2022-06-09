@@ -13,7 +13,6 @@ import org.xtext.example.if22.if22.EXPBOOL;
 import org.xtext.example.if22.if22.EXPINT;
 import org.xtext.example.if22.if22.EXPSTRING;
 import org.xtext.example.if22.if22.End;
-import org.xtext.example.if22.if22.Exp;
 import org.xtext.example.if22.if22.Expression;
 import org.xtext.example.if22.if22.ID;
 import org.xtext.example.if22.if22.If22Package;
@@ -166,14 +165,6 @@ public class If22Switch<T> extends Switch<T>
         Type type = (Type)theEObject;
         T result = caseType(type);
         if (result == null) result = caseExpression(type);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case If22Package.EXP:
-      {
-        Exp exp = (Exp)theEObject;
-        T result = caseExp(exp);
-        if (result == null) result = caseExpression(exp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -436,22 +427,6 @@ public class If22Switch<T> extends Switch<T>
    * @generated
    */
   public T caseType(Type object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Exp</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Exp</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseExp(Exp object)
   {
     return null;
   }

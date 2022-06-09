@@ -16,7 +16,6 @@ import org.xtext.example.if22.if22.EXPBOOL;
 import org.xtext.example.if22.if22.EXPINT;
 import org.xtext.example.if22.if22.EXPSTRING;
 import org.xtext.example.if22.if22.End;
-import org.xtext.example.if22.if22.Exp;
 import org.xtext.example.if22.if22.Expression;
 import org.xtext.example.if22.if22.ID;
 import org.xtext.example.if22.if22.If22Factory;
@@ -98,7 +97,6 @@ public class If22FactoryImpl extends EFactoryImpl implements If22Factory
       case If22Package.TARGET: return createTarget();
       case If22Package.EXPRESSION: return createExpression();
       case If22Package.TYPE: return createType();
-      case If22Package.EXP: return createExp();
       case If22Package.LOGIC: return createLogic();
       case If22Package.MATH: return createMath();
       case If22Package.TEXT_EXP: return createTextExp();
@@ -234,18 +232,6 @@ public class If22FactoryImpl extends EFactoryImpl implements If22Factory
   {
     TypeImpl type = new TypeImpl();
     return type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Exp createExp()
-  {
-    ExpImpl exp = new ExpImpl();
-    return exp;
   }
 
   /**

@@ -21,7 +21,6 @@ Statement:
 Announcement:
 	'announce' name=ID exp=Exp (targets+=Target)+;
 
-// qType=Type instead?
 Question:
 	'question' name=ID qString=Exp 'as' qType=Exp ('in' reffedVar=[VariableDeclaration])? (targets+=Target)+;
 
@@ -33,22 +32,21 @@ Target:
 
 
 Exp returns Expression:
-	{Exp}
-	left=Primary
-	(({Logic.left=current} ('==' | '!=' | '<' | '>' | '<=' | '>=' | '&&' | '||') | {Math.left=current} ('+' | '-' | '*'
+	Primary
+	(({Logic.left=current} operator=('==' | '!=' | '<' | '>' | '<=' | '>=' | '&&' | '||') | {Math.left=current} operator=('+' | '-' | '*'
 	| '/') | {TextExp.left=current} '&') right=Primary)*;
 	
 //Wtf er det her
 //| ID '(' (Exp (',' Exp)*)?')'))*;
 
 Primary returns Expression:
-	Parenthesis | Type | {This} 'this' | {EXPSTRING} STRING | {EXPINT} INT | {EXPBOOL} BOOLEAN | {ID} ID;
+	Parenthesis | Type | {This} value='this' | {EXPSTRING} value=STRING | {EXPINT} value=INT | {EXPBOOL} value=BOOLEAN | {ID} value=ID;
 	
 Parenthesis returns Expression:
 	{Parenthesis} '(' exp=Exp ')';
 	
 Type:
-	{TypeBoolean} 'boolean' | {TypeText} 'text' | {TypeNumber} 'number';
+	{TypeBoolean} value='boolean' | {TypeText} value='text' | {TypeNumber} value='number';
 	
 terminal BOOLEAN:
 	'true' | 'false';

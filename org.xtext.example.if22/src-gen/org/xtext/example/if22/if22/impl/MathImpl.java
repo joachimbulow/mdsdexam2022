@@ -23,6 +23,7 @@ import org.xtext.example.if22.if22.If22Package;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.if22.if22.impl.MathImpl#getLeft <em>Left</em>}</li>
+ *   <li>{@link org.xtext.example.if22.if22.impl.MathImpl#getOperator <em>Operator</em>}</li>
  *   <li>{@link org.xtext.example.if22.if22.impl.MathImpl#getRight <em>Right</em>}</li>
  * </ul>
  *
@@ -39,6 +40,26 @@ public class MathImpl extends ExpressionImpl implements org.xtext.example.if22.i
    * @ordered
    */
   protected Expression left;
+
+  /**
+   * The default value of the '{@link #getOperator() <em>Operator</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOperator()
+   * @generated
+   * @ordered
+   */
+  protected static final String OPERATOR_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getOperator() <em>Operator</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOperator()
+   * @generated
+   * @ordered
+   */
+  protected String operator = OPERATOR_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
@@ -127,6 +148,31 @@ public class MathImpl extends ExpressionImpl implements org.xtext.example.if22.i
    * @generated
    */
   @Override
+  public String getOperator()
+  {
+    return operator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setOperator(String newOperator)
+  {
+    String oldOperator = operator;
+    operator = newOperator;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, If22Package.MATH__OPERATOR, oldOperator, operator));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Expression getRight()
   {
     return right;
@@ -201,6 +247,8 @@ public class MathImpl extends ExpressionImpl implements org.xtext.example.if22.i
     {
       case If22Package.MATH__LEFT:
         return getLeft();
+      case If22Package.MATH__OPERATOR:
+        return getOperator();
       case If22Package.MATH__RIGHT:
         return getRight();
     }
@@ -219,6 +267,9 @@ public class MathImpl extends ExpressionImpl implements org.xtext.example.if22.i
     {
       case If22Package.MATH__LEFT:
         setLeft((Expression)newValue);
+        return;
+      case If22Package.MATH__OPERATOR:
+        setOperator((String)newValue);
         return;
       case If22Package.MATH__RIGHT:
         setRight((Expression)newValue);
@@ -240,6 +291,9 @@ public class MathImpl extends ExpressionImpl implements org.xtext.example.if22.i
       case If22Package.MATH__LEFT:
         setLeft((Expression)null);
         return;
+      case If22Package.MATH__OPERATOR:
+        setOperator(OPERATOR_EDEFAULT);
+        return;
       case If22Package.MATH__RIGHT:
         setRight((Expression)null);
         return;
@@ -259,10 +313,29 @@ public class MathImpl extends ExpressionImpl implements org.xtext.example.if22.i
     {
       case If22Package.MATH__LEFT:
         return left != null;
+      case If22Package.MATH__OPERATOR:
+        return OPERATOR_EDEFAULT == null ? operator != null : !OPERATOR_EDEFAULT.equals(operator);
       case If22Package.MATH__RIGHT:
         return right != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (operator: ");
+    result.append(operator);
+    result.append(')');
+    return result.toString();
   }
 
 } //MathImpl

@@ -40,27 +40,38 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Target/targetCheck"/>
     </genClasses>
     <genClasses ecoreClass="If22.ecore#//Expression"/>
-    <genClasses ecoreClass="If22.ecore#//Type"/>
-    <genClasses ecoreClass="If22.ecore#//Exp">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Exp/left"/>
+    <genClasses ecoreClass="If22.ecore#//Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//Type/value"/>
     </genClasses>
     <genClasses ecoreClass="If22.ecore#//Logic">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Logic/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//Logic/operator"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Logic/right"/>
     </genClasses>
     <genClasses ecoreClass="If22.ecore#//Math">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Math/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//Math/operator"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Math/right"/>
     </genClasses>
     <genClasses ecoreClass="If22.ecore#//TextExp">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//TextExp/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//TextExp/right"/>
     </genClasses>
-    <genClasses ecoreClass="If22.ecore#//This"/>
-    <genClasses ecoreClass="If22.ecore#//EXPSTRING"/>
-    <genClasses ecoreClass="If22.ecore#//EXPINT"/>
-    <genClasses ecoreClass="If22.ecore#//EXPBOOL"/>
-    <genClasses ecoreClass="If22.ecore#//ID"/>
+    <genClasses ecoreClass="If22.ecore#//This">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//This/value"/>
+    </genClasses>
+    <genClasses ecoreClass="If22.ecore#//EXPSTRING">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//EXPSTRING/value"/>
+    </genClasses>
+    <genClasses ecoreClass="If22.ecore#//EXPINT">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//EXPINT/value"/>
+    </genClasses>
+    <genClasses ecoreClass="If22.ecore#//EXPBOOL">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//EXPBOOL/value"/>
+    </genClasses>
+    <genClasses ecoreClass="If22.ecore#//ID">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//ID/value"/>
+    </genClasses>
     <genClasses ecoreClass="If22.ecore#//Parenthesis">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Parenthesis/exp"/>
     </genClasses>

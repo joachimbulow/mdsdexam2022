@@ -419,41 +419,22 @@ public interface If22Package extends EPackage
   int TYPE = 9;
 
   /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE__VALUE = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>Type</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.if22.if22.impl.ExpImpl <em>Exp</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.if22.if22.impl.ExpImpl
-   * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getExp()
-   * @generated
-   */
-  int EXP = 10;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXP__LEFT = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Exp</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXP_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int TYPE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.if22.if22.impl.LogicImpl <em>Logic</em>}' class.
@@ -463,7 +444,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getLogic()
    * @generated
    */
-  int LOGIC = 11;
+  int LOGIC = 10;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -475,13 +456,22 @@ public interface If22Package extends EPackage
   int LOGIC__LEFT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Operator</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGIC__OPERATOR = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LOGIC__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+  int LOGIC__RIGHT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Logic</em>' class.
@@ -490,7 +480,7 @@ public interface If22Package extends EPackage
    * @generated
    * @ordered
    */
-  int LOGIC_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+  int LOGIC_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.if22.if22.impl.MathImpl <em>Math</em>}' class.
@@ -500,7 +490,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getMath()
    * @generated
    */
-  int MATH = 12;
+  int MATH = 11;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -512,13 +502,22 @@ public interface If22Package extends EPackage
   int MATH__LEFT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Operator</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MATH__OPERATOR = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MATH__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+  int MATH__RIGHT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Math</em>' class.
@@ -527,7 +526,7 @@ public interface If22Package extends EPackage
    * @generated
    * @ordered
    */
-  int MATH_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+  int MATH_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.if22.if22.impl.TextExpImpl <em>Text Exp</em>}' class.
@@ -537,7 +536,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTextExp()
    * @generated
    */
-  int TEXT_EXP = 13;
+  int TEXT_EXP = 12;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -574,7 +573,16 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getThis()
    * @generated
    */
-  int THIS = 14;
+  int THIS = 13;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THIS__VALUE = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>This</em>' class.
@@ -583,7 +591,7 @@ public interface If22Package extends EPackage
    * @generated
    * @ordered
    */
-  int THIS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+  int THIS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.if22.if22.impl.EXPSTRINGImpl <em>EXPSTRING</em>}' class.
@@ -593,7 +601,16 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getEXPSTRING()
    * @generated
    */
-  int EXPSTRING = 15;
+  int EXPSTRING = 14;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPSTRING__VALUE = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>EXPSTRING</em>' class.
@@ -602,7 +619,7 @@ public interface If22Package extends EPackage
    * @generated
    * @ordered
    */
-  int EXPSTRING_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+  int EXPSTRING_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.if22.if22.impl.EXPINTImpl <em>EXPINT</em>}' class.
@@ -612,7 +629,16 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getEXPINT()
    * @generated
    */
-  int EXPINT = 16;
+  int EXPINT = 15;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPINT__VALUE = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>EXPINT</em>' class.
@@ -621,7 +647,7 @@ public interface If22Package extends EPackage
    * @generated
    * @ordered
    */
-  int EXPINT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+  int EXPINT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.if22.if22.impl.EXPBOOLImpl <em>EXPBOOL</em>}' class.
@@ -631,7 +657,16 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getEXPBOOL()
    * @generated
    */
-  int EXPBOOL = 17;
+  int EXPBOOL = 16;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPBOOL__VALUE = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>EXPBOOL</em>' class.
@@ -640,7 +675,7 @@ public interface If22Package extends EPackage
    * @generated
    * @ordered
    */
-  int EXPBOOL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+  int EXPBOOL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.if22.if22.impl.IDImpl <em>ID</em>}' class.
@@ -650,7 +685,16 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getID()
    * @generated
    */
-  int ID = 18;
+  int ID = 17;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ID__VALUE = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>ID</em>' class.
@@ -659,7 +703,7 @@ public interface If22Package extends EPackage
    * @generated
    * @ordered
    */
-  int ID_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+  int ID_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.if22.if22.impl.ParenthesisImpl <em>Parenthesis</em>}' class.
@@ -669,7 +713,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getParenthesis()
    * @generated
    */
-  int PARENTHESIS = 19;
+  int PARENTHESIS = 18;
 
   /**
    * The feature id for the '<em><b>Exp</b></em>' containment reference.
@@ -697,7 +741,16 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTypeBoolean()
    * @generated
    */
-  int TYPE_BOOLEAN = 20;
+  int TYPE_BOOLEAN = 19;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_BOOLEAN__VALUE = TYPE__VALUE;
 
   /**
    * The number of structural features of the '<em>Type Boolean</em>' class.
@@ -716,7 +769,16 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTypeText()
    * @generated
    */
-  int TYPE_TEXT = 21;
+  int TYPE_TEXT = 20;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_TEXT__VALUE = TYPE__VALUE;
 
   /**
    * The number of structural features of the '<em>Type Text</em>' class.
@@ -735,7 +797,16 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTypeNumber()
    * @generated
    */
-  int TYPE_NUMBER = 22;
+  int TYPE_NUMBER = 21;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_NUMBER__VALUE = TYPE__VALUE;
 
   /**
    * The number of structural features of the '<em>Type Number</em>' class.
@@ -1035,25 +1106,15 @@ public interface If22Package extends EPackage
   EClass getType();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.if22.if22.Exp <em>Exp</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.if22.if22.Type#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Exp</em>'.
-   * @see org.xtext.example.if22.if22.Exp
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.example.if22.if22.Type#getValue()
+   * @see #getType()
    * @generated
    */
-  EClass getExp();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.if22.if22.Exp#getLeft <em>Left</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see org.xtext.example.if22.if22.Exp#getLeft()
-   * @see #getExp()
-   * @generated
-   */
-  EReference getExp_Left();
+  EAttribute getType_Value();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.if22.if22.Logic <em>Logic</em>}'.
@@ -1075,6 +1136,17 @@ public interface If22Package extends EPackage
    * @generated
    */
   EReference getLogic_Left();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.if22.if22.Logic#getOperator <em>Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Operator</em>'.
+   * @see org.xtext.example.if22.if22.Logic#getOperator()
+   * @see #getLogic()
+   * @generated
+   */
+  EAttribute getLogic_Operator();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.if22.if22.Logic#getRight <em>Right</em>}'.
@@ -1107,6 +1179,17 @@ public interface If22Package extends EPackage
    * @generated
    */
   EReference getMath_Left();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.if22.if22.Math#getOperator <em>Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Operator</em>'.
+   * @see org.xtext.example.if22.if22.Math#getOperator()
+   * @see #getMath()
+   * @generated
+   */
+  EAttribute getMath_Operator();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.if22.if22.Math#getRight <em>Right</em>}'.
@@ -1162,6 +1245,17 @@ public interface If22Package extends EPackage
   EClass getThis();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.if22.if22.This#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.example.if22.if22.This#getValue()
+   * @see #getThis()
+   * @generated
+   */
+  EAttribute getThis_Value();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.if22.if22.EXPSTRING <em>EXPSTRING</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1170,6 +1264,17 @@ public interface If22Package extends EPackage
    * @generated
    */
   EClass getEXPSTRING();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.if22.if22.EXPSTRING#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.example.if22.if22.EXPSTRING#getValue()
+   * @see #getEXPSTRING()
+   * @generated
+   */
+  EAttribute getEXPSTRING_Value();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.if22.if22.EXPINT <em>EXPINT</em>}'.
@@ -1182,6 +1287,17 @@ public interface If22Package extends EPackage
   EClass getEXPINT();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.if22.if22.EXPINT#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.example.if22.if22.EXPINT#getValue()
+   * @see #getEXPINT()
+   * @generated
+   */
+  EAttribute getEXPINT_Value();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.if22.if22.EXPBOOL <em>EXPBOOL</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1192,6 +1308,17 @@ public interface If22Package extends EPackage
   EClass getEXPBOOL();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.if22.if22.EXPBOOL#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.example.if22.if22.EXPBOOL#getValue()
+   * @see #getEXPBOOL()
+   * @generated
+   */
+  EAttribute getEXPBOOL_Value();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.if22.if22.ID <em>ID</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1200,6 +1327,17 @@ public interface If22Package extends EPackage
    * @generated
    */
   EClass getID();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.if22.if22.ID#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.example.if22.if22.ID#getValue()
+   * @see #getID()
+   * @generated
+   */
+  EAttribute getID_Value();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.if22.if22.Parenthesis <em>Parenthesis</em>}'.
@@ -1512,22 +1650,12 @@ public interface If22Package extends EPackage
     EClass TYPE = eINSTANCE.getType();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.ExpImpl <em>Exp</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.if22.if22.impl.ExpImpl
-     * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getExp()
-     * @generated
-     */
-    EClass EXP = eINSTANCE.getExp();
-
-    /**
-     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXP__LEFT = eINSTANCE.getExp_Left();
+    EAttribute TYPE__VALUE = eINSTANCE.getType_Value();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.LogicImpl <em>Logic</em>}' class.
@@ -1546,6 +1674,14 @@ public interface If22Package extends EPackage
      * @generated
      */
     EReference LOGIC__LEFT = eINSTANCE.getLogic_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LOGIC__OPERATOR = eINSTANCE.getLogic_Operator();
 
     /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
@@ -1572,6 +1708,14 @@ public interface If22Package extends EPackage
      * @generated
      */
     EReference MATH__LEFT = eINSTANCE.getMath_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MATH__OPERATOR = eINSTANCE.getMath_Operator();
 
     /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
@@ -1618,6 +1762,14 @@ public interface If22Package extends EPackage
     EClass THIS = eINSTANCE.getThis();
 
     /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute THIS__VALUE = eINSTANCE.getThis_Value();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.EXPSTRINGImpl <em>EXPSTRING</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1626,6 +1778,14 @@ public interface If22Package extends EPackage
      * @generated
      */
     EClass EXPSTRING = eINSTANCE.getEXPSTRING();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPSTRING__VALUE = eINSTANCE.getEXPSTRING_Value();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.EXPINTImpl <em>EXPINT</em>}' class.
@@ -1638,6 +1798,14 @@ public interface If22Package extends EPackage
     EClass EXPINT = eINSTANCE.getEXPINT();
 
     /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPINT__VALUE = eINSTANCE.getEXPINT_Value();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.EXPBOOLImpl <em>EXPBOOL</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1648,6 +1816,14 @@ public interface If22Package extends EPackage
     EClass EXPBOOL = eINSTANCE.getEXPBOOL();
 
     /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPBOOL__VALUE = eINSTANCE.getEXPBOOL_Value();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.IDImpl <em>ID</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1656,6 +1832,14 @@ public interface If22Package extends EPackage
      * @generated
      */
     EClass ID = eINSTANCE.getID();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ID__VALUE = eINSTANCE.getID_Value();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.ParenthesisImpl <em>Parenthesis</em>}' class.

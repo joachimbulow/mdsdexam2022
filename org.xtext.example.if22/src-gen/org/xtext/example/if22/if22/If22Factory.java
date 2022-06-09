@@ -114,15 +114,6 @@ public interface If22Factory extends EFactory
   Type createType();
 
   /**
-   * Returns a new object of class '<em>Exp</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Exp</em>'.
-   * @generated
-   */
-  Exp createExp();
-
-  /**
    * Returns a new object of class '<em>Logic</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
