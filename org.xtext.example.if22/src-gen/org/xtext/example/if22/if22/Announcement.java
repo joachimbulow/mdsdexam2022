@@ -25,26 +25,26 @@ import org.eclipse.emf.common.util.EList;
 public interface Announcement extends Statement
 {
   /**
-   * Returns the value of the '<em><b>Exp</b></em>' attribute.
+   * Returns the value of the '<em><b>Exp</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Exp</em>' attribute.
-   * @see #setExp(String)
+   * @return the value of the '<em>Exp</em>' containment reference.
+   * @see #setExp(Expression)
    * @see org.xtext.example.if22.if22.If22Package#getAnnouncement_Exp()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getExp();
+  Expression getExp();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.if22.if22.Announcement#getExp <em>Exp</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.if22.if22.Announcement#getExp <em>Exp</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Exp</em>' attribute.
+   * @param value the new value of the '<em>Exp</em>' containment reference.
    * @see #getExp()
    * @generated
    */
-  void setExp(String value);
+  void setExp(Expression value);
 
   /**
    * Returns the value of the '<em><b>Target</b></em>' containment reference list.

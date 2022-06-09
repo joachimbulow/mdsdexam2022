@@ -8,7 +8,25 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
-import org.xtext.example.if22.if22.*;
+import org.xtext.example.if22.if22.Announcement;
+import org.xtext.example.if22.if22.EXPBOOL;
+import org.xtext.example.if22.if22.EXPINT;
+import org.xtext.example.if22.if22.EXPSTRING;
+import org.xtext.example.if22.if22.End;
+import org.xtext.example.if22.if22.Exp;
+import org.xtext.example.if22.if22.Expression;
+import org.xtext.example.if22.if22.ID;
+import org.xtext.example.if22.if22.If22Package;
+import org.xtext.example.if22.if22.Logic;
+import org.xtext.example.if22.if22.Parenthesis;
+import org.xtext.example.if22.if22.Program;
+import org.xtext.example.if22.if22.Question;
+import org.xtext.example.if22.if22.Scenario;
+import org.xtext.example.if22.if22.Statement;
+import org.xtext.example.if22.if22.Target;
+import org.xtext.example.if22.if22.TextExp;
+import org.xtext.example.if22.if22.This;
+import org.xtext.example.if22.if22.Type;
 
 /**
  * <!-- begin-user-doc -->
@@ -125,6 +143,101 @@ public class If22Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case If22Package.EXPRESSION:
+      {
+        Expression expression = (Expression)theEObject;
+        T result = caseExpression(expression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case If22Package.EXP:
+      {
+        Exp exp = (Exp)theEObject;
+        T result = caseExp(exp);
+        if (result == null) result = caseExpression(exp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case If22Package.LOGIC:
+      {
+        Logic logic = (Logic)theEObject;
+        T result = caseLogic(logic);
+        if (result == null) result = caseExpression(logic);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case If22Package.MATH:
+      {
+        org.xtext.example.if22.if22.Math math = (org.xtext.example.if22.if22.Math)theEObject;
+        T result = caseMath(math);
+        if (result == null) result = caseExpression(math);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case If22Package.TEXT_EXP:
+      {
+        TextExp textExp = (TextExp)theEObject;
+        T result = caseTextExp(textExp);
+        if (result == null) result = caseExpression(textExp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case If22Package.TYPE:
+      {
+        Type type = (Type)theEObject;
+        T result = caseType(type);
+        if (result == null) result = caseExpression(type);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case If22Package.THIS:
+      {
+        This this_ = (This)theEObject;
+        T result = caseThis(this_);
+        if (result == null) result = caseExpression(this_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case If22Package.EXPSTRING:
+      {
+        EXPSTRING expstring = (EXPSTRING)theEObject;
+        T result = caseEXPSTRING(expstring);
+        if (result == null) result = caseExpression(expstring);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case If22Package.EXPINT:
+      {
+        EXPINT expint = (EXPINT)theEObject;
+        T result = caseEXPINT(expint);
+        if (result == null) result = caseExpression(expint);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case If22Package.EXPBOOL:
+      {
+        EXPBOOL expbool = (EXPBOOL)theEObject;
+        T result = caseEXPBOOL(expbool);
+        if (result == null) result = caseExpression(expbool);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case If22Package.ID:
+      {
+        ID id = (ID)theEObject;
+        T result = caseID(id);
+        if (result == null) result = caseExpression(id);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case If22Package.PARENTHESIS:
+      {
+        Parenthesis parenthesis = (Parenthesis)theEObject;
+        T result = caseParenthesis(parenthesis);
+        if (result == null) result = caseExpression(parenthesis);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -237,6 +350,198 @@ public class If22Switch<T> extends Switch<T>
    * @generated
    */
   public T caseTarget(Target object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExpression(Expression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Exp</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Exp</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExp(Exp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Logic</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Logic</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLogic(Logic object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Math</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Math</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMath(org.xtext.example.if22.if22.Math object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Text Exp</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Text Exp</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTextExp(TextExp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseType(Type object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>This</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>This</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseThis(This object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>EXPSTRING</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>EXPSTRING</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEXPSTRING(EXPSTRING object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>EXPINT</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>EXPINT</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEXPINT(EXPINT object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>EXPBOOL</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>EXPBOOL</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEXPBOOL(EXPBOOL object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>ID</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>ID</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseID(ID object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Parenthesis</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Parenthesis</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParenthesis(Parenthesis object)
   {
     return null;
   }

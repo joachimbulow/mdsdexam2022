@@ -26,48 +26,48 @@ import org.eclipse.emf.common.util.EList;
 public interface Question extends Statement
 {
   /**
-   * Returns the value of the '<em><b>QString</b></em>' attribute.
+   * Returns the value of the '<em><b>QString</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>QString</em>' attribute.
-   * @see #setQString(String)
+   * @return the value of the '<em>QString</em>' containment reference.
+   * @see #setQString(Expression)
    * @see org.xtext.example.if22.if22.If22Package#getQuestion_QString()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getQString();
+  Expression getQString();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.if22.if22.Question#getQString <em>QString</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.if22.if22.Question#getQString <em>QString</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>QString</em>' attribute.
+   * @param value the new value of the '<em>QString</em>' containment reference.
    * @see #getQString()
    * @generated
    */
-  void setQString(String value);
+  void setQString(Expression value);
 
   /**
-   * Returns the value of the '<em><b>QType</b></em>' attribute.
+   * Returns the value of the '<em><b>QType</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>QType</em>' attribute.
-   * @see #setQType(String)
+   * @return the value of the '<em>QType</em>' containment reference.
+   * @see #setQType(Expression)
    * @see org.xtext.example.if22.if22.If22Package#getQuestion_QType()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getQType();
+  Expression getQType();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.if22.if22.Question#getQType <em>QType</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.if22.if22.Question#getQType <em>QType</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>QType</em>' attribute.
+   * @param value the new value of the '<em>QType</em>' containment reference.
    * @see #getQType()
    * @generated
    */
-  void setQType(String value);
+  void setQType(Expression value);
 
   /**
    * Returns the value of the '<em><b>Target</b></em>' containment reference list.

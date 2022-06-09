@@ -179,7 +179,7 @@ public interface If22Package extends EPackage
   int ANNOUNCEMENT__NAME = STATEMENT__NAME;
 
   /**
-   * The feature id for the '<em><b>Exp</b></em>' attribute.
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -225,7 +225,7 @@ public interface If22Package extends EPackage
   int QUESTION__NAME = STATEMENT__NAME;
 
   /**
-   * The feature id for the '<em><b>QString</b></em>' attribute.
+   * The feature id for the '<em><b>QString</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -234,7 +234,7 @@ public interface If22Package extends EPackage
   int QUESTION__QSTRING = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>QType</b></em>' attribute.
+   * The feature id for the '<em><b>QType</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -280,7 +280,7 @@ public interface If22Package extends EPackage
   int END__NAME = STATEMENT__NAME;
 
   /**
-   * The feature id for the '<em><b>Exp</b></em>' attribute.
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -324,6 +324,306 @@ public interface If22Package extends EPackage
    * @ordered
    */
   int TARGET_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.if22.if22.impl.ExpressionImpl <em>Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.if22.if22.impl.ExpressionImpl
+   * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getExpression()
+   * @generated
+   */
+  int EXPRESSION = 7;
+
+  /**
+   * The number of structural features of the '<em>Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.if22.if22.impl.ExpImpl <em>Exp</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.if22.if22.impl.ExpImpl
+   * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getExp()
+   * @generated
+   */
+  int EXP = 8;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXP__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Exp</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXP_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.if22.if22.impl.LogicImpl <em>Logic</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.if22.if22.impl.LogicImpl
+   * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getLogic()
+   * @generated
+   */
+  int LOGIC = 9;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGIC__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGIC__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Logic</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGIC_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.if22.if22.impl.MathImpl <em>Math</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.if22.if22.impl.MathImpl
+   * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getMath()
+   * @generated
+   */
+  int MATH = 10;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MATH__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MATH__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Math</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MATH_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.if22.if22.impl.TextExpImpl <em>Text Exp</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.if22.if22.impl.TextExpImpl
+   * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTextExp()
+   * @generated
+   */
+  int TEXT_EXP = 11;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEXT_EXP__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEXT_EXP__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Text Exp</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEXT_EXP_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.if22.if22.impl.TypeImpl <em>Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.if22.if22.impl.TypeImpl
+   * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getType()
+   * @generated
+   */
+  int TYPE = 12;
+
+  /**
+   * The number of structural features of the '<em>Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.if22.if22.impl.ThisImpl <em>This</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.if22.if22.impl.ThisImpl
+   * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getThis()
+   * @generated
+   */
+  int THIS = 13;
+
+  /**
+   * The number of structural features of the '<em>This</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THIS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.if22.if22.impl.EXPSTRINGImpl <em>EXPSTRING</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.if22.if22.impl.EXPSTRINGImpl
+   * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getEXPSTRING()
+   * @generated
+   */
+  int EXPSTRING = 14;
+
+  /**
+   * The number of structural features of the '<em>EXPSTRING</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPSTRING_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.if22.if22.impl.EXPINTImpl <em>EXPINT</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.if22.if22.impl.EXPINTImpl
+   * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getEXPINT()
+   * @generated
+   */
+  int EXPINT = 15;
+
+  /**
+   * The number of structural features of the '<em>EXPINT</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPINT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.if22.if22.impl.EXPBOOLImpl <em>EXPBOOL</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.if22.if22.impl.EXPBOOLImpl
+   * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getEXPBOOL()
+   * @generated
+   */
+  int EXPBOOL = 16;
+
+  /**
+   * The number of structural features of the '<em>EXPBOOL</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPBOOL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.if22.if22.impl.IDImpl <em>ID</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.if22.if22.impl.IDImpl
+   * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getID()
+   * @generated
+   */
+  int ID = 17;
+
+  /**
+   * The number of structural features of the '<em>ID</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ID_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.if22.if22.impl.ParenthesisImpl <em>Parenthesis</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.if22.if22.impl.ParenthesisImpl
+   * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getParenthesis()
+   * @generated
+   */
+  int PARENTHESIS = 18;
+
+  /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARENTHESIS__EXP = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Parenthesis</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARENTHESIS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
 
   /**
@@ -422,15 +722,15 @@ public interface If22Package extends EPackage
   EClass getAnnouncement();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.if22.if22.Announcement#getExp <em>Exp</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.if22.if22.Announcement#getExp <em>Exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Exp</em>'.
+   * @return the meta object for the containment reference '<em>Exp</em>'.
    * @see org.xtext.example.if22.if22.Announcement#getExp()
    * @see #getAnnouncement()
    * @generated
    */
-  EAttribute getAnnouncement_Exp();
+  EReference getAnnouncement_Exp();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.xtext.example.if22.if22.Announcement#getTarget <em>Target</em>}'.
@@ -454,26 +754,26 @@ public interface If22Package extends EPackage
   EClass getQuestion();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.if22.if22.Question#getQString <em>QString</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.if22.if22.Question#getQString <em>QString</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>QString</em>'.
+   * @return the meta object for the containment reference '<em>QString</em>'.
    * @see org.xtext.example.if22.if22.Question#getQString()
    * @see #getQuestion()
    * @generated
    */
-  EAttribute getQuestion_QString();
+  EReference getQuestion_QString();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.if22.if22.Question#getQType <em>QType</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.if22.if22.Question#getQType <em>QType</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>QType</em>'.
+   * @return the meta object for the containment reference '<em>QType</em>'.
    * @see org.xtext.example.if22.if22.Question#getQType()
    * @see #getQuestion()
    * @generated
    */
-  EAttribute getQuestion_QType();
+  EReference getQuestion_QType();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.xtext.example.if22.if22.Question#getTarget <em>Target</em>}'.
@@ -497,15 +797,15 @@ public interface If22Package extends EPackage
   EClass getEnd();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.if22.if22.End#getExp <em>Exp</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.if22.if22.End#getExp <em>Exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Exp</em>'.
+   * @return the meta object for the containment reference '<em>Exp</em>'.
    * @see org.xtext.example.if22.if22.End#getExp()
    * @see #getEnd()
    * @generated
    */
-  EAttribute getEnd_Exp();
+  EReference getEnd_Exp();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.if22.if22.Target <em>Target</em>}'.
@@ -527,6 +827,214 @@ public interface If22Package extends EPackage
    * @generated
    */
   EAttribute getTarget_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.if22.if22.Expression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Expression</em>'.
+   * @see org.xtext.example.if22.if22.Expression
+   * @generated
+   */
+  EClass getExpression();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.if22.if22.Exp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Exp</em>'.
+   * @see org.xtext.example.if22.if22.Exp
+   * @generated
+   */
+  EClass getExp();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.if22.if22.Exp#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.xtext.example.if22.if22.Exp#getLeft()
+   * @see #getExp()
+   * @generated
+   */
+  EReference getExp_Left();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.if22.if22.Logic <em>Logic</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Logic</em>'.
+   * @see org.xtext.example.if22.if22.Logic
+   * @generated
+   */
+  EClass getLogic();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.if22.if22.Logic#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.xtext.example.if22.if22.Logic#getLeft()
+   * @see #getLogic()
+   * @generated
+   */
+  EReference getLogic_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.if22.if22.Logic#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.xtext.example.if22.if22.Logic#getRight()
+   * @see #getLogic()
+   * @generated
+   */
+  EReference getLogic_Right();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.if22.if22.Math <em>Math</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Math</em>'.
+   * @see org.xtext.example.if22.if22.Math
+   * @generated
+   */
+  EClass getMath();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.if22.if22.Math#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.xtext.example.if22.if22.Math#getLeft()
+   * @see #getMath()
+   * @generated
+   */
+  EReference getMath_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.if22.if22.Math#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.xtext.example.if22.if22.Math#getRight()
+   * @see #getMath()
+   * @generated
+   */
+  EReference getMath_Right();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.if22.if22.TextExp <em>Text Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Text Exp</em>'.
+   * @see org.xtext.example.if22.if22.TextExp
+   * @generated
+   */
+  EClass getTextExp();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.if22.if22.TextExp#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.xtext.example.if22.if22.TextExp#getLeft()
+   * @see #getTextExp()
+   * @generated
+   */
+  EReference getTextExp_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.if22.if22.TextExp#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.xtext.example.if22.if22.TextExp#getRight()
+   * @see #getTextExp()
+   * @generated
+   */
+  EReference getTextExp_Right();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.if22.if22.Type <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Type</em>'.
+   * @see org.xtext.example.if22.if22.Type
+   * @generated
+   */
+  EClass getType();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.if22.if22.This <em>This</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>This</em>'.
+   * @see org.xtext.example.if22.if22.This
+   * @generated
+   */
+  EClass getThis();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.if22.if22.EXPSTRING <em>EXPSTRING</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>EXPSTRING</em>'.
+   * @see org.xtext.example.if22.if22.EXPSTRING
+   * @generated
+   */
+  EClass getEXPSTRING();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.if22.if22.EXPINT <em>EXPINT</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>EXPINT</em>'.
+   * @see org.xtext.example.if22.if22.EXPINT
+   * @generated
+   */
+  EClass getEXPINT();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.if22.if22.EXPBOOL <em>EXPBOOL</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>EXPBOOL</em>'.
+   * @see org.xtext.example.if22.if22.EXPBOOL
+   * @generated
+   */
+  EClass getEXPBOOL();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.if22.if22.ID <em>ID</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>ID</em>'.
+   * @see org.xtext.example.if22.if22.ID
+   * @generated
+   */
+  EClass getID();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.if22.if22.Parenthesis <em>Parenthesis</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Parenthesis</em>'.
+   * @see org.xtext.example.if22.if22.Parenthesis
+   * @generated
+   */
+  EClass getParenthesis();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.if22.if22.Parenthesis#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see org.xtext.example.if22.if22.Parenthesis#getExp()
+   * @see #getParenthesis()
+   * @generated
+   */
+  EReference getParenthesis_Exp();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -632,12 +1140,12 @@ public interface If22Package extends EPackage
     EClass ANNOUNCEMENT = eINSTANCE.getAnnouncement();
 
     /**
-     * The meta object literal for the '<em><b>Exp</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ANNOUNCEMENT__EXP = eINSTANCE.getAnnouncement_Exp();
+    EReference ANNOUNCEMENT__EXP = eINSTANCE.getAnnouncement_Exp();
 
     /**
      * The meta object literal for the '<em><b>Target</b></em>' containment reference list feature.
@@ -658,20 +1166,20 @@ public interface If22Package extends EPackage
     EClass QUESTION = eINSTANCE.getQuestion();
 
     /**
-     * The meta object literal for the '<em><b>QString</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>QString</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute QUESTION__QSTRING = eINSTANCE.getQuestion_QString();
+    EReference QUESTION__QSTRING = eINSTANCE.getQuestion_QString();
 
     /**
-     * The meta object literal for the '<em><b>QType</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>QType</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute QUESTION__QTYPE = eINSTANCE.getQuestion_QType();
+    EReference QUESTION__QTYPE = eINSTANCE.getQuestion_QType();
 
     /**
      * The meta object literal for the '<em><b>Target</b></em>' containment reference list feature.
@@ -692,12 +1200,12 @@ public interface If22Package extends EPackage
     EClass END = eINSTANCE.getEnd();
 
     /**
-     * The meta object literal for the '<em><b>Exp</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute END__EXP = eINSTANCE.getEnd_Exp();
+    EReference END__EXP = eINSTANCE.getEnd_Exp();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.TargetImpl <em>Target</em>}' class.
@@ -716,6 +1224,190 @@ public interface If22Package extends EPackage
      * @generated
      */
     EAttribute TARGET__NAME = eINSTANCE.getTarget_Name();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.ExpressionImpl <em>Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.if22.if22.impl.ExpressionImpl
+     * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getExpression()
+     * @generated
+     */
+    EClass EXPRESSION = eINSTANCE.getExpression();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.ExpImpl <em>Exp</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.if22.if22.impl.ExpImpl
+     * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getExp()
+     * @generated
+     */
+    EClass EXP = eINSTANCE.getExp();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXP__LEFT = eINSTANCE.getExp_Left();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.LogicImpl <em>Logic</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.if22.if22.impl.LogicImpl
+     * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getLogic()
+     * @generated
+     */
+    EClass LOGIC = eINSTANCE.getLogic();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOGIC__LEFT = eINSTANCE.getLogic_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOGIC__RIGHT = eINSTANCE.getLogic_Right();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.MathImpl <em>Math</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.if22.if22.impl.MathImpl
+     * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getMath()
+     * @generated
+     */
+    EClass MATH = eINSTANCE.getMath();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MATH__LEFT = eINSTANCE.getMath_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MATH__RIGHT = eINSTANCE.getMath_Right();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.TextExpImpl <em>Text Exp</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.if22.if22.impl.TextExpImpl
+     * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTextExp()
+     * @generated
+     */
+    EClass TEXT_EXP = eINSTANCE.getTextExp();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TEXT_EXP__LEFT = eINSTANCE.getTextExp_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TEXT_EXP__RIGHT = eINSTANCE.getTextExp_Right();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.TypeImpl <em>Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.if22.if22.impl.TypeImpl
+     * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getType()
+     * @generated
+     */
+    EClass TYPE = eINSTANCE.getType();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.ThisImpl <em>This</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.if22.if22.impl.ThisImpl
+     * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getThis()
+     * @generated
+     */
+    EClass THIS = eINSTANCE.getThis();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.EXPSTRINGImpl <em>EXPSTRING</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.if22.if22.impl.EXPSTRINGImpl
+     * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getEXPSTRING()
+     * @generated
+     */
+    EClass EXPSTRING = eINSTANCE.getEXPSTRING();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.EXPINTImpl <em>EXPINT</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.if22.if22.impl.EXPINTImpl
+     * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getEXPINT()
+     * @generated
+     */
+    EClass EXPINT = eINSTANCE.getEXPINT();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.EXPBOOLImpl <em>EXPBOOL</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.if22.if22.impl.EXPBOOLImpl
+     * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getEXPBOOL()
+     * @generated
+     */
+    EClass EXPBOOL = eINSTANCE.getEXPBOOL();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.IDImpl <em>ID</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.if22.if22.impl.IDImpl
+     * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getID()
+     * @generated
+     */
+    EClass ID = eINSTANCE.getID();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.ParenthesisImpl <em>Parenthesis</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.if22.if22.impl.ParenthesisImpl
+     * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getParenthesis()
+     * @generated
+     */
+    EClass PARENTHESIS = eINSTANCE.getParenthesis();
+
+    /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARENTHESIS__EXP = eINSTANCE.getParenthesis_Exp();
 
   }
 

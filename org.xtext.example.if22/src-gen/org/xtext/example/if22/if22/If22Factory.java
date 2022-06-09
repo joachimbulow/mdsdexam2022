@@ -87,6 +87,114 @@ public interface If22Factory extends EFactory
   Target createTarget();
 
   /**
+   * Returns a new object of class '<em>Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expression</em>'.
+   * @generated
+   */
+  Expression createExpression();
+
+  /**
+   * Returns a new object of class '<em>Exp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Exp</em>'.
+   * @generated
+   */
+  Exp createExp();
+
+  /**
+   * Returns a new object of class '<em>Logic</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Logic</em>'.
+   * @generated
+   */
+  Logic createLogic();
+
+  /**
+   * Returns a new object of class '<em>Math</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Math</em>'.
+   * @generated
+   */
+  Math createMath();
+
+  /**
+   * Returns a new object of class '<em>Text Exp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Text Exp</em>'.
+   * @generated
+   */
+  TextExp createTextExp();
+
+  /**
+   * Returns a new object of class '<em>Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type</em>'.
+   * @generated
+   */
+  Type createType();
+
+  /**
+   * Returns a new object of class '<em>This</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>This</em>'.
+   * @generated
+   */
+  This createThis();
+
+  /**
+   * Returns a new object of class '<em>EXPSTRING</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>EXPSTRING</em>'.
+   * @generated
+   */
+  EXPSTRING createEXPSTRING();
+
+  /**
+   * Returns a new object of class '<em>EXPINT</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>EXPINT</em>'.
+   * @generated
+   */
+  EXPINT createEXPINT();
+
+  /**
+   * Returns a new object of class '<em>EXPBOOL</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>EXPBOOL</em>'.
+   * @generated
+   */
+  EXPBOOL createEXPBOOL();
+
+  /**
+   * Returns a new object of class '<em>ID</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>ID</em>'.
+   * @generated
+   */
+  ID createID();
+
+  /**
+   * Returns a new object of class '<em>Parenthesis</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parenthesis</em>'.
+   * @generated
+   */
+  Parenthesis createParenthesis();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.if22.if22.Announcement;
+import org.xtext.example.if22.if22.Expression;
 import org.xtext.example.if22.if22.If22Package;
 import org.xtext.example.if22.if22.Target;
 
@@ -39,24 +40,14 @@ import org.xtext.example.if22.if22.Target;
 public class AnnouncementImpl extends StatementImpl implements Announcement
 {
   /**
-   * The default value of the '{@link #getExp() <em>Exp</em>}' attribute.
+   * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getExp()
    * @generated
    * @ordered
    */
-  protected static final String EXP_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getExp() <em>Exp</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExp()
-   * @generated
-   * @ordered
-   */
-  protected String exp = EXP_EDEFAULT;
+  protected Expression exp;
 
   /**
    * The cached value of the '{@link #getTarget() <em>Target</em>}' containment reference list.
@@ -95,7 +86,7 @@ public class AnnouncementImpl extends StatementImpl implements Announcement
    * @generated
    */
   @Override
-  public String getExp()
+  public Expression getExp()
   {
     return exp;
   }
@@ -105,13 +96,38 @@ public class AnnouncementImpl extends StatementImpl implements Announcement
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setExp(String newExp)
+  public NotificationChain basicSetExp(Expression newExp, NotificationChain msgs)
   {
-    String oldExp = exp;
+    Expression oldExp = exp;
     exp = newExp;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, If22Package.ANNOUNCEMENT__EXP, oldExp, exp));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, If22Package.ANNOUNCEMENT__EXP, oldExp, newExp);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setExp(Expression newExp)
+  {
+    if (newExp != exp)
+    {
+      NotificationChain msgs = null;
+      if (exp != null)
+        msgs = ((InternalEObject)exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - If22Package.ANNOUNCEMENT__EXP, null, msgs);
+      if (newExp != null)
+        msgs = ((InternalEObject)newExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - If22Package.ANNOUNCEMENT__EXP, null, msgs);
+      msgs = basicSetExp(newExp, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, If22Package.ANNOUNCEMENT__EXP, newExp, newExp));
   }
 
   /**
@@ -139,6 +155,8 @@ public class AnnouncementImpl extends StatementImpl implements Announcement
   {
     switch (featureID)
     {
+      case If22Package.ANNOUNCEMENT__EXP:
+        return basicSetExp(null, msgs);
       case If22Package.ANNOUNCEMENT__TARGET:
         return ((InternalEList<?>)getTarget()).basicRemove(otherEnd, msgs);
     }
@@ -175,7 +193,7 @@ public class AnnouncementImpl extends StatementImpl implements Announcement
     switch (featureID)
     {
       case If22Package.ANNOUNCEMENT__EXP:
-        setExp((String)newValue);
+        setExp((Expression)newValue);
         return;
       case If22Package.ANNOUNCEMENT__TARGET:
         getTarget().clear();
@@ -196,7 +214,7 @@ public class AnnouncementImpl extends StatementImpl implements Announcement
     switch (featureID)
     {
       case If22Package.ANNOUNCEMENT__EXP:
-        setExp(EXP_EDEFAULT);
+        setExp((Expression)null);
         return;
       case If22Package.ANNOUNCEMENT__TARGET:
         getTarget().clear();
@@ -216,28 +234,11 @@ public class AnnouncementImpl extends StatementImpl implements Announcement
     switch (featureID)
     {
       case If22Package.ANNOUNCEMENT__EXP:
-        return EXP_EDEFAULT == null ? exp != null : !EXP_EDEFAULT.equals(exp);
+        return exp != null;
       case If22Package.ANNOUNCEMENT__TARGET:
         return target != null && !target.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (exp: ");
-    result.append(exp);
-    result.append(')');
-    return result.toString();
   }
 
 } //AnnouncementImpl

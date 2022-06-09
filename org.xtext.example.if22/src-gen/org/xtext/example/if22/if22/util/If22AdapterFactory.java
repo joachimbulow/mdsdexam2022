@@ -10,7 +10,25 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.xtext.example.if22.if22.*;
+import org.xtext.example.if22.if22.Announcement;
+import org.xtext.example.if22.if22.EXPBOOL;
+import org.xtext.example.if22.if22.EXPINT;
+import org.xtext.example.if22.if22.EXPSTRING;
+import org.xtext.example.if22.if22.End;
+import org.xtext.example.if22.if22.Exp;
+import org.xtext.example.if22.if22.Expression;
+import org.xtext.example.if22.if22.ID;
+import org.xtext.example.if22.if22.If22Package;
+import org.xtext.example.if22.if22.Logic;
+import org.xtext.example.if22.if22.Parenthesis;
+import org.xtext.example.if22.if22.Program;
+import org.xtext.example.if22.if22.Question;
+import org.xtext.example.if22.if22.Scenario;
+import org.xtext.example.if22.if22.Statement;
+import org.xtext.example.if22.if22.Target;
+import org.xtext.example.if22.if22.TextExp;
+import org.xtext.example.if22.if22.This;
+import org.xtext.example.if22.if22.Type;
 
 /**
  * <!-- begin-user-doc -->
@@ -109,6 +127,66 @@ public class If22AdapterFactory extends AdapterFactoryImpl
       public Adapter caseTarget(Target object)
       {
         return createTargetAdapter();
+      }
+      @Override
+      public Adapter caseExpression(Expression object)
+      {
+        return createExpressionAdapter();
+      }
+      @Override
+      public Adapter caseExp(Exp object)
+      {
+        return createExpAdapter();
+      }
+      @Override
+      public Adapter caseLogic(Logic object)
+      {
+        return createLogicAdapter();
+      }
+      @Override
+      public Adapter caseMath(org.xtext.example.if22.if22.Math object)
+      {
+        return createMathAdapter();
+      }
+      @Override
+      public Adapter caseTextExp(TextExp object)
+      {
+        return createTextExpAdapter();
+      }
+      @Override
+      public Adapter caseType(Type object)
+      {
+        return createTypeAdapter();
+      }
+      @Override
+      public Adapter caseThis(This object)
+      {
+        return createThisAdapter();
+      }
+      @Override
+      public Adapter caseEXPSTRING(EXPSTRING object)
+      {
+        return createEXPSTRINGAdapter();
+      }
+      @Override
+      public Adapter caseEXPINT(EXPINT object)
+      {
+        return createEXPINTAdapter();
+      }
+      @Override
+      public Adapter caseEXPBOOL(EXPBOOL object)
+      {
+        return createEXPBOOLAdapter();
+      }
+      @Override
+      public Adapter caseID(ID object)
+      {
+        return createIDAdapter();
+      }
+      @Override
+      public Adapter caseParenthesis(Parenthesis object)
+      {
+        return createParenthesisAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -233,6 +311,186 @@ public class If22AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTargetAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.Expression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.if22.if22.Expression
+   * @generated
+   */
+  public Adapter createExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.Exp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.if22.if22.Exp
+   * @generated
+   */
+  public Adapter createExpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.Logic <em>Logic</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.if22.if22.Logic
+   * @generated
+   */
+  public Adapter createLogicAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.Math <em>Math</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.if22.if22.Math
+   * @generated
+   */
+  public Adapter createMathAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.TextExp <em>Text Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.if22.if22.TextExp
+   * @generated
+   */
+  public Adapter createTextExpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.Type <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.if22.if22.Type
+   * @generated
+   */
+  public Adapter createTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.This <em>This</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.if22.if22.This
+   * @generated
+   */
+  public Adapter createThisAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.EXPSTRING <em>EXPSTRING</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.if22.if22.EXPSTRING
+   * @generated
+   */
+  public Adapter createEXPSTRINGAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.EXPINT <em>EXPINT</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.if22.if22.EXPINT
+   * @generated
+   */
+  public Adapter createEXPINTAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.EXPBOOL <em>EXPBOOL</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.if22.if22.EXPBOOL
+   * @generated
+   */
+  public Adapter createEXPBOOLAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.ID <em>ID</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.if22.if22.ID
+   * @generated
+   */
+  public Adapter createIDAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.Parenthesis <em>Parenthesis</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.if22.if22.Parenthesis
+   * @generated
+   */
+  public Adapter createParenthesisAdapter()
   {
     return null;
   }

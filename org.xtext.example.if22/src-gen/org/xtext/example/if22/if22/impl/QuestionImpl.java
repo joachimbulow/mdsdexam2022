@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.xtext.example.if22.if22.Expression;
 import org.xtext.example.if22.if22.If22Package;
 import org.xtext.example.if22.if22.Question;
 import org.xtext.example.if22.if22.Target;
@@ -40,44 +41,24 @@ import org.xtext.example.if22.if22.Target;
 public class QuestionImpl extends StatementImpl implements Question
 {
   /**
-   * The default value of the '{@link #getQString() <em>QString</em>}' attribute.
+   * The cached value of the '{@link #getQString() <em>QString</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getQString()
    * @generated
    * @ordered
    */
-  protected static final String QSTRING_EDEFAULT = null;
+  protected Expression qString;
 
   /**
-   * The cached value of the '{@link #getQString() <em>QString</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getQString()
-   * @generated
-   * @ordered
-   */
-  protected String qString = QSTRING_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getQType() <em>QType</em>}' attribute.
+   * The cached value of the '{@link #getQType() <em>QType</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getQType()
    * @generated
    * @ordered
    */
-  protected static final String QTYPE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getQType() <em>QType</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getQType()
-   * @generated
-   * @ordered
-   */
-  protected String qType = QTYPE_EDEFAULT;
+  protected Expression qType;
 
   /**
    * The cached value of the '{@link #getTarget() <em>Target</em>}' containment reference list.
@@ -116,7 +97,7 @@ public class QuestionImpl extends StatementImpl implements Question
    * @generated
    */
   @Override
-  public String getQString()
+  public Expression getQString()
   {
     return qString;
   }
@@ -126,13 +107,16 @@ public class QuestionImpl extends StatementImpl implements Question
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setQString(String newQString)
+  public NotificationChain basicSetQString(Expression newQString, NotificationChain msgs)
   {
-    String oldQString = qString;
+    Expression oldQString = qString;
     qString = newQString;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, If22Package.QUESTION__QSTRING, oldQString, qString));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, If22Package.QUESTION__QSTRING, oldQString, newQString);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -141,7 +125,29 @@ public class QuestionImpl extends StatementImpl implements Question
    * @generated
    */
   @Override
-  public String getQType()
+  public void setQString(Expression newQString)
+  {
+    if (newQString != qString)
+    {
+      NotificationChain msgs = null;
+      if (qString != null)
+        msgs = ((InternalEObject)qString).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - If22Package.QUESTION__QSTRING, null, msgs);
+      if (newQString != null)
+        msgs = ((InternalEObject)newQString).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - If22Package.QUESTION__QSTRING, null, msgs);
+      msgs = basicSetQString(newQString, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, If22Package.QUESTION__QSTRING, newQString, newQString));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Expression getQType()
   {
     return qType;
   }
@@ -151,13 +157,38 @@ public class QuestionImpl extends StatementImpl implements Question
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setQType(String newQType)
+  public NotificationChain basicSetQType(Expression newQType, NotificationChain msgs)
   {
-    String oldQType = qType;
+    Expression oldQType = qType;
     qType = newQType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, If22Package.QUESTION__QTYPE, oldQType, qType));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, If22Package.QUESTION__QTYPE, oldQType, newQType);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setQType(Expression newQType)
+  {
+    if (newQType != qType)
+    {
+      NotificationChain msgs = null;
+      if (qType != null)
+        msgs = ((InternalEObject)qType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - If22Package.QUESTION__QTYPE, null, msgs);
+      if (newQType != null)
+        msgs = ((InternalEObject)newQType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - If22Package.QUESTION__QTYPE, null, msgs);
+      msgs = basicSetQType(newQType, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, If22Package.QUESTION__QTYPE, newQType, newQType));
   }
 
   /**
@@ -185,6 +216,10 @@ public class QuestionImpl extends StatementImpl implements Question
   {
     switch (featureID)
     {
+      case If22Package.QUESTION__QSTRING:
+        return basicSetQString(null, msgs);
+      case If22Package.QUESTION__QTYPE:
+        return basicSetQType(null, msgs);
       case If22Package.QUESTION__TARGET:
         return ((InternalEList<?>)getTarget()).basicRemove(otherEnd, msgs);
     }
@@ -223,10 +258,10 @@ public class QuestionImpl extends StatementImpl implements Question
     switch (featureID)
     {
       case If22Package.QUESTION__QSTRING:
-        setQString((String)newValue);
+        setQString((Expression)newValue);
         return;
       case If22Package.QUESTION__QTYPE:
-        setQType((String)newValue);
+        setQType((Expression)newValue);
         return;
       case If22Package.QUESTION__TARGET:
         getTarget().clear();
@@ -247,10 +282,10 @@ public class QuestionImpl extends StatementImpl implements Question
     switch (featureID)
     {
       case If22Package.QUESTION__QSTRING:
-        setQString(QSTRING_EDEFAULT);
+        setQString((Expression)null);
         return;
       case If22Package.QUESTION__QTYPE:
-        setQType(QTYPE_EDEFAULT);
+        setQType((Expression)null);
         return;
       case If22Package.QUESTION__TARGET:
         getTarget().clear();
@@ -270,32 +305,13 @@ public class QuestionImpl extends StatementImpl implements Question
     switch (featureID)
     {
       case If22Package.QUESTION__QSTRING:
-        return QSTRING_EDEFAULT == null ? qString != null : !QSTRING_EDEFAULT.equals(qString);
+        return qString != null;
       case If22Package.QUESTION__QTYPE:
-        return QTYPE_EDEFAULT == null ? qType != null : !QTYPE_EDEFAULT.equals(qType);
+        return qType != null;
       case If22Package.QUESTION__TARGET:
         return target != null && !target.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (qString: ");
-    result.append(qString);
-    result.append(", qType: ");
-    result.append(qType);
-    result.append(')');
-    return result.toString();
   }
 
 } //QuestionImpl

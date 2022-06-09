@@ -6,6 +6,7 @@ package org.xtext.example.if22.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
+import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.Grammar;
@@ -263,30 +264,6 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 	}
-	public class ExpElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.Exp");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cSTRINGTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cTypeParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		
-		//// Simple type and expression for now
-		//Exp:
-		//    STRING | INT | Type;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//STRING | INT | Type
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_0() { return cSTRINGTerminalRuleCall_0; }
-		
-		//INT
-		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
-		
-		//Type
-		public RuleCall getTypeParserRuleCall_2() { return cTypeParserRuleCall_2; }
-	}
 	public class TypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.Type");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -310,6 +287,259 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//'number'
 		public Keyword getNumberKeyword_2() { return cNumberKeyword_2; }
 	}
+	public class ExpElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.Exp");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cExpAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cLeftAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cLeftPrimaryParserRuleCall_1_0 = (RuleCall)cLeftAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Alternatives cAlternatives_2_0 = (Alternatives)cGroup_2.eContents().get(0);
+		private final Group cGroup_2_0_0 = (Group)cAlternatives_2_0.eContents().get(0);
+		private final Action cLogicLeftAction_2_0_0_0 = (Action)cGroup_2_0_0.eContents().get(0);
+		private final Alternatives cAlternatives_2_0_0_1 = (Alternatives)cGroup_2_0_0.eContents().get(1);
+		private final Keyword cEqualsSignEqualsSignKeyword_2_0_0_1_0 = (Keyword)cAlternatives_2_0_0_1.eContents().get(0);
+		private final Keyword cExclamationMarkEqualsSignKeyword_2_0_0_1_1 = (Keyword)cAlternatives_2_0_0_1.eContents().get(1);
+		private final Keyword cLessThanSignKeyword_2_0_0_1_2 = (Keyword)cAlternatives_2_0_0_1.eContents().get(2);
+		private final Keyword cGreaterThanSignKeyword_2_0_0_1_3 = (Keyword)cAlternatives_2_0_0_1.eContents().get(3);
+		private final Keyword cLessThanSignEqualsSignKeyword_2_0_0_1_4 = (Keyword)cAlternatives_2_0_0_1.eContents().get(4);
+		private final Keyword cGreaterThanSignEqualsSignKeyword_2_0_0_1_5 = (Keyword)cAlternatives_2_0_0_1.eContents().get(5);
+		private final Keyword cAmpersandAmpersandKeyword_2_0_0_1_6 = (Keyword)cAlternatives_2_0_0_1.eContents().get(6);
+		private final Keyword cVerticalLineVerticalLineKeyword_2_0_0_1_7 = (Keyword)cAlternatives_2_0_0_1.eContents().get(7);
+		private final Group cGroup_2_0_1 = (Group)cAlternatives_2_0.eContents().get(1);
+		private final Action cMathLeftAction_2_0_1_0 = (Action)cGroup_2_0_1.eContents().get(0);
+		private final Alternatives cAlternatives_2_0_1_1 = (Alternatives)cGroup_2_0_1.eContents().get(1);
+		private final Keyword cPlusSignKeyword_2_0_1_1_0 = (Keyword)cAlternatives_2_0_1_1.eContents().get(0);
+		private final Keyword cHyphenMinusKeyword_2_0_1_1_1 = (Keyword)cAlternatives_2_0_1_1.eContents().get(1);
+		private final Keyword cAsteriskKeyword_2_0_1_1_2 = (Keyword)cAlternatives_2_0_1_1.eContents().get(2);
+		private final Keyword cSolidusKeyword_2_0_1_1_3 = (Keyword)cAlternatives_2_0_1_1.eContents().get(3);
+		private final Group cGroup_2_0_2 = (Group)cAlternatives_2_0.eContents().get(2);
+		private final Action cTextExpLeftAction_2_0_2_0 = (Action)cGroup_2_0_2.eContents().get(0);
+		private final Keyword cAmpersandKeyword_2_0_2_1 = (Keyword)cGroup_2_0_2.eContents().get(1);
+		private final Assignment cRightAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cRightPrimaryParserRuleCall_2_1_0 = (RuleCall)cRightAssignment_2_1.eContents().get(0);
+		
+		//Exp returns Expression:
+		//    {Exp}
+		//    left=Primary
+		//    (({Logic.left=current} ('==' | '!=' | '<' | '>' | '<=' | '>=' | '&&' | '||') | {Math.left=current} ('+' | '-' | '*'
+		//    | '/') | {TextExp.left=current} '&') right=Primary)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Exp}
+		//left=Primary
+		//(({Logic.left=current} ('==' | '!=' | '<' | '>' | '<=' | '>=' | '&&' | '||') | {Math.left=current} ('+' | '-' | '*'
+		//| '/') | {TextExp.left=current} '&') right=Primary)*
+		public Group getGroup() { return cGroup; }
+		
+		//{Exp}
+		public Action getExpAction_0() { return cExpAction_0; }
+		
+		//left=Primary
+		public Assignment getLeftAssignment_1() { return cLeftAssignment_1; }
+		
+		//Primary
+		public RuleCall getLeftPrimaryParserRuleCall_1_0() { return cLeftPrimaryParserRuleCall_1_0; }
+		
+		//(({Logic.left=current} ('==' | '!=' | '<' | '>' | '<=' | '>=' | '&&' | '||') | {Math.left=current} ('+' | '-' | '*'
+		//| '/') | {TextExp.left=current} '&') right=Primary)*
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//({Logic.left=current} ('==' | '!=' | '<' | '>' | '<=' | '>=' | '&&' | '||') | {Math.left=current} ('+' | '-' | '*'
+		//    | '/') | {TextExp.left=current} '&')
+		public Alternatives getAlternatives_2_0() { return cAlternatives_2_0; }
+		
+		//{Logic.left=current} ('==' | '!=' | '<' | '>' | '<=' | '>=' | '&&' | '||')
+		public Group getGroup_2_0_0() { return cGroup_2_0_0; }
+		
+		//{Logic.left=current}
+		public Action getLogicLeftAction_2_0_0_0() { return cLogicLeftAction_2_0_0_0; }
+		
+		//('==' | '!=' | '<' | '>' | '<=' | '>=' | '&&' | '||')
+		public Alternatives getAlternatives_2_0_0_1() { return cAlternatives_2_0_0_1; }
+		
+		//'=='
+		public Keyword getEqualsSignEqualsSignKeyword_2_0_0_1_0() { return cEqualsSignEqualsSignKeyword_2_0_0_1_0; }
+		
+		//'!='
+		public Keyword getExclamationMarkEqualsSignKeyword_2_0_0_1_1() { return cExclamationMarkEqualsSignKeyword_2_0_0_1_1; }
+		
+		//'<'
+		public Keyword getLessThanSignKeyword_2_0_0_1_2() { return cLessThanSignKeyword_2_0_0_1_2; }
+		
+		//'>'
+		public Keyword getGreaterThanSignKeyword_2_0_0_1_3() { return cGreaterThanSignKeyword_2_0_0_1_3; }
+		
+		//'<='
+		public Keyword getLessThanSignEqualsSignKeyword_2_0_0_1_4() { return cLessThanSignEqualsSignKeyword_2_0_0_1_4; }
+		
+		//'>='
+		public Keyword getGreaterThanSignEqualsSignKeyword_2_0_0_1_5() { return cGreaterThanSignEqualsSignKeyword_2_0_0_1_5; }
+		
+		//'&&'
+		public Keyword getAmpersandAmpersandKeyword_2_0_0_1_6() { return cAmpersandAmpersandKeyword_2_0_0_1_6; }
+		
+		//'||'
+		public Keyword getVerticalLineVerticalLineKeyword_2_0_0_1_7() { return cVerticalLineVerticalLineKeyword_2_0_0_1_7; }
+		
+		//{Math.left=current} ('+' | '-' | '*'
+		//   | '/')
+		public Group getGroup_2_0_1() { return cGroup_2_0_1; }
+		
+		//{Math.left=current}
+		public Action getMathLeftAction_2_0_1_0() { return cMathLeftAction_2_0_1_0; }
+		
+		//('+' | '-' | '*'
+		//   | '/')
+		public Alternatives getAlternatives_2_0_1_1() { return cAlternatives_2_0_1_1; }
+		
+		//'+'
+		public Keyword getPlusSignKeyword_2_0_1_1_0() { return cPlusSignKeyword_2_0_1_1_0; }
+		
+		//'-'
+		public Keyword getHyphenMinusKeyword_2_0_1_1_1() { return cHyphenMinusKeyword_2_0_1_1_1; }
+		
+		//'*'
+		public Keyword getAsteriskKeyword_2_0_1_1_2() { return cAsteriskKeyword_2_0_1_1_2; }
+		
+		//'/'
+		public Keyword getSolidusKeyword_2_0_1_1_3() { return cSolidusKeyword_2_0_1_1_3; }
+		
+		//{TextExp.left=current} '&'
+		public Group getGroup_2_0_2() { return cGroup_2_0_2; }
+		
+		//{TextExp.left=current}
+		public Action getTextExpLeftAction_2_0_2_0() { return cTextExpLeftAction_2_0_2_0; }
+		
+		//'&'
+		public Keyword getAmpersandKeyword_2_0_2_1() { return cAmpersandKeyword_2_0_2_1; }
+		
+		//right=Primary
+		public Assignment getRightAssignment_2_1() { return cRightAssignment_2_1; }
+		
+		//Primary
+		public RuleCall getRightPrimaryParserRuleCall_2_1_0() { return cRightPrimaryParserRuleCall_2_1_0; }
+	}
+	public class PrimaryElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.Primary");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cParenthesisParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Action cTypeAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final RuleCall cTypeParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Action cThisAction_2_0 = (Action)cGroup_2.eContents().get(0);
+		private final Keyword cThisKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
+		private final Action cEXPSTRINGAction_3_0 = (Action)cGroup_3.eContents().get(0);
+		private final RuleCall cSTRINGTerminalRuleCall_3_1 = (RuleCall)cGroup_3.eContents().get(1);
+		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
+		private final Action cEXPINTAction_4_0 = (Action)cGroup_4.eContents().get(0);
+		private final RuleCall cINTTerminalRuleCall_4_1 = (RuleCall)cGroup_4.eContents().get(1);
+		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
+		private final Action cEXPBOOLAction_5_0 = (Action)cGroup_5.eContents().get(0);
+		private final RuleCall cBOOLEANTerminalRuleCall_5_1 = (RuleCall)cGroup_5.eContents().get(1);
+		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
+		private final Action cIDAction_6_0 = (Action)cGroup_6.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_6_1 = (RuleCall)cGroup_6.eContents().get(1);
+		
+		////Wtf er det her
+		////| ID '(' (Exp (',' Exp)*)?')'))*;
+		//Primary returns Expression:
+		//    Parenthesis | {Type} Type | {This} 'this' | {EXPSTRING} STRING | {EXPINT} INT | {EXPBOOL} BOOLEAN | {ID} ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Parenthesis | {Type} Type | {This} 'this' | {EXPSTRING} STRING | {EXPINT} INT | {EXPBOOL} BOOLEAN | {ID} ID
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Parenthesis
+		public RuleCall getParenthesisParserRuleCall_0() { return cParenthesisParserRuleCall_0; }
+		
+		//{Type} Type
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//{Type}
+		public Action getTypeAction_1_0() { return cTypeAction_1_0; }
+		
+		//Type
+		public RuleCall getTypeParserRuleCall_1_1() { return cTypeParserRuleCall_1_1; }
+		
+		//{This} 'this'
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//{This}
+		public Action getThisAction_2_0() { return cThisAction_2_0; }
+		
+		//'this'
+		public Keyword getThisKeyword_2_1() { return cThisKeyword_2_1; }
+		
+		//{EXPSTRING} STRING
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//{EXPSTRING}
+		public Action getEXPSTRINGAction_3_0() { return cEXPSTRINGAction_3_0; }
+		
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall_3_1() { return cSTRINGTerminalRuleCall_3_1; }
+		
+		//{EXPINT} INT
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//{EXPINT}
+		public Action getEXPINTAction_4_0() { return cEXPINTAction_4_0; }
+		
+		//INT
+		public RuleCall getINTTerminalRuleCall_4_1() { return cINTTerminalRuleCall_4_1; }
+		
+		//{EXPBOOL} BOOLEAN
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//{EXPBOOL}
+		public Action getEXPBOOLAction_5_0() { return cEXPBOOLAction_5_0; }
+		
+		//BOOLEAN
+		public RuleCall getBOOLEANTerminalRuleCall_5_1() { return cBOOLEANTerminalRuleCall_5_1; }
+		
+		//{ID} ID
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//{ID}
+		public Action getIDAction_6_0() { return cIDAction_6_0; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_6_1() { return cIDTerminalRuleCall_6_1; }
+	}
+	public class ParenthesisElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.Parenthesis");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cParenthesisAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cExpAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cExpExpParserRuleCall_2_0 = (RuleCall)cExpAssignment_2.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//Parenthesis returns Expression:
+		//    {Parenthesis} '(' exp=Exp ')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Parenthesis} '(' exp=Exp ')'
+		public Group getGroup() { return cGroup; }
+		
+		//{Parenthesis}
+		public Action getParenthesisAction_0() { return cParenthesisAction_0; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		
+		//exp=Exp
+		public Assignment getExpAssignment_2() { return cExpAssignment_2; }
+		
+		//Exp
+		public RuleCall getExpExpParserRuleCall_2_0() { return cExpExpParserRuleCall_2_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
+	}
 	
 	
 	private final ProgramElements pProgram;
@@ -319,8 +549,11 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	private final QuestionElements pQuestion;
 	private final EndElements pEnd;
 	private final TargetElements pTarget;
-	private final ExpElements pExp;
 	private final TypeElements pType;
+	private final ExpElements pExp;
+	private final PrimaryElements pPrimary;
+	private final ParenthesisElements pParenthesis;
+	private final TerminalRule tBOOLEAN;
 	
 	private final Grammar grammar;
 	
@@ -338,8 +571,11 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		this.pQuestion = new QuestionElements();
 		this.pEnd = new EndElements();
 		this.pTarget = new TargetElements();
-		this.pExp = new ExpElements();
 		this.pType = new TypeElements();
+		this.pExp = new ExpElements();
+		this.pPrimary = new PrimaryElements();
+		this.pParenthesis = new ParenthesisElements();
+		this.tBOOLEAN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.BOOLEAN");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -441,17 +677,6 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		return getTargetAccess().getRule();
 	}
 	
-	//// Simple type and expression for now
-	//Exp:
-	//    STRING | INT | Type;
-	public ExpElements getExpAccess() {
-		return pExp;
-	}
-	
-	public ParserRule getExpRule() {
-		return getExpAccess().getRule();
-	}
-	
 	//Type:
 	//    'boolean' | 'text' | 'number';
 	public TypeElements getTypeAccess() {
@@ -460,6 +685,47 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	
 	public ParserRule getTypeRule() {
 		return getTypeAccess().getRule();
+	}
+	
+	//Exp returns Expression:
+	//    {Exp}
+	//    left=Primary
+	//    (({Logic.left=current} ('==' | '!=' | '<' | '>' | '<=' | '>=' | '&&' | '||') | {Math.left=current} ('+' | '-' | '*'
+	//    | '/') | {TextExp.left=current} '&') right=Primary)*;
+	public ExpElements getExpAccess() {
+		return pExp;
+	}
+	
+	public ParserRule getExpRule() {
+		return getExpAccess().getRule();
+	}
+	
+	////Wtf er det her
+	////| ID '(' (Exp (',' Exp)*)?')'))*;
+	//Primary returns Expression:
+	//    Parenthesis | {Type} Type | {This} 'this' | {EXPSTRING} STRING | {EXPINT} INT | {EXPBOOL} BOOLEAN | {ID} ID;
+	public PrimaryElements getPrimaryAccess() {
+		return pPrimary;
+	}
+	
+	public ParserRule getPrimaryRule() {
+		return getPrimaryAccess().getRule();
+	}
+	
+	//Parenthesis returns Expression:
+	//    {Parenthesis} '(' exp=Exp ')';
+	public ParenthesisElements getParenthesisAccess() {
+		return pParenthesis;
+	}
+	
+	public ParserRule getParenthesisRule() {
+		return getParenthesisAccess().getRule();
+	}
+	
+	//terminal BOOLEAN:
+	//    'true' | 'false';
+	public TerminalRule getBOOLEANRule() {
+		return tBOOLEAN;
 	}
 	
 	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;

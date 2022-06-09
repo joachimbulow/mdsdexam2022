@@ -11,7 +11,26 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import org.xtext.example.if22.if22.*;
+import org.xtext.example.if22.if22.Announcement;
+import org.xtext.example.if22.if22.EXPBOOL;
+import org.xtext.example.if22.if22.EXPINT;
+import org.xtext.example.if22.if22.EXPSTRING;
+import org.xtext.example.if22.if22.End;
+import org.xtext.example.if22.if22.Exp;
+import org.xtext.example.if22.if22.Expression;
+import org.xtext.example.if22.if22.ID;
+import org.xtext.example.if22.if22.If22Factory;
+import org.xtext.example.if22.if22.If22Package;
+import org.xtext.example.if22.if22.Logic;
+import org.xtext.example.if22.if22.Parenthesis;
+import org.xtext.example.if22.if22.Program;
+import org.xtext.example.if22.if22.Question;
+import org.xtext.example.if22.if22.Scenario;
+import org.xtext.example.if22.if22.Statement;
+import org.xtext.example.if22.if22.Target;
+import org.xtext.example.if22.if22.TextExp;
+import org.xtext.example.if22.if22.This;
+import org.xtext.example.if22.if22.Type;
 
 /**
  * <!-- begin-user-doc -->
@@ -72,6 +91,18 @@ public class If22FactoryImpl extends EFactoryImpl implements If22Factory
       case If22Package.QUESTION: return createQuestion();
       case If22Package.END: return createEnd();
       case If22Package.TARGET: return createTarget();
+      case If22Package.EXPRESSION: return createExpression();
+      case If22Package.EXP: return createExp();
+      case If22Package.LOGIC: return createLogic();
+      case If22Package.MATH: return createMath();
+      case If22Package.TEXT_EXP: return createTextExp();
+      case If22Package.TYPE: return createType();
+      case If22Package.THIS: return createThis();
+      case If22Package.EXPSTRING: return createEXPSTRING();
+      case If22Package.EXPINT: return createEXPINT();
+      case If22Package.EXPBOOL: return createEXPBOOL();
+      case If22Package.ID: return createID();
+      case If22Package.PARENTHESIS: return createParenthesis();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -159,6 +190,150 @@ public class If22FactoryImpl extends EFactoryImpl implements If22Factory
   {
     TargetImpl target = new TargetImpl();
     return target;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Expression createExpression()
+  {
+    ExpressionImpl expression = new ExpressionImpl();
+    return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Exp createExp()
+  {
+    ExpImpl exp = new ExpImpl();
+    return exp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Logic createLogic()
+  {
+    LogicImpl logic = new LogicImpl();
+    return logic;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public org.xtext.example.if22.if22.Math createMath()
+  {
+    MathImpl math = new MathImpl();
+    return math;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public TextExp createTextExp()
+  {
+    TextExpImpl textExp = new TextExpImpl();
+    return textExp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Type createType()
+  {
+    TypeImpl type = new TypeImpl();
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public This createThis()
+  {
+    ThisImpl this_ = new ThisImpl();
+    return this_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EXPSTRING createEXPSTRING()
+  {
+    EXPSTRINGImpl expstring = new EXPSTRINGImpl();
+    return expstring;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EXPINT createEXPINT()
+  {
+    EXPINTImpl expint = new EXPINTImpl();
+    return expint;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EXPBOOL createEXPBOOL()
+  {
+    EXPBOOLImpl expbool = new EXPBOOLImpl();
+    return expbool;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ID createID()
+  {
+    IDImpl id = new IDImpl();
+    return id;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Parenthesis createParenthesis()
+  {
+    ParenthesisImpl parenthesis = new ParenthesisImpl();
+    return parenthesis;
   }
 
   /**

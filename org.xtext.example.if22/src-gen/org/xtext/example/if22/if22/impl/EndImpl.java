@@ -4,12 +4,15 @@
 package org.xtext.example.if22.if22.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.example.if22.if22.End;
+import org.xtext.example.if22.if22.Expression;
 import org.xtext.example.if22.if22.If22Package;
 
 /**
@@ -28,24 +31,14 @@ import org.xtext.example.if22.if22.If22Package;
 public class EndImpl extends StatementImpl implements End
 {
   /**
-   * The default value of the '{@link #getExp() <em>Exp</em>}' attribute.
+   * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getExp()
    * @generated
    * @ordered
    */
-  protected static final String EXP_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getExp() <em>Exp</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExp()
-   * @generated
-   * @ordered
-   */
-  protected String exp = EXP_EDEFAULT;
+  protected Expression exp;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,7 +67,7 @@ public class EndImpl extends StatementImpl implements End
    * @generated
    */
   @Override
-  public String getExp()
+  public Expression getExp()
   {
     return exp;
   }
@@ -84,13 +77,54 @@ public class EndImpl extends StatementImpl implements End
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setExp(String newExp)
+  public NotificationChain basicSetExp(Expression newExp, NotificationChain msgs)
   {
-    String oldExp = exp;
+    Expression oldExp = exp;
     exp = newExp;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, If22Package.END__EXP, oldExp, exp));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, If22Package.END__EXP, oldExp, newExp);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setExp(Expression newExp)
+  {
+    if (newExp != exp)
+    {
+      NotificationChain msgs = null;
+      if (exp != null)
+        msgs = ((InternalEObject)exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - If22Package.END__EXP, null, msgs);
+      if (newExp != null)
+        msgs = ((InternalEObject)newExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - If22Package.END__EXP, null, msgs);
+      msgs = basicSetExp(newExp, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, If22Package.END__EXP, newExp, newExp));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case If22Package.END__EXP:
+        return basicSetExp(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -120,7 +154,7 @@ public class EndImpl extends StatementImpl implements End
     switch (featureID)
     {
       case If22Package.END__EXP:
-        setExp((String)newValue);
+        setExp((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,7 +171,7 @@ public class EndImpl extends StatementImpl implements End
     switch (featureID)
     {
       case If22Package.END__EXP:
-        setExp(EXP_EDEFAULT);
+        setExp((Expression)null);
         return;
     }
     super.eUnset(featureID);
@@ -154,26 +188,9 @@ public class EndImpl extends StatementImpl implements End
     switch (featureID)
     {
       case If22Package.END__EXP:
-        return EXP_EDEFAULT == null ? exp != null : !EXP_EDEFAULT.equals(exp);
+        return exp != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (exp: ");
-    result.append(exp);
-    result.append(')');
-    return result.toString();
   }
 
 } //EndImpl

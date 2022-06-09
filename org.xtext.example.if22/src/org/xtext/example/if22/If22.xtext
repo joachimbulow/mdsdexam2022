@@ -25,9 +25,23 @@ End:
 Target:
 	'to' name=ID;
 
-// Simple type and expression for now
-Exp:
-	STRING | INT | Type;
-
 Type:
 	'boolean' | 'text' | 'number';
+
+Exp returns Expression:
+	{Exp}
+	left=Primary
+	(({Logic.left=current} ('==' | '!=' | '<' | '>' | '<=' | '>=' | '&&' | '||') | {Math.left=current} ('+' | '-' | '*'
+	| '/') | {TextExp.left=current} '&') right=Primary)*;
+	
+//Wtf er det her
+//| ID '(' (Exp (',' Exp)*)?')'))*;
+
+Primary returns Expression:
+	Parenthesis | {Type} Type | {This} 'this' | {EXPSTRING} STRING | {EXPINT} INT | {EXPBOOL} BOOLEAN | {ID} ID;
+	
+Parenthesis returns Expression:
+	{Parenthesis} '(' exp=Exp ')';
+
+terminal BOOLEAN:
+	'true' | 'false';
