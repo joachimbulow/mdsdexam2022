@@ -17,6 +17,8 @@ import org.xtext.example.if22.if22.Announcement
 import org.xtext.example.if22.if22.End
 import org.xtext.example.if22.if22.Question
 import org.xtext.example.if22.if22.Type
+import java.util.List
+import org.xtext.example.if22.if22.Statement
 
 /**
  * Generates code from your model files on save.
@@ -103,6 +105,8 @@ class If22Generator extends AbstractGenerator {
 					«variableDeclaration.compileVariableDeclaration»
 				«ENDFOR»
 				
+				«compileImplicitVariables(scenario.statements)»
+				
 				public String interact() throws IOException {
 					nextInteraction = "Start";
 					while(true){
@@ -129,6 +133,19 @@ class If22Generator extends AbstractGenerator {
 		}
 	}
 
+	// Implicit variables for user input
+	def static compileImplicitVariables(List<Statement> statements) {
+		var r = ""
+		for (q : statements.filter[statement|statement instanceof Question]) {
+			if ((q as Question).reffedVar == null) {
+				r +=
+					ExpResolverUtil.compileTypeFromExp((q as Question).QType) + " _" + q.name +
+						";\n"
+			}
+		}
+		return r;
+	}
+
 	// --- Compiling statements using dispatch ---
 	// Announcement	TODO: COMPILE WITH SUBSTITUTING AMPERSAND
 	def static dispatch String compileStatement(Announcement announcement) {
@@ -146,7 +163,7 @@ class If22Generator extends AbstractGenerator {
 			case "«question.name»":
 				System.out.println("«ExpResolverUtil.compileExp(question.QString)»");
 				try {
-					__«question.name» = «ExpResolverUtil.getTypeFromExp(question.QType).readInputString»
+					«question.reffedVar === null ? "_" + question.name : question.reffedVar.name» = «ExpResolverUtil.getTypeFromExp(question.QType).readInputString»
 					nextInteraction = "«question.targets.get(0).name»";
 					break;
 				} catch (Exception ex) {
@@ -154,6 +171,8 @@ class If22Generator extends AbstractGenerator {
 				}
 		'''
 	}
+	
+	
 
 	// End statement
 	def static dispatch String compileStatement(End endStatement) {
@@ -166,7 +185,6 @@ class If22Generator extends AbstractGenerator {
 	}
 
 	// --- END Dispatch statement compilation ---
-
 	// Reading input from the user
 	def static readInputString(Type type) {
 		switch type {
@@ -175,6 +193,5 @@ class If22Generator extends AbstractGenerator {
 			TypeNumber: "Integer.parseInt(br.readLine());"
 		}
 	}
-	
-	
+
 }

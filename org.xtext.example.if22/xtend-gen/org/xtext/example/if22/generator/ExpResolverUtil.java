@@ -124,4 +124,11 @@ public class ExpResolverUtil {
     }
     return null;
   }
+  
+  public static String compileTypeFromExp(final Expression exp) {
+    if ((exp instanceof Type)) {
+      return ExpResolverUtil.compileType(((Type)exp));
+    }
+    return null;
+  }
 }

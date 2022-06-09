@@ -61,5 +61,11 @@ class ExpResolverUtil {
 		}
 		return null;
 	}
+	
+	def static compileTypeFromExp(Expression exp) {
+		if (exp instanceof Type) {
+			return exp.compileType
+		}
+	}
 
 }

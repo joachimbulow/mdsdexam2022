@@ -3,14 +3,18 @@
  */
 package org.xtext.example.if22.generator;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Iterators;
 import java.util.Arrays;
+import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.xtext.example.if22.if22.Announcement;
 import org.xtext.example.if22.if22.End;
@@ -180,6 +184,12 @@ public class If22Generator extends AbstractGenerator {
     _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
+    String _compileImplicitVariables = If22Generator.compileImplicitVariables(scenario.getStatements());
+    _builder.append(_compileImplicitVariables, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
     _builder.append("public String interact() throws IOException {");
     _builder.newLine();
     _builder.append("\t\t");
@@ -252,6 +262,29 @@ public class If22Generator extends AbstractGenerator {
     return _xblockexpression;
   }
   
+  public static String compileImplicitVariables(final List<Statement> statements) {
+    String r = "";
+    final Function1<Statement, Boolean> _function = (Statement statement) -> {
+      return Boolean.valueOf((statement instanceof Question));
+    };
+    Iterable<Statement> _filter = IterableExtensions.<Statement>filter(statements, _function);
+    for (final Statement q : _filter) {
+      VariableDeclaration _reffedVar = ((Question) q).getReffedVar();
+      boolean _equals = Objects.equal(_reffedVar, null);
+      if (_equals) {
+        String _r = r;
+        String _compileTypeFromExp = ExpResolverUtil.compileTypeFromExp(((Question) q).getQType());
+        String _plus = (_compileTypeFromExp + " _");
+        String _name = q.getName();
+        String _plus_1 = (_plus + _name);
+        String _plus_2 = (_plus_1 + 
+          ";\n");
+        r = (_r + _plus_2);
+      }
+    }
+    return r;
+  }
+  
   protected static String _compileStatement(final Announcement announcement) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("case \"");
@@ -294,9 +327,16 @@ public class If22Generator extends AbstractGenerator {
     _builder.append("try {");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("__");
-    String _name_1 = question.getName();
-    _builder.append(_name_1, "\t\t");
+    String _xifexpression = null;
+    VariableDeclaration _reffedVar = question.getReffedVar();
+    boolean _tripleEquals = (_reffedVar == null);
+    if (_tripleEquals) {
+      String _name_1 = question.getName();
+      _xifexpression = ("_" + _name_1);
+    } else {
+      _xifexpression = question.getReffedVar().getName();
+    }
+    _builder.append(_xifexpression, "\t\t");
     _builder.append(" = ");
     String _readInputString = If22Generator.readInputString(ExpResolverUtil.getTypeFromExp(question.getQType()));
     _builder.append(_readInputString, "\t\t");
