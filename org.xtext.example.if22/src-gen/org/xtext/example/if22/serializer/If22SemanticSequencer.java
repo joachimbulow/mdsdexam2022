@@ -161,7 +161,7 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     EndingTarget returns EndingTarget
 	 *
 	 * Constraint:
-	 *     (callableEnd=[Target|ID] selfdefinedEnd=[Target|ID])
+	 *     (callableEnd=[End|ID] selfdefinedEnd=[End|ID])
 	 * </pre>
 	 */
 	protected void sequence_EndingTarget(ISerializationContext context, EndingTarget semanticObject) {
@@ -172,8 +172,8 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.ENDING_TARGET__SELFDEFINED_END));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEndingTargetAccess().getCallableEndTargetIDTerminalRuleCall_2_0_1(), semanticObject.eGet(If22Package.Literals.ENDING_TARGET__CALLABLE_END, false));
-		feeder.accept(grammarAccess.getEndingTargetAccess().getSelfdefinedEndTargetIDTerminalRuleCall_4_0_1(), semanticObject.eGet(If22Package.Literals.ENDING_TARGET__SELFDEFINED_END, false));
+		feeder.accept(grammarAccess.getEndingTargetAccess().getCallableEndEndIDTerminalRuleCall_2_0_1(), semanticObject.eGet(If22Package.Literals.ENDING_TARGET__CALLABLE_END, false));
+		feeder.accept(grammarAccess.getEndingTargetAccess().getSelfdefinedEndEndIDTerminalRuleCall_4_0_1(), semanticObject.eGet(If22Package.Literals.ENDING_TARGET__SELFDEFINED_END, false));
 		feeder.finish();
 	}
 	

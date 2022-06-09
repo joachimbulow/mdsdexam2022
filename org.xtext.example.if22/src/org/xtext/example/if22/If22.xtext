@@ -60,5 +60,5 @@ TargetDestination:
 
 // TODO: Scope this stuff!
 EndingTarget:
-	{EndingTarget}'on' callableEnd=[Target] 'to' selfdefinedEnd=[Target]
+	{EndingTarget}'on' callableEnd=[End] 'to' selfdefinedEnd=[End]
 ;

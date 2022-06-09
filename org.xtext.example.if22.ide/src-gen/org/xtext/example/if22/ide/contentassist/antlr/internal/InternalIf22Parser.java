@@ -10886,17 +10886,17 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
             // InternalIf22.g:3651:2: ( ( RULE_ID ) )
             // InternalIf22.g:3652:3: ( RULE_ID )
             {
-             before(grammarAccess.getEndingTargetAccess().getCallableEndTargetCrossReference_2_0()); 
+             before(grammarAccess.getEndingTargetAccess().getCallableEndEndCrossReference_2_0()); 
             // InternalIf22.g:3653:3: ( RULE_ID )
             // InternalIf22.g:3654:4: RULE_ID
             {
-             before(grammarAccess.getEndingTargetAccess().getCallableEndTargetIDTerminalRuleCall_2_0_1()); 
+             before(grammarAccess.getEndingTargetAccess().getCallableEndEndIDTerminalRuleCall_2_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getEndingTargetAccess().getCallableEndTargetIDTerminalRuleCall_2_0_1()); 
+             after(grammarAccess.getEndingTargetAccess().getCallableEndEndIDTerminalRuleCall_2_0_1()); 
 
             }
 
-             after(grammarAccess.getEndingTargetAccess().getCallableEndTargetCrossReference_2_0()); 
+             after(grammarAccess.getEndingTargetAccess().getCallableEndEndCrossReference_2_0()); 
 
             }
 
@@ -10931,17 +10931,17 @@ public class InternalIf22Parser extends AbstractInternalContentAssistParser {
             // InternalIf22.g:3670:2: ( ( RULE_ID ) )
             // InternalIf22.g:3671:3: ( RULE_ID )
             {
-             before(grammarAccess.getEndingTargetAccess().getSelfdefinedEndTargetCrossReference_4_0()); 
+             before(grammarAccess.getEndingTargetAccess().getSelfdefinedEndEndCrossReference_4_0()); 
             // InternalIf22.g:3672:3: ( RULE_ID )
             // InternalIf22.g:3673:4: RULE_ID
             {
-             before(grammarAccess.getEndingTargetAccess().getSelfdefinedEndTargetIDTerminalRuleCall_4_0_1()); 
+             before(grammarAccess.getEndingTargetAccess().getSelfdefinedEndEndIDTerminalRuleCall_4_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getEndingTargetAccess().getSelfdefinedEndTargetIDTerminalRuleCall_4_0_1()); 
+             after(grammarAccess.getEndingTargetAccess().getSelfdefinedEndEndIDTerminalRuleCall_4_0_1()); 
 
             }
 
-             after(grammarAccess.getEndingTargetAccess().getSelfdefinedEndTargetCrossReference_4_0()); 
+             after(grammarAccess.getEndingTargetAccess().getSelfdefinedEndEndCrossReference_4_0()); 
 
             }
 

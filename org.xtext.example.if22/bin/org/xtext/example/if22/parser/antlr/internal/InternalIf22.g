@@ -1446,7 +1446,7 @@ ruleEndingTarget returns [EObject current=null]
 				}
 				otherlv_2=RULE_ID
 				{
-					newLeafNode(otherlv_2, grammarAccess.getEndingTargetAccess().getCallableEndTargetCrossReference_2_0());
+					newLeafNode(otherlv_2, grammarAccess.getEndingTargetAccess().getCallableEndEndCrossReference_2_0());
 				}
 			)
 		)
@@ -1463,7 +1463,7 @@ ruleEndingTarget returns [EObject current=null]
 				}
 				otherlv_4=RULE_ID
 				{
-					newLeafNode(otherlv_4, grammarAccess.getEndingTargetAccess().getSelfdefinedEndTargetCrossReference_4_0());
+					newLeafNode(otherlv_4, grammarAccess.getEndingTargetAccess().getSelfdefinedEndEndCrossReference_4_0());
 				}
 			)
 		)

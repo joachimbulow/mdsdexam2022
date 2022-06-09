@@ -11,9 +11,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.xtext.example.if22.if22.End;
 import org.xtext.example.if22.if22.EndingTarget;
 import org.xtext.example.if22.if22.If22Package;
-import org.xtext.example.if22.if22.Target;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,7 +39,7 @@ public class EndingTargetImpl extends MinimalEObjectImpl.Container implements En
    * @generated
    * @ordered
    */
-  protected Target callableEnd;
+  protected End callableEnd;
 
   /**
    * The cached value of the '{@link #getSelfdefinedEnd() <em>Selfdefined End</em>}' reference.
@@ -49,7 +49,7 @@ public class EndingTargetImpl extends MinimalEObjectImpl.Container implements En
    * @generated
    * @ordered
    */
-  protected Target selfdefinedEnd;
+  protected End selfdefinedEnd;
 
   /**
    * <!-- begin-user-doc -->
@@ -78,12 +78,12 @@ public class EndingTargetImpl extends MinimalEObjectImpl.Container implements En
    * @generated
    */
   @Override
-  public Target getCallableEnd()
+  public End getCallableEnd()
   {
     if (callableEnd != null && callableEnd.eIsProxy())
     {
       InternalEObject oldCallableEnd = (InternalEObject)callableEnd;
-      callableEnd = (Target)eResolveProxy(oldCallableEnd);
+      callableEnd = (End)eResolveProxy(oldCallableEnd);
       if (callableEnd != oldCallableEnd)
       {
         if (eNotificationRequired())
@@ -98,7 +98,7 @@ public class EndingTargetImpl extends MinimalEObjectImpl.Container implements En
    * <!-- end-user-doc -->
    * @generated
    */
-  public Target basicGetCallableEnd()
+  public End basicGetCallableEnd()
   {
     return callableEnd;
   }
@@ -109,9 +109,9 @@ public class EndingTargetImpl extends MinimalEObjectImpl.Container implements En
    * @generated
    */
   @Override
-  public void setCallableEnd(Target newCallableEnd)
+  public void setCallableEnd(End newCallableEnd)
   {
-    Target oldCallableEnd = callableEnd;
+    End oldCallableEnd = callableEnd;
     callableEnd = newCallableEnd;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, If22Package.ENDING_TARGET__CALLABLE_END, oldCallableEnd, callableEnd));
@@ -123,12 +123,12 @@ public class EndingTargetImpl extends MinimalEObjectImpl.Container implements En
    * @generated
    */
   @Override
-  public Target getSelfdefinedEnd()
+  public End getSelfdefinedEnd()
   {
     if (selfdefinedEnd != null && selfdefinedEnd.eIsProxy())
     {
       InternalEObject oldSelfdefinedEnd = (InternalEObject)selfdefinedEnd;
-      selfdefinedEnd = (Target)eResolveProxy(oldSelfdefinedEnd);
+      selfdefinedEnd = (End)eResolveProxy(oldSelfdefinedEnd);
       if (selfdefinedEnd != oldSelfdefinedEnd)
       {
         if (eNotificationRequired())
@@ -143,7 +143,7 @@ public class EndingTargetImpl extends MinimalEObjectImpl.Container implements En
    * <!-- end-user-doc -->
    * @generated
    */
-  public Target basicGetSelfdefinedEnd()
+  public End basicGetSelfdefinedEnd()
   {
     return selfdefinedEnd;
   }
@@ -154,9 +154,9 @@ public class EndingTargetImpl extends MinimalEObjectImpl.Container implements En
    * @generated
    */
   @Override
-  public void setSelfdefinedEnd(Target newSelfdefinedEnd)
+  public void setSelfdefinedEnd(End newSelfdefinedEnd)
   {
-    Target oldSelfdefinedEnd = selfdefinedEnd;
+    End oldSelfdefinedEnd = selfdefinedEnd;
     selfdefinedEnd = newSelfdefinedEnd;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, If22Package.ENDING_TARGET__SELFDEFINED_END, oldSelfdefinedEnd, selfdefinedEnd));
@@ -193,10 +193,10 @@ public class EndingTargetImpl extends MinimalEObjectImpl.Container implements En
     switch (featureID)
     {
       case If22Package.ENDING_TARGET__CALLABLE_END:
-        setCallableEnd((Target)newValue);
+        setCallableEnd((End)newValue);
         return;
       case If22Package.ENDING_TARGET__SELFDEFINED_END:
-        setSelfdefinedEnd((Target)newValue);
+        setSelfdefinedEnd((End)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -213,10 +213,10 @@ public class EndingTargetImpl extends MinimalEObjectImpl.Container implements En
     switch (featureID)
     {
       case If22Package.ENDING_TARGET__CALLABLE_END:
-        setCallableEnd((Target)null);
+        setCallableEnd((End)null);
         return;
       case If22Package.ENDING_TARGET__SELFDEFINED_END:
-        setSelfdefinedEnd((Target)null);
+        setSelfdefinedEnd((End)null);
         return;
     }
     super.eUnset(featureID);

@@ -834,20 +834,20 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Action cEndingTargetAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cOnKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cCallableEndAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cCallableEndTargetCrossReference_2_0 = (CrossReference)cCallableEndAssignment_2.eContents().get(0);
-		private final RuleCall cCallableEndTargetIDTerminalRuleCall_2_0_1 = (RuleCall)cCallableEndTargetCrossReference_2_0.eContents().get(1);
+		private final CrossReference cCallableEndEndCrossReference_2_0 = (CrossReference)cCallableEndAssignment_2.eContents().get(0);
+		private final RuleCall cCallableEndEndIDTerminalRuleCall_2_0_1 = (RuleCall)cCallableEndEndCrossReference_2_0.eContents().get(1);
 		private final Keyword cToKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cSelfdefinedEndAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final CrossReference cSelfdefinedEndTargetCrossReference_4_0 = (CrossReference)cSelfdefinedEndAssignment_4.eContents().get(0);
-		private final RuleCall cSelfdefinedEndTargetIDTerminalRuleCall_4_0_1 = (RuleCall)cSelfdefinedEndTargetCrossReference_4_0.eContents().get(1);
+		private final CrossReference cSelfdefinedEndEndCrossReference_4_0 = (CrossReference)cSelfdefinedEndAssignment_4.eContents().get(0);
+		private final RuleCall cSelfdefinedEndEndIDTerminalRuleCall_4_0_1 = (RuleCall)cSelfdefinedEndEndCrossReference_4_0.eContents().get(1);
 		
 		//// TODO: Scope this stuff!
 		//EndingTarget:
-		//    {EndingTarget}'on' callableEnd=[Target] 'to' selfdefinedEnd=[Target]
+		//    {EndingTarget}'on' callableEnd=[End] 'to' selfdefinedEnd=[End]
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{EndingTarget}'on' callableEnd=[Target] 'to' selfdefinedEnd=[Target]
+		//{EndingTarget}'on' callableEnd=[End] 'to' selfdefinedEnd=[End]
 		public Group getGroup() { return cGroup; }
 		
 		//{EndingTarget}
@@ -856,26 +856,26 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//'on'
 		public Keyword getOnKeyword_1() { return cOnKeyword_1; }
 		
-		//callableEnd=[Target]
+		//callableEnd=[End]
 		public Assignment getCallableEndAssignment_2() { return cCallableEndAssignment_2; }
 		
-		//[Target]
-		public CrossReference getCallableEndTargetCrossReference_2_0() { return cCallableEndTargetCrossReference_2_0; }
+		//[End]
+		public CrossReference getCallableEndEndCrossReference_2_0() { return cCallableEndEndCrossReference_2_0; }
 		
 		//ID
-		public RuleCall getCallableEndTargetIDTerminalRuleCall_2_0_1() { return cCallableEndTargetIDTerminalRuleCall_2_0_1; }
+		public RuleCall getCallableEndEndIDTerminalRuleCall_2_0_1() { return cCallableEndEndIDTerminalRuleCall_2_0_1; }
 		
 		//'to'
 		public Keyword getToKeyword_3() { return cToKeyword_3; }
 		
-		//selfdefinedEnd=[Target]
+		//selfdefinedEnd=[End]
 		public Assignment getSelfdefinedEndAssignment_4() { return cSelfdefinedEndAssignment_4; }
 		
-		//[Target]
-		public CrossReference getSelfdefinedEndTargetCrossReference_4_0() { return cSelfdefinedEndTargetCrossReference_4_0; }
+		//[End]
+		public CrossReference getSelfdefinedEndEndCrossReference_4_0() { return cSelfdefinedEndEndCrossReference_4_0; }
 		
 		//ID
-		public RuleCall getSelfdefinedEndTargetIDTerminalRuleCall_4_0_1() { return cSelfdefinedEndTargetIDTerminalRuleCall_4_0_1; }
+		public RuleCall getSelfdefinedEndEndIDTerminalRuleCall_4_0_1() { return cSelfdefinedEndEndIDTerminalRuleCall_4_0_1; }
 	}
 	
 	
@@ -1118,7 +1118,7 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	
 	//// TODO: Scope this stuff!
 	//EndingTarget:
-	//    {EndingTarget}'on' callableEnd=[Target] 'to' selfdefinedEnd=[Target]
+	//    {EndingTarget}'on' callableEnd=[End] 'to' selfdefinedEnd=[End]
 	//;
 	public EndingTargetElements getEndingTargetAccess() {
 		return pEndingTarget;

@@ -29,12 +29,12 @@ public interface EndingTarget extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Callable End</em>' reference.
-   * @see #setCallableEnd(Target)
+   * @see #setCallableEnd(End)
    * @see org.xtext.example.if22.if22.If22Package#getEndingTarget_CallableEnd()
    * @model
    * @generated
    */
-  Target getCallableEnd();
+  End getCallableEnd();
 
   /**
    * Sets the value of the '{@link org.xtext.example.if22.if22.EndingTarget#getCallableEnd <em>Callable End</em>}' reference.
@@ -44,19 +44,19 @@ public interface EndingTarget extends EObject
    * @see #getCallableEnd()
    * @generated
    */
-  void setCallableEnd(Target value);
+  void setCallableEnd(End value);
 
   /**
    * Returns the value of the '<em><b>Selfdefined End</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Selfdefined End</em>' reference.
-   * @see #setSelfdefinedEnd(Target)
+   * @see #setSelfdefinedEnd(End)
    * @see org.xtext.example.if22.if22.If22Package#getEndingTarget_SelfdefinedEnd()
    * @model
    * @generated
    */
-  Target getSelfdefinedEnd();
+  End getSelfdefinedEnd();
 
   /**
    * Sets the value of the '{@link org.xtext.example.if22.if22.EndingTarget#getSelfdefinedEnd <em>Selfdefined End</em>}' reference.
@@ -66,6 +66,6 @@ public interface EndingTarget extends EObject
    * @see #getSelfdefinedEnd()
    * @generated
    */
-  void setSelfdefinedEnd(Target value);
+  void setSelfdefinedEnd(End value);
 
 } // EndingTarget

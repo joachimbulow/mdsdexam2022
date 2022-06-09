@@ -60,8 +60,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EndingTarget">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="callableEnd" eType="#//Target"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="selfdefinedEnd" eType="#//Target"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="callableEnd" eType="#//End"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selfdefinedEnd" eType="#//End"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Logic" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expression"

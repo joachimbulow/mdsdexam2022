@@ -3460,7 +3460,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
             				
             otherlv_2=(Token)match(input,RULE_ID,FOLLOW_14); 
 
-            					newLeafNode(otherlv_2, grammarAccess.getEndingTargetAccess().getCallableEndTargetCrossReference_2_0());
+            					newLeafNode(otherlv_2, grammarAccess.getEndingTargetAccess().getCallableEndEndCrossReference_2_0());
             				
 
             }
@@ -3485,7 +3485,7 @@ public class InternalIf22Parser extends AbstractInternalAntlrParser {
             				
             otherlv_4=(Token)match(input,RULE_ID,FOLLOW_2); 
 
-            					newLeafNode(otherlv_4, grammarAccess.getEndingTargetAccess().getSelfdefinedEndTargetCrossReference_4_0());
+            					newLeafNode(otherlv_4, grammarAccess.getEndingTargetAccess().getSelfdefinedEndEndCrossReference_4_0());
             				
 
             }

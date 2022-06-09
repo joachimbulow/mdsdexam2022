@@ -560,13 +560,13 @@ public class If22Generator extends AbstractGenerator {
     {
       for(final EndingTarget et : endingTargets) {
         _builder.append("if(calledScenarioEnd.equals(\"");
-        String _name = If22Generator.name(et.getCallableEnd());
+        String _name = et.getCallableEnd().getName();
         _builder.append(_name);
         _builder.append("\")){");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("nextInteraction = \"");
-        String _name_1 = If22Generator.name(et.getSelfdefinedEnd());
+        String _name_1 = et.getSelfdefinedEnd().getName();
         _builder.append(_name_1, "\t");
         _builder.append("\";");
         _builder.newLineIfNotEmpty();
