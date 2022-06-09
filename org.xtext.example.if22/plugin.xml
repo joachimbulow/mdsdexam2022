@@ -3,8 +3,8 @@
 <plugin>
 	<extension point="org.eclipse.emf.ecore.generated_package">
 		<package
-			uri = "http://www.xtext.org/example/mydsl/If22"
-			class = "org.xtext.example.mydsl.if22.If22Package"
+			uri = "http://www.xtext.org/example/if22/If22"
+			class = "org.xtext.example.if22.if22.If22Package"
 			genModel = "model/generated/If22.genmodel" />
 	</extension>
 </plugin>

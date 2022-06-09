@@ -4,13 +4,28 @@
     modelPluginID="org.xtext.example.if22" forceOverwrite="true" modelName="If22"
     updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="8.0" copyrightFields="false" runtimeVersion="2.20">
-  <genPackages prefix="If22" basePackage="org.xtext.example.mydsl" disposableProviderFactory="true"
+  <genPackages prefix="If22" basePackage="org.xtext.example.if22" disposableProviderFactory="true"
       fileExtensions="if" ecorePackage="If22.ecore#/">
-    <genClasses ecoreClass="If22.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Model/greetings"/>
+    <genClasses ecoreClass="If22.ecore#//Program">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//Program/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Program/scenarios"/>
     </genClasses>
-    <genClasses ecoreClass="If22.ecore#//Greeting">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//Greeting/name"/>
+    <genClasses ecoreClass="If22.ecore#//Scenario">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//Scenario/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Scenario/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="If22.ecore#//Statement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//Statement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="If22.ecore#//Announcement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Announcement/target"/>
+    </genClasses>
+    <genClasses ecoreClass="If22.ecore#//Question"/>
+    <genClasses ecoreClass="If22.ecore#//End">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//End/exp"/>
+    </genClasses>
+    <genClasses ecoreClass="If22.ecore#//Target">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//Target/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

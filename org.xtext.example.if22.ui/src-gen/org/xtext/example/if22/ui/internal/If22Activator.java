@@ -13,8 +13,8 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.ui.shared.SharedStateModule;
 import org.eclipse.xtext.util.Modules2;
 import org.osgi.framework.BundleContext;
-import org.xtext.example.mydsl.If22RuntimeModule;
-import org.xtext.example.mydsl.ui.If22UiModule;
+import org.xtext.example.if22.If22RuntimeModule;
+import org.xtext.example.if22.ui.If22UiModule;
 
 /**
  * This class was generated. Customizations should only happen in a newly
@@ -23,7 +23,7 @@ import org.xtext.example.mydsl.ui.If22UiModule;
 public class If22Activator extends AbstractUIPlugin {
 
 	public static final String PLUGIN_ID = "org.xtext.example.if22.ui";
-	public static final String ORG_XTEXT_EXAMPLE_MYDSL_IF22 = "org.xtext.example.mydsl.If22";
+	public static final String ORG_XTEXT_EXAMPLE_IF22_IF22 = "org.xtext.example.if22.If22";
 	
 	private static final Logger logger = Logger.getLogger(If22Activator.class);
 	
@@ -73,14 +73,14 @@ public class If22Activator extends AbstractUIPlugin {
 	}
 	
 	protected com.google.inject.Module getRuntimeModule(String grammar) {
-		if (ORG_XTEXT_EXAMPLE_MYDSL_IF22.equals(grammar)) {
+		if (ORG_XTEXT_EXAMPLE_IF22_IF22.equals(grammar)) {
 			return new If22RuntimeModule();
 		}
 		throw new IllegalArgumentException(grammar);
 	}
 	
 	protected com.google.inject.Module getUiModule(String grammar) {
-		if (ORG_XTEXT_EXAMPLE_MYDSL_IF22.equals(grammar)) {
+		if (ORG_XTEXT_EXAMPLE_IF22_IF22.equals(grammar)) {
 			return new If22UiModule(this);
 		}
 		throw new IllegalArgumentException(grammar);

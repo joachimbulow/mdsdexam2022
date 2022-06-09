@@ -1,0 +1,37 @@
+grammar org.xtext.example.if22.If22 with org.eclipse.xtext.common.Terminals
+
+generate if22 "http://www.xtext.org/example/if22/If22"
+
+Program:
+	'story' name=ID (scenarios+=Scenario)*;
+
+Scenario:
+	'scenario' name=ID '{'
+	(statements+=Statement)*
+	'}';
+
+Statement:
+	Announcement | Question | End;
+
+Announcement:
+	'announce' name=ID (target+=Target)+;
+
+Question:
+	'question' name=ID;
+
+End:
+	'end' name=ID exp=Exp?;
+
+Target:
+	'to' name=ID 
+;
+
+// Simple type and expression for now
+
+Exp:
+	STRING | INT | Type
+;
+
+Type:
+	'boolean' | 'text' | 'number'
+;

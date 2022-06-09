@@ -15,15 +15,15 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.emf.common,
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
 Bundle-RequiredExecutionEnvironment: JavaSE-11
-Export-Package: org.xtext.example.mydsl.parser.antlr.internal,
- org.xtext.example.mydsl.scoping,
- org.xtext.example.mydsl.services,
- org.xtext.example.mydsl.if22.impl,
- org.xtext.example.mydsl.generator,
- org.xtext.example.mydsl.validation,
- org.xtext.example.mydsl.if22,
- org.xtext.example.mydsl,
- org.xtext.example.mydsl.if22.util,
- org.xtext.example.mydsl.serializer,
- org.xtext.example.mydsl.parser.antlr
+Export-Package: org.xtext.example.if22.parser.antlr.internal,
+ org.xtext.example.if22.if22.util,
+ org.xtext.example.if22.serializer,
+ org.xtext.example.if22.scoping,
+ org.xtext.example.if22.services,
+ org.xtext.example.if22.if22.impl,
+ org.xtext.example.if22.if22,
+ org.xtext.example.if22.parser.antlr,
+ org.xtext.example.if22.validation,
+ org.xtext.example.if22.generator,
+ org.xtext.example.if22
 Import-Package: org.apache.log4j

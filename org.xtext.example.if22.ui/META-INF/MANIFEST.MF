@@ -18,7 +18,7 @@ Require-Bundle: org.xtext.example.if22,
  org.eclipse.xtext.builder
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-11
-Export-Package: org.xtext.example.mydsl.ui.contentassist,
+Export-Package: org.xtext.example.if22.ui.quickfix,
  org.xtext.example.if22.ui.internal,
- org.xtext.example.mydsl.ui.quickfix
+ org.xtext.example.if22.ui.contentassist
 Bundle-Activator: org.xtext.example.if22.ui.internal.If22Activator

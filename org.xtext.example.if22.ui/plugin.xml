@@ -4,48 +4,48 @@
 	<extension
 		point="org.eclipse.ui.editors">
 		<editor
-			class="org.xtext.example.mydsl.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+			class="org.xtext.example.if22.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
 			contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
 			default="true"
-			extensions="if22"
-			id="org.xtext.example.mydsl.If22"
+			extensions="if"
+			id="org.xtext.example.if22.If22"
 			name="If22 Editor">
 		</editor>
 	</extension>
 	<extension
 		point="org.eclipse.ui.handlers">
 		<handler
-			class="org.xtext.example.mydsl.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
+			class="org.xtext.example.if22.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
 			commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
 			<activeWhen>
 				<reference
-					definitionId="org.xtext.example.mydsl.If22.Editor.opened">
+					definitionId="org.xtext.example.if22.If22.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
 		<handler
-			class="org.xtext.example.mydsl.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
-			commandId="org.xtext.example.mydsl.If22.validate">
+			class="org.xtext.example.if22.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
+			commandId="org.xtext.example.if22.If22.validate">
 			<activeWhen>
 				<reference
-					definitionId="org.xtext.example.mydsl.If22.Editor.opened">
+					definitionId="org.xtext.example.if22.If22.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
 		<!-- copy qualified name -->
 		<handler
-			class="org.xtext.example.mydsl.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedNameHandler"
+			class="org.xtext.example.if22.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedNameHandler"
 			commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName">
 			<activeWhen>
-				<reference definitionId="org.xtext.example.mydsl.If22.Editor.opened" />
+				<reference definitionId="org.xtext.example.if22.If22.Editor.opened" />
 			</activeWhen>
 		</handler>
 		<handler
-			class="org.xtext.example.mydsl.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedNameHandler"
+			class="org.xtext.example.if22.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedNameHandler"
 			commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName">
 			<activeWhen>
 				<and>
-					<reference definitionId="org.xtext.example.mydsl.If22.XtextEditor.opened" />
+					<reference definitionId="org.xtext.example.if22.If22.XtextEditor.opened" />
 					<iterate>
 						<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
 					</iterate>
@@ -54,22 +54,22 @@
 		</handler>
 	</extension>
 	<extension point="org.eclipse.core.expressions.definitions">
-		<definition id="org.xtext.example.mydsl.If22.Editor.opened">
+		<definition id="org.xtext.example.if22.If22.Editor.opened">
 			<and>
 				<reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
 				<with variable="activeEditor">
 					<test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName"
-						value="org.xtext.example.mydsl.If22"
+						value="org.xtext.example.if22.If22"
 						forcePluginActivation="true"/>
 				</with>
 			</and>
 		</definition>
-		<definition id="org.xtext.example.mydsl.If22.XtextEditor.opened">
+		<definition id="org.xtext.example.if22.If22.XtextEditor.opened">
 			<and>
 				<reference definitionId="isXtextEditorActive"/>
 				<with variable="activeEditor">
 					<test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName"
-						value="org.xtext.example.mydsl.If22"
+						value="org.xtext.example.if22.If22"
 						forcePluginActivation="true"/>
 				</with>
 			</and>
@@ -78,33 +78,33 @@
 	<extension
 			point="org.eclipse.ui.preferencePages">
 		<page
-			class="org.xtext.example.mydsl.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-			id="org.xtext.example.mydsl.If22"
+			class="org.xtext.example.if22.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+			id="org.xtext.example.if22.If22"
 			name="If22">
-			<keywordReference id="org.xtext.example.mydsl.ui.keyword_If22"/>
+			<keywordReference id="org.xtext.example.if22.ui.keyword_If22"/>
 		</page>
 		<page
-			category="org.xtext.example.mydsl.If22"
-			class="org.xtext.example.mydsl.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
-			id="org.xtext.example.mydsl.If22.coloring"
+			category="org.xtext.example.if22.If22"
+			class="org.xtext.example.if22.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+			id="org.xtext.example.if22.If22.coloring"
 			name="Syntax Coloring">
-			<keywordReference id="org.xtext.example.mydsl.ui.keyword_If22"/>
+			<keywordReference id="org.xtext.example.if22.ui.keyword_If22"/>
 		</page>
 		<page
-			category="org.xtext.example.mydsl.If22"
-			class="org.xtext.example.mydsl.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
-			id="org.xtext.example.mydsl.If22.templates"
+			category="org.xtext.example.if22.If22"
+			class="org.xtext.example.if22.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
+			id="org.xtext.example.if22.If22.templates"
 			name="Templates">
-			<keywordReference id="org.xtext.example.mydsl.ui.keyword_If22"/>
+			<keywordReference id="org.xtext.example.if22.ui.keyword_If22"/>
 		</page>
 	</extension>
 	<extension
 			point="org.eclipse.ui.propertyPages">
 		<page
-			class="org.xtext.example.mydsl.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-			id="org.xtext.example.mydsl.If22"
+			class="org.xtext.example.if22.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+			id="org.xtext.example.if22.If22"
 			name="If22">
-			<keywordReference id="org.xtext.example.mydsl.ui.keyword_If22"/>
+			<keywordReference id="org.xtext.example.if22.ui.keyword_If22"/>
 			<enabledWhen>
 				<adapt type="org.eclipse.core.resources.IProject"/>
 			</enabledWhen>
@@ -114,14 +114,14 @@
 	<extension
 		point="org.eclipse.ui.keywords">
 		<keyword
-			id="org.xtext.example.mydsl.ui.keyword_If22"
+			id="org.xtext.example.if22.ui.keyword_If22"
 			label="If22"/>
 	</extension>
 	<extension
 		point="org.eclipse.ui.commands">
 		<command
 			description="Trigger expensive validation"
-			id="org.xtext.example.mydsl.If22.validate"
+			id="org.xtext.example.if22.If22.validate"
 			name="Validate">
 		</command>
 		<!-- copy qualified name -->
@@ -142,12 +142,12 @@
 		<menuContribution
 			locationURI="popup:#TextEditorContext?after=group.edit">
 			<command
-				commandId="org.xtext.example.mydsl.If22.validate"
+				commandId="org.xtext.example.if22.If22.validate"
 				style="push"
 				tooltip="Trigger expensive validation">
 				<visibleWhen checkEnabled="false">
 					<reference
-						definitionId="org.xtext.example.mydsl.If22.Editor.opened">
+						definitionId="org.xtext.example.if22.If22.Editor.opened">
 					</reference>
 				</visibleWhen>
 			</command>
@@ -157,7 +157,7 @@
 			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
 				style="push" tooltip="Copy Qualified Name">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="org.xtext.example.mydsl.If22.Editor.opened" />
+					<reference definitionId="org.xtext.example.if22.If22.Editor.opened" />
 				</visibleWhen>
 			</command>
 		</menuContribution>
@@ -165,7 +165,7 @@
 			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
 				style="push" tooltip="Copy Qualified Name">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="org.xtext.example.mydsl.If22.Editor.opened" />
+					<reference definitionId="org.xtext.example.if22.If22.Editor.opened" />
 				</visibleWhen>
 			</command>
 		</menuContribution>
@@ -174,7 +174,7 @@
 				style="push" tooltip="Copy Qualified Name">
 				<visibleWhen checkEnabled="false">
 					<and>
-						<reference definitionId="org.xtext.example.mydsl.If22.XtextEditor.opened" />
+						<reference definitionId="org.xtext.example.if22.If22.XtextEditor.opened" />
 						<iterate>
 							<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
 						</iterate>
@@ -187,7 +187,7 @@
 		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
 			<command commandId="org.eclipse.xtext.ui.editor.FindReferences">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="org.xtext.example.mydsl.If22.Editor.opened">
+					<reference definitionId="org.xtext.example.if22.If22.Editor.opened">
 					</reference>
 				</visibleWhen>
 			</command>
@@ -195,11 +195,11 @@
 	</extension>
 	<extension point="org.eclipse.ui.handlers">
 		<handler
-			class="org.xtext.example.mydsl.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
+			class="org.xtext.example.if22.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
 			commandId="org.eclipse.xtext.ui.editor.FindReferences">
 			<activeWhen>
 				<reference
-					definitionId="org.xtext.example.mydsl.If22.Editor.opened">
+					definitionId="org.xtext.example.if22.If22.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
@@ -207,8 +207,8 @@
 	<extension point="org.eclipse.core.contenttype.contentTypes">
 		<content-type
 			base-type="org.eclipse.core.runtime.text"
-			file-extensions="if22"
-			id="org.xtext.example.mydsl.If22.contenttype"
+			file-extensions="if"
+			id="org.xtext.example.if22.If22.contenttype"
 			name="If22 File"
 			priority="normal">
 		</content-type>
@@ -217,17 +217,17 @@
 	<extension
 		point="org.eclipse.emf.ecore.extension_parser">
 		<parser
-			class="org.xtext.example.mydsl.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
-			type="if22">
+			class="org.xtext.example.if22.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			type="if">
 		</parser>
 	</extension>
 	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
 		<resourceServiceProvider
-			class="org.xtext.example.mydsl.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
-			uriExtension="if22">
+			class="org.xtext.example.if22.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+			uriExtension="if">
 		</resourceServiceProvider>
 	</extension>
-	<!-- marker definitions for org.xtext.example.mydsl.If22 -->
+	<!-- marker definitions for org.xtext.example.if22.If22 -->
 	<extension
 			id="if22.check.fast"
 			name="If22 Problem"
@@ -251,34 +251,34 @@
 	</extension>
 	<extension point="org.eclipse.ui.preferencePages">
 		<page
-			category="org.xtext.example.mydsl.If22"
-			class="org.xtext.example.mydsl.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.validation.ValidatorPreferencePage"
-			id="org.xtext.example.mydsl.If22.validator.preferencePage"
+			category="org.xtext.example.if22.If22"
+			class="org.xtext.example.if22.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.validation.ValidatorPreferencePage"
+			id="org.xtext.example.if22.If22.validator.preferencePage"
 			name="Errors/Warnings">
-			<keywordReference id="org.xtext.example.mydsl.ui.keyword_If22"/>
+			<keywordReference id="org.xtext.example.if22.ui.keyword_If22"/>
 		</page>
 	</extension>
 	<extension point="org.eclipse.xtext.builder.participant">
 		<participant
-			class="org.xtext.example.mydsl.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
-			fileExtensions="if22"/>
+			class="org.xtext.example.if22.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
+			fileExtensions="if"/>
 	</extension>
 	<extension point="org.eclipse.ui.preferencePages">
 		<page
-			category="org.xtext.example.mydsl.If22"
-			class="org.xtext.example.mydsl.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
-			id="org.xtext.example.mydsl.If22.compiler.preferencePage"
+			category="org.xtext.example.if22.If22"
+			class="org.xtext.example.if22.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+			id="org.xtext.example.if22.If22.compiler.preferencePage"
 			name="Compiler">
-			<keywordReference id="org.xtext.example.mydsl.ui.keyword_If22"/>
+			<keywordReference id="org.xtext.example.if22.ui.keyword_If22"/>
 		</page>
 	</extension>
 	<extension point="org.eclipse.ui.propertyPages">
 		<page
-			category="org.xtext.example.mydsl.If22"
-			class="org.xtext.example.mydsl.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
-			id="org.xtext.example.mydsl.If22.compiler.propertyPage"
+			category="org.xtext.example.if22.If22"
+			class="org.xtext.example.if22.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+			id="org.xtext.example.if22.If22.compiler.propertyPage"
 			name="Compiler">
-			<keywordReference id="org.xtext.example.mydsl.ui.keyword_If22"/>
+			<keywordReference id="org.xtext.example.if22.ui.keyword_If22"/>
 			<enabledWhen>
 				<adapt type="org.eclipse.core.resources.IProject"/>
 			</enabledWhen>
@@ -289,20 +289,20 @@
 		<menuContribution locationURI="popup:#TextEditorContext?after=xtext.ui.openDeclaration">
 			<command
 				commandId="org.eclipse.xtext.ui.OpenGeneratedFileCommand"
-				id="org.xtext.example.mydsl.If22.OpenGeneratedCode"
+				id="org.xtext.example.if22.If22.OpenGeneratedCode"
 				style="push">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="org.xtext.example.mydsl.If22.Editor.opened" />
+					<reference definitionId="org.xtext.example.if22.If22.Editor.opened" />
 				</visibleWhen>
 			</command>
 		</menuContribution>
 	</extension>
 	<extension point="org.eclipse.ui.handlers">
 		<handler
-			class="org.xtext.example.mydsl.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.generator.trace.OpenGeneratedFileHandler"
+			class="org.xtext.example.if22.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.generator.trace.OpenGeneratedFileHandler"
 			commandId="org.eclipse.xtext.ui.OpenGeneratedFileCommand">
 			<activeWhen>
-				<reference definitionId="org.xtext.example.mydsl.If22.Editor.opened" />
+				<reference definitionId="org.xtext.example.if22.If22.Editor.opened" />
 			</activeWhen>
 		</handler>
 	</extension>
@@ -310,11 +310,11 @@
 	<extension
 		point="org.eclipse.ui.handlers">
 		<handler
-			class="org.xtext.example.mydsl.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
+			class="org.xtext.example.if22.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
 			commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline">
 			<activeWhen>
 				<reference
-					definitionId="org.xtext.example.mydsl.If22.Editor.opened">
+					definitionId="org.xtext.example.if22.If22.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
@@ -334,16 +334,16 @@
 				style="push"
 				tooltip="Open Quick Outline">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="org.xtext.example.mydsl.If22.Editor.opened"/>
+					<reference definitionId="org.xtext.example.if22.If22.Editor.opened"/>
 				</visibleWhen>
 			</command>
 		</menuContribution>
 	</extension>
-	<!-- quickfix marker resolution generator for org.xtext.example.mydsl.If22 -->
+	<!-- quickfix marker resolution generator for org.xtext.example.if22.If22 -->
 	<extension
 			point="org.eclipse.ui.ide.markerResolution">
 		<markerResolutionGenerator
-			class="org.xtext.example.mydsl.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			class="org.xtext.example.if22.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
 			markerType="org.xtext.example.if22.ui.if22.check.fast">
 			<attribute
 				name="FIXABLE_KEY"
@@ -351,7 +351,7 @@
 			</attribute>
 		</markerResolutionGenerator>
 		<markerResolutionGenerator
-			class="org.xtext.example.mydsl.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			class="org.xtext.example.if22.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
 			markerType="org.xtext.example.if22.ui.if22.check.normal">
 			<attribute
 				name="FIXABLE_KEY"
@@ -359,7 +359,7 @@
 			</attribute>
 		</markerResolutionGenerator>
 		<markerResolutionGenerator
-			class="org.xtext.example.mydsl.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			class="org.xtext.example.if22.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
 			markerType="org.xtext.example.if22.ui.if22.check.expensive">
 			<attribute
 				name="FIXABLE_KEY"
@@ -370,11 +370,11 @@
 	<!-- Rename Refactoring -->
 	<extension point="org.eclipse.ui.handlers">
 		<handler
-			class="org.xtext.example.mydsl.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.DefaultRenameElementHandler"
+			class="org.xtext.example.if22.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.DefaultRenameElementHandler"
 			commandId="org.eclipse.xtext.ui.refactoring.RenameElement">
 			<activeWhen>
 				<reference
-					definitionId="org.xtext.example.mydsl.If22.Editor.opened">
+					definitionId="org.xtext.example.if22.If22.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
@@ -386,7 +386,7 @@
 				style="push">
 				<visibleWhen checkEnabled="false">
 					<reference
-						definitionId="org.xtext.example.mydsl.If22.Editor.opened">
+						definitionId="org.xtext.example.if22.If22.Editor.opened">
 					</reference>
 				</visibleWhen>
 			</command>
@@ -394,40 +394,40 @@
 	</extension>
 	<extension point="org.eclipse.ui.preferencePages">
 		<page
-			category="org.xtext.example.mydsl.If22"
-			class="org.xtext.example.mydsl.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
-			id="org.xtext.example.mydsl.If22.refactoring"
+			category="org.xtext.example.if22.If22"
+			class="org.xtext.example.if22.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
+			id="org.xtext.example.if22.If22.refactoring"
 			name="Refactoring">
-			<keywordReference id="org.xtext.example.mydsl.ui.keyword_If22"/>
+			<keywordReference id="org.xtext.example.if22.ui.keyword_If22"/>
 		</page>
 	</extension>
 	<extension point="org.eclipse.compare.contentViewers">
-		<viewer id="org.xtext.example.mydsl.If22.compare.contentViewers"
-			class="org.xtext.example.mydsl.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-			extensions="if22">
+		<viewer id="org.xtext.example.if22.If22.compare.contentViewers"
+			class="org.xtext.example.if22.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+			extensions="if">
 		</viewer>
 		<contentTypeBinding
-			contentTypeId="org.xtext.example.mydsl.If22.contenttype"
-			contentViewerId="org.xtext.example.mydsl.If22.compare.contentViewers" />
+			contentTypeId="org.xtext.example.if22.If22.contenttype"
+			contentViewerId="org.xtext.example.if22.If22.compare.contentViewers" />
 	</extension>
 	<extension point="org.eclipse.compare.contentMergeViewers">
-		<viewer id="org.xtext.example.mydsl.If22.compare.contentMergeViewers"
-			class="org.xtext.example.mydsl.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-			extensions="if22" label="If22 Compare">
+		<viewer id="org.xtext.example.if22.If22.compare.contentMergeViewers"
+			class="org.xtext.example.if22.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+			extensions="if" label="If22 Compare">
 		</viewer>
 		<contentTypeBinding
-			contentTypeId="org.xtext.example.mydsl.If22.contenttype"
-			contentMergeViewerId="org.xtext.example.mydsl.If22.compare.contentMergeViewers" />
+			contentTypeId="org.xtext.example.if22.If22.contenttype"
+			contentMergeViewerId="org.xtext.example.if22.If22.compare.contentMergeViewers" />
 	</extension>
 	<extension point="org.eclipse.ui.editors.documentProviders">
-		<provider id="org.xtext.example.mydsl.If22.editors.documentProviders"
-			class="org.xtext.example.mydsl.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
-			extensions="if22">
+		<provider id="org.xtext.example.if22.If22.editors.documentProviders"
+			class="org.xtext.example.if22.ui.If22ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
+			extensions="if">
 		</provider>
 	</extension>
 	<extension point="org.eclipse.team.core.fileTypes">
 		<fileTypes
-			extension="if22"
+			extension="if"
 			type="text">
 		</fileTypes>
 	</extension>
