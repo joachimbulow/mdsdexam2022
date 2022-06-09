@@ -247,12 +247,16 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Keyword cToKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cIfKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cTargetCheckAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cTargetCheckExpParserRuleCall_2_1_0 = (RuleCall)cTargetCheckAssignment_2_1.eContents().get(0);
 		
 		//Target:
-		//    'to' name=ID;
+		//    'to' name=ID ('if' targetCheck=Exp)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'to' name=ID
+		//'to' name=ID ('if' targetCheck=Exp)?
 		public Group getGroup() { return cGroup; }
 		
 		//'to'
@@ -263,6 +267,18 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//('if' targetCheck=Exp)?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'if'
+		public Keyword getIfKeyword_2_0() { return cIfKeyword_2_0; }
+		
+		//targetCheck=Exp
+		public Assignment getTargetCheckAssignment_2_1() { return cTargetCheckAssignment_2_1; }
+		
+		//Exp
+		public RuleCall getTargetCheckExpParserRuleCall_2_1_0() { return cTargetCheckExpParserRuleCall_2_1_0; }
 	}
 	public class TypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.Type");
@@ -668,7 +684,7 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//Target:
-	//    'to' name=ID;
+	//    'to' name=ID ('if' targetCheck=Exp)?;
 	public TargetElements getTargetAccess() {
 		return pTarget;
 	}

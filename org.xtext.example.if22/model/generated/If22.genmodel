@@ -31,6 +31,7 @@
     </genClasses>
     <genClasses ecoreClass="If22.ecore#//Target">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//Target/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Target/targetCheck"/>
     </genClasses>
     <genClasses ecoreClass="If22.ecore#//Expression"/>
     <genClasses ecoreClass="If22.ecore#//Exp">

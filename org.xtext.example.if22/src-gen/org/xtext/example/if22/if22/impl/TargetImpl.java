@@ -4,12 +4,15 @@
 package org.xtext.example.if22.if22.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.xtext.example.if22.if22.Expression;
 import org.xtext.example.if22.if22.If22Package;
 import org.xtext.example.if22.if22.Target;
 
@@ -22,6 +25,7 @@ import org.xtext.example.if22.if22.Target;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.if22.if22.impl.TargetImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.if22.if22.impl.TargetImpl#getTargetCheck <em>Target Check</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,6 +51,16 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getTargetCheck() <em>Target Check</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTargetCheck()
+   * @generated
+   * @ordered
+   */
+  protected Expression targetCheck;
 
   /**
    * <!-- begin-user-doc -->
@@ -100,12 +114,80 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target
    * @generated
    */
   @Override
+  public Expression getTargetCheck()
+  {
+    return targetCheck;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTargetCheck(Expression newTargetCheck, NotificationChain msgs)
+  {
+    Expression oldTargetCheck = targetCheck;
+    targetCheck = newTargetCheck;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, If22Package.TARGET__TARGET_CHECK, oldTargetCheck, newTargetCheck);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setTargetCheck(Expression newTargetCheck)
+  {
+    if (newTargetCheck != targetCheck)
+    {
+      NotificationChain msgs = null;
+      if (targetCheck != null)
+        msgs = ((InternalEObject)targetCheck).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - If22Package.TARGET__TARGET_CHECK, null, msgs);
+      if (newTargetCheck != null)
+        msgs = ((InternalEObject)newTargetCheck).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - If22Package.TARGET__TARGET_CHECK, null, msgs);
+      msgs = basicSetTargetCheck(newTargetCheck, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, If22Package.TARGET__TARGET_CHECK, newTargetCheck, newTargetCheck));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case If22Package.TARGET__TARGET_CHECK:
+        return basicSetTargetCheck(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case If22Package.TARGET__NAME:
         return getName();
+      case If22Package.TARGET__TARGET_CHECK:
+        return getTargetCheck();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -122,6 +204,9 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target
     {
       case If22Package.TARGET__NAME:
         setName((String)newValue);
+        return;
+      case If22Package.TARGET__TARGET_CHECK:
+        setTargetCheck((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,6 +225,9 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target
       case If22Package.TARGET__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case If22Package.TARGET__TARGET_CHECK:
+        setTargetCheck((Expression)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -156,6 +244,8 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target
     {
       case If22Package.TARGET__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case If22Package.TARGET__TARGET_CHECK:
+        return targetCheck != null;
     }
     return super.eIsSet(featureID);
   }

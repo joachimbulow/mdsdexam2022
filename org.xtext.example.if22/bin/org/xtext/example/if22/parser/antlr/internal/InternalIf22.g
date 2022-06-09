@@ -512,6 +512,31 @@ ruleTarget returns [EObject current=null]
 				}
 			)
 		)
+		(
+			otherlv_2='if'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getTargetAccess().getIfKeyword_2_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTargetAccess().getTargetCheckExpParserRuleCall_2_1_0());
+					}
+					lv_targetCheck_3_0=ruleExp
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTargetRule());
+						}
+						set(
+							$current,
+							"targetCheck",
+							lv_targetCheck_3_0,
+							"org.xtext.example.if22.If22.Exp");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
 	)
 ;
 

@@ -1160,6 +1160,7 @@ rule__Target__Group__1
 	}
 :
 	rule__Target__Group__1__Impl
+	rule__Target__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -1174,6 +1175,86 @@ rule__Target__Group__1__Impl
 	{ before(grammarAccess.getTargetAccess().getNameAssignment_1()); }
 	(rule__Target__NameAssignment_1)
 	{ after(grammarAccess.getTargetAccess().getNameAssignment_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Target__Group__2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Target__Group__2__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Target__Group__2__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getTargetAccess().getGroup_2()); }
+	(rule__Target__Group_2__0)?
+	{ after(grammarAccess.getTargetAccess().getGroup_2()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__Target__Group_2__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Target__Group_2__0__Impl
+	rule__Target__Group_2__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Target__Group_2__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getTargetAccess().getIfKeyword_2_0()); }
+	'if'
+	{ after(grammarAccess.getTargetAccess().getIfKeyword_2_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Target__Group_2__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Target__Group_2__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Target__Group_2__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getTargetAccess().getTargetCheckAssignment_2_1()); }
+	(rule__Target__TargetCheckAssignment_2_1)
+	{ after(grammarAccess.getTargetAccess().getTargetCheckAssignment_2_1()); }
 )
 ;
 finally {
@@ -2114,6 +2195,21 @@ rule__Target__NameAssignment_1
 		{ before(grammarAccess.getTargetAccess().getNameIDTerminalRuleCall_1_0()); }
 		RULE_ID
 		{ after(grammarAccess.getTargetAccess().getNameIDTerminalRuleCall_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Target__TargetCheckAssignment_2_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getTargetAccess().getTargetCheckExpParserRuleCall_2_1_0()); }
+		ruleExp
+		{ after(grammarAccess.getTargetAccess().getTargetCheckExpParserRuleCall_2_1_0()); }
 	)
 ;
 finally {

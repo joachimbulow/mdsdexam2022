@@ -317,13 +317,22 @@ public interface If22Package extends EPackage
   int TARGET__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Target Check</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TARGET__TARGET_CHECK = 1;
+
+  /**
    * The number of structural features of the '<em>Target</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TARGET_FEATURE_COUNT = 1;
+  int TARGET_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.if22.if22.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -829,6 +838,17 @@ public interface If22Package extends EPackage
   EAttribute getTarget_Name();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.if22.if22.Target#getTargetCheck <em>Target Check</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Target Check</em>'.
+   * @see org.xtext.example.if22.if22.Target#getTargetCheck()
+   * @see #getTarget()
+   * @generated
+   */
+  EReference getTarget_TargetCheck();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.if22.if22.Expression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1224,6 +1244,14 @@ public interface If22Package extends EPackage
      * @generated
      */
     EAttribute TARGET__NAME = eINSTANCE.getTarget_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Target Check</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TARGET__TARGET_CHECK = eINSTANCE.getTarget_TargetCheck();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.ExpressionImpl <em>Expression</em>}' class.

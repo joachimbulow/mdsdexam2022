@@ -23,7 +23,7 @@ End:
 	'end' name=ID exp=Exp?;
 
 Target:
-	'to' name=ID;
+	'to' name=ID ('if' targetCheck=Exp)?;
 
 Type:
 	'boolean' | 'text' | 'number';

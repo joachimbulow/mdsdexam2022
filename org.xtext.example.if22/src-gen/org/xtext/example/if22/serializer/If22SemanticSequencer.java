@@ -388,17 +388,11 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Target returns Target
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID targetCheck=Exp?)
 	 * </pre>
 	 */
 	protected void sequence_Target(ISerializationContext context, Target semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.TARGET__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.TARGET__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTargetAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

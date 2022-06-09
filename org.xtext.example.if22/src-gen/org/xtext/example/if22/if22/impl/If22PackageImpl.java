@@ -446,6 +446,17 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   @Override
+  public EReference getTarget_TargetCheck()
+  {
+    return (EReference)targetEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getExpression()
   {
     return expressionEClass;
@@ -716,6 +727,7 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
 
     targetEClass = createEClass(TARGET);
     createEAttribute(targetEClass, TARGET__NAME);
+    createEReference(targetEClass, TARGET__TARGET_CHECK);
 
     expressionEClass = createEClass(EXPRESSION);
 
@@ -820,6 +832,7 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
 
     initEClass(targetEClass, Target.class, "Target", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTarget_Name(), ecorePackage.getEString(), "name", null, 0, 1, Target.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTarget_TargetCheck(), this.getExpression(), null, "targetCheck", null, 0, 1, Target.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

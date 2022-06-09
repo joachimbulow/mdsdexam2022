@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.if22.if22.Target#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.if22.if22.Target#getTargetCheck <em>Target Check</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.if22.if22.If22Package#getTarget()
@@ -44,5 +45,27 @@ public interface Target extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Target Check</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Target Check</em>' containment reference.
+   * @see #setTargetCheck(Expression)
+   * @see org.xtext.example.if22.if22.If22Package#getTarget_TargetCheck()
+   * @model containment="true"
+   * @generated
+   */
+  Expression getTargetCheck();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.if22.if22.Target#getTargetCheck <em>Target Check</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Target Check</em>' containment reference.
+   * @see #getTargetCheck()
+   * @generated
+   */
+  void setTargetCheck(Expression value);
 
 } // Target
