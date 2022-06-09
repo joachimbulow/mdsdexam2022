@@ -7,11 +7,11 @@ Program:
 
 Scenario:
 	'scenario' name=ID '{'
-	(variableDefinitinos+=VariableDefinition)*
+	(variableDeclarations+=VariableDeclaration)*
 	(statements+=Statement)*
 	'}';
 
-VariableDefinition:
+VariableDeclaration:
 	'var' name=ID ':' type=Type
 ;
 
@@ -23,7 +23,7 @@ Announcement:
 
 // qType=Type instead?
 Question:
-	'question' name=ID qString=Exp 'as' qType=Exp ('in' reffedVar=[VariableDefinition])? (target+=Target)+;
+	'question' name=ID qString=Exp 'as' qType=Exp ('in' reffedVar=[VariableDeclaration])? (target+=Target)+;
 
 End:
 	'end' name=ID exp=Exp?;
@@ -42,13 +42,13 @@ Exp returns Expression:
 //| ID '(' (Exp (',' Exp)*)?')'))*;
 
 Primary returns Expression:
-	Parenthesis | {Type} Type | {This} 'this' | {EXPSTRING} STRING | {EXPINT} INT | {EXPBOOL} BOOLEAN | {ID} ID;
+	Parenthesis | Type | {This} 'this' | {EXPSTRING} STRING | {EXPINT} INT | {EXPBOOL} BOOLEAN | {ID} ID;
 	
 Parenthesis returns Expression:
 	{Parenthesis} '(' exp=Exp ')';
 	
 Type:
-	'boolean' | 'text' | 'number';
+	{TypeBoolean} 'boolean' | {TypeText} 'text' | {TypeNumber} 'number';
 	
 terminal BOOLEAN:
 	'true' | 'false';

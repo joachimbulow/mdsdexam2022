@@ -7,6 +7,12 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.xtext.example.if22.if22.Program
+import org.xtext.example.if22.if22.Scenario
+import org.xtext.example.if22.if22.TypeBoolean
+import org.xtext.example.if22.if22.TypeText
+import org.xtext.example.if22.if22.TypeNumber
+import org.xtext.example.if22.if22.VariableDeclaration
 
 /**
  * Generates code from your model files on save.
@@ -15,11 +21,128 @@ import org.eclipse.xtext.generator.IGeneratorContext
  */
 class If22Generator extends AbstractGenerator {
 
+	static String PACKAGE_PATH = 'interactive_fiction_test/';
+	static String PACKAGE_PATH_NO_SLASH = PACKAGE_PATH.substring(0, PACKAGE_PATH.length() - 1);
+
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		val program = resource.allContents.filter(Program).next
+
+		compileGameFile(fsa, program.name, program.scenarios.get(0).name)
+		compileCommonPackage(fsa);
+
+		for (Scenario s : program.scenarios) {
+			s.compileScenario(fsa, program.name)
+		}
+
+	}
+
+	// Initial setup ------------------------------------------------------
+	def static compileGameFile(IFileSystemAccess2 fsa, String storyName, String firstScenarioName) {
+		var compilation = '''
+			package «PACKAGE_PATH_NO_SLASH».«storyName»;
+			
+			import java.io.IOException;
+			import «PACKAGE_PATH_NO_SLASH».common.*;
+			
+			public class Game{
+				public Scenario start;
+				
+				// TODO ADD OPTIONAL EXTERNAL
+				public Game(){
+					this.start = new Scenario«firstScenarioName.toFirstUpper»();
+				}
+				
+				public void play()  throws IOException {
+					start.interact();
+				}
+			}
+			
+		'''
+		fsa.generateFile(PACKAGE_PATH + storyName + "/Game.java", compilation);
+	}
+
+	def static compileCommonPackage(IFileSystemAccess2 fsa) {
+		var compilation = '''
+			package «PACKAGE_PATH_NO_SLASH».common;
+			
+			import java.io.BufferedReader;
+			import java.io.InputStreamReader;
+			import java.io.IOException;
+			
+			public abstract class Scenario {
+				protected static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+				protected String nextInteraction;
+				protected String calledScenarioEnd;
+				
+				public abstract String interact() throws IOException ;
+				
+				public static void changeInput(InputStreamReader streamReader) {
+					br = new BufferedReader(streamReader);
+				}
+			}
+			
+		'''
+		fsa.generateFile(PACKAGE_PATH + "/common/Scenario.java", compilation);
+	}
+
+	// Actual compilation code ------------------------------------------------------
+	
+	// Scenario
+	def static compileScenario(Scenario scenario, IFileSystemAccess2 fsa, String storyname) {
+		var compilation = '''
+			package interactive_fiction.validate_input;
+			
+			import java.io.IOException;
+			import interactive_fiction.common.*;
+			
+			class ScenarioValidation extends Scenario {
+				«FOR variableDeclaration : scenario.variableDeclarations»
+				«variableDeclaration.compileVariableDeclaration»
+				«ENDFOR»
+				
+				public String interact() throws IOException {
+					nextInteraction = "Start";
+					while(true){
+						switch(nextInteraction){
+							case "Start":
+								System.out.println("Hi again! This is going to be a short game, as I am just testing something out");
+								nextInteraction = "Promise";
+								break;
+							case "Promise":
+								System.out.println("I promise this will be worthy for a future game");
+								nextInteraction = "AskNumber";
+								break;
+							case "AskNumber":
+								System.out.println("What was your favorite number?");
+								try {
+									__AskNumber = Integer.parseInt(br.readLine());
+									if(!(__AskNumber > 0)){
+										break;
+									}
+									nextInteraction = "End";
+									break;
+								} catch (Exception ex) {
+									break;
+								}
+							case "End":
+								System.out.println("I am sorry if you like negative numbers more, but positive numbers are going to give us a much better experience");
+								return "End";
+						}
+					}
+				}
+			}
+
+		'''
+		fsa.generateFile(PACKAGE_PATH + storyname + "/Scenario" + scenario.name.toFirstUpper + ".java", compilation);
+	}
+
+	// Variable declaration
+	def static compileVariableDeclaration(VariableDeclaration variable) {
+		var type = variable.type;
+		switch type {
+			TypeBoolean: "boolean " + variable.name + ";"
+			TypeText: "String " + variable.name + ";"
+			TypeNumber: "Int " + variable.name + ";"
+		}
 	}
 }

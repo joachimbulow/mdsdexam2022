@@ -114,13 +114,13 @@ public interface If22Package extends EPackage
   int SCENARIO__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Variable Definitinos</b></em>' containment reference list.
+   * The feature id for the '<em><b>Variable Declarations</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SCENARIO__VARIABLE_DEFINITINOS = 1;
+  int SCENARIO__VARIABLE_DECLARATIONS = 1;
 
   /**
    * The feature id for the '<em><b>Statements</b></em>' containment reference list.
@@ -141,14 +141,14 @@ public interface If22Package extends EPackage
   int SCENARIO_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.if22.if22.impl.VariableDefinitionImpl <em>Variable Definition</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.if22.if22.impl.VariableDeclarationImpl <em>Variable Declaration</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.if22.if22.impl.VariableDefinitionImpl
-   * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getVariableDefinition()
+   * @see org.xtext.example.if22.if22.impl.VariableDeclarationImpl
+   * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getVariableDeclaration()
    * @generated
    */
-  int VARIABLE_DEFINITION = 2;
+  int VARIABLE_DECLARATION = 2;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -157,25 +157,25 @@ public interface If22Package extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_DEFINITION__NAME = 0;
+  int VARIABLE_DECLARATION__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VARIABLE_DEFINITION__TYPE = 1;
+  int VARIABLE_DECLARATION__TYPE = 1;
 
   /**
-   * The number of structural features of the '<em>Variable Definition</em>' class.
+   * The number of structural features of the '<em>Variable Declaration</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VARIABLE_DEFINITION_FEATURE_COUNT = 2;
+  int VARIABLE_DECLARATION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.if22.if22.impl.StatementImpl <em>Statement</em>}' class.
@@ -409,6 +409,25 @@ public interface If22Package extends EPackage
   int EXPRESSION_FEATURE_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.if22.if22.impl.TypeImpl <em>Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.if22.if22.impl.TypeImpl
+   * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getType()
+   * @generated
+   */
+  int TYPE = 9;
+
+  /**
+   * The number of structural features of the '<em>Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.if22.if22.impl.ExpImpl <em>Exp</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -416,7 +435,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getExp()
    * @generated
    */
-  int EXP = 9;
+  int EXP = 10;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -444,7 +463,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getLogic()
    * @generated
    */
-  int LOGIC = 10;
+  int LOGIC = 11;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -481,7 +500,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getMath()
    * @generated
    */
-  int MATH = 11;
+  int MATH = 12;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -518,7 +537,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTextExp()
    * @generated
    */
-  int TEXT_EXP = 12;
+  int TEXT_EXP = 13;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -546,25 +565,6 @@ public interface If22Package extends EPackage
    * @ordered
    */
   int TEXT_EXP_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.if22.if22.impl.TypeImpl <em>Type</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.if22.if22.impl.TypeImpl
-   * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getType()
-   * @generated
-   */
-  int TYPE = 13;
-
-  /**
-   * The number of structural features of the '<em>Type</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.xtext.example.if22.if22.impl.ThisImpl <em>This</em>}' class.
@@ -689,6 +689,63 @@ public interface If22Package extends EPackage
    */
   int PARENTHESIS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
+  /**
+   * The meta object id for the '{@link org.xtext.example.if22.if22.impl.TypeBooleanImpl <em>Type Boolean</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.if22.if22.impl.TypeBooleanImpl
+   * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTypeBoolean()
+   * @generated
+   */
+  int TYPE_BOOLEAN = 20;
+
+  /**
+   * The number of structural features of the '<em>Type Boolean</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_BOOLEAN_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.if22.if22.impl.TypeTextImpl <em>Type Text</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.if22.if22.impl.TypeTextImpl
+   * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTypeText()
+   * @generated
+   */
+  int TYPE_TEXT = 21;
+
+  /**
+   * The number of structural features of the '<em>Type Text</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_TEXT_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.if22.if22.impl.TypeNumberImpl <em>Type Number</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.if22.if22.impl.TypeNumberImpl
+   * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTypeNumber()
+   * @generated
+   */
+  int TYPE_NUMBER = 22;
+
+  /**
+   * The number of structural features of the '<em>Type Number</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_NUMBER_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
+
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.if22.if22.Program <em>Program</em>}'.
@@ -744,15 +801,15 @@ public interface If22Package extends EPackage
   EAttribute getScenario_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.if22.if22.Scenario#getVariableDefinitinos <em>Variable Definitinos</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.if22.if22.Scenario#getVariableDeclarations <em>Variable Declarations</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Variable Definitinos</em>'.
-   * @see org.xtext.example.if22.if22.Scenario#getVariableDefinitinos()
+   * @return the meta object for the containment reference list '<em>Variable Declarations</em>'.
+   * @see org.xtext.example.if22.if22.Scenario#getVariableDeclarations()
    * @see #getScenario()
    * @generated
    */
-  EReference getScenario_VariableDefinitinos();
+  EReference getScenario_VariableDeclarations();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.xtext.example.if22.if22.Scenario#getStatements <em>Statements</em>}'.
@@ -766,36 +823,36 @@ public interface If22Package extends EPackage
   EReference getScenario_Statements();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.if22.if22.VariableDefinition <em>Variable Definition</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.if22.if22.VariableDeclaration <em>Variable Declaration</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Variable Definition</em>'.
-   * @see org.xtext.example.if22.if22.VariableDefinition
+   * @return the meta object for class '<em>Variable Declaration</em>'.
+   * @see org.xtext.example.if22.if22.VariableDeclaration
    * @generated
    */
-  EClass getVariableDefinition();
+  EClass getVariableDeclaration();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.if22.if22.VariableDefinition#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.if22.if22.VariableDeclaration#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.example.if22.if22.VariableDefinition#getName()
-   * @see #getVariableDefinition()
+   * @see org.xtext.example.if22.if22.VariableDeclaration#getName()
+   * @see #getVariableDeclaration()
    * @generated
    */
-  EAttribute getVariableDefinition_Name();
+  EAttribute getVariableDeclaration_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.if22.if22.VariableDefinition#getType <em>Type</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.if22.if22.VariableDeclaration#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type</em>'.
-   * @see org.xtext.example.if22.if22.VariableDefinition#getType()
-   * @see #getVariableDefinition()
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see org.xtext.example.if22.if22.VariableDeclaration#getType()
+   * @see #getVariableDeclaration()
    * @generated
    */
-  EAttribute getVariableDefinition_Type();
+  EReference getVariableDeclaration_Type();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.if22.if22.Statement <em>Statement</em>}'.
@@ -968,6 +1025,16 @@ public interface If22Package extends EPackage
   EClass getExpression();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.example.if22.if22.Type <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Type</em>'.
+   * @see org.xtext.example.if22.if22.Type
+   * @generated
+   */
+  EClass getType();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.if22.if22.Exp <em>Exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1085,16 +1152,6 @@ public interface If22Package extends EPackage
   EReference getTextExp_Right();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.if22.if22.Type <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Type</em>'.
-   * @see org.xtext.example.if22.if22.Type
-   * @generated
-   */
-  EClass getType();
-
-  /**
    * Returns the meta object for class '{@link org.xtext.example.if22.if22.This <em>This</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1166,6 +1223,36 @@ public interface If22Package extends EPackage
   EReference getParenthesis_Exp();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.example.if22.if22.TypeBoolean <em>Type Boolean</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Type Boolean</em>'.
+   * @see org.xtext.example.if22.if22.TypeBoolean
+   * @generated
+   */
+  EClass getTypeBoolean();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.if22.if22.TypeText <em>Type Text</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Type Text</em>'.
+   * @see org.xtext.example.if22.if22.TypeText
+   * @generated
+   */
+  EClass getTypeText();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.if22.if22.TypeNumber <em>Type Number</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Type Number</em>'.
+   * @see org.xtext.example.if22.if22.TypeNumber
+   * @generated
+   */
+  EClass getTypeNumber();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1233,12 +1320,12 @@ public interface If22Package extends EPackage
     EAttribute SCENARIO__NAME = eINSTANCE.getScenario_Name();
 
     /**
-     * The meta object literal for the '<em><b>Variable Definitinos</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Variable Declarations</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SCENARIO__VARIABLE_DEFINITINOS = eINSTANCE.getScenario_VariableDefinitinos();
+    EReference SCENARIO__VARIABLE_DECLARATIONS = eINSTANCE.getScenario_VariableDeclarations();
 
     /**
      * The meta object literal for the '<em><b>Statements</b></em>' containment reference list feature.
@@ -1249,14 +1336,14 @@ public interface If22Package extends EPackage
     EReference SCENARIO__STATEMENTS = eINSTANCE.getScenario_Statements();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.VariableDefinitionImpl <em>Variable Definition</em>}' class.
+     * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.VariableDeclarationImpl <em>Variable Declaration</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.if22.if22.impl.VariableDefinitionImpl
-     * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getVariableDefinition()
+     * @see org.xtext.example.if22.if22.impl.VariableDeclarationImpl
+     * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getVariableDeclaration()
      * @generated
      */
-    EClass VARIABLE_DEFINITION = eINSTANCE.getVariableDefinition();
+    EClass VARIABLE_DECLARATION = eINSTANCE.getVariableDeclaration();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1264,15 +1351,15 @@ public interface If22Package extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute VARIABLE_DEFINITION__NAME = eINSTANCE.getVariableDefinition_Name();
+    EAttribute VARIABLE_DECLARATION__NAME = eINSTANCE.getVariableDeclaration_Name();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute VARIABLE_DEFINITION__TYPE = eINSTANCE.getVariableDefinition_Type();
+    EReference VARIABLE_DECLARATION__TYPE = eINSTANCE.getVariableDeclaration_Type();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.StatementImpl <em>Statement</em>}' class.
@@ -1415,6 +1502,16 @@ public interface If22Package extends EPackage
     EClass EXPRESSION = eINSTANCE.getExpression();
 
     /**
+     * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.TypeImpl <em>Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.if22.if22.impl.TypeImpl
+     * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getType()
+     * @generated
+     */
+    EClass TYPE = eINSTANCE.getType();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.ExpImpl <em>Exp</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1511,16 +1608,6 @@ public interface If22Package extends EPackage
     EReference TEXT_EXP__RIGHT = eINSTANCE.getTextExp_Right();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.TypeImpl <em>Type</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.if22.if22.impl.TypeImpl
-     * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getType()
-     * @generated
-     */
-    EClass TYPE = eINSTANCE.getType();
-
-    /**
      * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.ThisImpl <em>This</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1587,6 +1674,36 @@ public interface If22Package extends EPackage
      * @generated
      */
     EReference PARENTHESIS__EXP = eINSTANCE.getParenthesis_Exp();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.TypeBooleanImpl <em>Type Boolean</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.if22.if22.impl.TypeBooleanImpl
+     * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTypeBoolean()
+     * @generated
+     */
+    EClass TYPE_BOOLEAN = eINSTANCE.getTypeBoolean();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.TypeTextImpl <em>Type Text</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.if22.if22.impl.TypeTextImpl
+     * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTypeText()
+     * @generated
+     */
+    EClass TYPE_TEXT = eINSTANCE.getTypeText();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.TypeNumberImpl <em>Type Number</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.if22.if22.impl.TypeNumberImpl
+     * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTypeNumber()
+     * @generated
+     */
+    EClass TYPE_NUMBER = eINSTANCE.getTypeNumber();
 
   }
 

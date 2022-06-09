@@ -29,7 +29,10 @@ import org.xtext.example.if22.if22.Target;
 import org.xtext.example.if22.if22.TextExp;
 import org.xtext.example.if22.if22.This;
 import org.xtext.example.if22.if22.Type;
-import org.xtext.example.if22.if22.VariableDefinition;
+import org.xtext.example.if22.if22.TypeBoolean;
+import org.xtext.example.if22.if22.TypeNumber;
+import org.xtext.example.if22.if22.TypeText;
+import org.xtext.example.if22.if22.VariableDeclaration;
 
 /**
  * <!-- begin-user-doc -->
@@ -105,9 +108,9 @@ public class If22AdapterFactory extends AdapterFactoryImpl
         return createScenarioAdapter();
       }
       @Override
-      public Adapter caseVariableDefinition(VariableDefinition object)
+      public Adapter caseVariableDeclaration(VariableDeclaration object)
       {
-        return createVariableDefinitionAdapter();
+        return createVariableDeclarationAdapter();
       }
       @Override
       public Adapter caseStatement(Statement object)
@@ -140,6 +143,11 @@ public class If22AdapterFactory extends AdapterFactoryImpl
         return createExpressionAdapter();
       }
       @Override
+      public Adapter caseType(Type object)
+      {
+        return createTypeAdapter();
+      }
+      @Override
       public Adapter caseExp(Exp object)
       {
         return createExpAdapter();
@@ -158,11 +166,6 @@ public class If22AdapterFactory extends AdapterFactoryImpl
       public Adapter caseTextExp(TextExp object)
       {
         return createTextExpAdapter();
-      }
-      @Override
-      public Adapter caseType(Type object)
-      {
-        return createTypeAdapter();
       }
       @Override
       public Adapter caseThis(This object)
@@ -193,6 +196,21 @@ public class If22AdapterFactory extends AdapterFactoryImpl
       public Adapter caseParenthesis(Parenthesis object)
       {
         return createParenthesisAdapter();
+      }
+      @Override
+      public Adapter caseTypeBoolean(TypeBoolean object)
+      {
+        return createTypeBooleanAdapter();
+      }
+      @Override
+      public Adapter caseTypeText(TypeText object)
+      {
+        return createTypeTextAdapter();
+      }
+      @Override
+      public Adapter caseTypeNumber(TypeNumber object)
+      {
+        return createTypeNumberAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -247,16 +265,16 @@ public class If22AdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.VariableDefinition <em>Variable Definition</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.VariableDeclaration <em>Variable Declaration</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.if22.if22.VariableDefinition
+   * @see org.xtext.example.if22.if22.VariableDeclaration
    * @generated
    */
-  public Adapter createVariableDefinitionAdapter()
+  public Adapter createVariableDeclarationAdapter()
   {
     return null;
   }
@@ -352,6 +370,21 @@ public class If22AdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.Type <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.if22.if22.Type
+   * @generated
+   */
+  public Adapter createTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.Exp <em>Exp</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -407,21 +440,6 @@ public class If22AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTextExpAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.Type <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.if22.if22.Type
-   * @generated
-   */
-  public Adapter createTypeAdapter()
   {
     return null;
   }
@@ -512,6 +530,51 @@ public class If22AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createParenthesisAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.TypeBoolean <em>Type Boolean</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.if22.if22.TypeBoolean
+   * @generated
+   */
+  public Adapter createTypeBooleanAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.TypeText <em>Type Text</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.if22.if22.TypeText
+   * @generated
+   */
+  public Adapter createTypeTextAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.TypeNumber <em>Type Number</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.if22.if22.TypeNumber
+   * @generated
+   */
+  public Adapter createTypeNumberAdapter()
   {
     return null;
   }

@@ -41,8 +41,6 @@ public class If22SyntacticSequencer extends AbstractSyntacticSequencer {
 			return getINTToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getSTRINGRule())
 			return getSTRINGToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getTypeRule())
-			return getTypeToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
@@ -84,16 +82,6 @@ public class If22SyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "\"\"";
-	}
-	
-	/**
-	 * Type:
-	 * 	'boolean' | 'text' | 'number';
-	 */
-	protected String getTypeToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "boolean";
 	}
 	
 	@Override

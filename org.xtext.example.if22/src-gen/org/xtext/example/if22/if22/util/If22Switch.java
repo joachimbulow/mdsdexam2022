@@ -27,7 +27,10 @@ import org.xtext.example.if22.if22.Target;
 import org.xtext.example.if22.if22.TextExp;
 import org.xtext.example.if22.if22.This;
 import org.xtext.example.if22.if22.Type;
-import org.xtext.example.if22.if22.VariableDefinition;
+import org.xtext.example.if22.if22.TypeBoolean;
+import org.xtext.example.if22.if22.TypeNumber;
+import org.xtext.example.if22.if22.TypeText;
+import org.xtext.example.if22.if22.VariableDeclaration;
 
 /**
  * <!-- begin-user-doc -->
@@ -106,10 +109,10 @@ public class If22Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case If22Package.VARIABLE_DEFINITION:
+      case If22Package.VARIABLE_DECLARATION:
       {
-        VariableDefinition variableDefinition = (VariableDefinition)theEObject;
-        T result = caseVariableDefinition(variableDefinition);
+        VariableDeclaration variableDeclaration = (VariableDeclaration)theEObject;
+        T result = caseVariableDeclaration(variableDeclaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -158,6 +161,14 @@ public class If22Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case If22Package.TYPE:
+      {
+        Type type = (Type)theEObject;
+        T result = caseType(type);
+        if (result == null) result = caseExpression(type);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case If22Package.EXP:
       {
         Exp exp = (Exp)theEObject;
@@ -187,14 +198,6 @@ public class If22Switch<T> extends Switch<T>
         TextExp textExp = (TextExp)theEObject;
         T result = caseTextExp(textExp);
         if (result == null) result = caseExpression(textExp);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case If22Package.TYPE:
-      {
-        Type type = (Type)theEObject;
-        T result = caseType(type);
-        if (result == null) result = caseExpression(type);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -246,6 +249,33 @@ public class If22Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case If22Package.TYPE_BOOLEAN:
+      {
+        TypeBoolean typeBoolean = (TypeBoolean)theEObject;
+        T result = caseTypeBoolean(typeBoolean);
+        if (result == null) result = caseType(typeBoolean);
+        if (result == null) result = caseExpression(typeBoolean);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case If22Package.TYPE_TEXT:
+      {
+        TypeText typeText = (TypeText)theEObject;
+        T result = caseTypeText(typeText);
+        if (result == null) result = caseType(typeText);
+        if (result == null) result = caseExpression(typeText);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case If22Package.TYPE_NUMBER:
+      {
+        TypeNumber typeNumber = (TypeNumber)theEObject;
+        T result = caseTypeNumber(typeNumber);
+        if (result == null) result = caseType(typeNumber);
+        if (result == null) result = caseExpression(typeNumber);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -283,17 +313,17 @@ public class If22Switch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Variable Definition</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Variable Declaration</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Variable Definition</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Variable Declaration</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseVariableDefinition(VariableDefinition object)
+  public T caseVariableDeclaration(VariableDeclaration object)
   {
     return null;
   }
@@ -395,6 +425,22 @@ public class If22Switch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseType(Type object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Exp</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -454,22 +500,6 @@ public class If22Switch<T> extends Switch<T>
    * @generated
    */
   public T caseTextExp(TextExp object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Type</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseType(Type object)
   {
     return null;
   }
@@ -566,6 +596,54 @@ public class If22Switch<T> extends Switch<T>
    * @generated
    */
   public T caseParenthesis(Parenthesis object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Type Boolean</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type Boolean</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTypeBoolean(TypeBoolean object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Type Text</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type Text</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTypeText(TypeText object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Type Number</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type Number</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTypeNumber(TypeNumber object)
   {
     return null;
   }

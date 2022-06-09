@@ -22,7 +22,7 @@ import org.xtext.example.if22.if22.Expression;
 import org.xtext.example.if22.if22.If22Package;
 import org.xtext.example.if22.if22.Question;
 import org.xtext.example.if22.if22.Target;
-import org.xtext.example.if22.if22.VariableDefinition;
+import org.xtext.example.if22.if22.VariableDeclaration;
 
 /**
  * <!-- begin-user-doc -->
@@ -70,7 +70,7 @@ public class QuestionImpl extends StatementImpl implements Question
    * @generated
    * @ordered
    */
-  protected VariableDefinition reffedVar;
+  protected VariableDeclaration reffedVar;
 
   /**
    * The cached value of the '{@link #getTarget() <em>Target</em>}' containment reference list.
@@ -209,12 +209,12 @@ public class QuestionImpl extends StatementImpl implements Question
    * @generated
    */
   @Override
-  public VariableDefinition getReffedVar()
+  public VariableDeclaration getReffedVar()
   {
     if (reffedVar != null && reffedVar.eIsProxy())
     {
       InternalEObject oldReffedVar = (InternalEObject)reffedVar;
-      reffedVar = (VariableDefinition)eResolveProxy(oldReffedVar);
+      reffedVar = (VariableDeclaration)eResolveProxy(oldReffedVar);
       if (reffedVar != oldReffedVar)
       {
         if (eNotificationRequired())
@@ -229,7 +229,7 @@ public class QuestionImpl extends StatementImpl implements Question
    * <!-- end-user-doc -->
    * @generated
    */
-  public VariableDefinition basicGetReffedVar()
+  public VariableDeclaration basicGetReffedVar()
   {
     return reffedVar;
   }
@@ -240,9 +240,9 @@ public class QuestionImpl extends StatementImpl implements Question
    * @generated
    */
   @Override
-  public void setReffedVar(VariableDefinition newReffedVar)
+  public void setReffedVar(VariableDeclaration newReffedVar)
   {
-    VariableDefinition oldReffedVar = reffedVar;
+    VariableDeclaration oldReffedVar = reffedVar;
     reffedVar = newReffedVar;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, If22Package.QUESTION__REFFED_VAR, oldReffedVar, reffedVar));
@@ -324,7 +324,7 @@ public class QuestionImpl extends StatementImpl implements Question
         setQType((Expression)newValue);
         return;
       case If22Package.QUESTION__REFFED_VAR:
-        setReffedVar((VariableDefinition)newValue);
+        setReffedVar((VariableDeclaration)newValue);
         return;
       case If22Package.QUESTION__TARGET:
         getTarget().clear();
@@ -351,7 +351,7 @@ public class QuestionImpl extends StatementImpl implements Question
         setQType((Expression)null);
         return;
       case If22Package.QUESTION__REFFED_VAR:
-        setReffedVar((VariableDefinition)null);
+        setReffedVar((VariableDeclaration)null);
         return;
       case If22Package.QUESTION__TARGET:
         getTarget().clear();

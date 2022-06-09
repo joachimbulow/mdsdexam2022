@@ -75,12 +75,12 @@ public interface Question extends Statement
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Reffed Var</em>' reference.
-   * @see #setReffedVar(VariableDefinition)
+   * @see #setReffedVar(VariableDeclaration)
    * @see org.xtext.example.if22.if22.If22Package#getQuestion_ReffedVar()
    * @model
    * @generated
    */
-  VariableDefinition getReffedVar();
+  VariableDeclaration getReffedVar();
 
   /**
    * Sets the value of the '{@link org.xtext.example.if22.if22.Question#getReffedVar <em>Reffed Var</em>}' reference.
@@ -90,7 +90,7 @@ public interface Question extends Statement
    * @see #getReffedVar()
    * @generated
    */
-  void setReffedVar(VariableDefinition value);
+  void setReffedVar(VariableDeclaration value);
 
   /**
    * Returns the value of the '<em><b>Target</b></em>' containment reference list.

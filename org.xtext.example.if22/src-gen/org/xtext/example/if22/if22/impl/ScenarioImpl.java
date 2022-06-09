@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.xtext.example.if22.if22.If22Package;
 import org.xtext.example.if22.if22.Scenario;
 import org.xtext.example.if22.if22.Statement;
-import org.xtext.example.if22.if22.VariableDefinition;
+import org.xtext.example.if22.if22.VariableDeclaration;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,7 +33,7 @@ import org.xtext.example.if22.if22.VariableDefinition;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.if22.if22.impl.ScenarioImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.example.if22.if22.impl.ScenarioImpl#getVariableDefinitinos <em>Variable Definitinos</em>}</li>
+ *   <li>{@link org.xtext.example.if22.if22.impl.ScenarioImpl#getVariableDeclarations <em>Variable Declarations</em>}</li>
  *   <li>{@link org.xtext.example.if22.if22.impl.ScenarioImpl#getStatements <em>Statements</em>}</li>
  * </ul>
  *
@@ -62,14 +62,14 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getVariableDefinitinos() <em>Variable Definitinos</em>}' containment reference list.
+   * The cached value of the '{@link #getVariableDeclarations() <em>Variable Declarations</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getVariableDefinitinos()
+   * @see #getVariableDeclarations()
    * @generated
    * @ordered
    */
-  protected EList<VariableDefinition> variableDefinitinos;
+  protected EList<VariableDeclaration> variableDeclarations;
 
   /**
    * The cached value of the '{@link #getStatements() <em>Statements</em>}' containment reference list.
@@ -133,13 +133,13 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
    * @generated
    */
   @Override
-  public EList<VariableDefinition> getVariableDefinitinos()
+  public EList<VariableDeclaration> getVariableDeclarations()
   {
-    if (variableDefinitinos == null)
+    if (variableDeclarations == null)
     {
-      variableDefinitinos = new EObjectContainmentEList<VariableDefinition>(VariableDefinition.class, this, If22Package.SCENARIO__VARIABLE_DEFINITINOS);
+      variableDeclarations = new EObjectContainmentEList<VariableDeclaration>(VariableDeclaration.class, this, If22Package.SCENARIO__VARIABLE_DECLARATIONS);
     }
-    return variableDefinitinos;
+    return variableDeclarations;
   }
 
   /**
@@ -167,8 +167,8 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
   {
     switch (featureID)
     {
-      case If22Package.SCENARIO__VARIABLE_DEFINITINOS:
-        return ((InternalEList<?>)getVariableDefinitinos()).basicRemove(otherEnd, msgs);
+      case If22Package.SCENARIO__VARIABLE_DECLARATIONS:
+        return ((InternalEList<?>)getVariableDeclarations()).basicRemove(otherEnd, msgs);
       case If22Package.SCENARIO__STATEMENTS:
         return ((InternalEList<?>)getStatements()).basicRemove(otherEnd, msgs);
     }
@@ -187,8 +187,8 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
     {
       case If22Package.SCENARIO__NAME:
         return getName();
-      case If22Package.SCENARIO__VARIABLE_DEFINITINOS:
-        return getVariableDefinitinos();
+      case If22Package.SCENARIO__VARIABLE_DECLARATIONS:
+        return getVariableDeclarations();
       case If22Package.SCENARIO__STATEMENTS:
         return getStatements();
     }
@@ -209,9 +209,9 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
       case If22Package.SCENARIO__NAME:
         setName((String)newValue);
         return;
-      case If22Package.SCENARIO__VARIABLE_DEFINITINOS:
-        getVariableDefinitinos().clear();
-        getVariableDefinitinos().addAll((Collection<? extends VariableDefinition>)newValue);
+      case If22Package.SCENARIO__VARIABLE_DECLARATIONS:
+        getVariableDeclarations().clear();
+        getVariableDeclarations().addAll((Collection<? extends VariableDeclaration>)newValue);
         return;
       case If22Package.SCENARIO__STATEMENTS:
         getStatements().clear();
@@ -234,8 +234,8 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
       case If22Package.SCENARIO__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case If22Package.SCENARIO__VARIABLE_DEFINITINOS:
-        getVariableDefinitinos().clear();
+      case If22Package.SCENARIO__VARIABLE_DECLARATIONS:
+        getVariableDeclarations().clear();
         return;
       case If22Package.SCENARIO__STATEMENTS:
         getStatements().clear();
@@ -256,8 +256,8 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
     {
       case If22Package.SCENARIO__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case If22Package.SCENARIO__VARIABLE_DEFINITINOS:
-        return variableDefinitinos != null && !variableDefinitinos.isEmpty();
+      case If22Package.SCENARIO__VARIABLE_DECLARATIONS:
+        return variableDeclarations != null && !variableDeclarations.isEmpty();
       case If22Package.SCENARIO__STATEMENTS:
         return statements != null && !statements.isEmpty();
     }

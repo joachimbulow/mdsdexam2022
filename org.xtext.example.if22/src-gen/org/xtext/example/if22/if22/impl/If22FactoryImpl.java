@@ -31,7 +31,10 @@ import org.xtext.example.if22.if22.Target;
 import org.xtext.example.if22.if22.TextExp;
 import org.xtext.example.if22.if22.This;
 import org.xtext.example.if22.if22.Type;
-import org.xtext.example.if22.if22.VariableDefinition;
+import org.xtext.example.if22.if22.TypeBoolean;
+import org.xtext.example.if22.if22.TypeNumber;
+import org.xtext.example.if22.if22.TypeText;
+import org.xtext.example.if22.if22.VariableDeclaration;
 
 /**
  * <!-- begin-user-doc -->
@@ -87,24 +90,27 @@ public class If22FactoryImpl extends EFactoryImpl implements If22Factory
     {
       case If22Package.PROGRAM: return createProgram();
       case If22Package.SCENARIO: return createScenario();
-      case If22Package.VARIABLE_DEFINITION: return createVariableDefinition();
+      case If22Package.VARIABLE_DECLARATION: return createVariableDeclaration();
       case If22Package.STATEMENT: return createStatement();
       case If22Package.ANNOUNCEMENT: return createAnnouncement();
       case If22Package.QUESTION: return createQuestion();
       case If22Package.END: return createEnd();
       case If22Package.TARGET: return createTarget();
       case If22Package.EXPRESSION: return createExpression();
+      case If22Package.TYPE: return createType();
       case If22Package.EXP: return createExp();
       case If22Package.LOGIC: return createLogic();
       case If22Package.MATH: return createMath();
       case If22Package.TEXT_EXP: return createTextExp();
-      case If22Package.TYPE: return createType();
       case If22Package.THIS: return createThis();
       case If22Package.EXPSTRING: return createEXPSTRING();
       case If22Package.EXPINT: return createEXPINT();
       case If22Package.EXPBOOL: return createEXPBOOL();
       case If22Package.ID: return createID();
       case If22Package.PARENTHESIS: return createParenthesis();
+      case If22Package.TYPE_BOOLEAN: return createTypeBoolean();
+      case If22Package.TYPE_TEXT: return createTypeText();
+      case If22Package.TYPE_NUMBER: return createTypeNumber();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -140,10 +146,10 @@ public class If22FactoryImpl extends EFactoryImpl implements If22Factory
    * @generated
    */
   @Override
-  public VariableDefinition createVariableDefinition()
+  public VariableDeclaration createVariableDeclaration()
   {
-    VariableDefinitionImpl variableDefinition = new VariableDefinitionImpl();
-    return variableDefinition;
+    VariableDeclarationImpl variableDeclaration = new VariableDeclarationImpl();
+    return variableDeclaration;
   }
 
   /**
@@ -224,6 +230,18 @@ public class If22FactoryImpl extends EFactoryImpl implements If22Factory
    * @generated
    */
   @Override
+  public Type createType()
+  {
+    TypeImpl type = new TypeImpl();
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Exp createExp()
   {
     ExpImpl exp = new ExpImpl();
@@ -264,18 +282,6 @@ public class If22FactoryImpl extends EFactoryImpl implements If22Factory
   {
     TextExpImpl textExp = new TextExpImpl();
     return textExp;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Type createType()
-  {
-    TypeImpl type = new TypeImpl();
-    return type;
   }
 
   /**
@@ -348,6 +354,42 @@ public class If22FactoryImpl extends EFactoryImpl implements If22Factory
   {
     ParenthesisImpl parenthesis = new ParenthesisImpl();
     return parenthesis;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public TypeBoolean createTypeBoolean()
+  {
+    TypeBooleanImpl typeBoolean = new TypeBooleanImpl();
+    return typeBoolean;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public TypeText createTypeText()
+  {
+    TypeTextImpl typeText = new TypeTextImpl();
+    return typeText;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public TypeNumber createTypeNumber()
+  {
+    TypeNumberImpl typeNumber = new TypeNumberImpl();
+    return typeNumber;
   }
 
   /**

@@ -30,8 +30,10 @@ import org.xtext.example.if22.if22.Scenario;
 import org.xtext.example.if22.if22.Target;
 import org.xtext.example.if22.if22.TextExp;
 import org.xtext.example.if22.if22.This;
-import org.xtext.example.if22.if22.Type;
-import org.xtext.example.if22.if22.VariableDefinition;
+import org.xtext.example.if22.if22.TypeBoolean;
+import org.xtext.example.if22.if22.TypeNumber;
+import org.xtext.example.if22.if22.TypeText;
+import org.xtext.example.if22.if22.VariableDeclaration;
 import org.xtext.example.if22.services.If22GrammarAccess;
 
 @SuppressWarnings("all")
@@ -96,11 +98,17 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case If22Package.THIS:
 				sequence_Primary(context, (This) semanticObject); 
 				return; 
-			case If22Package.TYPE:
-				sequence_Primary(context, (Type) semanticObject); 
+			case If22Package.TYPE_BOOLEAN:
+				sequence_Type(context, (TypeBoolean) semanticObject); 
 				return; 
-			case If22Package.VARIABLE_DEFINITION:
-				sequence_VariableDefinition(context, (VariableDefinition) semanticObject); 
+			case If22Package.TYPE_NUMBER:
+				sequence_Type(context, (TypeNumber) semanticObject); 
+				return; 
+			case If22Package.TYPE_TEXT:
+				sequence_Type(context, (TypeText) semanticObject); 
+				return; 
+			case If22Package.VARIABLE_DECLARATION:
+				sequence_VariableDeclaration(context, (VariableDeclaration) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -332,20 +340,6 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Primary returns Type
-	 *
-	 * Constraint:
-	 *     {Type}
-	 * </pre>
-	 */
-	protected void sequence_Primary(ISerializationContext context, Type semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
 	 *     Program returns Program
 	 *
 	 * Constraint:
@@ -364,7 +358,7 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Question returns Question
 	 *
 	 * Constraint:
-	 *     (name=ID qString=Exp qType=Exp reffedVar=[VariableDefinition|ID]? target+=Target+)
+	 *     (name=ID qString=Exp qType=Exp reffedVar=[VariableDeclaration|ID]? target+=Target+)
 	 * </pre>
 	 */
 	protected void sequence_Question(ISerializationContext context, Question semanticObject) {
@@ -378,7 +372,7 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Scenario returns Scenario
 	 *
 	 * Constraint:
-	 *     (name=ID variableDefinitinos+=VariableDefinition* statements+=Statement*)
+	 *     (name=ID variableDeclarations+=VariableDeclaration* statements+=Statement*)
 	 * </pre>
 	 */
 	protected void sequence_Scenario(ISerializationContext context, Scenario semanticObject) {
@@ -403,22 +397,67 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     VariableDefinition returns VariableDefinition
+	 *     Primary returns TypeBoolean
+	 *     Type returns TypeBoolean
+	 *
+	 * Constraint:
+	 *     {TypeBoolean}
+	 * </pre>
+	 */
+	protected void sequence_Type(ISerializationContext context, TypeBoolean semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Primary returns TypeNumber
+	 *     Type returns TypeNumber
+	 *
+	 * Constraint:
+	 *     {TypeNumber}
+	 * </pre>
+	 */
+	protected void sequence_Type(ISerializationContext context, TypeNumber semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Primary returns TypeText
+	 *     Type returns TypeText
+	 *
+	 * Constraint:
+	 *     {TypeText}
+	 * </pre>
+	 */
+	protected void sequence_Type(ISerializationContext context, TypeText semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     VariableDeclaration returns VariableDeclaration
 	 *
 	 * Constraint:
 	 *     (name=ID type=Type)
 	 * </pre>
 	 */
-	protected void sequence_VariableDefinition(ISerializationContext context, VariableDefinition semanticObject) {
+	protected void sequence_VariableDeclaration(ISerializationContext context, VariableDeclaration semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.VARIABLE_DEFINITION__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.VARIABLE_DEFINITION__NAME));
-			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.VARIABLE_DEFINITION__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.VARIABLE_DEFINITION__TYPE));
+			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.VARIABLE_DECLARATION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.VARIABLE_DECLARATION__NAME));
+			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.VARIABLE_DECLARATION__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.VARIABLE_DECLARATION__TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getVariableDefinitionAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getVariableDefinitionAccess().getTypeTypeParserRuleCall_3_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getVariableDeclarationAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getVariableDeclarationAccess().getTypeTypeParserRuleCall_3_0(), semanticObject.getType());
 		feeder.finish();
 	}
 	

@@ -62,21 +62,21 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cVariableDefinitinosAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cVariableDefinitinosVariableDefinitionParserRuleCall_3_0 = (RuleCall)cVariableDefinitinosAssignment_3.eContents().get(0);
+		private final Assignment cVariableDeclarationsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cVariableDeclarationsVariableDeclarationParserRuleCall_3_0 = (RuleCall)cVariableDeclarationsAssignment_3.eContents().get(0);
 		private final Assignment cStatementsAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cStatementsStatementParserRuleCall_4_0 = (RuleCall)cStatementsAssignment_4.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Scenario:
 		//    'scenario' name=ID '{'
-		//    (variableDefinitinos+=VariableDefinition)*
+		//    (variableDeclarations+=VariableDeclaration)*
 		//    (statements+=Statement)*
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'scenario' name=ID '{'
-		//(variableDefinitinos+=VariableDefinition)*
+		//(variableDeclarations+=VariableDeclaration)*
 		//(statements+=Statement)*
 		//'}'
 		public Group getGroup() { return cGroup; }
@@ -93,11 +93,11 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//(variableDefinitinos+=VariableDefinition)*
-		public Assignment getVariableDefinitinosAssignment_3() { return cVariableDefinitinosAssignment_3; }
+		//(variableDeclarations+=VariableDeclaration)*
+		public Assignment getVariableDeclarationsAssignment_3() { return cVariableDeclarationsAssignment_3; }
 		
-		//VariableDefinition
-		public RuleCall getVariableDefinitinosVariableDefinitionParserRuleCall_3_0() { return cVariableDefinitinosVariableDefinitionParserRuleCall_3_0; }
+		//VariableDeclaration
+		public RuleCall getVariableDeclarationsVariableDeclarationParserRuleCall_3_0() { return cVariableDeclarationsVariableDeclarationParserRuleCall_3_0; }
 		
 		//(statements+=Statement)*
 		public Assignment getStatementsAssignment_4() { return cStatementsAssignment_4; }
@@ -108,8 +108,8 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
-	public class VariableDefinitionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.VariableDefinition");
+	public class VariableDeclarationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.VariableDeclaration");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cVarKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -118,7 +118,7 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cTypeTypeParserRuleCall_3_0 = (RuleCall)cTypeAssignment_3.eContents().get(0);
 		
-		//VariableDefinition:
+		//VariableDeclaration:
 		//    'var' name=ID ':' type=Type
 		//;
 		@Override public ParserRule getRule() { return rule; }
@@ -220,17 +220,17 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cInKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cReffedVarAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final CrossReference cReffedVarVariableDefinitionCrossReference_5_1_0 = (CrossReference)cReffedVarAssignment_5_1.eContents().get(0);
-		private final RuleCall cReffedVarVariableDefinitionIDTerminalRuleCall_5_1_0_1 = (RuleCall)cReffedVarVariableDefinitionCrossReference_5_1_0.eContents().get(1);
+		private final CrossReference cReffedVarVariableDeclarationCrossReference_5_1_0 = (CrossReference)cReffedVarAssignment_5_1.eContents().get(0);
+		private final RuleCall cReffedVarVariableDeclarationIDTerminalRuleCall_5_1_0_1 = (RuleCall)cReffedVarVariableDeclarationCrossReference_5_1_0.eContents().get(1);
 		private final Assignment cTargetAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cTargetTargetParserRuleCall_6_0 = (RuleCall)cTargetAssignment_6.eContents().get(0);
 		
 		//// qType=Type instead?
 		//Question:
-		//    'question' name=ID qString=Exp 'as' qType=Exp ('in' reffedVar=[VariableDefinition])? (target+=Target)+;
+		//    'question' name=ID qString=Exp 'as' qType=Exp ('in' reffedVar=[VariableDeclaration])? (target+=Target)+;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'question' name=ID qString=Exp 'as' qType=Exp ('in' reffedVar=[VariableDefinition])? (target+=Target)+
+		//'question' name=ID qString=Exp 'as' qType=Exp ('in' reffedVar=[VariableDeclaration])? (target+=Target)+
 		public Group getGroup() { return cGroup; }
 		
 		//'question'
@@ -257,20 +257,20 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//Exp
 		public RuleCall getQTypeExpParserRuleCall_4_0() { return cQTypeExpParserRuleCall_4_0; }
 		
-		//('in' reffedVar=[VariableDefinition])?
+		//('in' reffedVar=[VariableDeclaration])?
 		public Group getGroup_5() { return cGroup_5; }
 		
 		//'in'
 		public Keyword getInKeyword_5_0() { return cInKeyword_5_0; }
 		
-		//reffedVar=[VariableDefinition]
+		//reffedVar=[VariableDeclaration]
 		public Assignment getReffedVarAssignment_5_1() { return cReffedVarAssignment_5_1; }
 		
-		//[VariableDefinition]
-		public CrossReference getReffedVarVariableDefinitionCrossReference_5_1_0() { return cReffedVarVariableDefinitionCrossReference_5_1_0; }
+		//[VariableDeclaration]
+		public CrossReference getReffedVarVariableDeclarationCrossReference_5_1_0() { return cReffedVarVariableDeclarationCrossReference_5_1_0; }
 		
 		//ID
-		public RuleCall getReffedVarVariableDefinitionIDTerminalRuleCall_5_1_0_1() { return cReffedVarVariableDefinitionIDTerminalRuleCall_5_1_0_1; }
+		public RuleCall getReffedVarVariableDeclarationIDTerminalRuleCall_5_1_0_1() { return cReffedVarVariableDeclarationIDTerminalRuleCall_5_1_0_1; }
 		
 		//(target+=Target)+
 		public Assignment getTargetAssignment_6() { return cTargetAssignment_6; }
@@ -485,9 +485,7 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.Primary");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cParenthesisParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Action cTypeAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final RuleCall cTypeParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final RuleCall cTypeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
 		private final Action cThisAction_2_0 = (Action)cGroup_2.eContents().get(0);
 		private final Keyword cThisKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
@@ -507,23 +505,17 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		////Wtf er det her
 		////| ID '(' (Exp (',' Exp)*)?')'))*;
 		//Primary returns Expression:
-		//    Parenthesis | {Type} Type | {This} 'this' | {EXPSTRING} STRING | {EXPINT} INT | {EXPBOOL} BOOLEAN | {ID} ID;
+		//    Parenthesis | Type | {This} 'this' | {EXPSTRING} STRING | {EXPINT} INT | {EXPBOOL} BOOLEAN | {ID} ID;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Parenthesis | {Type} Type | {This} 'this' | {EXPSTRING} STRING | {EXPINT} INT | {EXPBOOL} BOOLEAN | {ID} ID
+		//Parenthesis | Type | {This} 'this' | {EXPSTRING} STRING | {EXPINT} INT | {EXPBOOL} BOOLEAN | {ID} ID
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Parenthesis
 		public RuleCall getParenthesisParserRuleCall_0() { return cParenthesisParserRuleCall_0; }
 		
-		//{Type} Type
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//{Type}
-		public Action getTypeAction_1_0() { return cTypeAction_1_0; }
-		
 		//Type
-		public RuleCall getTypeParserRuleCall_1_1() { return cTypeParserRuleCall_1_1; }
+		public RuleCall getTypeParserRuleCall_1() { return cTypeParserRuleCall_1; }
 		
 		//{This} 'this'
 		public Group getGroup_2() { return cGroup_2; }
@@ -604,31 +596,55 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	public class TypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.Type");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cBooleanKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cTextKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		private final Keyword cNumberKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cTypeBooleanAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Keyword cBooleanKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Action cTypeTextAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Keyword cTextKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Action cTypeNumberAction_2_0 = (Action)cGroup_2.eContents().get(0);
+		private final Keyword cNumberKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
 		
 		//Type:
-		//    'boolean' | 'text' | 'number';
+		//    {TypeBoolean} 'boolean' | {TypeText} 'text' | {TypeNumber} 'number';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'boolean' | 'text' | 'number'
+		//{TypeBoolean} 'boolean' | {TypeText} 'text' | {TypeNumber} 'number'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
+		//{TypeBoolean} 'boolean'
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//{TypeBoolean}
+		public Action getTypeBooleanAction_0_0() { return cTypeBooleanAction_0_0; }
+		
 		//'boolean'
-		public Keyword getBooleanKeyword_0() { return cBooleanKeyword_0; }
+		public Keyword getBooleanKeyword_0_1() { return cBooleanKeyword_0_1; }
+		
+		//{TypeText} 'text'
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//{TypeText}
+		public Action getTypeTextAction_1_0() { return cTypeTextAction_1_0; }
 		
 		//'text'
-		public Keyword getTextKeyword_1() { return cTextKeyword_1; }
+		public Keyword getTextKeyword_1_1() { return cTextKeyword_1_1; }
+		
+		//{TypeNumber} 'number'
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//{TypeNumber}
+		public Action getTypeNumberAction_2_0() { return cTypeNumberAction_2_0; }
 		
 		//'number'
-		public Keyword getNumberKeyword_2() { return cNumberKeyword_2; }
+		public Keyword getNumberKeyword_2_1() { return cNumberKeyword_2_1; }
 	}
 	
 	
 	private final ProgramElements pProgram;
 	private final ScenarioElements pScenario;
-	private final VariableDefinitionElements pVariableDefinition;
+	private final VariableDeclarationElements pVariableDeclaration;
 	private final StatementElements pStatement;
 	private final AnnouncementElements pAnnouncement;
 	private final QuestionElements pQuestion;
@@ -651,7 +667,7 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		this.gaTerminals = gaTerminals;
 		this.pProgram = new ProgramElements();
 		this.pScenario = new ScenarioElements();
-		this.pVariableDefinition = new VariableDefinitionElements();
+		this.pVariableDeclaration = new VariableDeclarationElements();
 		this.pStatement = new StatementElements();
 		this.pAnnouncement = new AnnouncementElements();
 		this.pQuestion = new QuestionElements();
@@ -703,7 +719,7 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	
 	//Scenario:
 	//    'scenario' name=ID '{'
-	//    (variableDefinitinos+=VariableDefinition)*
+	//    (variableDeclarations+=VariableDeclaration)*
 	//    (statements+=Statement)*
 	//    '}';
 	public ScenarioElements getScenarioAccess() {
@@ -714,15 +730,15 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		return getScenarioAccess().getRule();
 	}
 	
-	//VariableDefinition:
+	//VariableDeclaration:
 	//    'var' name=ID ':' type=Type
 	//;
-	public VariableDefinitionElements getVariableDefinitionAccess() {
-		return pVariableDefinition;
+	public VariableDeclarationElements getVariableDeclarationAccess() {
+		return pVariableDeclaration;
 	}
 	
-	public ParserRule getVariableDefinitionRule() {
-		return getVariableDefinitionAccess().getRule();
+	public ParserRule getVariableDeclarationRule() {
+		return getVariableDeclarationAccess().getRule();
 	}
 	
 	//Statement:
@@ -747,7 +763,7 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	
 	//// qType=Type instead?
 	//Question:
-	//    'question' name=ID qString=Exp 'as' qType=Exp ('in' reffedVar=[VariableDefinition])? (target+=Target)+;
+	//    'question' name=ID qString=Exp 'as' qType=Exp ('in' reffedVar=[VariableDeclaration])? (target+=Target)+;
 	public QuestionElements getQuestionAccess() {
 		return pQuestion;
 	}
@@ -792,7 +808,7 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	////Wtf er det her
 	////| ID '(' (Exp (',' Exp)*)?')'))*;
 	//Primary returns Expression:
-	//    Parenthesis | {Type} Type | {This} 'this' | {EXPSTRING} STRING | {EXPINT} INT | {EXPBOOL} BOOLEAN | {ID} ID;
+	//    Parenthesis | Type | {This} 'this' | {EXPSTRING} STRING | {EXPINT} INT | {EXPBOOL} BOOLEAN | {ID} ID;
 	public PrimaryElements getPrimaryAccess() {
 		return pPrimary;
 	}
@@ -812,7 +828,7 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//Type:
-	//    'boolean' | 'text' | 'number';
+	//    {TypeBoolean} 'boolean' | {TypeText} 'text' | {TypeNumber} 'number';
 	public TypeElements getTypeAccess() {
 		return pType;
 	}

@@ -42,13 +42,13 @@ public interface If22Factory extends EFactory
   Scenario createScenario();
 
   /**
-   * Returns a new object of class '<em>Variable Definition</em>'.
+   * Returns a new object of class '<em>Variable Declaration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Variable Definition</em>'.
+   * @return a new object of class '<em>Variable Declaration</em>'.
    * @generated
    */
-  VariableDefinition createVariableDefinition();
+  VariableDeclaration createVariableDeclaration();
 
   /**
    * Returns a new object of class '<em>Statement</em>'.
@@ -105,6 +105,15 @@ public interface If22Factory extends EFactory
   Expression createExpression();
 
   /**
+   * Returns a new object of class '<em>Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type</em>'.
+   * @generated
+   */
+  Type createType();
+
+  /**
    * Returns a new object of class '<em>Exp</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -139,15 +148,6 @@ public interface If22Factory extends EFactory
    * @generated
    */
   TextExp createTextExp();
-
-  /**
-   * Returns a new object of class '<em>Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Type</em>'.
-   * @generated
-   */
-  Type createType();
 
   /**
    * Returns a new object of class '<em>This</em>'.
@@ -202,6 +202,33 @@ public interface If22Factory extends EFactory
    * @generated
    */
   Parenthesis createParenthesis();
+
+  /**
+   * Returns a new object of class '<em>Type Boolean</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type Boolean</em>'.
+   * @generated
+   */
+  TypeBoolean createTypeBoolean();
+
+  /**
+   * Returns a new object of class '<em>Type Text</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type Text</em>'.
+   * @generated
+   */
+  TypeText createTypeText();
+
+  /**
+   * Returns a new object of class '<em>Type Number</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type Number</em>'.
+   * @generated
+   */
+  TypeNumber createTypeNumber();
 
   /**
    * Returns the package supported by this factory.

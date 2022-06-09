@@ -26,7 +26,10 @@ import org.xtext.example.if22.if22.Target;
 import org.xtext.example.if22.if22.TextExp;
 import org.xtext.example.if22.if22.This;
 import org.xtext.example.if22.if22.Type;
-import org.xtext.example.if22.if22.VariableDefinition;
+import org.xtext.example.if22.if22.TypeBoolean;
+import org.xtext.example.if22.if22.TypeNumber;
+import org.xtext.example.if22.if22.TypeText;
+import org.xtext.example.if22.if22.VariableDeclaration;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,7 +58,7 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass variableDefinitionEClass = null;
+  private EClass variableDeclarationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -104,6 +107,13 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass typeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass expEClass = null;
 
   /**
@@ -126,13 +136,6 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   private EClass textExpEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass typeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -175,6 +178,27 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   private EClass parenthesisEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass typeBooleanEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass typeTextEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass typeNumberEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -300,7 +324,7 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   @Override
-  public EReference getScenario_VariableDefinitinos()
+  public EReference getScenario_VariableDeclarations()
   {
     return (EReference)scenarioEClass.getEStructuralFeatures().get(1);
   }
@@ -322,9 +346,9 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   @Override
-  public EClass getVariableDefinition()
+  public EClass getVariableDeclaration()
   {
-    return variableDefinitionEClass;
+    return variableDeclarationEClass;
   }
 
   /**
@@ -333,9 +357,9 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   @Override
-  public EAttribute getVariableDefinition_Name()
+  public EAttribute getVariableDeclaration_Name()
   {
-    return (EAttribute)variableDefinitionEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)variableDeclarationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -344,9 +368,9 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   @Override
-  public EAttribute getVariableDefinition_Type()
+  public EReference getVariableDeclaration_Type()
   {
-    return (EAttribute)variableDefinitionEClass.getEStructuralFeatures().get(1);
+    return (EReference)variableDeclarationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -531,6 +555,17 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   @Override
+  public EClass getType()
+  {
+    return typeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getExp()
   {
     return expEClass;
@@ -652,17 +687,6 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   @Override
-  public EClass getType()
-  {
-    return typeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getThis()
   {
     return thisEClass;
@@ -740,6 +764,39 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   @Override
+  public EClass getTypeBoolean()
+  {
+    return typeBooleanEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getTypeText()
+  {
+    return typeTextEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getTypeNumber()
+  {
+    return typeNumberEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public If22Factory getIf22Factory()
   {
     return (If22Factory)getEFactoryInstance();
@@ -771,12 +828,12 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
 
     scenarioEClass = createEClass(SCENARIO);
     createEAttribute(scenarioEClass, SCENARIO__NAME);
-    createEReference(scenarioEClass, SCENARIO__VARIABLE_DEFINITINOS);
+    createEReference(scenarioEClass, SCENARIO__VARIABLE_DECLARATIONS);
     createEReference(scenarioEClass, SCENARIO__STATEMENTS);
 
-    variableDefinitionEClass = createEClass(VARIABLE_DEFINITION);
-    createEAttribute(variableDefinitionEClass, VARIABLE_DEFINITION__NAME);
-    createEAttribute(variableDefinitionEClass, VARIABLE_DEFINITION__TYPE);
+    variableDeclarationEClass = createEClass(VARIABLE_DECLARATION);
+    createEAttribute(variableDeclarationEClass, VARIABLE_DECLARATION__NAME);
+    createEReference(variableDeclarationEClass, VARIABLE_DECLARATION__TYPE);
 
     statementEClass = createEClass(STATEMENT);
     createEAttribute(statementEClass, STATEMENT__NAME);
@@ -800,6 +857,8 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
 
     expressionEClass = createEClass(EXPRESSION);
 
+    typeEClass = createEClass(TYPE);
+
     expEClass = createEClass(EXP);
     createEReference(expEClass, EXP__LEFT);
 
@@ -815,8 +874,6 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
     createEReference(textExpEClass, TEXT_EXP__LEFT);
     createEReference(textExpEClass, TEXT_EXP__RIGHT);
 
-    typeEClass = createEClass(TYPE);
-
     thisEClass = createEClass(THIS);
 
     expstringEClass = createEClass(EXPSTRING);
@@ -829,6 +886,12 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
 
     parenthesisEClass = createEClass(PARENTHESIS);
     createEReference(parenthesisEClass, PARENTHESIS__EXP);
+
+    typeBooleanEClass = createEClass(TYPE_BOOLEAN);
+
+    typeTextEClass = createEClass(TYPE_TEXT);
+
+    typeNumberEClass = createEClass(TYPE_NUMBER);
   }
 
   /**
@@ -863,17 +926,20 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
     announcementEClass.getESuperTypes().add(this.getStatement());
     questionEClass.getESuperTypes().add(this.getStatement());
     endEClass.getESuperTypes().add(this.getStatement());
+    typeEClass.getESuperTypes().add(this.getExpression());
     expEClass.getESuperTypes().add(this.getExpression());
     logicEClass.getESuperTypes().add(this.getExpression());
     mathEClass.getESuperTypes().add(this.getExpression());
     textExpEClass.getESuperTypes().add(this.getExpression());
-    typeEClass.getESuperTypes().add(this.getExpression());
     thisEClass.getESuperTypes().add(this.getExpression());
     expstringEClass.getESuperTypes().add(this.getExpression());
     expintEClass.getESuperTypes().add(this.getExpression());
     expboolEClass.getESuperTypes().add(this.getExpression());
     idEClass.getESuperTypes().add(this.getExpression());
     parenthesisEClass.getESuperTypes().add(this.getExpression());
+    typeBooleanEClass.getESuperTypes().add(this.getType());
+    typeTextEClass.getESuperTypes().add(this.getType());
+    typeNumberEClass.getESuperTypes().add(this.getType());
 
     // Initialize classes and features; add operations and parameters
     initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -882,12 +948,12 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
 
     initEClass(scenarioEClass, Scenario.class, "Scenario", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getScenario_Name(), ecorePackage.getEString(), "name", null, 0, 1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getScenario_VariableDefinitinos(), this.getVariableDefinition(), null, "variableDefinitinos", null, 0, -1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getScenario_VariableDeclarations(), this.getVariableDeclaration(), null, "variableDeclarations", null, 0, -1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getScenario_Statements(), this.getStatement(), null, "statements", null, 0, -1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(variableDefinitionEClass, VariableDefinition.class, "VariableDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getVariableDefinition_Name(), ecorePackage.getEString(), "name", null, 0, 1, VariableDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getVariableDefinition_Type(), ecorePackage.getEString(), "type", null, 0, 1, VariableDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(variableDeclarationEClass, VariableDeclaration.class, "VariableDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getVariableDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVariableDeclaration_Type(), this.getType(), null, "type", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -899,7 +965,7 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
     initEClass(questionEClass, Question.class, "Question", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getQuestion_QString(), this.getExpression(), null, "qString", null, 0, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getQuestion_QType(), this.getExpression(), null, "qType", null, 0, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getQuestion_ReffedVar(), this.getVariableDefinition(), null, "reffedVar", null, 0, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getQuestion_ReffedVar(), this.getVariableDeclaration(), null, "reffedVar", null, 0, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getQuestion_Target(), this.getTarget(), null, "target", null, 0, -1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(endEClass, End.class, "End", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -910,6 +976,8 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
     initEReference(getTarget_TargetCheck(), this.getExpression(), null, "targetCheck", null, 0, 1, Target.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(expEClass, Exp.class, "Exp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExp_Left(), this.getExpression(), null, "left", null, 0, 1, Exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -926,8 +994,6 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
     initEReference(getTextExp_Left(), this.getExpression(), null, "left", null, 0, 1, TextExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTextExp_Right(), this.getExpression(), null, "right", null, 0, 1, TextExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
     initEClass(thisEClass, This.class, "This", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(expstringEClass, org.xtext.example.if22.if22.EXPSTRING.class, "EXPSTRING", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -940,6 +1006,12 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
 
     initEClass(parenthesisEClass, Parenthesis.class, "Parenthesis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getParenthesis_Exp(), this.getExpression(), null, "exp", null, 0, 1, Parenthesis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(typeBooleanEClass, TypeBoolean.class, "TypeBoolean", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(typeTextEClass, TypeText.class, "TypeText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(typeNumberEClass, TypeNumber.class, "TypeNumber", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     // Create resource
     createResource(eNS_URI);

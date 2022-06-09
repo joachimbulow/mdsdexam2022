@@ -4,30 +4,33 @@
 package org.xtext.example.if22.if22.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.if22.if22.If22Package;
-import org.xtext.example.if22.if22.VariableDefinition;
+import org.xtext.example.if22.if22.Type;
+import org.xtext.example.if22.if22.VariableDeclaration;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Variable Definition</b></em>'.
+ * An implementation of the model object '<em><b>Variable Declaration</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.if22.if22.impl.VariableDefinitionImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.example.if22.if22.impl.VariableDefinitionImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.xtext.example.if22.if22.impl.VariableDeclarationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.if22.if22.impl.VariableDeclarationImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class VariableDefinitionImpl extends MinimalEObjectImpl.Container implements VariableDefinition
+public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implements VariableDeclaration
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -50,31 +53,21 @@ public class VariableDefinitionImpl extends MinimalEObjectImpl.Container impleme
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getType()
    * @generated
    * @ordered
    */
-  protected static final String TYPE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
-  protected String type = TYPE_EDEFAULT;
+  protected Type type;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected VariableDefinitionImpl()
+  protected VariableDeclarationImpl()
   {
     super();
   }
@@ -87,7 +80,7 @@ public class VariableDefinitionImpl extends MinimalEObjectImpl.Container impleme
   @Override
   protected EClass eStaticClass()
   {
-    return If22Package.Literals.VARIABLE_DEFINITION;
+    return If22Package.Literals.VARIABLE_DECLARATION;
   }
 
   /**
@@ -112,7 +105,7 @@ public class VariableDefinitionImpl extends MinimalEObjectImpl.Container impleme
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, If22Package.VARIABLE_DEFINITION__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, If22Package.VARIABLE_DECLARATION__NAME, oldName, name));
   }
 
   /**
@@ -121,7 +114,7 @@ public class VariableDefinitionImpl extends MinimalEObjectImpl.Container impleme
    * @generated
    */
   @Override
-  public String getType()
+  public Type getType()
   {
     return type;
   }
@@ -131,13 +124,54 @@ public class VariableDefinitionImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setType(String newType)
+  public NotificationChain basicSetType(Type newType, NotificationChain msgs)
   {
-    String oldType = type;
+    Type oldType = type;
     type = newType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, If22Package.VARIABLE_DEFINITION__TYPE, oldType, type));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, If22Package.VARIABLE_DECLARATION__TYPE, oldType, newType);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setType(Type newType)
+  {
+    if (newType != type)
+    {
+      NotificationChain msgs = null;
+      if (type != null)
+        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - If22Package.VARIABLE_DECLARATION__TYPE, null, msgs);
+      if (newType != null)
+        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - If22Package.VARIABLE_DECLARATION__TYPE, null, msgs);
+      msgs = basicSetType(newType, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, If22Package.VARIABLE_DECLARATION__TYPE, newType, newType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case If22Package.VARIABLE_DECLARATION__TYPE:
+        return basicSetType(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -150,9 +184,9 @@ public class VariableDefinitionImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case If22Package.VARIABLE_DEFINITION__NAME:
+      case If22Package.VARIABLE_DECLARATION__NAME:
         return getName();
-      case If22Package.VARIABLE_DEFINITION__TYPE:
+      case If22Package.VARIABLE_DECLARATION__TYPE:
         return getType();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -168,11 +202,11 @@ public class VariableDefinitionImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case If22Package.VARIABLE_DEFINITION__NAME:
+      case If22Package.VARIABLE_DECLARATION__NAME:
         setName((String)newValue);
         return;
-      case If22Package.VARIABLE_DEFINITION__TYPE:
-        setType((String)newValue);
+      case If22Package.VARIABLE_DECLARATION__TYPE:
+        setType((Type)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -188,11 +222,11 @@ public class VariableDefinitionImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case If22Package.VARIABLE_DEFINITION__NAME:
+      case If22Package.VARIABLE_DECLARATION__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case If22Package.VARIABLE_DEFINITION__TYPE:
-        setType(TYPE_EDEFAULT);
+      case If22Package.VARIABLE_DECLARATION__TYPE:
+        setType((Type)null);
         return;
     }
     super.eUnset(featureID);
@@ -208,10 +242,10 @@ public class VariableDefinitionImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case If22Package.VARIABLE_DEFINITION__NAME:
+      case If22Package.VARIABLE_DECLARATION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case If22Package.VARIABLE_DEFINITION__TYPE:
-        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+      case If22Package.VARIABLE_DECLARATION__TYPE:
+        return type != null;
     }
     return super.eIsSet(featureID);
   }
@@ -229,10 +263,8 @@ public class VariableDefinitionImpl extends MinimalEObjectImpl.Container impleme
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", type: ");
-    result.append(type);
     result.append(')');
     return result.toString();
   }
 
-} //VariableDefinitionImpl
+} //VariableDeclarationImpl
