@@ -11,6 +11,7 @@ import org.xtext.example.if22.if22.Expression;
 import org.xtext.example.if22.if22.ID;
 import org.xtext.example.if22.if22.Logic;
 import org.xtext.example.if22.if22.Parenthesis;
+import org.xtext.example.if22.if22.TextExp;
 import org.xtext.example.if22.if22.This;
 import org.xtext.example.if22.if22.Type;
 import org.xtext.example.if22.if22.TypeBoolean;
@@ -36,59 +37,73 @@ public class ExpResolverUtil {
       String _plus_3 = (_plus_2 + _compileExp_1);
       r = _plus_3;
     } else {
-      if (false) {
-        r = "Math is TODO";
+      if ((exp instanceof org.xtext.example.if22.if22.Math)) {
+        String _compileExp_2 = ExpResolverUtil.compileExp(((org.xtext.example.if22.if22.Math)exp).getLeft());
+        String _plus_4 = (_compileExp_2 + " ");
+        String _operator_1 = ((org.xtext.example.if22.if22.Math)exp).getOperator();
+        String _plus_5 = (_plus_4 + _operator_1);
+        String _plus_6 = (_plus_5 + " ");
+        String _compileExp_3 = ExpResolverUtil.compileExp(((org.xtext.example.if22.if22.Math)exp).getRight());
+        String _plus_7 = (_plus_6 + _compileExp_3);
+        r = _plus_7;
       } else {
-        boolean _matched = false;
-        if (exp instanceof This) {
-          _matched=true;
-          r = ((This)exp).getValue();
-        }
-        if (!_matched) {
-          if (exp instanceof EXPSTRING) {
+        if ((exp instanceof TextExp)) {
+          r = "TextExp is still todo :)))";
+        } else {
+          boolean _matched = false;
+          if (exp instanceof This) {
             _matched=true;
-            r = ((EXPSTRING)exp).getValue();
+            r = ((This)exp).getValue();
           }
-        }
-        if (!_matched) {
-          if (exp instanceof EXPINT) {
-            _matched=true;
-            r = Integer.valueOf(((EXPINT)exp).getValue()).toString();
-          }
-        }
-        if (!_matched) {
-          if (exp instanceof EXPBOOL) {
-            _matched=true;
-            String _xifexpression = null;
-            String _value = ((EXPBOOL)exp).getValue();
-            boolean _equals = Objects.equal(_value, "true");
-            if (_equals) {
-              _xifexpression = "true";
-            } else {
-              _xifexpression = "false";
+          if (!_matched) {
+            if (exp instanceof EXPSTRING) {
+              _matched=true;
+              r = ((EXPSTRING)exp).getValue();
             }
-            r = _xifexpression;
           }
-        }
-        if (!_matched) {
-          if (exp instanceof ID) {
-            _matched=true;
-            r = ((ID)exp).getValue();
+          if (!_matched) {
+            if (exp instanceof EXPINT) {
+              _matched=true;
+              r = Integer.valueOf(((EXPINT)exp).getValue()).toString();
+            }
           }
-        }
-        if (!_matched) {
-          if (exp instanceof Type) {
-            _matched=true;
-            r = ExpResolverUtil.compileType(((Type)exp));
+          if (!_matched) {
+            if (exp instanceof EXPBOOL) {
+              _matched=true;
+              String _xifexpression = null;
+              String _value = ((EXPBOOL)exp).getValue();
+              boolean _equals = Objects.equal(_value, "true");
+              if (_equals) {
+                _xifexpression = "true";
+              } else {
+                _xifexpression = "false";
+              }
+              r = _xifexpression;
+            }
           }
-        }
-        if (!_matched) {
-          if (exp instanceof Parenthesis) {
-            _matched=true;
-            String _compileExp_2 = ExpResolverUtil.compileExp(((Parenthesis)exp).getExp());
-            String _plus_4 = ("(" + _compileExp_2);
-            String _plus_5 = (_plus_4 + ")");
-            r = _plus_5;
+          if (!_matched) {
+            if (exp instanceof ID) {
+              _matched=true;
+              r = ((ID)exp).getValue();
+            }
+          }
+          if (!_matched) {
+            if (exp instanceof Type) {
+              _matched=true;
+              r = ExpResolverUtil.compileType(((Type)exp));
+            }
+          }
+          if (!_matched) {
+            if (exp instanceof Parenthesis) {
+              _matched=true;
+              String _compileExp_4 = ExpResolverUtil.compileExp(((Parenthesis)exp).getExp());
+              String _plus_8 = ("(" + _compileExp_4);
+              String _plus_9 = (_plus_8 + ")");
+              r = _plus_9;
+            }
+          }
+          if (!_matched) {
+            r = "We failed to hit a switch case and defaulted...";
           }
         }
       }

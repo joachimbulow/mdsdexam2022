@@ -19,6 +19,8 @@ import org.xtext.example.if22.if22.Question
 import org.xtext.example.if22.if22.Type
 import java.util.List
 import org.xtext.example.if22.if22.Statement
+import org.xtext.example.if22.if22.Target
+import org.xtext.example.if22.if22.Expression
 
 /**
  * Generates code from your model files on save.
@@ -138,9 +140,7 @@ class If22Generator extends AbstractGenerator {
 		var r = ""
 		for (q : statements.filter[statement|statement instanceof Question]) {
 			if ((q as Question).reffedVar == null) {
-				r +=
-					ExpResolverUtil.compileTypeFromExp((q as Question).QType) + " _" + q.name +
-						";\n"
+				r += ExpResolverUtil.compileTypeFromExp((q as Question).QType) + " _" + q.name + ";\n"
 			}
 		}
 		return r;
@@ -152,8 +152,9 @@ class If22Generator extends AbstractGenerator {
 		'''
 			case "«announcement.name»":
 				System.out.println("«ExpResolverUtil.compileExp(announcement.exp)»");
-				nextInteraction = "«announcement.targets.get(0).name»";
-				break;
+				«FOR t : announcement.targets»
+					«t.compileTargetWithConditional(t.targetCheck, "_" + announcement.name)»
+				«ENDFOR»
 		'''
 	}
 
@@ -164,15 +165,14 @@ class If22Generator extends AbstractGenerator {
 				System.out.println("«ExpResolverUtil.compileExp(question.QString)»");
 				try {
 					«question.reffedVar === null ? "_" + question.name : question.reffedVar.name» = «ExpResolverUtil.getTypeFromExp(question.QType).readInputString»
-					nextInteraction = "«question.targets.get(0).name»";
-					break;
+					«FOR t : question.targets»
+						«t.compileTargetWithConditional(t.targetCheck, "_" + question.name)»
+					«ENDFOR»
 				} catch (Exception ex) {
 					break;
 				}
 		'''
 	}
-	
-	
 
 	// End statement
 	def static dispatch String compileStatement(End endStatement) {
@@ -192,6 +192,27 @@ class If22Generator extends AbstractGenerator {
 			TypeText: "br.readLine();"
 			TypeNumber: "Integer.parseInt(br.readLine());"
 		}
+	}
+
+	// Targets with conditionals
+	def static compileTargetWithConditional(Target target, Expression targetCheck, String thisReference) {
+		var r = "";
+		if (targetCheck !== null) {
+			r = '''
+				if («ExpResolverUtil.compileExp(targetCheck)») {
+					nextInteraction = "«target.name»";
+					break;
+				}
+			'''
+		} else {
+			r = '''
+				nextInteraction = "«target.name»";
+				break;
+			'''
+		}
+		// Change an occurrence of "this" with the implicit variable name
+		r = r.replaceAll("this",thisReference);
+		return r;
 	}
 
 }

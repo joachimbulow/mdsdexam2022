@@ -15,6 +15,8 @@ import org.xtext.example.if22.if22.TypeNumber
 import org.xtext.example.if22.if22.Parenthesis
 import org.xtext.example.if22.if22.Expression
 import org.xtext.example.if22.if22.Logic
+import org.xtext.example.if22.if22.Math
+import org.xtext.example.if22.if22.TextExp
 
 /**
  * Generates code from your model files on save.
@@ -23,15 +25,19 @@ import org.xtext.example.if22.if22.Logic
  */
 class ExpResolverUtil {
 
+	// TODO: Move into one switch instead, this was due to earlier where primary was in left
 	def static String compileExp(Expression exp) {
 		var r = "";
 		if (exp instanceof Logic) {
 			r = exp.left.compileExp + " " + exp.operator + " " + exp.right.compileExp
-		} else if (false) {
-			// exp instanceof Math
-			// r = exp.left.compileExp + " " + exp.operator + " " + exp.right.compileExp
-			r = "Math is TODO"
-		} else {
+		} else if (exp instanceof Math) {
+			r = exp.left.compileExp + " " + exp.operator + " " + exp.right.compileExp
+		} 
+		else if(exp instanceof TextExp){
+			r = "TextExp is still todo :)))"
+		}
+		else {
+			// It must be a primary
 			switch exp {
 				// Math: exp.left.compileExp + " " + exp.operator + " " + exp.right.compileExp
 				This: r = exp.value
@@ -41,6 +47,7 @@ class ExpResolverUtil {
 				ID: r = exp.value
 				Type: r = exp.compileType
 				Parenthesis: r = "(" + exp.exp.compileExp + ")"
+				default: r = "We failed to hit a switch case and defaulted..."
 			}
 		}
 

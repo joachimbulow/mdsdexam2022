@@ -18,10 +18,12 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.xtext.example.if22.if22.Announcement;
 import org.xtext.example.if22.if22.End;
+import org.xtext.example.if22.if22.Expression;
 import org.xtext.example.if22.if22.Program;
 import org.xtext.example.if22.if22.Question;
 import org.xtext.example.if22.if22.Scenario;
 import org.xtext.example.if22.if22.Statement;
+import org.xtext.example.if22.if22.Target;
 import org.xtext.example.if22.if22.Type;
 import org.xtext.example.if22.if22.TypeBoolean;
 import org.xtext.example.if22.if22.TypeNumber;
@@ -277,8 +279,7 @@ public class If22Generator extends AbstractGenerator {
         String _plus = (_compileTypeFromExp + " _");
         String _name = q.getName();
         String _plus_1 = (_plus + _name);
-        String _plus_2 = (_plus_1 + 
-          ";\n");
+        String _plus_2 = (_plus_1 + ";\n");
         r = (_r + _plus_2);
       }
     }
@@ -298,15 +299,18 @@ public class If22Generator extends AbstractGenerator {
     _builder.append(_compileExp, "\t");
     _builder.append("\");");
     _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("nextInteraction = \"");
-    String _name_1 = announcement.getTargets().get(0).getName();
-    _builder.append(_name_1, "\t");
-    _builder.append("\";");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("break;");
-    _builder.newLine();
+    {
+      EList<Target> _targets = announcement.getTargets();
+      for(final Target t : _targets) {
+        _builder.append("\t");
+        Expression _targetCheck = t.getTargetCheck();
+        String _name_1 = announcement.getName();
+        String _plus = ("_" + _name_1);
+        String _compileTargetWithConditional = If22Generator.compileTargetWithConditional(t, _targetCheck, _plus);
+        _builder.append(_compileTargetWithConditional, "\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder.toString();
   }
   
@@ -341,15 +345,18 @@ public class If22Generator extends AbstractGenerator {
     String _readInputString = If22Generator.readInputString(ExpResolverUtil.getTypeFromExp(question.getQType()));
     _builder.append(_readInputString, "\t\t");
     _builder.newLineIfNotEmpty();
-    _builder.append("\t\t");
-    _builder.append("nextInteraction = \"");
-    String _name_2 = question.getTargets().get(0).getName();
-    _builder.append(_name_2, "\t\t");
-    _builder.append("\";");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t\t");
-    _builder.append("break;");
-    _builder.newLine();
+    {
+      EList<Target> _targets = question.getTargets();
+      for(final Target t : _targets) {
+        _builder.append("\t\t");
+        Expression _targetCheck = t.getTargetCheck();
+        String _name_2 = question.getName();
+        String _plus = ("_" + _name_2);
+        String _compileTargetWithConditional = If22Generator.compileTargetWithConditional(t, _targetCheck, _plus);
+        _builder.append(_compileTargetWithConditional, "\t\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.append("\t");
     _builder.append("} catch (Exception ex) {");
     _builder.newLine();
@@ -404,6 +411,42 @@ public class If22Generator extends AbstractGenerator {
       }
     }
     return _switchResult;
+  }
+  
+  public static String compileTargetWithConditional(final Target target, final Expression targetCheck, final String thisReference) {
+    String r = "";
+    if ((targetCheck != null)) {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("if (");
+      String _compileExp = ExpResolverUtil.compileExp(targetCheck);
+      _builder.append(_compileExp);
+      _builder.append(") {");
+      _builder.newLineIfNotEmpty();
+      _builder.append("\t");
+      _builder.append("nextInteraction = \"");
+      String _name = target.getName();
+      _builder.append(_name, "\t");
+      _builder.append("\";");
+      _builder.newLineIfNotEmpty();
+      _builder.append("\t");
+      _builder.append("break;");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      r = _builder.toString();
+    } else {
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("nextInteraction = \"");
+      String _name_1 = target.getName();
+      _builder_1.append(_name_1);
+      _builder_1.append("\";");
+      _builder_1.newLineIfNotEmpty();
+      _builder_1.append("break;");
+      _builder_1.newLine();
+      r = _builder_1.toString();
+    }
+    r = r.replaceAll("this", thisReference);
+    return r;
   }
   
   public static String compileStatement(final Statement announcement) {
