@@ -1,0 +1,9 @@
+grammar org.xtext.example.mydsl.If22 with org.eclipse.xtext.common.Terminals
+
+generate if22 "http://www.xtext.org/example/mydsl/If22"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
