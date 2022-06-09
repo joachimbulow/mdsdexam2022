@@ -3,7 +3,17 @@
  */
 package org.xtext.example.if22.scoping;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.Scopes;
+import org.xtext.example.if22.if22.EndingTarget;
+import org.xtext.example.if22.if22.Program;
+import org.eclipse.xtext.EcoreUtil2;
 /**
  * This class contains custom scoping description.
  * 
@@ -12,4 +22,6 @@ package org.xtext.example.if22.scoping;
  */
 public class If22ScopeProvider extends AbstractIf22ScopeProvider {
 
+
+		
 }

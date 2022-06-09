@@ -27,41 +27,45 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	public class ProgramElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.Program");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cStoryKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cExternalFunctionsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cExternalFunctionsFunctionParserRuleCall_2_0 = (RuleCall)cExternalFunctionsAssignment_2.eContents().get(0);
-		private final Assignment cScenariosAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cScenariosScenarioParserRuleCall_3_0 = (RuleCall)cScenariosAssignment_3.eContents().get(0);
+		private final Action cProgramAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cStoryKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Assignment cExternalFunctionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cExternalFunctionsFunctionParserRuleCall_3_0 = (RuleCall)cExternalFunctionsAssignment_3.eContents().get(0);
+		private final Assignment cScenariosAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cScenariosScenarioParserRuleCall_4_0 = (RuleCall)cScenariosAssignment_4.eContents().get(0);
 		
 		//Program:
-		//    'story' name=ID (externalFunctions+=Function)* (scenarios+=Scenario)*;
+		//    {Program} 'story' name=ID (externalFunctions+=Function)* (scenarios+=Scenario)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'story' name=ID (externalFunctions+=Function)* (scenarios+=Scenario)*
+		//{Program} 'story' name=ID (externalFunctions+=Function)* (scenarios+=Scenario)*
 		public Group getGroup() { return cGroup; }
 		
+		//{Program}
+		public Action getProgramAction_0() { return cProgramAction_0; }
+		
 		//'story'
-		public Keyword getStoryKeyword_0() { return cStoryKeyword_0; }
+		public Keyword getStoryKeyword_1() { return cStoryKeyword_1; }
 		
 		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 		
 		//(externalFunctions+=Function)*
-		public Assignment getExternalFunctionsAssignment_2() { return cExternalFunctionsAssignment_2; }
+		public Assignment getExternalFunctionsAssignment_3() { return cExternalFunctionsAssignment_3; }
 		
 		//Function
-		public RuleCall getExternalFunctionsFunctionParserRuleCall_2_0() { return cExternalFunctionsFunctionParserRuleCall_2_0; }
+		public RuleCall getExternalFunctionsFunctionParserRuleCall_3_0() { return cExternalFunctionsFunctionParserRuleCall_3_0; }
 		
 		//(scenarios+=Scenario)*
-		public Assignment getScenariosAssignment_3() { return cScenariosAssignment_3; }
+		public Assignment getScenariosAssignment_4() { return cScenariosAssignment_4; }
 		
 		//Scenario
-		public RuleCall getScenariosScenarioParserRuleCall_3_0() { return cScenariosScenarioParserRuleCall_3_0; }
+		public RuleCall getScenariosScenarioParserRuleCall_4_0() { return cScenariosScenarioParserRuleCall_4_0; }
 	}
 	public class FunctionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.if22.If22.Function");
@@ -949,7 +953,7 @@ public class If22GrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 
 	
 	//Program:
-	//    'story' name=ID (externalFunctions+=Function)* (scenarios+=Scenario)*;
+	//    {Program} 'story' name=ID (externalFunctions+=Function)* (scenarios+=Scenario)*;
 	public ProgramElements getProgramAccess() {
 		return pProgram;
 	}

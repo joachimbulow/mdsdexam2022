@@ -65,9 +65,9 @@ public class If22Parser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTypeAccess().getGroup_1(), "rule__Type__Group_1__0");
 			builder.put(grammarAccess.getTypeAccess().getGroup_2(), "rule__Type__Group_2__0");
 			builder.put(grammarAccess.getEndingTargetAccess().getGroup(), "rule__EndingTarget__Group__0");
-			builder.put(grammarAccess.getProgramAccess().getNameAssignment_1(), "rule__Program__NameAssignment_1");
-			builder.put(grammarAccess.getProgramAccess().getExternalFunctionsAssignment_2(), "rule__Program__ExternalFunctionsAssignment_2");
-			builder.put(grammarAccess.getProgramAccess().getScenariosAssignment_3(), "rule__Program__ScenariosAssignment_3");
+			builder.put(grammarAccess.getProgramAccess().getNameAssignment_2(), "rule__Program__NameAssignment_2");
+			builder.put(grammarAccess.getProgramAccess().getExternalFunctionsAssignment_3(), "rule__Program__ExternalFunctionsAssignment_3");
+			builder.put(grammarAccess.getProgramAccess().getScenariosAssignment_4(), "rule__Program__ScenariosAssignment_4");
 			builder.put(grammarAccess.getFunctionAccess().getNameAssignment_1(), "rule__Function__NameAssignment_1");
 			builder.put(grammarAccess.getFunctionAccess().getInputTypeAssignment_3(), "rule__Function__InputTypeAssignment_3");
 			builder.put(grammarAccess.getFunctionAccess().getReturnTypeAssignment_6(), "rule__Function__ReturnTypeAssignment_6");

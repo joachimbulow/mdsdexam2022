@@ -3,7 +3,7 @@ grammar org.xtext.example.if22.If22 with org.eclipse.xtext.common.Terminals
 generate if22 "http://www.xtext.org/example/if22/If22"
 
 Program:
-	'story' name=ID (externalFunctions+=Function)* (scenarios+=Scenario)*;
+	{Program} 'story' name=ID (externalFunctions+=Function)* (scenarios+=Scenario)*;
 
 Function:
 	'function' name=ID '(' inputType=Exp ')' ':' returnType=Type;

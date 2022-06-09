@@ -76,15 +76,22 @@ ruleProgram returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='story'
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getProgramAccess().getProgramAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='story'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getProgramAccess().getStoryKeyword_0());
+			newLeafNode(otherlv_1, grammarAccess.getProgramAccess().getStoryKeyword_1());
 		}
 		(
 			(
-				lv_name_1_0=RULE_ID
+				lv_name_2_0=RULE_ID
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getProgramAccess().getNameIDTerminalRuleCall_1_0());
+					newLeafNode(lv_name_2_0, grammarAccess.getProgramAccess().getNameIDTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
@@ -93,7 +100,7 @@ ruleProgram returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"name",
-						lv_name_1_0,
+						lv_name_2_0,
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
@@ -101,9 +108,9 @@ ruleProgram returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getProgramAccess().getExternalFunctionsFunctionParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getProgramAccess().getExternalFunctionsFunctionParserRuleCall_3_0());
 				}
-				lv_externalFunctions_2_0=ruleFunction
+				lv_externalFunctions_3_0=ruleFunction
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getProgramRule());
@@ -111,7 +118,7 @@ ruleProgram returns [EObject current=null]
 					add(
 						$current,
 						"externalFunctions",
-						lv_externalFunctions_2_0,
+						lv_externalFunctions_3_0,
 						"org.xtext.example.if22.If22.Function");
 					afterParserOrEnumRuleCall();
 				}
@@ -120,9 +127,9 @@ ruleProgram returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getProgramAccess().getScenariosScenarioParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getProgramAccess().getScenariosScenarioParserRuleCall_4_0());
 				}
-				lv_scenarios_3_0=ruleScenario
+				lv_scenarios_4_0=ruleScenario
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getProgramRule());
@@ -130,7 +137,7 @@ ruleProgram returns [EObject current=null]
 					add(
 						$current,
 						"scenarios",
-						lv_scenarios_3_0,
+						lv_scenarios_4_0,
 						"org.xtext.example.if22.If22.Scenario");
 					afterParserOrEnumRuleCall();
 				}
