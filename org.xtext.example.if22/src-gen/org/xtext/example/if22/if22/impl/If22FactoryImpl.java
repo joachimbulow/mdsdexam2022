@@ -17,6 +17,8 @@ import org.xtext.example.if22.if22.EXPINT;
 import org.xtext.example.if22.if22.EXPSTRING;
 import org.xtext.example.if22.if22.End;
 import org.xtext.example.if22.if22.Expression;
+import org.xtext.example.if22.if22.ExternalFunctionCall;
+import org.xtext.example.if22.if22.Function;
 import org.xtext.example.if22.if22.ID;
 import org.xtext.example.if22.if22.If22Factory;
 import org.xtext.example.if22.if22.If22Package;
@@ -88,6 +90,7 @@ public class If22FactoryImpl extends EFactoryImpl implements If22Factory
     switch (eClass.getClassifierID())
     {
       case If22Package.PROGRAM: return createProgram();
+      case If22Package.FUNCTION: return createFunction();
       case If22Package.SCENARIO: return createScenario();
       case If22Package.VARIABLE_DECLARATION: return createVariableDeclaration();
       case If22Package.STATEMENT: return createStatement();
@@ -105,6 +108,7 @@ public class If22FactoryImpl extends EFactoryImpl implements If22Factory
       case If22Package.EXPINT: return createEXPINT();
       case If22Package.EXPBOOL: return createEXPBOOL();
       case If22Package.ID: return createID();
+      case If22Package.EXTERNAL_FUNCTION_CALL: return createExternalFunctionCall();
       case If22Package.PARENTHESIS: return createParenthesis();
       case If22Package.TYPE_BOOLEAN: return createTypeBoolean();
       case If22Package.TYPE_TEXT: return createTypeText();
@@ -124,6 +128,18 @@ public class If22FactoryImpl extends EFactoryImpl implements If22Factory
   {
     ProgramImpl program = new ProgramImpl();
     return program;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Function createFunction()
+  {
+    FunctionImpl function = new FunctionImpl();
+    return function;
   }
 
   /**
@@ -328,6 +344,18 @@ public class If22FactoryImpl extends EFactoryImpl implements If22Factory
   {
     IDImpl id = new IDImpl();
     return id;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExternalFunctionCall createExternalFunctionCall()
+  {
+    ExternalFunctionCallImpl externalFunctionCall = new ExternalFunctionCallImpl();
+    return externalFunctionCall;
   }
 
   /**

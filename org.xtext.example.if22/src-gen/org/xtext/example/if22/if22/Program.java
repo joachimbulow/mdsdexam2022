@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.if22.if22.Program#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.if22.if22.Program#getExternalFunctions <em>External Functions</em>}</li>
  *   <li>{@link org.xtext.example.if22.if22.Program#getScenarios <em>Scenarios</em>}</li>
  * </ul>
  *
@@ -47,6 +48,18 @@ public interface Program extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>External Functions</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.if22.if22.Function}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>External Functions</em>' containment reference list.
+   * @see org.xtext.example.if22.if22.If22Package#getProgram_ExternalFunctions()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Function> getExternalFunctions();
 
   /**
    * Returns the value of the '<em><b>Scenarios</b></em>' containment reference list.

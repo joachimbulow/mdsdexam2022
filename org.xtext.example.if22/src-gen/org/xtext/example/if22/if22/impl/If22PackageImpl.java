@@ -13,6 +13,8 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.xtext.example.if22.if22.Announcement;
 import org.xtext.example.if22.if22.End;
 import org.xtext.example.if22.if22.Expression;
+import org.xtext.example.if22.if22.ExternalFunctionCall;
+import org.xtext.example.if22.if22.Function;
 import org.xtext.example.if22.if22.If22Factory;
 import org.xtext.example.if22.if22.If22Package;
 import org.xtext.example.if22.if22.Logic;
@@ -44,6 +46,13 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   private EClass programEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass functionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -169,6 +178,13 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass externalFunctionCallEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass parenthesisEClass = null;
 
   /**
@@ -283,9 +299,64 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   @Override
-  public EReference getProgram_Scenarios()
+  public EReference getProgram_ExternalFunctions()
   {
     return (EReference)programEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getProgram_Scenarios()
+  {
+    return (EReference)programEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getFunction()
+  {
+    return functionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getFunction_Name()
+  {
+    return (EAttribute)functionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunction_InputType()
+  {
+    return (EReference)functionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunction_ReturnType()
+  {
+    return (EReference)functionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -800,6 +871,39 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   @Override
+  public EClass getExternalFunctionCall()
+  {
+    return externalFunctionCallEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getExternalFunctionCall_EfName()
+  {
+    return (EAttribute)externalFunctionCallEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getExternalFunctionCall_EfParameter()
+  {
+    return (EReference)externalFunctionCallEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getParenthesis()
   {
     return parenthesisEClass;
@@ -882,7 +986,13 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
     // Create classes and their features
     programEClass = createEClass(PROGRAM);
     createEAttribute(programEClass, PROGRAM__NAME);
+    createEReference(programEClass, PROGRAM__EXTERNAL_FUNCTIONS);
     createEReference(programEClass, PROGRAM__SCENARIOS);
+
+    functionEClass = createEClass(FUNCTION);
+    createEAttribute(functionEClass, FUNCTION__NAME);
+    createEReference(functionEClass, FUNCTION__INPUT_TYPE);
+    createEReference(functionEClass, FUNCTION__RETURN_TYPE);
 
     scenarioEClass = createEClass(SCENARIO);
     createEAttribute(scenarioEClass, SCENARIO__NAME);
@@ -947,6 +1057,10 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
     idEClass = createEClass(ID);
     createEAttribute(idEClass, ID__VALUE);
 
+    externalFunctionCallEClass = createEClass(EXTERNAL_FUNCTION_CALL);
+    createEAttribute(externalFunctionCallEClass, EXTERNAL_FUNCTION_CALL__EF_NAME);
+    createEReference(externalFunctionCallEClass, EXTERNAL_FUNCTION_CALL__EF_PARAMETER);
+
     parenthesisEClass = createEClass(PARENTHESIS);
     createEReference(parenthesisEClass, PARENTHESIS__EXP);
 
@@ -998,6 +1112,7 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
     expintEClass.getESuperTypes().add(this.getExpression());
     expboolEClass.getESuperTypes().add(this.getExpression());
     idEClass.getESuperTypes().add(this.getExpression());
+    externalFunctionCallEClass.getESuperTypes().add(this.getExpression());
     parenthesisEClass.getESuperTypes().add(this.getExpression());
     typeBooleanEClass.getESuperTypes().add(this.getType());
     typeTextEClass.getESuperTypes().add(this.getType());
@@ -1006,7 +1121,13 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
     // Initialize classes and features; add operations and parameters
     initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProgram_Name(), ecorePackage.getEString(), "name", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProgram_ExternalFunctions(), this.getFunction(), null, "externalFunctions", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProgram_Scenarios(), this.getScenario(), null, "scenarios", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(functionEClass, Function.class, "Function", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFunction_Name(), ecorePackage.getEString(), "name", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunction_InputType(), this.getType(), null, "inputType", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunction_ReturnType(), this.getType(), null, "returnType", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(scenarioEClass, Scenario.class, "Scenario", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getScenario_Name(), ecorePackage.getEString(), "name", null, 0, 1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1070,6 +1191,10 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
 
     initEClass(idEClass, org.xtext.example.if22.if22.ID.class, "ID", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getID_Value(), ecorePackage.getEString(), "value", null, 0, 1, org.xtext.example.if22.if22.ID.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(externalFunctionCallEClass, ExternalFunctionCall.class, "ExternalFunctionCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getExternalFunctionCall_EfName(), ecorePackage.getEString(), "efName", null, 0, 1, ExternalFunctionCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExternalFunctionCall_EfParameter(), this.getExpression(), null, "efParameter", null, 0, 1, ExternalFunctionCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(parenthesisEClass, Parenthesis.class, "Parenthesis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getParenthesis_Exp(), this.getExpression(), null, "exp", null, 0, 1, Parenthesis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -19,6 +19,8 @@ import org.xtext.example.if22.if22.EXPBOOL;
 import org.xtext.example.if22.if22.EXPINT;
 import org.xtext.example.if22.if22.EXPSTRING;
 import org.xtext.example.if22.if22.End;
+import org.xtext.example.if22.if22.ExternalFunctionCall;
+import org.xtext.example.if22.if22.Function;
 import org.xtext.example.if22.if22.ID;
 import org.xtext.example.if22.if22.If22Package;
 import org.xtext.example.if22.if22.Logic;
@@ -63,6 +65,12 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case If22Package.END:
 				sequence_End(context, (End) semanticObject); 
+				return; 
+			case If22Package.EXTERNAL_FUNCTION_CALL:
+				sequence_ExternalFunctionCall(context, (ExternalFunctionCall) semanticObject); 
+				return; 
+			case If22Package.FUNCTION:
+				sequence_Function(context, (Function) semanticObject); 
 				return; 
 			case If22Package.ID:
 				sequence_Primary(context, (ID) semanticObject); 
@@ -210,6 +218,60 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getExpAccess().getTextExpLeftAction_1_0_2_0(), semanticObject.getLeft());
 		feeder.accept(grammarAccess.getExpAccess().getRightPrimaryParserRuleCall_1_1_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Exp returns ExternalFunctionCall
+	 *     Exp.Logic_1_0_0_0 returns ExternalFunctionCall
+	 *     Exp.Math_1_0_1_0 returns ExternalFunctionCall
+	 *     Exp.TextExp_1_0_2_0 returns ExternalFunctionCall
+	 *     Primary returns ExternalFunctionCall
+	 *     ExternalFunctionCall returns ExternalFunctionCall
+	 *
+	 * Constraint:
+	 *     (efName=ID efParameter=Exp)
+	 * </pre>
+	 */
+	protected void sequence_ExternalFunctionCall(ISerializationContext context, ExternalFunctionCall semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.EXTERNAL_FUNCTION_CALL__EF_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.EXTERNAL_FUNCTION_CALL__EF_NAME));
+			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.EXTERNAL_FUNCTION_CALL__EF_PARAMETER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.EXTERNAL_FUNCTION_CALL__EF_PARAMETER));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExternalFunctionCallAccess().getEfNameIDTerminalRuleCall_1_0(), semanticObject.getEfName());
+		feeder.accept(grammarAccess.getExternalFunctionCallAccess().getEfParameterExpParserRuleCall_3_0(), semanticObject.getEfParameter());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Function returns Function
+	 *
+	 * Constraint:
+	 *     (name=ID inputType=Type returnType=Type)
+	 * </pre>
+	 */
+	protected void sequence_Function(ISerializationContext context, Function semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.FUNCTION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.FUNCTION__NAME));
+			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.FUNCTION__INPUT_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.FUNCTION__INPUT_TYPE));
+			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.FUNCTION__RETURN_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.FUNCTION__RETURN_TYPE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getFunctionAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getFunctionAccess().getInputTypeTypeParserRuleCall_3_0(), semanticObject.getInputType());
+		feeder.accept(grammarAccess.getFunctionAccess().getReturnTypeTypeParserRuleCall_6_0(), semanticObject.getReturnType());
 		feeder.finish();
 	}
 	
@@ -365,7 +427,7 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Program returns Program
 	 *
 	 * Constraint:
-	 *     (name=ID scenarios+=Scenario*)
+	 *     (name=ID externalFunctions+=Function* scenarios+=Scenario*)
 	 * </pre>
 	 */
 	protected void sequence_Program(ISerializationContext context, Program semanticObject) {

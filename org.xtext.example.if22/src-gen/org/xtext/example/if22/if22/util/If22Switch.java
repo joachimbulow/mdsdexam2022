@@ -14,6 +14,8 @@ import org.xtext.example.if22.if22.EXPINT;
 import org.xtext.example.if22.if22.EXPSTRING;
 import org.xtext.example.if22.if22.End;
 import org.xtext.example.if22.if22.Expression;
+import org.xtext.example.if22.if22.ExternalFunctionCall;
+import org.xtext.example.if22.if22.Function;
 import org.xtext.example.if22.if22.ID;
 import org.xtext.example.if22.if22.If22Package;
 import org.xtext.example.if22.if22.Logic;
@@ -98,6 +100,13 @@ public class If22Switch<T> extends Switch<T>
       {
         Program program = (Program)theEObject;
         T result = caseProgram(program);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case If22Package.FUNCTION:
+      {
+        Function function = (Function)theEObject;
+        T result = caseFunction(function);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -232,6 +241,14 @@ public class If22Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case If22Package.EXTERNAL_FUNCTION_CALL:
+      {
+        ExternalFunctionCall externalFunctionCall = (ExternalFunctionCall)theEObject;
+        T result = caseExternalFunctionCall(externalFunctionCall);
+        if (result == null) result = caseExpression(externalFunctionCall);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case If22Package.PARENTHESIS:
       {
         Parenthesis parenthesis = (Parenthesis)theEObject;
@@ -283,6 +300,22 @@ public class If22Switch<T> extends Switch<T>
    * @generated
    */
   public T caseProgram(Program object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Function</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Function</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFunction(Function object)
   {
     return null;
   }
@@ -555,6 +588,22 @@ public class If22Switch<T> extends Switch<T>
    * @generated
    */
   public T caseID(ID object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>External Function Call</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>External Function Call</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExternalFunctionCall(ExternalFunctionCall object)
   {
     return null;
   }

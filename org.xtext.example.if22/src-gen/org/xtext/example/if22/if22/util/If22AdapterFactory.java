@@ -16,6 +16,8 @@ import org.xtext.example.if22.if22.EXPINT;
 import org.xtext.example.if22.if22.EXPSTRING;
 import org.xtext.example.if22.if22.End;
 import org.xtext.example.if22.if22.Expression;
+import org.xtext.example.if22.if22.ExternalFunctionCall;
+import org.xtext.example.if22.if22.Function;
 import org.xtext.example.if22.if22.ID;
 import org.xtext.example.if22.if22.If22Package;
 import org.xtext.example.if22.if22.Logic;
@@ -100,6 +102,11 @@ public class If22AdapterFactory extends AdapterFactoryImpl
       public Adapter caseProgram(Program object)
       {
         return createProgramAdapter();
+      }
+      @Override
+      public Adapter caseFunction(Function object)
+      {
+        return createFunctionAdapter();
       }
       @Override
       public Adapter caseScenario(Scenario object)
@@ -187,6 +194,11 @@ public class If22AdapterFactory extends AdapterFactoryImpl
         return createIDAdapter();
       }
       @Override
+      public Adapter caseExternalFunctionCall(ExternalFunctionCall object)
+      {
+        return createExternalFunctionCallAdapter();
+      }
+      @Override
       public Adapter caseParenthesis(Parenthesis object)
       {
         return createParenthesisAdapter();
@@ -239,6 +251,21 @@ public class If22AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createProgramAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.Function <em>Function</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.if22.if22.Function
+   * @generated
+   */
+  public Adapter createFunctionAdapter()
   {
     return null;
   }
@@ -494,6 +521,21 @@ public class If22AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createIDAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.ExternalFunctionCall <em>External Function Call</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.if22.if22.ExternalFunctionCall
+   * @generated
+   */
+  public Adapter createExternalFunctionCallAdapter()
   {
     return null;
   }

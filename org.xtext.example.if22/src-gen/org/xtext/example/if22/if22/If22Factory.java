@@ -33,6 +33,15 @@ public interface If22Factory extends EFactory
   Program createProgram();
 
   /**
+   * Returns a new object of class '<em>Function</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Function</em>'.
+   * @generated
+   */
+  Function createFunction();
+
+  /**
    * Returns a new object of class '<em>Scenario</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -184,6 +193,15 @@ public interface If22Factory extends EFactory
    * @generated
    */
   ID createID();
+
+  /**
+   * Returns a new object of class '<em>External Function Call</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>External Function Call</em>'.
+   * @generated
+   */
+  ExternalFunctionCall createExternalFunctionCall();
 
   /**
    * Returns a new object of class '<em>Parenthesis</em>'.

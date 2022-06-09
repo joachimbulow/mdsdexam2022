@@ -77,13 +77,22 @@ public interface If22Package extends EPackage
   int PROGRAM__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>External Functions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROGRAM__EXTERNAL_FUNCTIONS = 1;
+
+  /**
    * The feature id for the '<em><b>Scenarios</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROGRAM__SCENARIOS = 1;
+  int PROGRAM__SCENARIOS = 2;
 
   /**
    * The number of structural features of the '<em>Program</em>' class.
@@ -92,7 +101,53 @@ public interface If22Package extends EPackage
    * @generated
    * @ordered
    */
-  int PROGRAM_FEATURE_COUNT = 2;
+  int PROGRAM_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.if22.if22.impl.FunctionImpl <em>Function</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.if22.if22.impl.FunctionImpl
+   * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getFunction()
+   * @generated
+   */
+  int FUNCTION = 1;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Input Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__INPUT_TYPE = 1;
+
+  /**
+   * The feature id for the '<em><b>Return Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__RETURN_TYPE = 2;
+
+  /**
+   * The number of structural features of the '<em>Function</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.if22.if22.impl.ScenarioImpl <em>Scenario</em>}' class.
@@ -102,7 +157,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getScenario()
    * @generated
    */
-  int SCENARIO = 1;
+  int SCENARIO = 2;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -148,7 +203,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getVariableDeclaration()
    * @generated
    */
-  int VARIABLE_DECLARATION = 2;
+  int VARIABLE_DECLARATION = 3;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -185,7 +240,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getStatement()
    * @generated
    */
-  int STATEMENT = 3;
+  int STATEMENT = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -213,7 +268,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getAnnouncement()
    * @generated
    */
-  int ANNOUNCEMENT = 4;
+  int ANNOUNCEMENT = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -259,7 +314,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getQuestion()
    * @generated
    */
-  int QUESTION = 5;
+  int QUESTION = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -323,7 +378,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getEnd()
    * @generated
    */
-  int END = 6;
+  int END = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -360,7 +415,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTarget()
    * @generated
    */
-  int TARGET = 7;
+  int TARGET = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -397,7 +452,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 8;
+  int EXPRESSION = 9;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -416,7 +471,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getType()
    * @generated
    */
-  int TYPE = 9;
+  int TYPE = 10;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -444,7 +499,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getLogic()
    * @generated
    */
-  int LOGIC = 10;
+  int LOGIC = 11;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -490,7 +545,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getMath()
    * @generated
    */
-  int MATH = 11;
+  int MATH = 12;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -536,7 +591,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTextExp()
    * @generated
    */
-  int TEXT_EXP = 12;
+  int TEXT_EXP = 13;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -573,7 +628,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getThis()
    * @generated
    */
-  int THIS = 13;
+  int THIS = 14;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -601,7 +656,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getEXPSTRING()
    * @generated
    */
-  int EXPSTRING = 14;
+  int EXPSTRING = 15;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -629,7 +684,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getEXPINT()
    * @generated
    */
-  int EXPINT = 15;
+  int EXPINT = 16;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -657,7 +712,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getEXPBOOL()
    * @generated
    */
-  int EXPBOOL = 16;
+  int EXPBOOL = 17;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -685,7 +740,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getID()
    * @generated
    */
-  int ID = 17;
+  int ID = 18;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -706,6 +761,43 @@ public interface If22Package extends EPackage
   int ID_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.if22.if22.impl.ExternalFunctionCallImpl <em>External Function Call</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.if22.if22.impl.ExternalFunctionCallImpl
+   * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getExternalFunctionCall()
+   * @generated
+   */
+  int EXTERNAL_FUNCTION_CALL = 19;
+
+  /**
+   * The feature id for the '<em><b>Ef Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTERNAL_FUNCTION_CALL__EF_NAME = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Ef Parameter</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTERNAL_FUNCTION_CALL__EF_PARAMETER = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>External Function Call</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTERNAL_FUNCTION_CALL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.if22.if22.impl.ParenthesisImpl <em>Parenthesis</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -713,7 +805,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getParenthesis()
    * @generated
    */
-  int PARENTHESIS = 18;
+  int PARENTHESIS = 20;
 
   /**
    * The feature id for the '<em><b>Exp</b></em>' containment reference.
@@ -741,7 +833,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTypeBoolean()
    * @generated
    */
-  int TYPE_BOOLEAN = 19;
+  int TYPE_BOOLEAN = 21;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -769,7 +861,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTypeText()
    * @generated
    */
-  int TYPE_TEXT = 20;
+  int TYPE_TEXT = 22;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -797,7 +889,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTypeNumber()
    * @generated
    */
-  int TYPE_NUMBER = 21;
+  int TYPE_NUMBER = 23;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -840,6 +932,17 @@ public interface If22Package extends EPackage
   EAttribute getProgram_Name();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.if22.if22.Program#getExternalFunctions <em>External Functions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>External Functions</em>'.
+   * @see org.xtext.example.if22.if22.Program#getExternalFunctions()
+   * @see #getProgram()
+   * @generated
+   */
+  EReference getProgram_ExternalFunctions();
+
+  /**
    * Returns the meta object for the containment reference list '{@link org.xtext.example.if22.if22.Program#getScenarios <em>Scenarios</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -849,6 +952,49 @@ public interface If22Package extends EPackage
    * @generated
    */
   EReference getProgram_Scenarios();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.if22.if22.Function <em>Function</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Function</em>'.
+   * @see org.xtext.example.if22.if22.Function
+   * @generated
+   */
+  EClass getFunction();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.if22.if22.Function#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.if22.if22.Function#getName()
+   * @see #getFunction()
+   * @generated
+   */
+  EAttribute getFunction_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.if22.if22.Function#getInputType <em>Input Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Input Type</em>'.
+   * @see org.xtext.example.if22.if22.Function#getInputType()
+   * @see #getFunction()
+   * @generated
+   */
+  EReference getFunction_InputType();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.if22.if22.Function#getReturnType <em>Return Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Return Type</em>'.
+   * @see org.xtext.example.if22.if22.Function#getReturnType()
+   * @see #getFunction()
+   * @generated
+   */
+  EReference getFunction_ReturnType();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.if22.if22.Scenario <em>Scenario</em>}'.
@@ -1340,6 +1486,38 @@ public interface If22Package extends EPackage
   EAttribute getID_Value();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.example.if22.if22.ExternalFunctionCall <em>External Function Call</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>External Function Call</em>'.
+   * @see org.xtext.example.if22.if22.ExternalFunctionCall
+   * @generated
+   */
+  EClass getExternalFunctionCall();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.if22.if22.ExternalFunctionCall#getEfName <em>Ef Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Ef Name</em>'.
+   * @see org.xtext.example.if22.if22.ExternalFunctionCall#getEfName()
+   * @see #getExternalFunctionCall()
+   * @generated
+   */
+  EAttribute getExternalFunctionCall_EfName();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.if22.if22.ExternalFunctionCall#getEfParameter <em>Ef Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Ef Parameter</em>'.
+   * @see org.xtext.example.if22.if22.ExternalFunctionCall#getEfParameter()
+   * @see #getExternalFunctionCall()
+   * @generated
+   */
+  EReference getExternalFunctionCall_EfParameter();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.if22.if22.Parenthesis <em>Parenthesis</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1432,12 +1610,54 @@ public interface If22Package extends EPackage
     EAttribute PROGRAM__NAME = eINSTANCE.getProgram_Name();
 
     /**
+     * The meta object literal for the '<em><b>External Functions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROGRAM__EXTERNAL_FUNCTIONS = eINSTANCE.getProgram_ExternalFunctions();
+
+    /**
      * The meta object literal for the '<em><b>Scenarios</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference PROGRAM__SCENARIOS = eINSTANCE.getProgram_Scenarios();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.FunctionImpl <em>Function</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.if22.if22.impl.FunctionImpl
+     * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getFunction()
+     * @generated
+     */
+    EClass FUNCTION = eINSTANCE.getFunction();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FUNCTION__NAME = eINSTANCE.getFunction_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Input Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION__INPUT_TYPE = eINSTANCE.getFunction_InputType();
+
+    /**
+     * The meta object literal for the '<em><b>Return Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION__RETURN_TYPE = eINSTANCE.getFunction_ReturnType();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.ScenarioImpl <em>Scenario</em>}' class.
@@ -1840,6 +2060,32 @@ public interface If22Package extends EPackage
      * @generated
      */
     EAttribute ID__VALUE = eINSTANCE.getID_Value();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.ExternalFunctionCallImpl <em>External Function Call</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.if22.if22.impl.ExternalFunctionCallImpl
+     * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getExternalFunctionCall()
+     * @generated
+     */
+    EClass EXTERNAL_FUNCTION_CALL = eINSTANCE.getExternalFunctionCall();
+
+    /**
+     * The meta object literal for the '<em><b>Ef Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXTERNAL_FUNCTION_CALL__EF_NAME = eINSTANCE.getExternalFunctionCall_EfName();
+
+    /**
+     * The meta object literal for the '<em><b>Ef Parameter</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXTERNAL_FUNCTION_CALL__EF_PARAMETER = eINSTANCE.getExternalFunctionCall_EfParameter();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.ParenthesisImpl <em>Parenthesis</em>}' class.

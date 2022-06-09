@@ -101,9 +101,28 @@ ruleProgram returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getProgramAccess().getScenariosScenarioParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getProgramAccess().getExternalFunctionsFunctionParserRuleCall_2_0());
 				}
-				lv_scenarios_2_0=ruleScenario
+				lv_externalFunctions_2_0=ruleFunction
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getProgramRule());
+					}
+					add(
+						$current,
+						"externalFunctions",
+						lv_externalFunctions_2_0,
+						"org.xtext.example.if22.If22.Function");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getProgramAccess().getScenariosScenarioParserRuleCall_3_0());
+				}
+				lv_scenarios_3_0=ruleScenario
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getProgramRule());
@@ -111,12 +130,103 @@ ruleProgram returns [EObject current=null]
 					add(
 						$current,
 						"scenarios",
-						lv_scenarios_2_0,
+						lv_scenarios_3_0,
 						"org.xtext.example.if22.If22.Scenario");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
+	)
+;
+
+// Entry rule entryRuleFunction
+entryRuleFunction returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getFunctionRule()); }
+	iv_ruleFunction=ruleFunction
+	{ $current=$iv_ruleFunction.current; }
+	EOF;
+
+// Rule Function
+ruleFunction returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='function'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getFunctionAccess().getFunctionKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getFunctionAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getFunctionRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_2='('
+		{
+			newLeafNode(otherlv_2, grammarAccess.getFunctionAccess().getLeftParenthesisKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getFunctionAccess().getInputTypeTypeParserRuleCall_3_0());
+				}
+				lv_inputType_3_0=ruleType
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getFunctionRule());
+					}
+					set(
+						$current,
+						"inputType",
+						lv_inputType_3_0,
+						"org.xtext.example.if22.If22.Type");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_4=')'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getFunctionAccess().getRightParenthesisKeyword_4());
+		}
+		otherlv_5=':'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getFunctionAccess().getColonKeyword_5());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getFunctionAccess().getReturnTypeTypeParserRuleCall_6_0());
+				}
+				lv_returnType_6_0=ruleType
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getFunctionRule());
+					}
+					set(
+						$current,
+						"returnType",
+						lv_returnType_6_0,
+						"org.xtext.example.if22.If22.Type");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 	)
 ;
 
@@ -1036,6 +1146,86 @@ rulePrimary returns [EObject current=null]
 				)
 			)
 		)
+		    |
+		{
+			newCompositeNode(grammarAccess.getPrimaryAccess().getExternalFunctionCallParserRuleCall_7());
+		}
+		this_ExternalFunctionCall_12=ruleExternalFunctionCall
+		{
+			$current = $this_ExternalFunctionCall_12.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleExternalFunctionCall
+entryRuleExternalFunctionCall returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExternalFunctionCallRule()); }
+	iv_ruleExternalFunctionCall=ruleExternalFunctionCall
+	{ $current=$iv_ruleExternalFunctionCall.current; }
+	EOF;
+
+// Rule ExternalFunctionCall
+ruleExternalFunctionCall returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getExternalFunctionCallAccess().getExternalFunctionCallAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				lv_efName_1_0=RULE_ID
+				{
+					newLeafNode(lv_efName_1_0, grammarAccess.getExternalFunctionCallAccess().getEfNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getExternalFunctionCallRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"efName",
+						lv_efName_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_2='('
+		{
+			newLeafNode(otherlv_2, grammarAccess.getExternalFunctionCallAccess().getLeftParenthesisKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getExternalFunctionCallAccess().getEfParameterExpParserRuleCall_3_0());
+				}
+				lv_efParameter_3_0=ruleExp
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getExternalFunctionCallRule());
+					}
+					set(
+						$current,
+						"efParameter",
+						lv_efParameter_3_0,
+						"org.xtext.example.if22.If22.Exp");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_4=')'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getExternalFunctionCallAccess().getRightParenthesisKeyword_4());
+		}
 	)
 ;
 

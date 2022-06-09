@@ -8,7 +8,13 @@
       fileExtensions="if" ecorePackage="If22.ecore#/">
     <genClasses ecoreClass="If22.ecore#//Program">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//Program/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Program/externalFunctions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Program/scenarios"/>
+    </genClasses>
+    <genClasses ecoreClass="If22.ecore#//Function">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//Function/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Function/inputType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Function/returnType"/>
     </genClasses>
     <genClasses ecoreClass="If22.ecore#//Scenario">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//Scenario/name"/>
@@ -71,6 +77,10 @@
     </genClasses>
     <genClasses ecoreClass="If22.ecore#//ID">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//ID/value"/>
+    </genClasses>
+    <genClasses ecoreClass="If22.ecore#//ExternalFunctionCall">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//ExternalFunctionCall/efName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//ExternalFunctionCall/efParameter"/>
     </genClasses>
     <genClasses ecoreClass="If22.ecore#//Parenthesis">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Parenthesis/exp"/>

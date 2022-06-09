@@ -20,6 +20,7 @@ import org.xtext.example.if22.if22.TextExp
 import javax.script.ScriptEngineManager
 import javax.script.ScriptEngine
 import javax.script.ScriptException
+import org.xtext.example.if22.if22.ExternalFunctionCall
 
 /**
  * Generates code from your model files on save.
@@ -41,13 +42,14 @@ class ExpResolverUtil {
 			// It must be a primary
 			switch exp {
 				// Math: exp.left.compileExp + " " + exp.operator + " " + exp.right.compileExp
-				This: r = exp.value
+				This: r = If22Generator.currentVariableName
 				EXPSTRING: r = "\"" + exp.value + "\""
 				EXPINT: r = exp.value.toString()
 				EXPBOOL: r = exp.value == "true" ? "true" : "false"
 				ID: r = exp.value
 				Type: r = exp.compileType
 				Parenthesis: r = "(" + exp.exp.compileExp + ")"
+				ExternalFunctionCall: r = "external." + exp.efName+"(" + (exp.efParameter instanceof Type ? If22Generator.currentVariableName : exp.efParameter.compileExp) + ")"
 				default: r = "We failed to hit a switch case and defaulted..."
 			}
 		}
@@ -81,7 +83,10 @@ class ExpResolverUtil {
 			return exp.readInputString
 		}
 		if (exp instanceof Logic) {
-			(exp.left as Type).readInputString
+			return (exp.left as Type).readInputString
+		}
+		if (exp instanceof ExternalFunctionCall) {
+			return (exp.efParameter as Type).readInputString
 		}
 	}
 

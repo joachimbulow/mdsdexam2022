@@ -22,6 +22,8 @@ import org.xtext.example.if22.if22.Statement
 import org.xtext.example.if22.if22.Target
 import org.xtext.example.if22.if22.Expression
 import org.xtext.example.if22.if22.Logic
+import org.xtext.example.if22.if22.Function
+import org.xtext.example.if22.if22.ExternalFunctionCall
 
 /**
  * Generates code from your model files on save.
@@ -29,6 +31,8 @@ import org.xtext.example.if22.if22.Logic
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class If22Generator extends AbstractGenerator {
+
+	public static String currentVariableName = "";
 
 	static String PACKAGE_PATH = 'interactive_fiction_test/';
 	static String PACKAGE_PATH_NO_SLASH = PACKAGE_PATH.substring(0, PACKAGE_PATH.length() - 1);
@@ -38,6 +42,7 @@ class If22Generator extends AbstractGenerator {
 
 		compileGameFile(fsa, program.name, program.scenarios.get(0).name)
 		compileCommonPackage(fsa);
+		compileExternalFile(fsa, program.name);
 
 		for (Scenario s : program.scenarios) {
 			s.compileScenario(fsa, program.name)
@@ -94,6 +99,19 @@ class If22Generator extends AbstractGenerator {
 		fsa.generateFile(PACKAGE_PATH + "/common/Scenario.java", compilation);
 	}
 
+	def static compileExternalFile(IFileSystemAccess2 fsa, String storyName) {
+		var compilation = '''
+			package interactive_fiction.external_help;
+			
+			public interface External {
+				public boolean isEven(int param0);
+				public boolean isFavorite(String param1);
+				public int textLength(String param2);
+			}
+		'''
+		fsa.generateFile(PACKAGE_PATH + storyName + "/External.java", compilation);
+	}
+
 	// Actual compilation code ------------------------------------------------------
 	// Scenario
 	def static compileScenario(Scenario scenario, IFileSystemAccess2 fsa, String storyname) {
@@ -109,6 +127,8 @@ class If22Generator extends AbstractGenerator {
 				«ENDFOR»
 				
 				«compileImplicitVariables(scenario.statements)»
+				
+				«compileExternalFunctionSetup()»
 				
 				public String interact() throws IOException {
 					nextInteraction = "Start";
@@ -148,6 +168,17 @@ class If22Generator extends AbstractGenerator {
 		return r;
 	}
 
+	// External function setup
+	def static compileExternalFunctionSetup() {
+		'''
+			External external;
+			
+			ScenarioExternalHelp(External external) {
+				this.external = external;
+			}
+		'''
+	}
+
 	// --- Compiling statements using dispatch ---
 	// Announcement	TODO: COMPILE WITH SUBSTITUTING AMPERSAND
 	def static dispatch String compileStatement(Announcement announcement) {
@@ -162,17 +193,18 @@ class If22Generator extends AbstractGenerator {
 
 	// Question
 	def static dispatch String compileStatement(Question question) {
-		var variableName = question.reffedVar === null ? "_" + question.name : question.reffedVar.name;
+		currentVariableName = question.reffedVar === null ? "_" + question.name : question.reffedVar.name;
 		'''
 			case "«question.name»":
 				System.out.println(«ExpResolverUtil.compileExp(question.QString)»);
 				try {
-					«variableName» = «ExpResolverUtil.getInputStringFromExp(question.QType)»
-					«IF question.QType instanceof Logic»
-						if («compileInputValidationWithVariableName(question.QType, variableName)»){
-							break;
-						}
+					«currentVariableName» = «ExpResolverUtil.getInputStringFromExp(question.QType)»
+					«IF question.QType instanceof Logic || question.QType instanceof ExternalFunctionCall»
+					if («compileInputValidationWithVariableName(question.QType, currentVariableName)») {
+						break;
+					}
 					«ENDIF»
+					
 					«FOR t : question.targets»
 						«t.compileTargetWithConditional(t.targetCheck, "_" + question.name)»
 					«ENDFOR»
@@ -193,8 +225,6 @@ class If22Generator extends AbstractGenerator {
 	}
 
 	// --- END Dispatch statement compilation ---
-
-
 	// Targets with conditionals
 	def static compileTargetWithConditional(Target target, Expression targetCheck, String thisReference) {
 		var r = "";
@@ -212,18 +242,19 @@ class If22Generator extends AbstractGenerator {
 			'''
 		}
 		// Change an occurrence of "this" with the implicit variable name
-		r = r.replaceAll("this",thisReference);
+		r = r.replaceAll("this", thisReference);
 		return r;
 	}
-	
+
 	// Custom logic compilation for input validation
-	def static compileInputValidationWithVariableName(Expression validation, String variableName){
-		if (validation instanceof Logic){
+	def static compileInputValidationWithVariableName(Expression validation, String variableName) {
+		if (validation instanceof Logic) {
 			return '''!(«variableName» «validation.operator» «ExpResolverUtil.compileExp(validation.right)»)'''
 		}
+		if (validation instanceof ExternalFunctionCall){
+			return '''!(«ExpResolverUtil.compileExp(validation)»)'''
+		}
 	}
-	
-	// Question conditional break check
-	
 
+// Question conditional break check
 }

@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.xtext.example.if22.if22.Function;
 import org.xtext.example.if22.if22.If22Package;
 import org.xtext.example.if22.if22.Program;
 import org.xtext.example.if22.if22.Scenario;
@@ -32,6 +33,7 @@ import org.xtext.example.if22.if22.Scenario;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.if22.if22.impl.ProgramImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.if22.if22.impl.ProgramImpl#getExternalFunctions <em>External Functions</em>}</li>
  *   <li>{@link org.xtext.example.if22.if22.impl.ProgramImpl#getScenarios <em>Scenarios</em>}</li>
  * </ul>
  *
@@ -58,6 +60,16 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getExternalFunctions() <em>External Functions</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExternalFunctions()
+   * @generated
+   * @ordered
+   */
+  protected EList<Function> externalFunctions;
 
   /**
    * The cached value of the '{@link #getScenarios() <em>Scenarios</em>}' containment reference list.
@@ -121,6 +133,21 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
    * @generated
    */
   @Override
+  public EList<Function> getExternalFunctions()
+  {
+    if (externalFunctions == null)
+    {
+      externalFunctions = new EObjectContainmentEList<Function>(Function.class, this, If22Package.PROGRAM__EXTERNAL_FUNCTIONS);
+    }
+    return externalFunctions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<Scenario> getScenarios()
   {
     if (scenarios == null)
@@ -140,6 +167,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
   {
     switch (featureID)
     {
+      case If22Package.PROGRAM__EXTERNAL_FUNCTIONS:
+        return ((InternalEList<?>)getExternalFunctions()).basicRemove(otherEnd, msgs);
       case If22Package.PROGRAM__SCENARIOS:
         return ((InternalEList<?>)getScenarios()).basicRemove(otherEnd, msgs);
     }
@@ -158,6 +187,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
     {
       case If22Package.PROGRAM__NAME:
         return getName();
+      case If22Package.PROGRAM__EXTERNAL_FUNCTIONS:
+        return getExternalFunctions();
       case If22Package.PROGRAM__SCENARIOS:
         return getScenarios();
     }
@@ -177,6 +208,10 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
     {
       case If22Package.PROGRAM__NAME:
         setName((String)newValue);
+        return;
+      case If22Package.PROGRAM__EXTERNAL_FUNCTIONS:
+        getExternalFunctions().clear();
+        getExternalFunctions().addAll((Collection<? extends Function>)newValue);
         return;
       case If22Package.PROGRAM__SCENARIOS:
         getScenarios().clear();
@@ -199,6 +234,9 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
       case If22Package.PROGRAM__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case If22Package.PROGRAM__EXTERNAL_FUNCTIONS:
+        getExternalFunctions().clear();
+        return;
       case If22Package.PROGRAM__SCENARIOS:
         getScenarios().clear();
         return;
@@ -218,6 +256,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
     {
       case If22Package.PROGRAM__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case If22Package.PROGRAM__EXTERNAL_FUNCTIONS:
+        return externalFunctions != null && !externalFunctions.isEmpty();
       case If22Package.PROGRAM__SCENARIOS:
         return scenarios != null && !scenarios.isEmpty();
     }

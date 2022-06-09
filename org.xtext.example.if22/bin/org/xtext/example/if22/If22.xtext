@@ -3,7 +3,10 @@ grammar org.xtext.example.if22.If22 with org.eclipse.xtext.common.Terminals
 generate if22 "http://www.xtext.org/example/if22/If22"
 
 Program:
-	'story' name=ID (scenarios+=Scenario)*;
+	'story' name=ID (externalFunctions+=Function)* (scenarios+=Scenario)*;
+
+Function:
+	'function' name=ID '(' inputType=Exp ')' ':' returnType=Type;
 
 Scenario:
 	'scenario' name=ID '{'
@@ -12,8 +15,7 @@ Scenario:
 	'}';
 
 VariableDeclaration:
-	'var' name=ID ':' type=Type
-;
+	'var' name=ID ':' type=Type;
 
 Statement:
 	Announcement | Question | End;
@@ -30,23 +32,24 @@ End:
 Target:
 	'to' name=ID ('if' targetCheck=Exp)?;
 
-
 Exp returns Expression:
 	Primary
-	(({Logic.left=current} operator=('==' | '!=' | '<' | '>' | '<=' | '>=' | '&&' | '||') | {Math.left=current} operator=('+' | '-' | '*'
+	(({Logic.left=current} operator=('==' | '!=' | '<' | '>' | '<=' | '>=' | '&&' | '||') | {Math.left=current}
+	operator=('+' | '-' | '*'
 	| '/') | {TextExp.left=current} '&') right=Primary)*;
-	
-//Wtf er det her
-//| ID '(' (Exp (',' Exp)*)?')'))*;
 
 Primary returns Expression:
-	Parenthesis | Type | {This} value='this' | {EXPSTRING} value=STRING | {EXPINT} value=INT | {EXPBOOL} value=BOOLEAN | {ID} value=ID;
-	
+	Parenthesis | Type | {This} value='this' | {EXPSTRING} value=STRING | {EXPINT} value=INT | {EXPBOOL} value=BOOLEAN |
+	{ID} value=ID | ExternalFunctionCall;
+
+ExternalFunctionCall returns Expression:
+	{ExternalFunctionCall} efName=ID '(' efParameter=Exp ')';
+
 Parenthesis returns Expression:
 	{Parenthesis} '(' exp=Exp ')';
-	
+
 Type:
 	{TypeBoolean} value='boolean' | {TypeText} value='text' | {TypeNumber} value='number';
-	
+
 terminal BOOLEAN:
 	'true' | 'false';

@@ -8,6 +8,7 @@ import org.xtext.example.if22.if22.EXPBOOL;
 import org.xtext.example.if22.if22.EXPINT;
 import org.xtext.example.if22.if22.EXPSTRING;
 import org.xtext.example.if22.if22.Expression;
+import org.xtext.example.if22.if22.ExternalFunctionCall;
 import org.xtext.example.if22.if22.ID;
 import org.xtext.example.if22.if22.Logic;
 import org.xtext.example.if22.if22.Parenthesis;
@@ -53,7 +54,7 @@ public class ExpResolverUtil {
           boolean _matched = false;
           if (exp instanceof This) {
             _matched=true;
-            r = ((This)exp).getValue();
+            r = If22Generator.currentVariableName;
           }
           if (!_matched) {
             if (exp instanceof EXPSTRING) {
@@ -106,6 +107,24 @@ public class ExpResolverUtil {
             }
           }
           if (!_matched) {
+            if (exp instanceof ExternalFunctionCall) {
+              _matched=true;
+              String _efName = ((ExternalFunctionCall)exp).getEfName();
+              String _plus_8 = ("external." + _efName);
+              String _plus_9 = (_plus_8 + "(");
+              String _xifexpression = null;
+              Expression _efParameter = ((ExternalFunctionCall)exp).getEfParameter();
+              if ((_efParameter instanceof Type)) {
+                _xifexpression = If22Generator.currentVariableName;
+              } else {
+                _xifexpression = ExpResolverUtil.compileExp(((ExternalFunctionCall)exp).getEfParameter());
+              }
+              String _plus_10 = (_plus_9 + _xifexpression);
+              String _plus_11 = (_plus_10 + ")");
+              r = _plus_11;
+            }
+          }
+          if (!_matched) {
             r = "We failed to hit a switch case and defaulted...";
           }
         }
@@ -151,19 +170,18 @@ public class ExpResolverUtil {
   }
   
   public static String getInputStringFromExp(final Expression exp) {
-    String _xblockexpression = null;
-    {
-      if ((exp instanceof Type)) {
-        return ExpResolverUtil.readInputString(((Type)exp));
-      }
-      String _xifexpression = null;
-      if ((exp instanceof Logic)) {
-        Expression _left = ((Logic)exp).getLeft();
-        _xifexpression = ExpResolverUtil.readInputString(((Type) _left));
-      }
-      _xblockexpression = _xifexpression;
+    if ((exp instanceof Type)) {
+      return ExpResolverUtil.readInputString(((Type)exp));
     }
-    return _xblockexpression;
+    if ((exp instanceof Logic)) {
+      Expression _left = ((Logic)exp).getLeft();
+      return ExpResolverUtil.readInputString(((Type) _left));
+    }
+    if ((exp instanceof ExternalFunctionCall)) {
+      Expression _efParameter = ((ExternalFunctionCall)exp).getEfParameter();
+      return ExpResolverUtil.readInputString(((Type) _efParameter));
+    }
+    return null;
   }
   
   public static String readInputString(final Type type) {

@@ -19,6 +19,7 @@ import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.xtext.example.if22.if22.Announcement;
 import org.xtext.example.if22.if22.End;
 import org.xtext.example.if22.if22.Expression;
+import org.xtext.example.if22.if22.ExternalFunctionCall;
 import org.xtext.example.if22.if22.Logic;
 import org.xtext.example.if22.if22.Program;
 import org.xtext.example.if22.if22.Question;
@@ -38,6 +39,8 @@ import org.xtext.example.if22.if22.VariableDeclaration;
  */
 @SuppressWarnings("all")
 public class If22Generator extends AbstractGenerator {
+  public static String currentVariableName = "";
+  
   private static String PACKAGE_PATH = "interactive_fiction_test/";
   
   private static String PACKAGE_PATH_NO_SLASH = If22Generator.PACKAGE_PATH.substring(0, (If22Generator.PACKAGE_PATH.length() - 1));
@@ -46,6 +49,7 @@ public class If22Generator extends AbstractGenerator {
     final Program program = Iterators.<Program>filter(resource.getAllContents(), Program.class).next();
     If22Generator.compileGameFile(fsa, program.getName(), program.getScenarios().get(0).getName());
     If22Generator.compileCommonPackage(fsa);
+    If22Generator.compileExternalFile(fsa, program.getName());
     EList<Scenario> _scenarios = program.getScenarios();
     for (final Scenario s : _scenarios) {
       If22Generator.compileScenario(s, fsa, program.getName());
@@ -156,6 +160,28 @@ public class If22Generator extends AbstractGenerator {
     fsa.generateFile((If22Generator.PACKAGE_PATH + "/common/Scenario.java"), compilation);
   }
   
+  public static void compileExternalFile(final IFileSystemAccess2 fsa, final String storyName) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package interactive_fiction.external_help;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public interface External {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public boolean isEven(int param0);");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public boolean isFavorite(String param1);");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public int textLength(String param2);");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    String compilation = _builder.toString();
+    fsa.generateFile(((If22Generator.PACKAGE_PATH + storyName) + "/External.java"), compilation);
+  }
+  
   public static void compileScenario(final Scenario scenario, final IFileSystemAccess2 fsa, final String storyname) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package ");
@@ -191,6 +217,12 @@ public class If22Generator extends AbstractGenerator {
     _builder.append("\t");
     String _compileImplicitVariables = If22Generator.compileImplicitVariables(scenario.getStatements());
     _builder.append(_compileImplicitVariables, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    CharSequence _compileExternalFunctionSetup = If22Generator.compileExternalFunctionSetup();
+    _builder.append(_compileExternalFunctionSetup, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.newLine();
@@ -291,6 +323,21 @@ public class If22Generator extends AbstractGenerator {
     return r;
   }
   
+  public static CharSequence compileExternalFunctionSetup() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("External external;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("ScenarioExternalHelp(External external) {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("this.external = external;");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
   protected static String _compileStatement(final Announcement announcement) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("case \"");
@@ -331,7 +378,7 @@ public class If22Generator extends AbstractGenerator {
       } else {
         _xifexpression = question.getReffedVar().getName();
       }
-      String variableName = _xifexpression;
+      If22Generator.currentVariableName = _xifexpression;
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("case \"");
       String _name_1 = question.getName();
@@ -348,19 +395,18 @@ public class If22Generator extends AbstractGenerator {
       _builder.append("try {");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append(variableName, "\t\t");
+      _builder.append(If22Generator.currentVariableName, "\t\t");
       _builder.append(" = ");
       String _inputStringFromExp = ExpResolverUtil.getInputStringFromExp(question.getQType());
       _builder.append(_inputStringFromExp, "\t\t");
       _builder.newLineIfNotEmpty();
       {
-        Expression _qType = question.getQType();
-        if ((_qType instanceof Logic)) {
+        if (((question.getQType() instanceof Logic) || (question.getQType() instanceof ExternalFunctionCall))) {
           _builder.append("\t\t");
           _builder.append("if (");
-          String _compileInputValidationWithVariableName = If22Generator.compileInputValidationWithVariableName(question.getQType(), variableName);
+          String _compileInputValidationWithVariableName = If22Generator.compileInputValidationWithVariableName(question.getQType(), If22Generator.currentVariableName);
           _builder.append(_compileInputValidationWithVariableName, "\t\t");
-          _builder.append("){");
+          _builder.append(") {");
           _builder.newLineIfNotEmpty();
           _builder.append("\t\t");
           _builder.append("\t");
@@ -371,6 +417,8 @@ public class If22Generator extends AbstractGenerator {
           _builder.newLine();
         }
       }
+      _builder.append("\t\t");
+      _builder.newLine();
       {
         EList<Target> _targets = question.getTargets();
         for(final Target t : _targets) {
@@ -468,6 +516,14 @@ public class If22Generator extends AbstractGenerator {
       _builder.append(_compileExp);
       _builder.append(")");
       return _builder.toString();
+    }
+    if ((validation instanceof ExternalFunctionCall)) {
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("!(");
+      String _compileExp_1 = ExpResolverUtil.compileExp(validation);
+      _builder_1.append(_compileExp_1);
+      _builder_1.append(")");
+      return _builder_1.toString();
     }
     return null;
   }

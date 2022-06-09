@@ -38,6 +38,7 @@ public class If22Parser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPrimaryAccess().getAlternatives(), "rule__Primary__Alternatives");
 			builder.put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
 			builder.put(grammarAccess.getProgramAccess().getGroup(), "rule__Program__Group__0");
+			builder.put(grammarAccess.getFunctionAccess().getGroup(), "rule__Function__Group__0");
 			builder.put(grammarAccess.getScenarioAccess().getGroup(), "rule__Scenario__Group__0");
 			builder.put(grammarAccess.getVariableDeclarationAccess().getGroup(), "rule__VariableDeclaration__Group__0");
 			builder.put(grammarAccess.getAnnouncementAccess().getGroup(), "rule__Announcement__Group__0");
@@ -56,12 +57,17 @@ public class If22Parser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPrimaryAccess().getGroup_4(), "rule__Primary__Group_4__0");
 			builder.put(grammarAccess.getPrimaryAccess().getGroup_5(), "rule__Primary__Group_5__0");
 			builder.put(grammarAccess.getPrimaryAccess().getGroup_6(), "rule__Primary__Group_6__0");
+			builder.put(grammarAccess.getExternalFunctionCallAccess().getGroup(), "rule__ExternalFunctionCall__Group__0");
 			builder.put(grammarAccess.getParenthesisAccess().getGroup(), "rule__Parenthesis__Group__0");
 			builder.put(grammarAccess.getTypeAccess().getGroup_0(), "rule__Type__Group_0__0");
 			builder.put(grammarAccess.getTypeAccess().getGroup_1(), "rule__Type__Group_1__0");
 			builder.put(grammarAccess.getTypeAccess().getGroup_2(), "rule__Type__Group_2__0");
 			builder.put(grammarAccess.getProgramAccess().getNameAssignment_1(), "rule__Program__NameAssignment_1");
-			builder.put(grammarAccess.getProgramAccess().getScenariosAssignment_2(), "rule__Program__ScenariosAssignment_2");
+			builder.put(grammarAccess.getProgramAccess().getExternalFunctionsAssignment_2(), "rule__Program__ExternalFunctionsAssignment_2");
+			builder.put(grammarAccess.getProgramAccess().getScenariosAssignment_3(), "rule__Program__ScenariosAssignment_3");
+			builder.put(grammarAccess.getFunctionAccess().getNameAssignment_1(), "rule__Function__NameAssignment_1");
+			builder.put(grammarAccess.getFunctionAccess().getInputTypeAssignment_3(), "rule__Function__InputTypeAssignment_3");
+			builder.put(grammarAccess.getFunctionAccess().getReturnTypeAssignment_6(), "rule__Function__ReturnTypeAssignment_6");
 			builder.put(grammarAccess.getScenarioAccess().getNameAssignment_1(), "rule__Scenario__NameAssignment_1");
 			builder.put(grammarAccess.getScenarioAccess().getVariableDeclarationsAssignment_3(), "rule__Scenario__VariableDeclarationsAssignment_3");
 			builder.put(grammarAccess.getScenarioAccess().getStatementsAssignment_4(), "rule__Scenario__StatementsAssignment_4");
@@ -87,6 +93,8 @@ public class If22Parser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPrimaryAccess().getValueAssignment_4_1(), "rule__Primary__ValueAssignment_4_1");
 			builder.put(grammarAccess.getPrimaryAccess().getValueAssignment_5_1(), "rule__Primary__ValueAssignment_5_1");
 			builder.put(grammarAccess.getPrimaryAccess().getValueAssignment_6_1(), "rule__Primary__ValueAssignment_6_1");
+			builder.put(grammarAccess.getExternalFunctionCallAccess().getEfNameAssignment_1(), "rule__ExternalFunctionCall__EfNameAssignment_1");
+			builder.put(grammarAccess.getExternalFunctionCallAccess().getEfParameterAssignment_3(), "rule__ExternalFunctionCall__EfParameterAssignment_3");
 			builder.put(grammarAccess.getParenthesisAccess().getExpAssignment_2(), "rule__Parenthesis__ExpAssignment_2");
 			builder.put(grammarAccess.getTypeAccess().getValueAssignment_0_1(), "rule__Type__ValueAssignment_0_1");
 			builder.put(grammarAccess.getTypeAccess().getValueAssignment_1_1(), "rule__Type__ValueAssignment_1_1");
