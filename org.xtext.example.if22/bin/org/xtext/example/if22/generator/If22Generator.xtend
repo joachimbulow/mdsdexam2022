@@ -139,6 +139,7 @@ class If22Generator extends AbstractGenerator {
 	def static compileImplicitVariables(List<Statement> statements) {
 		var r = ""
 		for (q : statements.filter[statement|statement instanceof Question]) {
+			// Examples don't bother checking for this, but I do! >:)
 			if ((q as Question).reffedVar == null) {
 				r += ExpResolverUtil.compileTypeFromExp((q as Question).QType) + " _" + q.name + ";\n"
 			}

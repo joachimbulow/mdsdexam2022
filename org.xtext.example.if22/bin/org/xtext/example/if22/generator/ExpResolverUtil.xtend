@@ -17,6 +17,9 @@ import org.xtext.example.if22.if22.Expression
 import org.xtext.example.if22.if22.Logic
 import org.xtext.example.if22.if22.Math
 import org.xtext.example.if22.if22.TextExp
+import javax.script.ScriptEngineManager
+import javax.script.ScriptEngine
+import javax.script.ScriptException
 
 /**
  * Generates code from your model files on save.
@@ -69,10 +72,27 @@ class ExpResolverUtil {
 		return null;
 	}
 	
-	def static compileTypeFromExp(Expression exp) {
+	def static String compileTypeFromExp(Expression exp) {
 		if (exp instanceof Type) {
 			return exp.compileType
 		}
+		if (exp instanceof Logic){
+			var compiledExp = exp.compileExp
+			var manager = new ScriptEngineManager();
+			var engine = manager.getEngineByExtension("rhino");
+			try {
+			  var result = engine.eval("28 >= 25 && 28 <= 30") as Boolean;
+			  if (result) {
+			    System.out.println("OK OK");
+			  }
+			  else {
+			  	System.out.println("False!");
+			  }
+			} catch (ScriptException e) {
+			  e.printStackTrace();
+			}
+		}
+		return "Something didn't go as planned";
 	}
 
 }
