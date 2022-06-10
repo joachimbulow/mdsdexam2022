@@ -29,34 +29,39 @@ public class ExpResolverUtil {
   public static String compileExp(final Expression exp) {
     String r = "";
     if ((exp instanceof Logic)) {
-      String _compileExp = ExpResolverUtil.compileExp(((Logic)exp).getLeft());
-      String _plus = (_compileExp + " ");
-      String _operator = ((Logic)exp).getOperator();
-      String _plus_1 = (_plus + _operator);
-      String _plus_2 = (_plus_1 + " ");
-      String _compileExp_1 = ExpResolverUtil.compileExp(((Logic)exp).getRight());
-      String _plus_3 = (_plus_2 + _compileExp_1);
-      r = _plus_3;
+      String left = ExpResolverUtil.compileExp(((Logic)exp).getLeft());
+      String right = ExpResolverUtil.compileExp(((Logic)exp).getRight());
+      if ((((((Logic)exp).getLeft() instanceof EXPSTRING) || (((Logic)exp).getRight() instanceof EXPSTRING)) && ((Logic)exp).getOperator().equals("=="))) {
+        r = (((left + ".equals(") + right) + ")");
+      } else {
+        String _operator = ((Logic)exp).getOperator();
+        String _plus = ((left + " ") + _operator);
+        String _plus_1 = (_plus + " ");
+        String _plus_2 = (_plus_1 + right);
+        r = _plus_2;
+      }
     } else {
       if ((exp instanceof org.xtext.example.if22.if22.Math)) {
-        String _compileExp_2 = ExpResolverUtil.compileExp(((org.xtext.example.if22.if22.Math)exp).getLeft());
-        String _plus_4 = (_compileExp_2 + " ");
+        String _compileExp = ExpResolverUtil.compileExp(((org.xtext.example.if22.if22.Math)exp).getLeft());
+        String _plus_3 = (_compileExp + " ");
         String _operator_1 = ((org.xtext.example.if22.if22.Math)exp).getOperator();
-        String _plus_5 = (_plus_4 + _operator_1);
-        String _plus_6 = (_plus_5 + " ");
-        String _compileExp_3 = ExpResolverUtil.compileExp(((org.xtext.example.if22.if22.Math)exp).getRight());
-        String _plus_7 = (_plus_6 + _compileExp_3);
-        r = _plus_7;
+        String _plus_4 = (_plus_3 + _operator_1);
+        String _plus_5 = (_plus_4 + " ");
+        String _compileExp_1 = ExpResolverUtil.compileExp(((org.xtext.example.if22.if22.Math)exp).getRight());
+        String _plus_6 = (_plus_5 + _compileExp_1);
+        r = _plus_6;
       } else {
         if ((exp instanceof TextExp)) {
           Expression _left = ((TextExp)exp).getLeft();
-          String _compileExp_4 = ExpResolverUtil.compileExp(((TextExp) _left).getLeft());
+          String _compileExp_2 = ExpResolverUtil.compileExp(((TextExp) _left).getLeft());
+          String _plus_7 = (_compileExp_2 + "+");
           Expression _left_1 = ((TextExp)exp).getLeft();
-          String _compileExp_5 = ExpResolverUtil.compileExp(((TextExp) _left_1).getRight());
-          String _plus_8 = (_compileExp_4 + _compileExp_5);
-          String _compileExp_6 = ExpResolverUtil.compileExp(((TextExp)exp).getRight());
-          String _plus_9 = (_plus_8 + _compileExp_6);
-          r = _plus_9;
+          String _compileExp_3 = ExpResolverUtil.compileExp(((TextExp) _left_1).getRight());
+          String _plus_8 = (_plus_7 + _compileExp_3);
+          String _plus_9 = (_plus_8 + "+");
+          String _compileExp_4 = ExpResolverUtil.compileExp(((TextExp)exp).getRight());
+          String _plus_10 = (_plus_9 + _compileExp_4);
+          r = _plus_10;
         } else {
           boolean _matched = false;
           if (exp instanceof This) {
@@ -67,9 +72,9 @@ public class ExpResolverUtil {
             if (exp instanceof EXPSTRING) {
               _matched=true;
               String _value = ((EXPSTRING)exp).getValue();
-              String _plus_10 = ("\"" + _value);
-              String _plus_11 = (_plus_10 + "\"");
-              r = _plus_11;
+              String _plus_11 = ("\"" + _value);
+              String _plus_12 = (_plus_11 + "\"");
+              r = _plus_12;
             }
           }
           if (!_matched) {
@@ -107,18 +112,18 @@ public class ExpResolverUtil {
           if (!_matched) {
             if (exp instanceof Parenthesis) {
               _matched=true;
-              String _compileExp_7 = ExpResolverUtil.compileExp(((Parenthesis)exp).getExp());
-              String _plus_10 = ("(" + _compileExp_7);
-              String _plus_11 = (_plus_10 + ")");
-              r = _plus_11;
+              String _compileExp_5 = ExpResolverUtil.compileExp(((Parenthesis)exp).getExp());
+              String _plus_11 = ("(" + _compileExp_5);
+              String _plus_12 = (_plus_11 + ")");
+              r = _plus_12;
             }
           }
           if (!_matched) {
             if (exp instanceof ExternalFunctionCall) {
               _matched=true;
               String _efName = ((ExternalFunctionCall)exp).getEfName();
-              String _plus_10 = ("external." + _efName);
-              String _plus_11 = (_plus_10 + "(");
+              String _plus_11 = ("external." + _efName);
+              String _plus_12 = (_plus_11 + "(");
               String _xifexpression = null;
               Expression _efParameter = ((ExternalFunctionCall)exp).getEfParameter();
               if ((_efParameter instanceof Type)) {
@@ -126,13 +131,13 @@ public class ExpResolverUtil {
               } else {
                 _xifexpression = ExpResolverUtil.compileExp(((ExternalFunctionCall)exp).getEfParameter());
               }
-              String _plus_12 = (_plus_11 + _xifexpression);
-              String _plus_13 = (_plus_12 + ")");
-              r = _plus_13;
+              String _plus_13 = (_plus_12 + _xifexpression);
+              String _plus_14 = (_plus_13 + ")");
+              r = _plus_14;
             }
           }
           if (!_matched) {
-            r = "We failed to hit a switch case and defaulted...";
+            r = "";
           }
         }
       }

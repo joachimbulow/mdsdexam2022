@@ -34,17 +34,20 @@ import org.xtext.example.if22.if22.EndingTarget
 class If22Generator extends AbstractGenerator {
 
 	public static String currentVariableName = "";
+	public static boolean currentlyUsingExternal = false;
 
 	static String PACKAGE_PATH = 'interactive_fiction_test/';
 	static String PACKAGE_PATH_NO_SLASH = PACKAGE_PATH.substring(0, PACKAGE_PATH.length() - 1);
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		val program = resource.allContents.filter(Program).next
-
+		currentlyUsingExternal = program.externalFunctions.length > 0;
+		
 		compileGameFile(fsa, program.name, program.scenarios.get(0).name)
 		compileCommonPackage(fsa);
 		compileExternalFile(fsa, program.name);
 
+		
 		for (Scenario s : program.scenarios) {
 			s.compileScenario(fsa, program.name)
 		}
@@ -63,8 +66,8 @@ class If22Generator extends AbstractGenerator {
 				public Scenario start;
 				
 				// TODO ADD OPTIONAL EXTERNAL
-				public Game(){
-					this.start = new Scenario«firstScenarioName.toFirstUpper»();
+				public Game(«IF currentlyUsingExternal»External external«ENDIF»){
+					this.start = new Scenario«firstScenarioName.toFirstUpper»(«IF currentlyUsingExternal»external«ENDIF»);
 				}
 				
 				public void play()  throws IOException {
@@ -102,7 +105,7 @@ class If22Generator extends AbstractGenerator {
 
 	def static compileExternalFile(IFileSystemAccess2 fsa, String storyName) {
 		var compilation = '''
-			package interactive_fiction.external_help;
+			package «PACKAGE_PATH_NO_SLASH».«storyName»;
 			
 			public interface External {
 				public boolean isEven(int param0);
@@ -129,10 +132,10 @@ class If22Generator extends AbstractGenerator {
 				
 				«compileImplicitVariables(scenario.statements)»
 				
-				«compileExternalFunctionSetup()»
+				«compileExternalFunctionSetup(scenario.name)»
 				
 				public String interact() throws IOException {
-					nextInteraction = "Start";
+					nextInteraction = "«scenario.statements.get(0).name»";
 					while(true){
 						switch(nextInteraction){
 							«FOR statement : scenario.statements»
@@ -170,12 +173,12 @@ class If22Generator extends AbstractGenerator {
 	}
 
 	// External function setup
-	def static compileExternalFunctionSetup() {
-		'''
+	def static compileExternalFunctionSetup(String scenarioname) {
+		if (currentlyUsingExternal) '''
 			External external;
 			
-			ScenarioExternalHelp(External external) {
-				this.external = external;
+			Scenario«scenarioname.toFirstUpper»(«IF currentlyUsingExternal»External external«ENDIF») {
+				«IF currentlyUsingExternal»this.external = external;«ENDIF»
 			}
 		'''
 	}
@@ -231,8 +234,7 @@ class If22Generator extends AbstractGenerator {
 		if (targetCheck !== null) {
 			r = '''
 				if («ExpResolverUtil.compileExp(targetCheck)») {
-					nextInteraction = "«target.name»";
-					break;
+					«compileTargetDestination(target.destination, target.endTargets)»
 				}
 			'''
 		} else {
@@ -275,6 +277,7 @@ class If22Generator extends AbstractGenerator {
 		«FOR et : endingTargets»
 		if(calledScenarioEnd.equals("«et.callableEnd.name»")){
 			nextInteraction = "«et.selfdefinedEnd.name»";
+			break;
 		}
 		«ENDFOR»
 		'''

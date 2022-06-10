@@ -13,6 +13,7 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
@@ -43,12 +44,17 @@ import org.xtext.example.if22.if22.VariableDeclaration;
 public class If22Generator extends AbstractGenerator {
   public static String currentVariableName = "";
   
+  public static boolean currentlyUsingExternal = false;
+  
   private static String PACKAGE_PATH = "interactive_fiction_test/";
   
   private static String PACKAGE_PATH_NO_SLASH = If22Generator.PACKAGE_PATH.substring(0, (If22Generator.PACKAGE_PATH.length() - 1));
   
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     final Program program = Iterators.<Program>filter(resource.getAllContents(), Program.class).next();
+    int _length = ((Object[])Conversions.unwrapArray(program.getExternalFunctions(), Object.class)).length;
+    boolean _greaterThan = (_length > 0);
+    If22Generator.currentlyUsingExternal = _greaterThan;
     If22Generator.compileGameFile(fsa, program.getName(), program.getScenarios().get(0).getName());
     If22Generator.compileCommonPackage(fsa);
     If22Generator.compileExternalFile(fsa, program.getName());
@@ -85,13 +91,25 @@ public class If22Generator extends AbstractGenerator {
     _builder.append("// TODO ADD OPTIONAL EXTERNAL");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("public Game(){");
-    _builder.newLine();
+    _builder.append("public Game(");
+    {
+      if (If22Generator.currentlyUsingExternal) {
+        _builder.append("External external");
+      }
+    }
+    _builder.append("){");
+    _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     _builder.append("this.start = new Scenario");
     String _firstUpper = StringExtensions.toFirstUpper(firstScenarioName);
     _builder.append(_firstUpper, "\t\t");
-    _builder.append("();");
+    _builder.append("(");
+    {
+      if (If22Generator.currentlyUsingExternal) {
+        _builder.append("external");
+      }
+    }
+    _builder.append(");");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("}");
@@ -164,8 +182,12 @@ public class If22Generator extends AbstractGenerator {
   
   public static void compileExternalFile(final IFileSystemAccess2 fsa, final String storyName) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("package interactive_fiction.external_help;");
-    _builder.newLine();
+    _builder.append("package ");
+    _builder.append(If22Generator.PACKAGE_PATH_NO_SLASH);
+    _builder.append(".");
+    _builder.append(storyName);
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("public interface External {");
     _builder.newLine();
@@ -223,7 +245,7 @@ public class If22Generator extends AbstractGenerator {
     _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
-    CharSequence _compileExternalFunctionSetup = If22Generator.compileExternalFunctionSetup();
+    CharSequence _compileExternalFunctionSetup = If22Generator.compileExternalFunctionSetup(scenario.getName());
     _builder.append(_compileExternalFunctionSetup, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -232,8 +254,11 @@ public class If22Generator extends AbstractGenerator {
     _builder.append("public String interact() throws IOException {");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("nextInteraction = \"Start\";");
-    _builder.newLine();
+    _builder.append("nextInteraction = \"");
+    String _name = scenario.getStatements().get(0).getName();
+    _builder.append(_name, "\t\t");
+    _builder.append("\";");
+    _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     _builder.append("while(true){");
     _builder.newLine();
@@ -325,19 +350,36 @@ public class If22Generator extends AbstractGenerator {
     return r;
   }
   
-  public static CharSequence compileExternalFunctionSetup() {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("External external;");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("ScenarioExternalHelp(External external) {");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("this.external = external;");
-    _builder.newLine();
-    _builder.append("}");
-    _builder.newLine();
-    return _builder;
+  public static CharSequence compileExternalFunctionSetup(final String scenarioname) {
+    CharSequence _xifexpression = null;
+    if (If22Generator.currentlyUsingExternal) {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("External external;");
+      _builder.newLine();
+      _builder.newLine();
+      _builder.append("Scenario");
+      String _firstUpper = StringExtensions.toFirstUpper(scenarioname);
+      _builder.append(_firstUpper);
+      _builder.append("(");
+      {
+        if (If22Generator.currentlyUsingExternal) {
+          _builder.append("External external");
+        }
+      }
+      _builder.append(") {");
+      _builder.newLineIfNotEmpty();
+      _builder.append("\t");
+      {
+        if (If22Generator.currentlyUsingExternal) {
+          _builder.append("this.external = external;");
+        }
+      }
+      _builder.newLineIfNotEmpty();
+      _builder.append("}");
+      _builder.newLine();
+      _xifexpression = _builder;
+    }
+    return _xifexpression;
   }
   
   protected static String _compileStatement(final Announcement announcement) {
@@ -479,14 +521,9 @@ public class If22Generator extends AbstractGenerator {
       _builder.append(") {");
       _builder.newLineIfNotEmpty();
       _builder.append("\t");
-      _builder.append("nextInteraction = \"");
-      String _name = If22Generator.name(target);
-      _builder.append(_name, "\t");
-      _builder.append("\";");
+      String _compileTargetDestination = If22Generator.compileTargetDestination(target.getDestination(), target.getEndTargets());
+      _builder.append(_compileTargetDestination, "\t");
       _builder.newLineIfNotEmpty();
-      _builder.append("\t");
-      _builder.append("break;");
-      _builder.newLine();
       _builder.append("}");
       _builder.newLine();
       r = _builder.toString();
@@ -570,6 +607,9 @@ public class If22Generator extends AbstractGenerator {
         _builder.append(_name_1, "\t");
         _builder.append("\";");
         _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("break;");
+        _builder.newLine();
         _builder.append("}");
         _builder.newLine();
       }

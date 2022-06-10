@@ -17,9 +17,6 @@ import org.xtext.example.if22.if22.Expression
 import org.xtext.example.if22.if22.Logic
 import org.xtext.example.if22.if22.Math
 import org.xtext.example.if22.if22.TextExp
-import javax.script.ScriptEngineManager
-import javax.script.ScriptEngine
-import javax.script.ScriptException
 import org.xtext.example.if22.if22.ExternalFunctionCall
 
 /**
@@ -33,16 +30,22 @@ class ExpResolverUtil {
 	def static String compileExp(Expression exp) {
 		var r = "";
 		if (exp instanceof Logic) {
-			r = exp.left.compileExp + " " + exp.operator + " " + exp.right.compileExp
+			var left = exp.left.compileExp
+			var right = exp.right.compileExp
+			if ((exp.left instanceof EXPSTRING || exp.right instanceof EXPSTRING) && exp.operator.equals("==")){
+				r = left + ".equals(" + right+")"
+			}
+			else {
+				r = left + " " + exp.operator + " " + right
+			}
 		} else if (exp instanceof Math) {
 			r = exp.left.compileExp + " " + exp.operator + " " + exp.right.compileExp
 		} else if (exp instanceof TextExp) {
 			//Sub with variable name
-			r = (exp.left as TextExp).left.compileExp + (exp.left as TextExp).right.compileExp + exp.right.compileExp
+			r = (exp.left as TextExp).left.compileExp + "+" + (exp.left as TextExp).right.compileExp+ "+" + exp.right.compileExp
 		} else {
 			// It must be a primary
 			switch exp {
-				// Math: exp.left.compileExp + " " + exp.operator + " " + exp.right.compileExp
 				This: r = If22Generator.currentVariableName
 				EXPSTRING: r = "\"" + exp.value + "\""
 				EXPINT: r = exp.value.toString()
@@ -51,7 +54,7 @@ class ExpResolverUtil {
 				Type: r = exp.compileType
 				Parenthesis: r = "(" + exp.exp.compileExp + ")"
 				ExternalFunctionCall: r = "external." + exp.efName+"(" + (exp.efParameter instanceof Type ? If22Generator.currentVariableName : exp.efParameter.compileExp) + ")"
-				default: r = "We failed to hit a switch case and defaulted..."
+				default: r = ""
 			}
 		}
 
