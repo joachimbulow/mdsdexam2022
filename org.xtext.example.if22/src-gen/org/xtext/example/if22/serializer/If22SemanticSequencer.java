@@ -29,6 +29,8 @@ import org.xtext.example.if22.if22.Parenthesis;
 import org.xtext.example.if22.if22.Program;
 import org.xtext.example.if22.if22.Question;
 import org.xtext.example.if22.if22.Scenario;
+import org.xtext.example.if22.if22.ScenarioParameter;
+import org.xtext.example.if22.if22.ScenarioParameterInput;
 import org.xtext.example.if22.if22.Target;
 import org.xtext.example.if22.if22.TextExp;
 import org.xtext.example.if22.if22.This;
@@ -96,6 +98,12 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case If22Package.SCENARIO:
 				sequence_Scenario(context, (Scenario) semanticObject); 
+				return; 
+			case If22Package.SCENARIO_PARAMETER:
+				sequence_ScenarioParameter(context, (ScenarioParameter) semanticObject); 
+				return; 
+			case If22Package.SCENARIO_PARAMETER_INPUT:
+				sequence_ScenarioParameterInput(context, (ScenarioParameterInput) semanticObject); 
 				return; 
 			case If22Package.TARGET:
 				sequence_Target(context, (Target) semanticObject); 
@@ -483,11 +491,54 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     ScenarioParameterInput returns ScenarioParameterInput
+	 *
+	 * Constraint:
+	 *     parameter=Exp
+	 * </pre>
+	 */
+	protected void sequence_ScenarioParameterInput(ISerializationContext context, ScenarioParameterInput semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.SCENARIO_PARAMETER_INPUT__PARAMETER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.SCENARIO_PARAMETER_INPUT__PARAMETER));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getScenarioParameterInputAccess().getParameterExpParserRuleCall_0(), semanticObject.getParameter());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     ScenarioParameter returns ScenarioParameter
+	 *
+	 * Constraint:
+	 *     (parameter=Exp type=Exp)
+	 * </pre>
+	 */
+	protected void sequence_ScenarioParameter(ISerializationContext context, ScenarioParameter semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.SCENARIO_PARAMETER__PARAMETER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.SCENARIO_PARAMETER__PARAMETER));
+			if (transientValues.isValueTransient(semanticObject, If22Package.Literals.SCENARIO_PARAMETER__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, If22Package.Literals.SCENARIO_PARAMETER__TYPE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getScenarioParameterAccess().getParameterExpParserRuleCall_0_0(), semanticObject.getParameter());
+		feeder.accept(grammarAccess.getScenarioParameterAccess().getTypeExpParserRuleCall_2_0(), semanticObject.getType());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Scenario returns Scenario
 	 *     TargetDestination returns Scenario
 	 *
 	 * Constraint:
-	 *     (name=ID variableDeclarations+=VariableDeclaration* statements+=Statement*)
+	 *     (name=ID (parameters+=ScenarioParameter parameters+=ScenarioParameter*)? variableDeclarations+=VariableDeclaration* statements+=Statement*)
 	 * </pre>
 	 */
 	protected void sequence_Scenario(ISerializationContext context, Scenario semanticObject) {
@@ -501,7 +552,12 @@ public class If22SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Target returns Target
 	 *
 	 * Constraint:
-	 *     (destination=[TargetDestination|ID] targetCheck=Exp? endTargets+=EndingTarget*)
+	 *     (
+	 *         destination=[TargetDestination|ID] 
+	 *         (parameterInputs+=ScenarioParameterInput parameterInputs+=ScenarioParameterInput*)? 
+	 *         targetCheck=Exp? 
+	 *         endTargets+=EndingTarget*
+	 *     )
 	 * </pre>
 	 */
 	protected void sequence_Target(ISerializationContext context, Target semanticObject) {

@@ -17,8 +17,16 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Function/returnType"/>
     </genClasses>
     <genClasses ecoreClass="If22.ecore#//Scenario">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Scenario/parameters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Scenario/variableDeclarations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Scenario/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="If22.ecore#//ScenarioParameter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//ScenarioParameter/parameter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//ScenarioParameter/type"/>
+    </genClasses>
+    <genClasses ecoreClass="If22.ecore#//ScenarioParameterInput">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//ScenarioParameterInput/parameter"/>
     </genClasses>
     <genClasses ecoreClass="If22.ecore#//VariableDeclaration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute If22.ecore#//VariableDeclaration/name"/>
@@ -40,6 +48,7 @@
     </genClasses>
     <genClasses ecoreClass="If22.ecore#//Target">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference If22.ecore#//Target/destination"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Target/parameterInputs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Target/targetCheck"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference If22.ecore#//Target/endTargets"/>
     </genClasses>

@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.if22.if22.Target#getDestination <em>Destination</em>}</li>
+ *   <li>{@link org.xtext.example.if22.if22.Target#getParameterInputs <em>Parameter Inputs</em>}</li>
  *   <li>{@link org.xtext.example.if22.if22.Target#getTargetCheck <em>Target Check</em>}</li>
  *   <li>{@link org.xtext.example.if22.if22.Target#getEndTargets <em>End Targets</em>}</li>
  * </ul>
@@ -48,6 +49,18 @@ public interface Target extends EObject
    * @generated
    */
   void setDestination(TargetDestination value);
+
+  /**
+   * Returns the value of the '<em><b>Parameter Inputs</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.if22.if22.ScenarioParameterInput}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parameter Inputs</em>' containment reference list.
+   * @see org.xtext.example.if22.if22.If22Package#getTarget_ParameterInputs()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ScenarioParameterInput> getParameterInputs();
 
   /**
    * Returns the value of the '<em><b>Target Check</b></em>' containment reference.

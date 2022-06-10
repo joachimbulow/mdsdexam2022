@@ -3,6 +3,23 @@
  */
 package org.xtext.example.if22.validation;
 
+import com.google.common.collect.Iterables;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
+import org.xtext.example.if22.if22.End;
+import org.xtext.example.if22.if22.EndingTarget;
+import org.xtext.example.if22.if22.Function;
+import org.xtext.example.if22.if22.If22Package;
+import org.xtext.example.if22.if22.Program;
+import org.xtext.example.if22.if22.Scenario;
+import org.xtext.example.if22.if22.Statement;
+import org.xtext.example.if22.if22.Target;
+import org.xtext.example.if22.if22.TargetDestination;
+
 /**
  * This class contains custom validation rules.
  * 
@@ -10,4 +27,97 @@ package org.xtext.example.if22.validation;
  */
 @SuppressWarnings("all")
 public class If22Validator extends AbstractIf22Validator {
+  @Check
+  public void checkAllScenariosHaveEnds(final Scenario scenario) {
+    final Function1<Statement, Boolean> _function = new Function1<Statement, Boolean>() {
+      public Boolean apply(final Statement s) {
+        return Boolean.valueOf((s instanceof End));
+      }
+    };
+    int amountOfEnds = ((Object[])Conversions.unwrapArray(IterableExtensions.<Statement>filter(scenario.getStatements(), _function), Object.class)).length;
+    if ((amountOfEnds == 0)) {
+      this.error("Scenario has no end", If22Package.Literals.SCENARIO__STATEMENTS, 
+        "You must provide an end");
+    }
+  }
+  
+  @Check
+  public void noSameNameStatements(final Program program) {
+    final Function1<Scenario, EList<Statement>> _function = new Function1<Scenario, EList<Statement>>() {
+      public EList<Statement> apply(final Scenario s) {
+        return s.getStatements();
+      }
+    };
+    Iterable<Statement> allStatements = Iterables.<Statement>concat(ListExtensions.<Scenario, EList<Statement>>map(program.getScenarios(), _function));
+    for (final Statement s1 : allStatements) {
+      {
+        int duplicateCount = 0;
+        for (final Statement s2 : allStatements) {
+          boolean _equals = s1.getName().equals(s2.getName());
+          if (_equals) {
+            duplicateCount++;
+            if ((duplicateCount > 1)) {
+              this.error("Two statements have the same name", If22Package.Literals.PROGRAM__SCENARIOS, 
+                "Please name your statements differently, so the program knows where to go.");
+            }
+          }
+        }
+        duplicateCount = 0;
+      }
+    }
+  }
+  
+  @Check
+  public void checkAllScenariosHaveUniqueNames(final Program program) {
+    EList<Scenario> allScenarios = program.getScenarios();
+    for (final Scenario s1 : allScenarios) {
+      {
+        int duplicateCount = 0;
+        for (final Scenario s2 : allScenarios) {
+          boolean _equals = s1.getName().equals(s2.getName());
+          if (_equals) {
+            duplicateCount++;
+            if ((duplicateCount > 1)) {
+              this.error("Two scenarios have the same name", If22Package.Literals.PROGRAM__SCENARIOS, 
+                "Please name your scenarios differently, so the program knows where to go.");
+            }
+          }
+        }
+        duplicateCount = 0;
+      }
+    }
+  }
+  
+  @Check
+  public void checkAllFunctionsHaveUniqueNames(final Program program) {
+    EList<Function> allFunctions = program.getExternalFunctions();
+    for (final Function f1 : allFunctions) {
+      {
+        int duplicateCount = 0;
+        for (final Function f2 : allFunctions) {
+          boolean _equals = f1.getName().equals(f2.getName());
+          if (_equals) {
+            duplicateCount++;
+            if ((duplicateCount > 1)) {
+              this.error("Two functions have the same name", If22Package.Literals.PROGRAM__SCENARIOS, 
+                "Please name your functions differently, so the program knows where to go.");
+            }
+          }
+        }
+        duplicateCount = 0;
+      }
+    }
+  }
+  
+  @Check
+  public void checkEndingTargetsNotSpecifiedForStatementRedirection(final Target target) {
+    EList<EndingTarget> _endTargets = target.getEndTargets();
+    boolean hasEndingTarget = (_endTargets != null);
+    TargetDestination _destination = target.getDestination();
+    boolean isActuallyScenarioTarget = (_destination instanceof Scenario);
+    if ((hasEndingTarget && (!isActuallyScenarioTarget))) {
+      this.error("Ending targets defined for non-scenario", If22Package.Literals.PROGRAM__SCENARIOS, 
+        "It does not make sense to define ending targets for targets that are not scenarios.");
+    }
+  }
 }

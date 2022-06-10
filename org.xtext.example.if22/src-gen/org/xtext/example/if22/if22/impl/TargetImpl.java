@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.xtext.example.if22.if22.EndingTarget;
 import org.xtext.example.if22.if22.Expression;
 import org.xtext.example.if22.if22.If22Package;
+import org.xtext.example.if22.if22.ScenarioParameterInput;
 import org.xtext.example.if22.if22.Target;
 import org.xtext.example.if22.if22.TargetDestination;
 
@@ -34,6 +35,7 @@ import org.xtext.example.if22.if22.TargetDestination;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.if22.if22.impl.TargetImpl#getDestination <em>Destination</em>}</li>
+ *   <li>{@link org.xtext.example.if22.if22.impl.TargetImpl#getParameterInputs <em>Parameter Inputs</em>}</li>
  *   <li>{@link org.xtext.example.if22.if22.impl.TargetImpl#getTargetCheck <em>Target Check</em>}</li>
  *   <li>{@link org.xtext.example.if22.if22.impl.TargetImpl#getEndTargets <em>End Targets</em>}</li>
  * </ul>
@@ -51,6 +53,16 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target
    * @ordered
    */
   protected TargetDestination destination;
+
+  /**
+   * The cached value of the '{@link #getParameterInputs() <em>Parameter Inputs</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParameterInputs()
+   * @generated
+   * @ordered
+   */
+  protected EList<ScenarioParameterInput> parameterInputs;
 
   /**
    * The cached value of the '{@link #getTargetCheck() <em>Target Check</em>}' containment reference.
@@ -144,6 +156,21 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target
    * @generated
    */
   @Override
+  public EList<ScenarioParameterInput> getParameterInputs()
+  {
+    if (parameterInputs == null)
+    {
+      parameterInputs = new EObjectContainmentEList<ScenarioParameterInput>(ScenarioParameterInput.class, this, If22Package.TARGET__PARAMETER_INPUTS);
+    }
+    return parameterInputs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Expression getTargetCheck()
   {
     return targetCheck;
@@ -213,6 +240,8 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target
   {
     switch (featureID)
     {
+      case If22Package.TARGET__PARAMETER_INPUTS:
+        return ((InternalEList<?>)getParameterInputs()).basicRemove(otherEnd, msgs);
       case If22Package.TARGET__TARGET_CHECK:
         return basicSetTargetCheck(null, msgs);
       case If22Package.TARGET__END_TARGETS:
@@ -234,6 +263,8 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target
       case If22Package.TARGET__DESTINATION:
         if (resolve) return getDestination();
         return basicGetDestination();
+      case If22Package.TARGET__PARAMETER_INPUTS:
+        return getParameterInputs();
       case If22Package.TARGET__TARGET_CHECK:
         return getTargetCheck();
       case If22Package.TARGET__END_TARGETS:
@@ -255,6 +286,10 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target
     {
       case If22Package.TARGET__DESTINATION:
         setDestination((TargetDestination)newValue);
+        return;
+      case If22Package.TARGET__PARAMETER_INPUTS:
+        getParameterInputs().clear();
+        getParameterInputs().addAll((Collection<? extends ScenarioParameterInput>)newValue);
         return;
       case If22Package.TARGET__TARGET_CHECK:
         setTargetCheck((Expression)newValue);
@@ -280,6 +315,9 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target
       case If22Package.TARGET__DESTINATION:
         setDestination((TargetDestination)null);
         return;
+      case If22Package.TARGET__PARAMETER_INPUTS:
+        getParameterInputs().clear();
+        return;
       case If22Package.TARGET__TARGET_CHECK:
         setTargetCheck((Expression)null);
         return;
@@ -302,6 +340,8 @@ public class TargetImpl extends MinimalEObjectImpl.Container implements Target
     {
       case If22Package.TARGET__DESTINATION:
         return destination != null;
+      case If22Package.TARGET__PARAMETER_INPUTS:
+        return parameterInputs != null && !parameterInputs.isEmpty();
       case If22Package.TARGET__TARGET_CHECK:
         return targetCheck != null;
       case If22Package.TARGET__END_TARGETS:

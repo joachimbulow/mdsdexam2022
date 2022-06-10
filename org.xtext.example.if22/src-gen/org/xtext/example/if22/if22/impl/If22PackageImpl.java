@@ -23,6 +23,8 @@ import org.xtext.example.if22.if22.Parenthesis;
 import org.xtext.example.if22.if22.Program;
 import org.xtext.example.if22.if22.Question;
 import org.xtext.example.if22.if22.Scenario;
+import org.xtext.example.if22.if22.ScenarioParameter;
+import org.xtext.example.if22.if22.ScenarioParameterInput;
 import org.xtext.example.if22.if22.Statement;
 import org.xtext.example.if22.if22.Target;
 import org.xtext.example.if22.if22.TargetDestination;
@@ -62,6 +64,20 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   private EClass scenarioEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass scenarioParameterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass scenarioParameterInputEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -392,7 +408,7 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   @Override
-  public EReference getScenario_VariableDeclarations()
+  public EReference getScenario_Parameters()
   {
     return (EReference)scenarioEClass.getEStructuralFeatures().get(0);
   }
@@ -403,9 +419,75 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   @Override
-  public EReference getScenario_Statements()
+  public EReference getScenario_VariableDeclarations()
   {
     return (EReference)scenarioEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getScenario_Statements()
+  {
+    return (EReference)scenarioEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getScenarioParameter()
+  {
+    return scenarioParameterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getScenarioParameter_Parameter()
+  {
+    return (EReference)scenarioParameterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getScenarioParameter_Type()
+  {
+    return (EReference)scenarioParameterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getScenarioParameterInput()
+  {
+    return scenarioParameterInputEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getScenarioParameterInput_Parameter()
+  {
+    return (EReference)scenarioParameterInputEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -590,7 +672,7 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   @Override
-  public EReference getTarget_TargetCheck()
+  public EReference getTarget_ParameterInputs()
   {
     return (EReference)targetEClass.getEStructuralFeatures().get(1);
   }
@@ -601,9 +683,20 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
    * @generated
    */
   @Override
-  public EReference getTarget_EndTargets()
+  public EReference getTarget_TargetCheck()
   {
     return (EReference)targetEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getTarget_EndTargets()
+  {
+    return (EReference)targetEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1055,8 +1148,16 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
     createEReference(functionEClass, FUNCTION__RETURN_TYPE);
 
     scenarioEClass = createEClass(SCENARIO);
+    createEReference(scenarioEClass, SCENARIO__PARAMETERS);
     createEReference(scenarioEClass, SCENARIO__VARIABLE_DECLARATIONS);
     createEReference(scenarioEClass, SCENARIO__STATEMENTS);
+
+    scenarioParameterEClass = createEClass(SCENARIO_PARAMETER);
+    createEReference(scenarioParameterEClass, SCENARIO_PARAMETER__PARAMETER);
+    createEReference(scenarioParameterEClass, SCENARIO_PARAMETER__TYPE);
+
+    scenarioParameterInputEClass = createEClass(SCENARIO_PARAMETER_INPUT);
+    createEReference(scenarioParameterInputEClass, SCENARIO_PARAMETER_INPUT__PARAMETER);
 
     variableDeclarationEClass = createEClass(VARIABLE_DECLARATION);
     createEAttribute(variableDeclarationEClass, VARIABLE_DECLARATION__NAME);
@@ -1079,6 +1180,7 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
 
     targetEClass = createEClass(TARGET);
     createEReference(targetEClass, TARGET__DESTINATION);
+    createEReference(targetEClass, TARGET__PARAMETER_INPUTS);
     createEReference(targetEClass, TARGET__TARGET_CHECK);
     createEReference(targetEClass, TARGET__END_TARGETS);
 
@@ -1198,8 +1300,16 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
     initEReference(getFunction_ReturnType(), this.getType(), null, "returnType", null, 0, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(scenarioEClass, Scenario.class, "Scenario", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getScenario_Parameters(), this.getScenarioParameter(), null, "parameters", null, 0, -1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getScenario_VariableDeclarations(), this.getVariableDeclaration(), null, "variableDeclarations", null, 0, -1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getScenario_Statements(), this.getStatement(), null, "statements", null, 0, -1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(scenarioParameterEClass, ScenarioParameter.class, "ScenarioParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getScenarioParameter_Parameter(), this.getExpression(), null, "parameter", null, 0, 1, ScenarioParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getScenarioParameter_Type(), this.getExpression(), null, "type", null, 0, 1, ScenarioParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(scenarioParameterInputEClass, ScenarioParameterInput.class, "ScenarioParameterInput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getScenarioParameterInput_Parameter(), this.getExpression(), null, "parameter", null, 0, 1, ScenarioParameterInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(variableDeclarationEClass, VariableDeclaration.class, "VariableDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getVariableDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1222,6 +1332,7 @@ public class If22PackageImpl extends EPackageImpl implements If22Package
 
     initEClass(targetEClass, Target.class, "Target", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTarget_Destination(), this.getTargetDestination(), null, "destination", null, 0, 1, Target.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTarget_ParameterInputs(), this.getScenarioParameterInput(), null, "parameterInputs", null, 0, -1, Target.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTarget_TargetCheck(), this.getExpression(), null, "targetCheck", null, 0, 1, Target.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTarget_EndTargets(), this.getEndingTarget(), null, "endTargets", null, 0, -1, Target.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

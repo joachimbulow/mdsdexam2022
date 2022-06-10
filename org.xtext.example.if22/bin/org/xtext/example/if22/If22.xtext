@@ -9,10 +9,18 @@ Function:
 	'function' name=ID '(' inputType=Exp ')' ':' returnType=Type;
 
 Scenario:
-	'scenario' name=ID '{'
+	'scenario' name=ID ('(' parameters+=ScenarioParameter (',' parameters+=ScenarioParameter)* ')')? '{'
 	(variableDeclarations+=VariableDeclaration)*
 	(statements+=Statement)*
 	'}';
+
+ScenarioParameter:
+	parameter=Exp ':' type=Exp
+;
+
+ScenarioParameterInput:
+ parameter=Exp
+;
 
 VariableDeclaration:
 	'var' name=ID ':' type=Type;
@@ -30,7 +38,7 @@ End:
 	'end' name=ID exp=Exp?;
 
 Target:
-	{Target} 'to' destination=[TargetDestination] ('if' targetCheck=Exp)? ('{' (endTargets+=EndingTarget)+ '}')?;
+	{Target} 'to' destination=[TargetDestination] ('(' parameterInputs+=ScenarioParameterInput (',' parameterInputs+=ScenarioParameterInput)* ')')? ('if' targetCheck=Exp)? ('{' (endTargets+=EndingTarget)+ '}')?;
 
 Exp returns Expression:
 	Primary
@@ -58,7 +66,7 @@ TargetDestination:
 	Statement | Scenario
 ;
 
-// TODO: Scope this stuff!
+// Scoped cross references
 EndingTarget:
 	{EndingTarget}'on' callableEnd=[End] 'to' selfdefinedEnd=[End]
 ;

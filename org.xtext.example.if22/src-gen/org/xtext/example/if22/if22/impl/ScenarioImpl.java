@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.if22.if22.If22Package;
 import org.xtext.example.if22.if22.Scenario;
+import org.xtext.example.if22.if22.ScenarioParameter;
 import org.xtext.example.if22.if22.Statement;
 import org.xtext.example.if22.if22.VariableDeclaration;
 
@@ -28,6 +29,7 @@ import org.xtext.example.if22.if22.VariableDeclaration;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.if22.if22.impl.ScenarioImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.xtext.example.if22.if22.impl.ScenarioImpl#getVariableDeclarations <em>Variable Declarations</em>}</li>
  *   <li>{@link org.xtext.example.if22.if22.impl.ScenarioImpl#getStatements <em>Statements</em>}</li>
  * </ul>
@@ -36,6 +38,16 @@ import org.xtext.example.if22.if22.VariableDeclaration;
  */
 public class ScenarioImpl extends TargetDestinationImpl implements Scenario
 {
+  /**
+   * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParameters()
+   * @generated
+   * @ordered
+   */
+  protected EList<ScenarioParameter> parameters;
+
   /**
    * The cached value of the '{@link #getVariableDeclarations() <em>Variable Declarations</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -83,6 +95,21 @@ public class ScenarioImpl extends TargetDestinationImpl implements Scenario
    * @generated
    */
   @Override
+  public EList<ScenarioParameter> getParameters()
+  {
+    if (parameters == null)
+    {
+      parameters = new EObjectContainmentEList<ScenarioParameter>(ScenarioParameter.class, this, If22Package.SCENARIO__PARAMETERS);
+    }
+    return parameters;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<VariableDeclaration> getVariableDeclarations()
   {
     if (variableDeclarations == null)
@@ -117,6 +144,8 @@ public class ScenarioImpl extends TargetDestinationImpl implements Scenario
   {
     switch (featureID)
     {
+      case If22Package.SCENARIO__PARAMETERS:
+        return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
       case If22Package.SCENARIO__VARIABLE_DECLARATIONS:
         return ((InternalEList<?>)getVariableDeclarations()).basicRemove(otherEnd, msgs);
       case If22Package.SCENARIO__STATEMENTS:
@@ -135,6 +164,8 @@ public class ScenarioImpl extends TargetDestinationImpl implements Scenario
   {
     switch (featureID)
     {
+      case If22Package.SCENARIO__PARAMETERS:
+        return getParameters();
       case If22Package.SCENARIO__VARIABLE_DECLARATIONS:
         return getVariableDeclarations();
       case If22Package.SCENARIO__STATEMENTS:
@@ -154,6 +185,10 @@ public class ScenarioImpl extends TargetDestinationImpl implements Scenario
   {
     switch (featureID)
     {
+      case If22Package.SCENARIO__PARAMETERS:
+        getParameters().clear();
+        getParameters().addAll((Collection<? extends ScenarioParameter>)newValue);
+        return;
       case If22Package.SCENARIO__VARIABLE_DECLARATIONS:
         getVariableDeclarations().clear();
         getVariableDeclarations().addAll((Collection<? extends VariableDeclaration>)newValue);
@@ -176,6 +211,9 @@ public class ScenarioImpl extends TargetDestinationImpl implements Scenario
   {
     switch (featureID)
     {
+      case If22Package.SCENARIO__PARAMETERS:
+        getParameters().clear();
+        return;
       case If22Package.SCENARIO__VARIABLE_DECLARATIONS:
         getVariableDeclarations().clear();
         return;
@@ -196,6 +234,8 @@ public class ScenarioImpl extends TargetDestinationImpl implements Scenario
   {
     switch (featureID)
     {
+      case If22Package.SCENARIO__PARAMETERS:
+        return parameters != null && !parameters.isEmpty();
       case If22Package.SCENARIO__VARIABLE_DECLARATIONS:
         return variableDeclarations != null && !variableDeclarations.isEmpty();
       case If22Package.SCENARIO__STATEMENTS:

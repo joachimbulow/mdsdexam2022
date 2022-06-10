@@ -25,6 +25,7 @@ import org.xtext.example.if22.if22.Logic
 import org.xtext.example.if22.if22.Function
 import org.xtext.example.if22.if22.ExternalFunctionCall
 import org.xtext.example.if22.if22.EndingTarget
+import org.xtext.example.if22.if22.ScenarioParameterInput
 
 /**
  * Generates code from your model files on save.
@@ -45,7 +46,7 @@ class If22Generator extends AbstractGenerator {
 		
 		compileGameFile(fsa, program.name, program.scenarios.get(0).name)
 		compileCommonPackage(fsa);
-		compileExternalFile(fsa, program.name);
+		compileExternalFile(fsa, program.name, program.externalFunctions);
 
 		
 		for (Scenario s : program.scenarios) {
@@ -103,14 +104,16 @@ class If22Generator extends AbstractGenerator {
 		fsa.generateFile(PACKAGE_PATH + "/common/Scenario.java", compilation);
 	}
 
-	def static compileExternalFile(IFileSystemAccess2 fsa, String storyName) {
+	def static compileExternalFile(IFileSystemAccess2 fsa, String storyName, List<Function> externalFunctions) {
+		var count = 0;
 		var compilation = '''
 			package «PACKAGE_PATH_NO_SLASH».«storyName»;
 			
 			public interface External {
-				public boolean isEven(int param0);
-				public boolean isFavorite(String param1);
-				public int textLength(String param2);
+				«FOR f : externalFunctions»
+				public «ExpResolverUtil.compileExp(f.returnType)» «f.name»(«ExpResolverUtil.compileExp(f.inputType)» param«count++»);
+				«ENDFOR» 
+				
 			}
 		'''
 		fsa.generateFile(PACKAGE_PATH + storyName + "/External.java", compilation);
@@ -132,7 +135,7 @@ class If22Generator extends AbstractGenerator {
 				
 				«compileImplicitVariables(scenario.statements)»
 				
-				«compileExternalFunctionSetup(scenario.name)»
+				«compileExternalFunctionSetup(scenario)»
 				
 				public String interact() throws IOException {
 					nextInteraction = "«scenario.statements.get(0).name»";
@@ -173,14 +176,28 @@ class If22Generator extends AbstractGenerator {
 	}
 
 	// External function setup
-	def static compileExternalFunctionSetup(String scenarioname) {
-		if (currentlyUsingExternal) '''
+	def static compileExternalFunctionSetup(Scenario scenario) {
+		var r = "";
+		r += '''
+			«FOR param : scenario.parameters»
+				«ExpResolverUtil.compileExp(param.type)» «ExpResolverUtil.compileExp(param.parameter)»;
+			«ENDFOR»
+		'''
+		if (currentlyUsingExternal){
+			r += '''
 			External external;
-			
-			Scenario«scenarioname.toFirstUpper»(«IF currentlyUsingExternal»External external«ENDIF») {
-				«IF currentlyUsingExternal»this.external = external;«ENDIF»
+			'''
+		} 
+		r += '''
+			Scenario«scenario.name.toFirstUpper»(«FOR s : scenario.parameters SEPARATOR ','»«ExpResolverUtil.compileExp(s.type)» «ExpResolverUtil.compileExp(s.parameter)»«ENDFOR» «scenario.parameters.length > 0 && currentlyUsingExternal ? "," : ""» «currentlyUsingExternal ? "External external" : ""») {
+			«FOR param : scenario.parameters»
+				this.«ExpResolverUtil.compileExp(param.parameter)» = «ExpResolverUtil.compileExp(param.parameter)»;
+			«ENDFOR»
+			«currentlyUsingExternal ? "this.external = external;" : ""»
 			}
 		'''
+		
+		return r;
 	}
 
 	// --- Compiling statements using dispatch ---
@@ -234,12 +251,12 @@ class If22Generator extends AbstractGenerator {
 		if (targetCheck !== null) {
 			r = '''
 				if («ExpResolverUtil.compileExp(targetCheck)») {
-					«compileTargetDestination(target.destination, target.endTargets)»
+					«compileTargetDestination(target.destination, target.endTargets, target.parameterInputs.map[p | p.parameter])»
 					break;
 				}
 			'''
 		} else {
-			r = compileTargetDestination(target.destination, target.endTargets) + "break;"
+			r = compileTargetDestination(target.destination, target.endTargets, target.parameterInputs.map[p | p.parameter]) + "break;"
 			
 		}
 		// Change an occurrence of "this" with the implicit variable name
@@ -266,15 +283,15 @@ class If22Generator extends AbstractGenerator {
 	}
 	
 	// Compile TargetDestination correctly depending on the type using dispatch
-	def static dispatch String compileTargetDestination(Statement statement, List<EndingTarget> endingTargets) {
+	def static dispatch String compileTargetDestination(Statement statement, List<EndingTarget> endingTargets, List<Expression> params) {
 		'''
 			nextInteraction = "«statement.name»";
 		'''
 	}
 	
-	def static dispatch String compileTargetDestination(Scenario scenario, List<EndingTarget> endingTargets) {
+	def static dispatch String compileTargetDestination(Scenario scenario, List<EndingTarget> endingTargets, List<Expression> params) {
 		'''
-		calledScenarioEnd = new Scenario«scenario.name.toFirstUpper»().interact();
+		calledScenarioEnd = new Scenario«scenario.name.toFirstUpper»(«FOR param : params SEPARATOR ","» «ExpResolverUtil.compileExp(param)» «ENDFOR»«params.size > 0 && currentlyUsingExternal ? "," : ""» «currentlyUsingExternal ? "external" : ""»).interact();
 		«FOR et : endingTargets»
 		if(calledScenarioEnd.equals("«et.callableEnd.name»")){
 			nextInteraction = "«et.selfdefinedEnd.name»";

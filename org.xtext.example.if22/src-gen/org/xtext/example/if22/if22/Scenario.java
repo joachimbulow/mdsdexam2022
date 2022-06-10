@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.if22.if22.Scenario#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.xtext.example.if22.if22.Scenario#getVariableDeclarations <em>Variable Declarations</em>}</li>
  *   <li>{@link org.xtext.example.if22.if22.Scenario#getStatements <em>Statements</em>}</li>
  * </ul>
@@ -24,6 +25,18 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Scenario extends TargetDestination
 {
+  /**
+   * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.if22.if22.ScenarioParameter}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parameters</em>' containment reference list.
+   * @see org.xtext.example.if22.if22.If22Package#getScenario_Parameters()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ScenarioParameter> getParameters();
+
   /**
    * Returns the value of the '<em><b>Variable Declarations</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.example.if22.if22.VariableDeclaration}.

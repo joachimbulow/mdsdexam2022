@@ -157,7 +157,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTargetDestination()
    * @generated
    */
-  int TARGET_DESTINATION = 11;
+  int TARGET_DESTINATION = 13;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -197,13 +197,22 @@ public interface If22Package extends EPackage
   int SCENARIO__NAME = TARGET_DESTINATION__NAME;
 
   /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCENARIO__PARAMETERS = TARGET_DESTINATION_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Variable Declarations</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SCENARIO__VARIABLE_DECLARATIONS = TARGET_DESTINATION_FEATURE_COUNT + 0;
+  int SCENARIO__VARIABLE_DECLARATIONS = TARGET_DESTINATION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Statements</b></em>' containment reference list.
@@ -212,7 +221,7 @@ public interface If22Package extends EPackage
    * @generated
    * @ordered
    */
-  int SCENARIO__STATEMENTS = TARGET_DESTINATION_FEATURE_COUNT + 1;
+  int SCENARIO__STATEMENTS = TARGET_DESTINATION_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Scenario</em>' class.
@@ -221,7 +230,72 @@ public interface If22Package extends EPackage
    * @generated
    * @ordered
    */
-  int SCENARIO_FEATURE_COUNT = TARGET_DESTINATION_FEATURE_COUNT + 2;
+  int SCENARIO_FEATURE_COUNT = TARGET_DESTINATION_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.if22.if22.impl.ScenarioParameterImpl <em>Scenario Parameter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.if22.if22.impl.ScenarioParameterImpl
+   * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getScenarioParameter()
+   * @generated
+   */
+  int SCENARIO_PARAMETER = 3;
+
+  /**
+   * The feature id for the '<em><b>Parameter</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCENARIO_PARAMETER__PARAMETER = 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCENARIO_PARAMETER__TYPE = 1;
+
+  /**
+   * The number of structural features of the '<em>Scenario Parameter</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCENARIO_PARAMETER_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.if22.if22.impl.ScenarioParameterInputImpl <em>Scenario Parameter Input</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.if22.if22.impl.ScenarioParameterInputImpl
+   * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getScenarioParameterInput()
+   * @generated
+   */
+  int SCENARIO_PARAMETER_INPUT = 4;
+
+  /**
+   * The feature id for the '<em><b>Parameter</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCENARIO_PARAMETER_INPUT__PARAMETER = 0;
+
+  /**
+   * The number of structural features of the '<em>Scenario Parameter Input</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCENARIO_PARAMETER_INPUT_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.if22.if22.impl.VariableDeclarationImpl <em>Variable Declaration</em>}' class.
@@ -231,7 +305,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getVariableDeclaration()
    * @generated
    */
-  int VARIABLE_DECLARATION = 3;
+  int VARIABLE_DECLARATION = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -268,7 +342,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getStatement()
    * @generated
    */
-  int STATEMENT = 4;
+  int STATEMENT = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -296,7 +370,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getAnnouncement()
    * @generated
    */
-  int ANNOUNCEMENT = 5;
+  int ANNOUNCEMENT = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -342,7 +416,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getQuestion()
    * @generated
    */
-  int QUESTION = 6;
+  int QUESTION = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -406,7 +480,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getEnd()
    * @generated
    */
-  int END = 7;
+  int END = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -443,7 +517,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTarget()
    * @generated
    */
-  int TARGET = 8;
+  int TARGET = 10;
 
   /**
    * The feature id for the '<em><b>Destination</b></em>' reference.
@@ -455,13 +529,22 @@ public interface If22Package extends EPackage
   int TARGET__DESTINATION = 0;
 
   /**
+   * The feature id for the '<em><b>Parameter Inputs</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TARGET__PARAMETER_INPUTS = 1;
+
+  /**
    * The feature id for the '<em><b>Target Check</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TARGET__TARGET_CHECK = 1;
+  int TARGET__TARGET_CHECK = 2;
 
   /**
    * The feature id for the '<em><b>End Targets</b></em>' containment reference list.
@@ -470,7 +553,7 @@ public interface If22Package extends EPackage
    * @generated
    * @ordered
    */
-  int TARGET__END_TARGETS = 2;
+  int TARGET__END_TARGETS = 3;
 
   /**
    * The number of structural features of the '<em>Target</em>' class.
@@ -479,7 +562,7 @@ public interface If22Package extends EPackage
    * @generated
    * @ordered
    */
-  int TARGET_FEATURE_COUNT = 3;
+  int TARGET_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.xtext.example.if22.if22.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -489,7 +572,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 9;
+  int EXPRESSION = 11;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -508,7 +591,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getType()
    * @generated
    */
-  int TYPE = 10;
+  int TYPE = 12;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -536,7 +619,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getEndingTarget()
    * @generated
    */
-  int ENDING_TARGET = 12;
+  int ENDING_TARGET = 14;
 
   /**
    * The feature id for the '<em><b>Callable End</b></em>' reference.
@@ -573,7 +656,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getLogic()
    * @generated
    */
-  int LOGIC = 13;
+  int LOGIC = 15;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -619,7 +702,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getMath()
    * @generated
    */
-  int MATH = 14;
+  int MATH = 16;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -665,7 +748,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTextExp()
    * @generated
    */
-  int TEXT_EXP = 15;
+  int TEXT_EXP = 17;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -702,7 +785,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getThis()
    * @generated
    */
-  int THIS = 16;
+  int THIS = 18;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -730,7 +813,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getEXPSTRING()
    * @generated
    */
-  int EXPSTRING = 17;
+  int EXPSTRING = 19;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -758,7 +841,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getEXPINT()
    * @generated
    */
-  int EXPINT = 18;
+  int EXPINT = 20;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -786,7 +869,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getEXPBOOL()
    * @generated
    */
-  int EXPBOOL = 19;
+  int EXPBOOL = 21;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -814,7 +897,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getID()
    * @generated
    */
-  int ID = 20;
+  int ID = 22;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -842,7 +925,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getExternalFunctionCall()
    * @generated
    */
-  int EXTERNAL_FUNCTION_CALL = 21;
+  int EXTERNAL_FUNCTION_CALL = 23;
 
   /**
    * The feature id for the '<em><b>Ef Name</b></em>' attribute.
@@ -879,7 +962,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getParenthesis()
    * @generated
    */
-  int PARENTHESIS = 22;
+  int PARENTHESIS = 24;
 
   /**
    * The feature id for the '<em><b>Exp</b></em>' containment reference.
@@ -907,7 +990,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTypeBoolean()
    * @generated
    */
-  int TYPE_BOOLEAN = 23;
+  int TYPE_BOOLEAN = 25;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -935,7 +1018,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTypeText()
    * @generated
    */
-  int TYPE_TEXT = 24;
+  int TYPE_TEXT = 26;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -963,7 +1046,7 @@ public interface If22Package extends EPackage
    * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getTypeNumber()
    * @generated
    */
-  int TYPE_NUMBER = 25;
+  int TYPE_NUMBER = 27;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1081,6 +1164,17 @@ public interface If22Package extends EPackage
   EClass getScenario();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.if22.if22.Scenario#getParameters <em>Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Parameters</em>'.
+   * @see org.xtext.example.if22.if22.Scenario#getParameters()
+   * @see #getScenario()
+   * @generated
+   */
+  EReference getScenario_Parameters();
+
+  /**
    * Returns the meta object for the containment reference list '{@link org.xtext.example.if22.if22.Scenario#getVariableDeclarations <em>Variable Declarations</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1101,6 +1195,59 @@ public interface If22Package extends EPackage
    * @generated
    */
   EReference getScenario_Statements();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.if22.if22.ScenarioParameter <em>Scenario Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Scenario Parameter</em>'.
+   * @see org.xtext.example.if22.if22.ScenarioParameter
+   * @generated
+   */
+  EClass getScenarioParameter();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.if22.if22.ScenarioParameter#getParameter <em>Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Parameter</em>'.
+   * @see org.xtext.example.if22.if22.ScenarioParameter#getParameter()
+   * @see #getScenarioParameter()
+   * @generated
+   */
+  EReference getScenarioParameter_Parameter();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.if22.if22.ScenarioParameter#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see org.xtext.example.if22.if22.ScenarioParameter#getType()
+   * @see #getScenarioParameter()
+   * @generated
+   */
+  EReference getScenarioParameter_Type();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.if22.if22.ScenarioParameterInput <em>Scenario Parameter Input</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Scenario Parameter Input</em>'.
+   * @see org.xtext.example.if22.if22.ScenarioParameterInput
+   * @generated
+   */
+  EClass getScenarioParameterInput();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.if22.if22.ScenarioParameterInput#getParameter <em>Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Parameter</em>'.
+   * @see org.xtext.example.if22.if22.ScenarioParameterInput#getParameter()
+   * @see #getScenarioParameterInput()
+   * @generated
+   */
+  EReference getScenarioParameterInput_Parameter();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.if22.if22.VariableDeclaration <em>Variable Declaration</em>}'.
@@ -1271,6 +1418,17 @@ public interface If22Package extends EPackage
    * @generated
    */
   EReference getTarget_Destination();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.if22.if22.Target#getParameterInputs <em>Parameter Inputs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Parameter Inputs</em>'.
+   * @see org.xtext.example.if22.if22.Target#getParameterInputs()
+   * @see #getTarget()
+   * @generated
+   */
+  EReference getTarget_ParameterInputs();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.if22.if22.Target#getTargetCheck <em>Target Check</em>}'.
@@ -1786,6 +1944,14 @@ public interface If22Package extends EPackage
     EClass SCENARIO = eINSTANCE.getScenario();
 
     /**
+     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCENARIO__PARAMETERS = eINSTANCE.getScenario_Parameters();
+
+    /**
      * The meta object literal for the '<em><b>Variable Declarations</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1800,6 +1966,50 @@ public interface If22Package extends EPackage
      * @generated
      */
     EReference SCENARIO__STATEMENTS = eINSTANCE.getScenario_Statements();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.ScenarioParameterImpl <em>Scenario Parameter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.if22.if22.impl.ScenarioParameterImpl
+     * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getScenarioParameter()
+     * @generated
+     */
+    EClass SCENARIO_PARAMETER = eINSTANCE.getScenarioParameter();
+
+    /**
+     * The meta object literal for the '<em><b>Parameter</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCENARIO_PARAMETER__PARAMETER = eINSTANCE.getScenarioParameter_Parameter();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCENARIO_PARAMETER__TYPE = eINSTANCE.getScenarioParameter_Type();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.ScenarioParameterInputImpl <em>Scenario Parameter Input</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.if22.if22.impl.ScenarioParameterInputImpl
+     * @see org.xtext.example.if22.if22.impl.If22PackageImpl#getScenarioParameterInput()
+     * @generated
+     */
+    EClass SCENARIO_PARAMETER_INPUT = eINSTANCE.getScenarioParameterInput();
+
+    /**
+     * The meta object literal for the '<em><b>Parameter</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCENARIO_PARAMETER_INPUT__PARAMETER = eINSTANCE.getScenarioParameterInput_Parameter();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.if22.if22.impl.VariableDeclarationImpl <em>Variable Declaration</em>}' class.
@@ -1940,6 +2150,14 @@ public interface If22Package extends EPackage
      * @generated
      */
     EReference TARGET__DESTINATION = eINSTANCE.getTarget_Destination();
+
+    /**
+     * The meta object literal for the '<em><b>Parameter Inputs</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TARGET__PARAMETER_INPUTS = eINSTANCE.getTarget_ParameterInputs();
 
     /**
      * The meta object literal for the '<em><b>Target Check</b></em>' containment reference feature.

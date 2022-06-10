@@ -28,6 +28,8 @@ import org.xtext.example.if22.if22.Parenthesis;
 import org.xtext.example.if22.if22.Program;
 import org.xtext.example.if22.if22.Question;
 import org.xtext.example.if22.if22.Scenario;
+import org.xtext.example.if22.if22.ScenarioParameter;
+import org.xtext.example.if22.if22.ScenarioParameterInput;
 import org.xtext.example.if22.if22.Statement;
 import org.xtext.example.if22.if22.Target;
 import org.xtext.example.if22.if22.TargetDestination;
@@ -94,6 +96,8 @@ public class If22FactoryImpl extends EFactoryImpl implements If22Factory
       case If22Package.PROGRAM: return createProgram();
       case If22Package.FUNCTION: return createFunction();
       case If22Package.SCENARIO: return createScenario();
+      case If22Package.SCENARIO_PARAMETER: return createScenarioParameter();
+      case If22Package.SCENARIO_PARAMETER_INPUT: return createScenarioParameterInput();
       case If22Package.VARIABLE_DECLARATION: return createVariableDeclaration();
       case If22Package.STATEMENT: return createStatement();
       case If22Package.ANNOUNCEMENT: return createAnnouncement();
@@ -156,6 +160,30 @@ public class If22FactoryImpl extends EFactoryImpl implements If22Factory
   {
     ScenarioImpl scenario = new ScenarioImpl();
     return scenario;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ScenarioParameter createScenarioParameter()
+  {
+    ScenarioParameterImpl scenarioParameter = new ScenarioParameterImpl();
+    return scenarioParameter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ScenarioParameterInput createScenarioParameterInput()
+  {
+    ScenarioParameterInputImpl scenarioParameterInput = new ScenarioParameterInputImpl();
+    return scenarioParameterInput;
   }
 
   /**

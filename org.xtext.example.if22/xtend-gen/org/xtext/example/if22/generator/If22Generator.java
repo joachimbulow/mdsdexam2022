@@ -16,16 +16,20 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.xtext.example.if22.if22.Announcement;
 import org.xtext.example.if22.if22.End;
 import org.xtext.example.if22.if22.EndingTarget;
 import org.xtext.example.if22.if22.Expression;
 import org.xtext.example.if22.if22.ExternalFunctionCall;
+import org.xtext.example.if22.if22.Function;
 import org.xtext.example.if22.if22.Logic;
 import org.xtext.example.if22.if22.Program;
 import org.xtext.example.if22.if22.Question;
 import org.xtext.example.if22.if22.Scenario;
+import org.xtext.example.if22.if22.ScenarioParameter;
+import org.xtext.example.if22.if22.ScenarioParameterInput;
 import org.xtext.example.if22.if22.Statement;
 import org.xtext.example.if22.if22.Target;
 import org.xtext.example.if22.if22.TargetDestination;
@@ -57,7 +61,7 @@ public class If22Generator extends AbstractGenerator {
     If22Generator.currentlyUsingExternal = _greaterThan;
     If22Generator.compileGameFile(fsa, program.getName(), program.getScenarios().get(0).getName());
     If22Generator.compileCommonPackage(fsa);
-    If22Generator.compileExternalFile(fsa, program.getName());
+    If22Generator.compileExternalFile(fsa, program.getName(), program.getExternalFunctions());
     EList<Scenario> _scenarios = program.getScenarios();
     for (final Scenario s : _scenarios) {
       If22Generator.compileScenario(s, fsa, program.getName());
@@ -180,7 +184,8 @@ public class If22Generator extends AbstractGenerator {
     fsa.generateFile((If22Generator.PACKAGE_PATH + "/common/Scenario.java"), compilation);
   }
   
-  public static void compileExternalFile(final IFileSystemAccess2 fsa, final String storyName) {
+  public static void compileExternalFile(final IFileSystemAccess2 fsa, final String storyName, final List<Function> externalFunctions) {
+    int count = 0;
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package ");
     _builder.append(If22Generator.PACKAGE_PATH_NO_SLASH);
@@ -191,14 +196,26 @@ public class If22Generator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("public interface External {");
     _builder.newLine();
+    {
+      for(final Function f : externalFunctions) {
+        _builder.append("\t");
+        _builder.append("public ");
+        String _compileExp = ExpResolverUtil.compileExp(f.getReturnType());
+        _builder.append(_compileExp, "\t");
+        _builder.append(" ");
+        String _name = f.getName();
+        _builder.append(_name, "\t");
+        _builder.append("(");
+        String _compileExp_1 = ExpResolverUtil.compileExp(f.getInputType());
+        _builder.append(_compileExp_1, "\t");
+        _builder.append(" param");
+        int _plusPlus = count++;
+        _builder.append(_plusPlus, "\t");
+        _builder.append(");");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.append("\t");
-    _builder.append("public boolean isEven(int param0);");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("public boolean isFavorite(String param1);");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("public int textLength(String param2);");
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
@@ -245,7 +262,7 @@ public class If22Generator extends AbstractGenerator {
     _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
-    CharSequence _compileExternalFunctionSetup = If22Generator.compileExternalFunctionSetup(scenario.getName());
+    String _compileExternalFunctionSetup = If22Generator.compileExternalFunctionSetup(scenario);
     _builder.append(_compileExternalFunctionSetup, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -350,36 +367,95 @@ public class If22Generator extends AbstractGenerator {
     return r;
   }
   
-  public static CharSequence compileExternalFunctionSetup(final String scenarioname) {
-    CharSequence _xifexpression = null;
-    if (If22Generator.currentlyUsingExternal) {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("External external;");
-      _builder.newLine();
-      _builder.newLine();
-      _builder.append("Scenario");
-      String _firstUpper = StringExtensions.toFirstUpper(scenarioname);
-      _builder.append(_firstUpper);
-      _builder.append("(");
-      {
-        if (If22Generator.currentlyUsingExternal) {
-          _builder.append("External external");
-        }
+  public static String compileExternalFunctionSetup(final Scenario scenario) {
+    String r = "";
+    String _r = r;
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<ScenarioParameter> _parameters = scenario.getParameters();
+      for(final ScenarioParameter param : _parameters) {
+        String _compileExp = ExpResolverUtil.compileExp(param.getType());
+        _builder.append(_compileExp);
+        _builder.append(" ");
+        String _compileExp_1 = ExpResolverUtil.compileExp(param.getParameter());
+        _builder.append(_compileExp_1);
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
       }
-      _builder.append(") {");
-      _builder.newLineIfNotEmpty();
-      _builder.append("\t");
-      {
-        if (If22Generator.currentlyUsingExternal) {
-          _builder.append("this.external = external;");
-        }
-      }
-      _builder.newLineIfNotEmpty();
-      _builder.append("}");
-      _builder.newLine();
-      _xifexpression = _builder;
     }
-    return _xifexpression;
+    r = (_r + _builder);
+    if (If22Generator.currentlyUsingExternal) {
+      String _r_1 = r;
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("External external;");
+      _builder_1.newLine();
+      r = (_r_1 + _builder_1);
+    }
+    String _r_2 = r;
+    StringConcatenation _builder_2 = new StringConcatenation();
+    _builder_2.append("Scenario");
+    String _firstUpper = StringExtensions.toFirstUpper(scenario.getName());
+    _builder_2.append(_firstUpper);
+    _builder_2.append("(");
+    {
+      EList<ScenarioParameter> _parameters_1 = scenario.getParameters();
+      boolean _hasElements = false;
+      for(final ScenarioParameter s : _parameters_1) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder_2.appendImmediate(",", "");
+        }
+        String _compileExp_2 = ExpResolverUtil.compileExp(s.getType());
+        _builder_2.append(_compileExp_2);
+        _builder_2.append(" ");
+        String _compileExp_3 = ExpResolverUtil.compileExp(s.getParameter());
+        _builder_2.append(_compileExp_3);
+      }
+    }
+    _builder_2.append(" ");
+    String _xifexpression = null;
+    if (((((Object[])Conversions.unwrapArray(scenario.getParameters(), Object.class)).length > 0) && If22Generator.currentlyUsingExternal)) {
+      _xifexpression = ",";
+    } else {
+      _xifexpression = "";
+    }
+    _builder_2.append(_xifexpression);
+    _builder_2.append(" ");
+    String _xifexpression_1 = null;
+    if (If22Generator.currentlyUsingExternal) {
+      _xifexpression_1 = "External external";
+    } else {
+      _xifexpression_1 = "";
+    }
+    _builder_2.append(_xifexpression_1);
+    _builder_2.append(") {");
+    _builder_2.newLineIfNotEmpty();
+    {
+      EList<ScenarioParameter> _parameters_2 = scenario.getParameters();
+      for(final ScenarioParameter param_1 : _parameters_2) {
+        _builder_2.append("this.");
+        String _compileExp_4 = ExpResolverUtil.compileExp(param_1.getParameter());
+        _builder_2.append(_compileExp_4);
+        _builder_2.append(" = ");
+        String _compileExp_5 = ExpResolverUtil.compileExp(param_1.getParameter());
+        _builder_2.append(_compileExp_5);
+        _builder_2.append(";");
+        _builder_2.newLineIfNotEmpty();
+      }
+    }
+    String _xifexpression_2 = null;
+    if (If22Generator.currentlyUsingExternal) {
+      _xifexpression_2 = "this.external = external;";
+    } else {
+      _xifexpression_2 = "";
+    }
+    _builder_2.append(_xifexpression_2);
+    _builder_2.newLineIfNotEmpty();
+    _builder_2.append("}");
+    _builder_2.newLine();
+    r = (_r_2 + _builder_2);
+    return r;
   }
   
   protected static String _compileStatement(final Announcement announcement) {
@@ -521,7 +597,12 @@ public class If22Generator extends AbstractGenerator {
       _builder.append(") {");
       _builder.newLineIfNotEmpty();
       _builder.append("\t");
-      String _compileTargetDestination = If22Generator.compileTargetDestination(target.getDestination(), target.getEndTargets());
+      final Function1<ScenarioParameterInput, Expression> _function = new Function1<ScenarioParameterInput, Expression>() {
+        public Expression apply(final ScenarioParameterInput p) {
+          return p.getParameter();
+        }
+      };
+      String _compileTargetDestination = If22Generator.compileTargetDestination(target.getDestination(), target.getEndTargets(), ListExtensions.<ScenarioParameterInput, Expression>map(target.getParameterInputs(), _function));
       _builder.append(_compileTargetDestination, "\t");
       _builder.newLineIfNotEmpty();
       _builder.append("\t");
@@ -531,7 +612,12 @@ public class If22Generator extends AbstractGenerator {
       _builder.newLine();
       r = _builder.toString();
     } else {
-      String _compileTargetDestination_1 = If22Generator.compileTargetDestination(target.getDestination(), target.getEndTargets());
+      final Function1<ScenarioParameterInput, Expression> _function_1 = new Function1<ScenarioParameterInput, Expression>() {
+        public Expression apply(final ScenarioParameterInput p) {
+          return p.getParameter();
+        }
+      };
+      String _compileTargetDestination_1 = If22Generator.compileTargetDestination(target.getDestination(), target.getEndTargets(), ListExtensions.<ScenarioParameterInput, Expression>map(target.getParameterInputs(), _function_1));
       String _plus = (_compileTargetDestination_1 + "break;");
       r = _plus;
     }
@@ -580,7 +666,7 @@ public class If22Generator extends AbstractGenerator {
     return _switchResult;
   }
   
-  protected static String _compileTargetDestination(final Statement statement, final List<EndingTarget> endingTargets) {
+  protected static String _compileTargetDestination(final Statement statement, final List<EndingTarget> endingTargets, final List<Expression> params) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("nextInteraction = \"");
     String _name = statement.getName();
@@ -590,12 +676,42 @@ public class If22Generator extends AbstractGenerator {
     return _builder.toString();
   }
   
-  protected static String _compileTargetDestination(final Scenario scenario, final List<EndingTarget> endingTargets) {
+  protected static String _compileTargetDestination(final Scenario scenario, final List<EndingTarget> endingTargets, final List<Expression> params) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("calledScenarioEnd = new Scenario");
     String _firstUpper = StringExtensions.toFirstUpper(scenario.getName());
     _builder.append(_firstUpper);
-    _builder.append("().interact();");
+    _builder.append("(");
+    {
+      boolean _hasElements = false;
+      for(final Expression param : params) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate(",", "");
+        }
+        _builder.append(" ");
+        String _compileExp = ExpResolverUtil.compileExp(param);
+        _builder.append(_compileExp);
+        _builder.append(" ");
+      }
+    }
+    String _xifexpression = null;
+    if (((params.size() > 0) && If22Generator.currentlyUsingExternal)) {
+      _xifexpression = ",";
+    } else {
+      _xifexpression = "";
+    }
+    _builder.append(_xifexpression);
+    _builder.append(" ");
+    String _xifexpression_1 = null;
+    if (If22Generator.currentlyUsingExternal) {
+      _xifexpression_1 = "external";
+    } else {
+      _xifexpression_1 = "";
+    }
+    _builder.append(_xifexpression_1);
+    _builder.append(").interact();");
     _builder.newLineIfNotEmpty();
     {
       for(final EndingTarget et : endingTargets) {
@@ -633,14 +749,14 @@ public class If22Generator extends AbstractGenerator {
     }
   }
   
-  public static String compileTargetDestination(final TargetDestination scenario, final List<EndingTarget> endingTargets) {
+  public static String compileTargetDestination(final TargetDestination scenario, final List<EndingTarget> endingTargets, final List<Expression> params) {
     if (scenario instanceof Scenario) {
-      return _compileTargetDestination((Scenario)scenario, endingTargets);
+      return _compileTargetDestination((Scenario)scenario, endingTargets, params);
     } else if (scenario instanceof Statement) {
-      return _compileTargetDestination((Statement)scenario, endingTargets);
+      return _compileTargetDestination((Statement)scenario, endingTargets, params);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(scenario, endingTargets).toString());
+        Arrays.<Object>asList(scenario, endingTargets, params).toString());
     }
   }
 }

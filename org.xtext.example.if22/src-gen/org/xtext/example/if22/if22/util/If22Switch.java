@@ -24,6 +24,8 @@ import org.xtext.example.if22.if22.Parenthesis;
 import org.xtext.example.if22.if22.Program;
 import org.xtext.example.if22.if22.Question;
 import org.xtext.example.if22.if22.Scenario;
+import org.xtext.example.if22.if22.ScenarioParameter;
+import org.xtext.example.if22.if22.ScenarioParameterInput;
 import org.xtext.example.if22.if22.Statement;
 import org.xtext.example.if22.if22.Target;
 import org.xtext.example.if22.if22.TargetDestination;
@@ -117,6 +119,20 @@ public class If22Switch<T> extends Switch<T>
         Scenario scenario = (Scenario)theEObject;
         T result = caseScenario(scenario);
         if (result == null) result = caseTargetDestination(scenario);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case If22Package.SCENARIO_PARAMETER:
+      {
+        ScenarioParameter scenarioParameter = (ScenarioParameter)theEObject;
+        T result = caseScenarioParameter(scenarioParameter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case If22Package.SCENARIO_PARAMETER_INPUT:
+      {
+        ScenarioParameterInput scenarioParameterInput = (ScenarioParameterInput)theEObject;
+        T result = caseScenarioParameterInput(scenarioParameterInput);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -353,6 +369,38 @@ public class If22Switch<T> extends Switch<T>
    * @generated
    */
   public T caseScenario(Scenario object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Scenario Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Scenario Parameter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseScenarioParameter(ScenarioParameter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Scenario Parameter Input</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Scenario Parameter Input</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseScenarioParameterInput(ScenarioParameterInput object)
   {
     return null;
   }

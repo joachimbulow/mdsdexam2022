@@ -51,6 +51,24 @@ public interface If22Factory extends EFactory
   Scenario createScenario();
 
   /**
+   * Returns a new object of class '<em>Scenario Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Scenario Parameter</em>'.
+   * @generated
+   */
+  ScenarioParameter createScenarioParameter();
+
+  /**
+   * Returns a new object of class '<em>Scenario Parameter Input</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Scenario Parameter Input</em>'.
+   * @generated
+   */
+  ScenarioParameterInput createScenarioParameterInput();
+
+  /**
    * Returns a new object of class '<em>Variable Declaration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

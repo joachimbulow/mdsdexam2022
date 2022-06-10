@@ -26,6 +26,8 @@ import org.xtext.example.if22.if22.Parenthesis;
 import org.xtext.example.if22.if22.Program;
 import org.xtext.example.if22.if22.Question;
 import org.xtext.example.if22.if22.Scenario;
+import org.xtext.example.if22.if22.ScenarioParameter;
+import org.xtext.example.if22.if22.ScenarioParameterInput;
 import org.xtext.example.if22.if22.Statement;
 import org.xtext.example.if22.if22.Target;
 import org.xtext.example.if22.if22.TargetDestination;
@@ -114,6 +116,16 @@ public class If22AdapterFactory extends AdapterFactoryImpl
       public Adapter caseScenario(Scenario object)
       {
         return createScenarioAdapter();
+      }
+      @Override
+      public Adapter caseScenarioParameter(ScenarioParameter object)
+      {
+        return createScenarioParameterAdapter();
+      }
+      @Override
+      public Adapter caseScenarioParameterInput(ScenarioParameterInput object)
+      {
+        return createScenarioParameterInputAdapter();
       }
       @Override
       public Adapter caseVariableDeclaration(VariableDeclaration object)
@@ -293,6 +305,36 @@ public class If22AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createScenarioAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.ScenarioParameter <em>Scenario Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.if22.if22.ScenarioParameter
+   * @generated
+   */
+  public Adapter createScenarioParameterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.if22.if22.ScenarioParameterInput <em>Scenario Parameter Input</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.if22.if22.ScenarioParameterInput
+   * @generated
+   */
+  public Adapter createScenarioParameterInputAdapter()
   {
     return null;
   }

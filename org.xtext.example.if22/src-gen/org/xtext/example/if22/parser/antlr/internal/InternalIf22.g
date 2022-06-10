@@ -275,16 +275,70 @@ ruleScenario returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_2='{'
+		(
+			otherlv_2='('
+			{
+				newLeafNode(otherlv_2, grammarAccess.getScenarioAccess().getLeftParenthesisKeyword_2_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getScenarioAccess().getParametersScenarioParameterParserRuleCall_2_1_0());
+					}
+					lv_parameters_3_0=ruleScenarioParameter
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getScenarioRule());
+						}
+						add(
+							$current,
+							"parameters",
+							lv_parameters_3_0,
+							"org.xtext.example.if22.If22.ScenarioParameter");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_4=','
+				{
+					newLeafNode(otherlv_4, grammarAccess.getScenarioAccess().getCommaKeyword_2_2_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getScenarioAccess().getParametersScenarioParameterParserRuleCall_2_2_1_0());
+						}
+						lv_parameters_5_0=ruleScenarioParameter
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getScenarioRule());
+							}
+							add(
+								$current,
+								"parameters",
+								lv_parameters_5_0,
+								"org.xtext.example.if22.If22.ScenarioParameter");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_6=')'
+			{
+				newLeafNode(otherlv_6, grammarAccess.getScenarioAccess().getRightParenthesisKeyword_2_3());
+			}
+		)?
+		otherlv_7='{'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getScenarioAccess().getLeftCurlyBracketKeyword_2());
+			newLeafNode(otherlv_7, grammarAccess.getScenarioAccess().getLeftCurlyBracketKeyword_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getScenarioAccess().getVariableDeclarationsVariableDeclarationParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getScenarioAccess().getVariableDeclarationsVariableDeclarationParserRuleCall_4_0());
 				}
-				lv_variableDeclarations_3_0=ruleVariableDeclaration
+				lv_variableDeclarations_8_0=ruleVariableDeclaration
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getScenarioRule());
@@ -292,7 +346,7 @@ ruleScenario returns [EObject current=null]
 					add(
 						$current,
 						"variableDeclarations",
-						lv_variableDeclarations_3_0,
+						lv_variableDeclarations_8_0,
 						"org.xtext.example.if22.If22.VariableDeclaration");
 					afterParserOrEnumRuleCall();
 				}
@@ -301,9 +355,9 @@ ruleScenario returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getScenarioAccess().getStatementsStatementParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getScenarioAccess().getStatementsStatementParserRuleCall_5_0());
 				}
-				lv_statements_4_0=ruleStatement
+				lv_statements_9_0=ruleStatement
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getScenarioRule());
@@ -311,16 +365,113 @@ ruleScenario returns [EObject current=null]
 					add(
 						$current,
 						"statements",
-						lv_statements_4_0,
+						lv_statements_9_0,
 						"org.xtext.example.if22.If22.Statement");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_5='}'
+		otherlv_10='}'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getScenarioAccess().getRightCurlyBracketKeyword_5());
+			newLeafNode(otherlv_10, grammarAccess.getScenarioAccess().getRightCurlyBracketKeyword_6());
 		}
+	)
+;
+
+// Entry rule entryRuleScenarioParameter
+entryRuleScenarioParameter returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getScenarioParameterRule()); }
+	iv_ruleScenarioParameter=ruleScenarioParameter
+	{ $current=$iv_ruleScenarioParameter.current; }
+	EOF;
+
+// Rule ScenarioParameter
+ruleScenarioParameter returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getScenarioParameterAccess().getParameterExpParserRuleCall_0_0());
+				}
+				lv_parameter_0_0=ruleExp
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getScenarioParameterRule());
+					}
+					set(
+						$current,
+						"parameter",
+						lv_parameter_0_0,
+						"org.xtext.example.if22.If22.Exp");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_1=':'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getScenarioParameterAccess().getColonKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getScenarioParameterAccess().getTypeExpParserRuleCall_2_0());
+				}
+				lv_type_2_0=ruleExp
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getScenarioParameterRule());
+					}
+					set(
+						$current,
+						"type",
+						lv_type_2_0,
+						"org.xtext.example.if22.If22.Exp");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleScenarioParameterInput
+entryRuleScenarioParameterInput returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getScenarioParameterInputRule()); }
+	iv_ruleScenarioParameterInput=ruleScenarioParameterInput
+	{ $current=$iv_ruleScenarioParameterInput.current; }
+	EOF;
+
+// Rule ScenarioParameterInput
+ruleScenarioParameterInput returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				newCompositeNode(grammarAccess.getScenarioParameterInputAccess().getParameterExpParserRuleCall_0());
+			}
+			lv_parameter_0_0=ruleExp
+			{
+				if ($current==null) {
+					$current = createModelElementForParent(grammarAccess.getScenarioParameterInputRule());
+				}
+				set(
+					$current,
+					"parameter",
+					lv_parameter_0_0,
+					"org.xtext.example.if22.If22.Exp");
+				afterParserOrEnumRuleCall();
+			}
+		)
 	)
 ;
 
@@ -734,16 +885,70 @@ ruleTarget returns [EObject current=null]
 			)
 		)
 		(
-			otherlv_3='if'
+			otherlv_3='('
 			{
-				newLeafNode(otherlv_3, grammarAccess.getTargetAccess().getIfKeyword_3_0());
+				newLeafNode(otherlv_3, grammarAccess.getTargetAccess().getLeftParenthesisKeyword_3_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getTargetAccess().getTargetCheckExpParserRuleCall_3_1_0());
+						newCompositeNode(grammarAccess.getTargetAccess().getParameterInputsScenarioParameterInputParserRuleCall_3_1_0());
 					}
-					lv_targetCheck_4_0=ruleExp
+					lv_parameterInputs_4_0=ruleScenarioParameterInput
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTargetRule());
+						}
+						add(
+							$current,
+							"parameterInputs",
+							lv_parameterInputs_4_0,
+							"org.xtext.example.if22.If22.ScenarioParameterInput");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_5=','
+				{
+					newLeafNode(otherlv_5, grammarAccess.getTargetAccess().getCommaKeyword_3_2_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getTargetAccess().getParameterInputsScenarioParameterInputParserRuleCall_3_2_1_0());
+						}
+						lv_parameterInputs_6_0=ruleScenarioParameterInput
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getTargetRule());
+							}
+							add(
+								$current,
+								"parameterInputs",
+								lv_parameterInputs_6_0,
+								"org.xtext.example.if22.If22.ScenarioParameterInput");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_7=')'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getTargetAccess().getRightParenthesisKeyword_3_3());
+			}
+		)?
+		(
+			otherlv_8='if'
+			{
+				newLeafNode(otherlv_8, grammarAccess.getTargetAccess().getIfKeyword_4_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTargetAccess().getTargetCheckExpParserRuleCall_4_1_0());
+					}
+					lv_targetCheck_9_0=ruleExp
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getTargetRule());
@@ -751,7 +956,7 @@ ruleTarget returns [EObject current=null]
 						set(
 							$current,
 							"targetCheck",
-							lv_targetCheck_4_0,
+							lv_targetCheck_9_0,
 							"org.xtext.example.if22.If22.Exp");
 						afterParserOrEnumRuleCall();
 					}
@@ -759,16 +964,16 @@ ruleTarget returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_5='{'
+			otherlv_10='{'
 			{
-				newLeafNode(otherlv_5, grammarAccess.getTargetAccess().getLeftCurlyBracketKeyword_4_0());
+				newLeafNode(otherlv_10, grammarAccess.getTargetAccess().getLeftCurlyBracketKeyword_5_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getTargetAccess().getEndTargetsEndingTargetParserRuleCall_4_1_0());
+						newCompositeNode(grammarAccess.getTargetAccess().getEndTargetsEndingTargetParserRuleCall_5_1_0());
 					}
-					lv_endTargets_6_0=ruleEndingTarget
+					lv_endTargets_11_0=ruleEndingTarget
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getTargetRule());
@@ -776,15 +981,15 @@ ruleTarget returns [EObject current=null]
 						add(
 							$current,
 							"endTargets",
-							lv_endTargets_6_0,
+							lv_endTargets_11_0,
 							"org.xtext.example.if22.If22.EndingTarget");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)+
-			otherlv_7='}'
+			otherlv_12='}'
 			{
-				newLeafNode(otherlv_7, grammarAccess.getTargetAccess().getRightCurlyBracketKeyword_4_2());
+				newLeafNode(otherlv_12, grammarAccess.getTargetAccess().getRightCurlyBracketKeyword_5_2());
 			}
 		)?
 	)
