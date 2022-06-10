@@ -524,11 +524,16 @@ public class If22Generator extends AbstractGenerator {
       String _compileTargetDestination = If22Generator.compileTargetDestination(target.getDestination(), target.getEndTargets());
       _builder.append(_compileTargetDestination, "\t");
       _builder.newLineIfNotEmpty();
+      _builder.append("\t");
+      _builder.append("break;");
+      _builder.newLine();
       _builder.append("}");
       _builder.newLine();
       r = _builder.toString();
     } else {
-      r = If22Generator.compileTargetDestination(target.getDestination(), target.getEndTargets());
+      String _compileTargetDestination_1 = If22Generator.compileTargetDestination(target.getDestination(), target.getEndTargets());
+      String _plus = (_compileTargetDestination_1 + "break;");
+      r = _plus;
     }
     r = r.replaceAll("this", thisReference);
     return r;
@@ -582,8 +587,6 @@ public class If22Generator extends AbstractGenerator {
     _builder.append(_name);
     _builder.append("\";");
     _builder.newLineIfNotEmpty();
-    _builder.append("break;");
-    _builder.newLine();
     return _builder.toString();
   }
   

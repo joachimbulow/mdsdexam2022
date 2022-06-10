@@ -235,10 +235,12 @@ class If22Generator extends AbstractGenerator {
 			r = '''
 				if («ExpResolverUtil.compileExp(targetCheck)») {
 					«compileTargetDestination(target.destination, target.endTargets)»
+					break;
 				}
 			'''
 		} else {
-			r = compileTargetDestination(target.destination, target.endTargets)
+			r = compileTargetDestination(target.destination, target.endTargets) + "break;"
+			
 		}
 		// Change an occurrence of "this" with the implicit variable name
 		r = r.replaceAll("this", thisReference);
@@ -267,7 +269,6 @@ class If22Generator extends AbstractGenerator {
 	def static dispatch String compileTargetDestination(Statement statement, List<EndingTarget> endingTargets) {
 		'''
 			nextInteraction = "«statement.name»";
-			break;
 		'''
 	}
 	
